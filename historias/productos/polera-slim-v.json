@@ -1,0 +1,34 @@
+{
+  "slug": "polera-slim-v",
+  "clips": [{ "video": "../entrada/polera-slim-v.mov", "inicio": 0.2, "dur": 7.8, "hdr": true }],
+  "tema": {
+    "navy": "#141414", "rosa": "#FF3B1F", "amarillo": "#FFB800", "verde": "#FF8A00",
+    "sombraPrecio": "#FF3B1F"
+  },
+  "segmentos": [
+    {
+      "desde": 0.3, "hasta": 7.8, "pos": "abajo",
+      "tag": ["TIENDA VIRTUAL 100% ORIGINAL", "100% ORIGINAL · 100% PRECIAZO", "BARATA SÍ, TRUCHA JAMÁS"],
+      "nombre": "POLERA", "acento": "SLIM FIT",
+      "chips": ["HOMBRE", "TALLA M", "CUELLO V"], "precio": "$10.000",
+      "ruleta": { "desde": 0.9, "hasta": 2.5 },
+      "frases": ["Slim fit: marca sin apretar", "Cuello V que estiliza"], "frasesHasta": 6.0
+    }
+  ],
+  "stickers": [
+    { "texto": "¿CUÁNTO CREES?", "desde": 0.5, "hasta": 2.5, "x": "centro", "y": 620, "rot": -4, "color": "fuego grande" },
+    { "texto": "¡SÍ, LEÍSTE BIEN!", "desde": 2.6, "hasta": 4.3, "x": "centro", "y": 620, "rot": 4, "color": "grande" },
+    { "texto": "PRECIO DE AMIGO, PINTA DE JEFE", "desde": 6.2, "hasta": 7.8, "x": "centro", "y": 640, "rot": -3, "color": "fuego" }
+  ],
+  "trazos": [
+    { "desde": 4.4, "hasta": 6.2, "x": "centro", "y": 470, "texto": "CUELLO EN <b>V</b>... DE VICTORIA" }
+  ],
+  "cierre": {
+    "titulo": "¿QUIÉN DIJO CARO?", "nombre": "POLERA SLIM FIT", "precio": "$10.000",
+    "detalle": "Hombre · Talla M · Cuello en V",
+    "texto": "A este precio no se piensa: escríbenos antes que vuele",
+    "boton": "RESPONDE \"FUEGO\"",
+    "tinte": "linear-gradient(180deg, rgba(255,59,31,.22), rgba(0,0,0,.45) 60%, rgba(255,90,31,.35))",
+    "llamas": true
+  }
+}

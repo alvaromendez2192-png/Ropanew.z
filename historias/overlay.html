@@ -47,6 +47,13 @@
   .lupa-txt { font-family: 'Anton', sans-serif; font-size: 40px; letter-spacing: 2px; background: #111; color: #F2D27A;
     border: 4px solid #D4AF37; padding: 6px 24px; border-radius: 999px; white-space: nowrap; opacity: 0; }
   .brillo { width: 70px; height: 70px; opacity: 0; }
+  .sticker.fuego { background: linear-gradient(135deg, #FFD34D, #FF7A00 50%, #FF2E1F); color: #fff; text-shadow: 0 3px 0 rgba(0,0,0,.25); }
+  .trazo { opacity: 0; text-align: center; }
+  .trazo svg path { fill: none; stroke: #FFB800; stroke-width: 26; stroke-linecap: round; stroke-linejoin: round;
+    stroke-dasharray: 1000; stroke-dashoffset: 1000; filter: drop-shadow(0 8px 14px rgba(0,0,0,.5)); }
+  .trazo .t { font-family: 'Anton', sans-serif; font-size: 60px; color: #fff; text-shadow: 0 6px 20px rgba(0,0,0,.7); margin-top: -10px; white-space: nowrap; }
+  .trazo .t b { color: #FFB800; font-weight: 400; }
+  .llama { width: 180px; opacity: 0; transform-origin: 50% 100%; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -101,6 +108,9 @@
   @keyframes hojaIn { from { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) } to { opacity: 1; transform: rotate(var(--rot)) } }
   @keyframes mecer { 0%,100% { transform: rotate(-4deg) } 50% { transform: rotate(4deg) } }
   @keyframes titilar { 0%,100% { opacity: 0; transform: scale(.3) rotate(0) } 50% { opacity: 1; transform: scale(1) rotate(45deg) } }
+  @keyframes dibujar { to { stroke-dashoffset: 0 } }
+  @keyframes flamear { 0%,100% { transform: scaleY(1) scaleX(1) } 33% { transform: scaleY(1.12) scaleX(.94) } 66% { transform: scaleY(.92) scaleX(1.05) } }
+  @keyframes golpecito { 0% { transform: scale(1) } 40% { transform: scale(1.3) } 100% { transform: scale(1) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -146,6 +156,9 @@
     <polygon points="${pts.join(' ')}" style="fill:var(--sombraPrecio, var(--rosa))" transform="translate(8 8)"/>
     <polygon points="${pts.join(' ')}" style="fill:var(--amarillo)" stroke="#fff" stroke-width="6" stroke-linejoin="round"/></svg>`;
 
+  const ruletas = [];
+  window.onFrame = t => ruletas.forEach(f => f(t));
+
   // ---------- Un bloque (tarjeta + precio + frases) por producto ----------
   D.segmentos.forEach(seg => {
     const t0 = seg.desde, t1 = seg.hasta, arriba = seg.pos === 'arriba';
@@ -179,6 +192,19 @@
     precio.style.top = (arriba ? cardTop + 110 : cardTop - 140) + 'px';
     anim(precio, `pop .6s ${EASE_POP} ${s(t0 + 0.5)} both`, out);
     anim(precio.firstElementChild, `bamboleo 1.6s ease-in-out ${s(t0 + 1.1)} infinite`);
+    if (seg.ruleta) {
+      // El precio gira como tragamonedas y cae en el valor real
+      const R = seg.ruleta, strong = precio.querySelector('strong'), small = precio.querySelector('small');
+      anim(precio.querySelector('.txt > div'), `golpecito .45s ease-out ${s(R.hasta)} both`);
+      const ruido = ['$7.990', '$31.000', '$12.500', '$22.990', '$8.500', '$19.900', '$27.000', '$13.990', '$9.990', '$24.500'];
+      ruletas.push(t => {
+        if (t < R.desde) { strong.textContent = '¿?'; small.textContent = 'ADIVINA'; }
+        else if (t < R.hasta) {
+          const vel = 6 + 22 * (1 - (t - R.desde) / (R.hasta - R.desde));  // va frenando
+          strong.textContent = ruido[Math.floor(t * vel) % ruido.length]; small.textContent = '...';
+        } else { strong.textContent = seg.precio; small.textContent = 'SOLO'; }
+      });
+    }
     }
 
     const fr = el('abs frases');
@@ -202,6 +228,18 @@
     k.style.setProperty('--r0', ((st.rot || 0) - 30) + 'deg');
     anim(k, `stickerIn .45s ease-out ${s(st.desde)} both`, `stickerOut .3s ease-in ${s(st.hasta - 0.3)} forwards`);
     anim(k.firstElementChild, `tambaleo .5s ease-in-out ${s(st.desde + 0.45)} infinite`);
+  });
+
+  // ---------- Trazo dibujado a mano (p. ej. una V) ----------
+  (D.trazos || []).forEach(tz => {
+    const k = el('abs trazo', `<svg width="${tz.ancho || 320}" viewBox="0 0 320 260"><path d="${tz.path || 'M30 30 L160 230 L290 30'}"/></svg>
+      <div class="t">${tz.texto}</div>`);
+    k.style.top = tz.y + 'px';
+    if (tz.x === 'centro') Object.assign(k.style, { left: '0', right: '0', margin: '0 auto', width: 'max-content' });
+    else k.style.left = tz.x + 'px';
+    anim(k, `fadeIn .15s linear ${s(tz.desde)} both`, `fadeOut .3s ease ${s(tz.hasta - 0.3)} forwards`);
+    anim(k.querySelector('path'), `dibujar .6s ease-out ${s(tz.desde)} forwards`);
+    anim(k.querySelector('.t'), `golpe .45s cubic-bezier(.2,1.5,.4,1) ${s(tz.desde + 0.5)} both`);
   });
 
   // ---------- Lupa (el video ampliado lo pone render.js; aquí el aro y su texto) ----------
@@ -233,6 +271,15 @@
     const ti = el('abs tinte'); ti.style.background = C.tinte;
     anim(ti, `fadeIn .5s ease ${s(T - 0.1)} both`);
   }
+  if (C.llamas) {
+    const llama = `<svg viewBox="0 0 100 140"><path d="M50 0 C60 30 95 50 92 92 C90 122 70 140 50 140 C30 140 8 122 8 92 C8 62 32 52 34 26 C44 40 46 50 50 58 C54 40 56 20 50 0Z" fill="#FF5A1F"/>
+      <path d="M50 52 C58 72 76 84 74 106 C72 126 62 136 50 136 C38 136 26 126 26 106 C26 88 42 80 44 64 C48 76 50 82 50 52Z" fill="#FFC21A"/></svg>`;
+    [-40, 150, 340, 560, 760, 940].forEach((x, i) => {
+      const f = el('abs llama', llama);
+      Object.assign(f.style, { left: x + 'px', top: (1700 + (i % 2) * 40) + 'px', width: (i % 2 ? 160 : 200) + 'px' });
+      anim(f, `subir .5s ease-out ${s(T + 0.1 + i * 0.06)} both`, `flamear ${0.5 + (i % 3) * 0.12}s ease-in-out ${s(T + 0.6)} infinite`);
+    });
+  }
   if (C.brillos) {
     [[120, 260], [880, 300], [80, 1150], [930, 1050], [200, 1700], [840, 1720], [500, 180]].forEach(([x, y], i) => brillo(x, y, T + 0.3 + i * 0.17, 1.3));
   }
@@ -258,7 +305,7 @@
   }
   const cta = el('abs cta', `
     <div class="logo-big"><img src="assets/logo.png" alt=""></div>
-    <h2>${C.titulo}</h2>
+    <h2 style="font-size:${Math.min(132, Math.round(940 / (C.titulo.length * 0.48)))}px">${C.titulo}</h2>
     <div class="linea"><span>${C.nombre}</span><span class="p">${C.precio}</span></div>
     ${C.detalle ? `<div class="detalle">${C.detalle}</div>` : ''}
     <p>${C.texto}</p>

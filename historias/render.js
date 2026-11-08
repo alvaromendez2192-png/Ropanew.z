@@ -84,7 +84,7 @@ const CIERRE = 2.7; // segundos de la pantalla final (llamada a la acción)
   const frames = Math.round(TOTAL * FPS);
   for (let i = 0; i < frames; i++) {
     const ms = (i / FPS) * 1000;
-    await page.evaluate(t => document.getAnimations().forEach(a => { a.currentTime = t; }), ms);
+    await page.evaluate(t => { document.getAnimations().forEach(a => { a.currentTime = t; }); if (window.onFrame) window.onFrame(t / 1000); }, ms);
     await page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));
     const png = await page.screenshot({ omitBackground: true, type: 'png' });
     if (!ff.stdin.write(png)) await new Promise(r => ff.stdin.once('drain', r));

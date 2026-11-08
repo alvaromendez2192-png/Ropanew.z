@@ -1,0 +1,16 @@
+{
+  "slug": "polera-punto",
+  "video": "../entrada/polera-punto.mp4",
+  "crop": "760:1352:160:142",
+  "duracionClip": 8.8,
+  "etiqueta": "NUEVO INGRESO",
+  "hook": ["LA POLERA", "QUE COMBINA", "CON TODO"],
+  "nombre": "POLERA",
+  "nombreAcento": "PUNTO",
+  "chips": ["HOMBRE", "TALLA S"],
+  "precio": "$18.000",
+  "beneficios": ["Tejido de punto", "Nueva con etiqueta", "100% original"],
+  "ctaTitulo": "¿LA QUIERES?",
+  "ctaTexto": "Escríbenos por DM y te la reservamos",
+  "ctaBoton": "RESPONDE \"PUNTO\""
+}

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Historia Ropa New.Z</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Poppins:wght@400;600;700;800;900&family=Noto+Color+Emoji&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #132041;
@@ -15,7 +15,7 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { width: 1080px; height: 1920px; background: transparent; overflow: hidden; }
-  body { font-family: 'Poppins', sans-serif; color: #fff; position: relative; }
+  body { font-family: 'Poppins', 'Noto Color Emoji', sans-serif; color: #fff; position: relative; }
   .abs { position: absolute; }
 
   .grad { left: 0; width: 1080px; height: 520px; opacity: 0; }
@@ -132,6 +132,27 @@
   .dicc .def2 b { background: #FFD23F; padding: 0 8px; }
   .sticker.papel { background: #F6F1E6; color: #1A2B4C; border-color: #1A2B4C; }
   .sticker.marino { background: #1A2B4C; color: #F6F1E6; }
+  /* Chat */
+  .chat { left: 60px; width: 960px; }
+  .chat .cab { display: flex; align-items: center; gap: 18px; background: rgba(32,30,27,.92); border-radius: 26px;
+    padding: 14px 22px; opacity: 0; box-shadow: 0 12px 30px rgba(0,0,0,.35); }
+  .chat .cab img { width: 84px; height: 72px; object-fit: cover; border-radius: 50%; border: 3px solid #E8D3A8; }
+  .chat .cab b { display: block; font-size: 32px; font-weight: 800; }
+  .chat .cab small { display: block; font-size: 22px; color: #9BE59B; font-weight: 600; }
+  .chat .slot { position: relative; margin-top: 18px; display: flex; }
+  .chat .slot.yo { justify-content: flex-end; }
+  .chat .msg, .chat .esc { font-size: 33px; font-weight: 600; line-height: 1.3; padding: 16px 24px 14px; border-radius: 28px;
+    max-width: 740px; color: #1d1d1d; box-shadow: 0 8px 20px rgba(0,0,0,.28); opacity: 0; }
+  .chat .ella .msg, .chat .esc { background: #fff; border-bottom-left-radius: 8px; }
+  .chat .yo .msg { background: #DCF8C6; border-bottom-right-radius: 8px; }
+  .chat .msg .h { font-size: 20px; color: #7a7a7a; margin-left: 14px; font-weight: 600; }
+  .chat .msg .pz { font-family: 'Anton', sans-serif; font-size: 50px; font-weight: 400; color: #1d1d1d; background: #E8D3A8;
+    padding: 0 12px; border-radius: 10px; }
+  .chat .esc { position: absolute; left: 0; top: 0; display: flex; gap: 10px; padding: 24px 28px; }
+  .chat .esc i { width: 16px; height: 16px; border-radius: 50%; background: #9a9a9a; animation: inherit; }
+  .pluma { width: 150px; opacity: 0; }
+  .sticker.arena { background: #E8D3A8; color: #2B2A27; border-color: #fff; }
+  .sticker.cafe { background: #2B2A27; color: #E8D3A8; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -198,6 +219,13 @@
   @keyframes colgar { 0% { opacity: 0; transform: translateY(-700px) rotate(0) } 30% { opacity: 1; transform: translateY(0) rotate(14deg) }
     48% { transform: rotate(-10deg) } 64% { transform: rotate(6deg) } 80% { transform: rotate(-3deg) } 100% { opacity: 1; transform: rotate(0) } }
   @keyframes mecerse { 0%,100% { transform: rotate(-2deg) } 50% { transform: rotate(2deg) } }
+  @keyframes flotar {
+    0% { opacity: 0; transform: translate(0, -300px) rotate(-30deg) } 10% { opacity: 1 }
+    25% { transform: translate(260px, 100px) rotate(25deg) } 50% { transform: translate(-40px, 420px) rotate(-25deg) }
+    75% { transform: translate(240px, 720px) rotate(20deg) } 100% { opacity: 1; transform: translate(60px, 980px) rotate(-10deg) } }
+  @keyframes puntitos { 0%,100% { transform: translateY(0); opacity: .5 } 50% { transform: translateY(-8px); opacity: 1 } }
+  @keyframes burbuja { from { opacity: 0; transform: scale(.6) translateY(30px) } to { opacity: 1; transform: none } }
+  @keyframes bajar { from { opacity: 0; transform: translateY(-80px) } to { opacity: 1; transform: none } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -299,6 +327,33 @@
     anim(d, `subir .5s ${EASE_IN} ${s(Q.desde)} both`, `fadeOut .35s ease ${s(Q.hasta - 0.35)} forwards`);
     anim(d.querySelector('.def2'), `golpe .45s cubic-bezier(.2,1.5,.4,1) ${s(Q.desde + 1.2)} both`);
   });
+
+  // ---------- Pluma flotando ----------
+  if (D.pluma) {
+    const P = D.pluma;
+    const pl = el('abs pluma', `<svg viewBox="0 0 120 300"><path d="M60 290 C58 220 56 150 62 10" stroke="#8a7650" stroke-width="5" fill="none"/>
+      <path d="M62 14 C20 60 10 140 30 220 C40 200 52 196 58 230 C60 160 62 90 62 14Z" fill="#fff" opacity=".95"/>
+      <path d="M62 14 C104 60 112 140 92 220 C82 200 70 196 64 230 C62 160 62 90 62 14Z" fill="#F3E7CC"/></svg>`);
+    Object.assign(pl.style, { left: P.x + 'px', top: P.y + 'px', filter: 'drop-shadow(0 10px 14px rgba(0,0,0,.35))' });
+    anim(pl, `flotar ${P.dur}s ease-in-out ${s(P.desde)} both`, `fadeOut .4s ease ${s(P.desde + P.dur)} forwards`);
+  }
+
+  // ---------- Chat estilo WhatsApp ----------
+  if (D.chat) {
+    const H = D.chat;
+    const ch = el('abs chat', `<div class="cab"><img src="assets/logo.png" alt=""><div><b>${H.nombre}</b><small>${H.estado}</small></div></div>`);
+    ch.style.top = H.y + 'px';
+    anim(ch.querySelector('.cab'), `bajar .5s ${EASE_IN} ${s(H.desde)} both`);
+    H.mensajes.forEach(m => {
+      const sl = el(`slot ${m.de === 'yo' ? 'yo' : 'ella'}`, `<div class="msg">${m.texto}<span class="h">${m.hora || ''}</span></div>`, ch);
+      if (m.escribiendo) {
+        const e = el('esc', '<i></i><i></i><i></i>', sl);
+        anim(e, `fadeIn .15s ease ${s(m.t - m.escribiendo)} both`, `fadeOut .1s ease ${s(m.t)} forwards`);
+        e.querySelectorAll('i').forEach((d, k) => anim(d, `puntitos .6s ease-in-out ${s(m.t - m.escribiendo + k * 0.15)} infinite`));
+      }
+      anim(sl.querySelector('.msg'), `burbuja .3s cubic-bezier(.2,1.4,.4,1) ${s(m.t)} both`);
+    });
+  }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------
   if (D.golf) {

@@ -29,7 +29,8 @@ const CIERRE = 2.7; // segundos de la pantalla final (llamada a la acción)
   // con color/nitidez mejorados; al final se congela el último cuadro y se desenfoca para el cierre.
   const parts = clips.map((c, i) => {
     const t0 = c.inicio || 0;
-    return `[${i}:v]trim=${t0}:${t0 + c.dur},setpts=PTS-STARTPTS,` +
+    const vel = c.velocidad || 1; // < 1 = cámara lenta
+    return `[${i}:v]trim=${t0}:${(t0 + c.dur * vel).toFixed(3)},setpts=(PTS-STARTPTS)/${vel},` +
       (c.hdr ? `zscale=t=linear:npl=${c.npl || 203},format=gbrpf32le,zscale=p=bt709,tonemap=${c.tonemap || 'mobius'}:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,` : '') +
       (c.crop ? `crop=${c.crop},` : '') +
       `scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,setsar=1,` +

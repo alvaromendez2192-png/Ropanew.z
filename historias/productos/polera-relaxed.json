@@ -1,0 +1,20 @@
+{
+  "slug": "polera-relaxed",
+  "clips": [{ "video": "../entrada/polera-relaxed.mov", "inicio": 0.2, "dur": 9.3, "velocidad": 0.8, "hdr": true, "saturacion": 0.82 }],
+  "segmentos": [],
+  "pluma": { "desde": 0.2, "dur": 2.6, "x": 380, "y": 160 },
+  "stickers": [
+    { "texto": "LIGERA COMO PLUMA", "desde": 0.6, "hasta": 2.4, "x": "centro", "y": 520, "rot": -4, "color": "arena grande" }
+  ],
+  "chat": {
+    "desde": 2.0, "y": 890,
+    "nombre": "Ropa New.Z", "estado": "en línea · tienda virtual 100% original",
+    "mensajes": [
+      { "de": "yo", "t": 2.5, "texto": "Holaa, ¿la polera beige está disponible? 👀", "hora": "12:01" },
+      { "de": "tienda", "t": 4.0, "escribiendo": 0.8, "texto": "¡Sí po! Relaxed, talla M y más liviana que lunes feriado 😎", "hora": "12:01" },
+      { "de": "yo", "t": 5.4, "texto": "¿Y cuánto sale? 🙏", "hora": "12:02" },
+      { "de": "tienda", "t": 6.6, "escribiendo": 0.8, "texto": "<span class=\"pz\">$17.000</span> nomás 🙌", "hora": "12:02" },
+      { "de": "yo", "t": 7.8, "texto": "Me la llevo altiro 🔥", "hora": "12:02" }
+    ]
+  }
+}

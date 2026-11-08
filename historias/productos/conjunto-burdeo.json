@@ -1,0 +1,32 @@
+{
+  "slug": "conjunto-burdeo",
+  "video": "../entrada/conjunto-burdeo.mov",
+  "hdr": true,
+  "duracionClip": 13.0,
+  "segmentos": [
+    {
+      "desde": 0.3, "hasta": 6.5, "pos": "abajo",
+      "tag": ["TIENDA VIRTUAL 100% ORIGINAL", "100% ORIGINAL · 0% CHAMULLO"],
+      "nombre": "POLERA", "acento": "BURDEO",
+      "chips": ["HOMBRE", "TALLA M"], "precio": "$17.000",
+      "frases": ["Burdeo: el nuevo negro", "Textura acanalada que se nota"]
+    },
+    {
+      "desde": 6.8, "hasta": 13.0, "pos": "arriba",
+      "tag": ["VIRTUAL LA TIENDA, REAL LA ROPA", "ORIGINAL COMO TU ESTILO"],
+      "nombre": "SHORT", "acento": "JOGGER",
+      "chips": ["HOMBRE", "TALLA M"], "precio": "$20.000",
+      "frases": ["Elástico + bolsillos = libertad", "Fresco para el calorcito"]
+    }
+  ],
+  "stickers": [
+    { "texto": "¡COMBINADOS DE FÁBRICA!", "desde": 3.6, "hasta": 5.6, "x": 380, "y": 720, "rot": 7, "color": "rosa" },
+    { "texto": "MODO VERANO: ON", "desde": 9.6, "hasta": 11.6, "x": 470, "y": 1180, "rot": -6 }
+  ],
+  "cierre": {
+    "titulo": "¿HACEMOS MATCH?", "nombre": "CONJUNTO COMPLETO", "precio": "$37.000",
+    "detalle": "Polera $17.000 · Short $20.000 · Talla M",
+    "texto": "Combinan como pan con palta. Escríbenos y te los apartamos",
+    "boton": "RESPONDE \"MATCH\""
+  }
+}

@@ -34,6 +34,15 @@
     border: 5px solid #fff; box-shadow: 0 20px 60px rgba(0,0,0,.5); opacity: 0; }
   .card .tag { position: absolute; left: 40px; top: -26px; background: var(--rosa); font-weight: 800;
     font-size: 20px; letter-spacing: 1px; padding: 5px 18px; border-radius: 999px; border: 4px solid #fff; }
+  .card .tag { white-space: nowrap; transform-origin: 50% 100%; }
+  .card .tag.ciclo { opacity: 0; }
+  .sticker { font-family: 'Anton', sans-serif; font-size: 46px; letter-spacing: 1px; padding: 10px 28px;
+    border-radius: 18px; border: 5px solid #fff; color: var(--navy2); background: var(--amarillo);
+    box-shadow: 0 12px 30px rgba(0,0,0,.4); white-space: nowrap; opacity: 0; }
+  .sticker.rosa { background: var(--rosa); color: #fff; }
+  .sticker.verde { background: var(--verde); }
+  .sticker.blanco { background: #fff; }
+  .sticker .w { display: inline-block; }
   .card .logo { position: absolute; left: 18px; top: 26px; width: 140px; }
   .card .nombre { position: absolute; left: 175px; top: 34px; font-family: 'Anton', sans-serif; font-size: 68px;
     line-height: 1; letter-spacing: 1px; white-space: nowrap; }
@@ -72,6 +81,11 @@
   .cta .flecha { position: absolute; left: 50%; top: 1500px; margin-left: -60px; width: 120px; }
   .cta .flecha-txt { position: absolute; top: 1626px; left: 0; width: 1080px; font-weight: 800; font-size: 36px; letter-spacing: 3px; }
 
+  @keyframes tagIn { from { opacity: 0; transform: rotateX(90deg) } to { opacity: 1; transform: none } }
+  @keyframes tagOut { from { opacity: 1; transform: none } to { opacity: 0; transform: rotateX(-90deg) } }
+  @keyframes stickerIn { 0% { opacity: 0; transform: scale(0) rotate(var(--r0)) } 70% { opacity: 1; transform: scale(1.15) rotate(var(--r)) } 100% { opacity: 1; transform: scale(1) rotate(var(--r)) } }
+  @keyframes stickerOut { from { opacity: 1; transform: scale(1) rotate(var(--r)) } to { opacity: 0; transform: scale(0) rotate(var(--r0)) } }
+  @keyframes tambaleo { 0%,100% { transform: rotate(-4deg) } 50% { transform: rotate(4deg) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -124,11 +138,21 @@
     anim(g, `fadeIn .5s ease ${s(Math.max(0, t0 - 0.1))} both`, out);
 
     const card = el('abs card', `
-      <div class="tag">TIENDA VIRTUAL 100% ORIGINAL</div>
       <img class="logo" src="assets/logo.png" alt="">
       <div class="nombre">${seg.nombre} <b>${seg.acento}</b></div>
       <div class="chips">${seg.chips.map(c => `<span class="chip">${c}</span>`).join('')}</div>`);
     card.style.top = cardTop + 'px';
+    // Etiqueta rosada: una frase fija o varias que van rotando
+    const tags = [].concat(seg.tag || 'TIENDA VIRTUAL 100% ORIGINAL');
+    const paso = (t1 - t0) / tags.length;
+    tags.forEach((txt, i) => {
+      const tg = el(`tag${tags.length > 1 ? ' ciclo' : ''}`, txt, card);
+      if (tags.length > 1) {
+        const a = [`tagIn .35s ease-out ${s(t0 + (i ? i * paso : 0.3))} both`];
+        if (i < tags.length - 1) a.push(`tagOut .3s ease-in ${s(t0 + (i + 1) * paso - 0.3)} forwards`);
+        anim(tg, ...a);
+      }
+    });
     anim(card, `${arriba ? 'bajarCard' : 'subirCard'} .6s ${EASE_IN} ${s(t0)} both`, out);
 
     const precio = el('abs precio', `<div class="inner">${estrella}
@@ -146,6 +170,16 @@
       anim(f, `entrarIzq .5s ${EASE_IN} ${s(t0 + 1.2 + i * 0.3)} both`,
               `salirIzq .4s ease-in ${s(fin + i * 0.1)} forwards`);
     });
+  });
+
+  // ---------- Stickers divertidos (aparecen y se van rápido) ----------
+  (D.stickers || []).forEach(st => {
+    const k = el(`abs sticker ${st.color || ''}`, `<span class="w">${st.texto}</span>`);
+    k.style.left = st.x + 'px'; k.style.top = st.y + 'px';
+    k.style.setProperty('--r', (st.rot || 0) + 'deg');
+    k.style.setProperty('--r0', ((st.rot || 0) - 30) + 'deg');
+    anim(k, `stickerIn .45s ease-out ${s(st.desde)} both`, `stickerOut .3s ease-in ${s(st.hasta - 0.3)} forwards`);
+    anim(k.firstElementChild, `tambaleo .5s ease-in-out ${s(st.desde + 0.45)} infinite`);
   });
 
   // ---------- Cierre con llamada a la acción ----------

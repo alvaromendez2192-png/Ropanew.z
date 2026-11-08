@@ -20,7 +20,8 @@ const CIERRE = 2.7; // segundos de la pantalla final (llamada a la acción)
   const tr = D.transicion || { tipo: 'squeezeh', dur: 0.5 };
   const clip = +(clips.reduce((a, c) => a + c.dur, 0) - (clips.length - 1) * tr.dur).toFixed(3);
   D.duracionClip = clip;
-  const TOTAL = +(clip + CIERRE).toFixed(2);
+  const conCierre = !!D.cierre; // sin "cierre" en el JSON, el video termina en la prenda
+  const TOTAL = +(clip + (conCierre ? CIERRE : 0)).toFixed(2);
   const pad = (TOTAL - clip).toFixed(3);
   const blurStart = (clip - 0.2).toFixed(2);
 
@@ -55,9 +56,11 @@ const CIERRE = 2.7; // segundos de la pantalla final (llamada a la acción)
   const n = clips.length;
   const filter = [
     ...parts,
-    `[${last}]tpad=stop_mode=clone:stop_duration=${pad},split[a][b]`,
-    `[b]gblur=sigma=28,eq=brightness=-0.18,format=yuva420p,fade=in:st=${blurStart}:d=0.45:alpha=1[bb]`,
-    `[a][bb]overlay=format=auto[bg]`,
+    ...(conCierre ? [
+      `[${last}]tpad=stop_mode=clone:stop_duration=${pad},split[a][b]`,
+      `[b]gblur=sigma=28,eq=brightness=-0.18,format=yuva420p,fade=in:st=${blurStart}:d=0.45:alpha=1[bb]`,
+      `[a][bb]overlay=format=auto[bg]`,
+    ] : [`[${last}]null[bg]`]),
     `[${n}:v]format=rgba[ov]`,
     `[bg][ov]overlay=format=auto,format=yuv420p[v]`,
   ].join(';');

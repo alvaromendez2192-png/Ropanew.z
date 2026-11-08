@@ -296,6 +296,7 @@
 
   // ---------- Cierre con llamada a la acción ----------
   const T = D.duracionClip, C = D.cierre;
+  if (C) {
   if (C.tinte) {
     const ti = el('abs tinte'); ti.style.background = C.tinte;
     anim(ti, `fadeIn .5s ease ${s(T - 0.1)} both`);
@@ -354,6 +355,7 @@
   anim(q('.boton'), `pop .5s cubic-bezier(.2,1.6,.4,1) ${s(T + 1.0)} both`, `latido .9s ease-in-out ${s(T + 1.5)} infinite`);
   anim(q('.flecha'), `fadeIn .3s ease ${s(T + 1.3)} both`, `rebote .7s ease-in-out ${s(T + 1.3)} infinite`);
   anim(q('.flecha-txt'), `fadeIn .3s ease ${s(T + 1.3)} both`);
+  }
 </script>
 </body>
 </html>

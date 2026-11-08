@@ -22,9 +22,9 @@
   /* ---------- Degradados para que el texto se lea ---------- */
   .grad-top { left: 0; top: 0; width: 1080px; height: 420px;
     background: linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,0)); }
-  .grad-bot { left: 0; bottom: 0; width: 1080px; height: 820px;
-    background: linear-gradient(to top, rgba(5,8,20,.85) 10%, rgba(5,8,20,0));
-    animation: fadeIn .6s ease 2.2s both, fadeOut .4s ease 8.5s forwards; }
+  .grad-bot { left: 0; bottom: 0; width: 1080px; height: 520px;
+    background: linear-gradient(to top, rgba(5,8,20,.6) 15%, rgba(5,8,20,0));
+    animation: fadeIn .6s ease .3s both, fadeOut .4s ease 8.5s forwards; }
 
   /* ---------- Barra superior (fuera de la zona del perfil de IG) ---------- */
   .top { left: 48px; top: 230px; display: flex; align-items: center; gap: 20px;
@@ -52,40 +52,40 @@
   .hook .l3 { animation: golpe .45s cubic-bezier(.2,1.5,.4,1) .94s both; }
 
   /* ---------- Beneficios ---------- */
-  .beneficios { left: 48px; top: 930px; display: flex; flex-direction: column; gap: 22px;
-    animation: fadeOut .3s ease 8.5s forwards; }
-  .b { display: flex; align-items: center; gap: 18px; font-weight: 700; font-size: 40px;
-    background: rgba(255,255,255,.96); color: var(--navy2); padding: 16px 32px 16px 18px;
+  .beneficios { left: 60px; top: 1238px; display: flex; flex-direction: column; gap: 10px;
+    animation: fadeOut .4s ease 6.6s forwards; }
+  .b { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 26px;
+    background: rgba(255,255,255,.96); color: var(--navy2); padding: 8px 22px 8px 10px;
     border-radius: 999px; width: max-content; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
-  .b .ok { width: 52px; height: 52px; border-radius: 50%; background: var(--verde);
+  .b .ok { width: 34px; height: 34px; border-radius: 50%; background: var(--verde);
     display: grid; place-items: center; }
-  .b:nth-child(1) { animation: entrarIzq .5s cubic-bezier(.2,1.3,.4,1) 3.3s both; }
-  .b:nth-child(2) { animation: entrarIzq .5s cubic-bezier(.2,1.3,.4,1) 3.8s both; }
-  .b:nth-child(3) { animation: entrarIzq .5s cubic-bezier(.2,1.3,.4,1) 4.3s both; }
+  .b:nth-child(1) { animation: entrarIzq .5s cubic-bezier(.2,1.3,.4,1) 1.6s both; }
+  .b:nth-child(2) { animation: entrarIzq .5s cubic-bezier(.2,1.3,.4,1) 1.9s both; }
+  .b:nth-child(3) { animation: entrarIzq .5s cubic-bezier(.2,1.3,.4,1) 2.2s both; }
 
   /* ---------- Tarjeta producto ---------- */
-  .card { left: 40px; top: 1370px; width: 1000px; height: 250px; border-radius: 40px;
+  .card { left: 60px; top: 1470px; width: 960px; height: 180px; border-radius: 32px;
     background: var(--navy); border: 5px solid #fff; box-shadow: 0 20px 60px rgba(0,0,0,.5);
-    animation: subirCard .6s cubic-bezier(.2,1.25,.4,1) 2.35s both, fadeOut .35s ease 8.5s forwards; }
-  .card .tag { position: absolute; left: 50px; top: -34px; background: var(--rosa); font-weight: 800;
-    font-size: 28px; letter-spacing: 1px; padding: 8px 26px; border-radius: 999px; border: 4px solid #fff; }
-  .card .logo { position: absolute; left: 24px; top: 40px; width: 190px; }
-  .card .nombre { position: absolute; left: 230px; top: 46px; font-family: 'Anton', sans-serif; font-size: 92px;
+    animation: subirCard .6s cubic-bezier(.2,1.25,.4,1) .4s both, fadeOut .35s ease 8.5s forwards; }
+  .card .tag { position: absolute; left: 40px; top: -26px; background: var(--rosa); font-weight: 800;
+    font-size: 20px; letter-spacing: 1px; padding: 5px 18px; border-radius: 999px; border: 4px solid #fff; }
+  .card .logo { position: absolute; left: 18px; top: 26px; width: 140px; }
+  .card .nombre { position: absolute; left: 175px; top: 34px; font-family: 'Anton', sans-serif; font-size: 68px;
     line-height: 1; letter-spacing: 1px; }
   .card .nombre b { color: var(--amarillo); font-weight: 400; }
-  .card .chips { position: absolute; left: 232px; top: 158px; display: flex; gap: 16px; }
-  .card .chip { font-weight: 800; font-size: 28px; padding: 6px 22px; border-radius: 999px; }
+  .card .chips { position: absolute; left: 177px; top: 116px; display: flex; gap: 16px; }
+  .card .chip { font-weight: 800; font-size: 22px; padding: 4px 18px; border-radius: 999px; }
   .card .chip:nth-child(1) { background: var(--rosa); }
   .card .chip:nth-child(2) { background: var(--verde); color: var(--navy2); }
 
-  .precio { left: 790px; top: 1135px; width: 280px; height: 280px;
-    animation: pop .6s cubic-bezier(.2,1.8,.4,1) 2.85s both, fadeOut .35s ease 8.5s forwards; }
-  .precio .inner { width: 100%; height: 100%; position: relative; animation: bamboleo 1.6s ease-in-out 3.5s infinite; }
+  .precio { left: 815px; top: 1330px; width: 220px; height: 220px;
+    animation: pop .6s cubic-bezier(.2,1.8,.4,1) .9s both, fadeOut .35s ease 8.5s forwards; }
+  .precio .inner { width: 100%; height: 100%; position: relative; animation: bamboleo 1.6s ease-in-out 1.5s infinite; }
   .precio svg { position: absolute; inset: 0; filter: drop-shadow(0 12px 22px rgba(0,0,0,.45)); }
   .precio .txt { position: absolute; inset: 0; display: grid; place-items: center; text-align: center;
     color: var(--navy2); transform: rotate(-8deg); }
-  .precio .txt small { display: block; font-weight: 800; font-size: 26px; letter-spacing: 2px; }
-  .precio .txt strong { display: block; font-family: 'Anton', sans-serif; font-size: 70px; line-height: .95; font-weight: 400; }
+  .precio .txt small { display: block; font-weight: 800; font-size: 20px; letter-spacing: 2px; }
+  .precio .txt strong { display: block; font-family: 'Anton', sans-serif; font-size: 56px; line-height: .95; font-weight: 400; }
 
   /* ---------- Cierre / llamada a la acción ---------- */
   .cta { left: 0; top: 0; width: 1080px; height: 1920px; display: flex; flex-direction: column;
@@ -131,15 +131,8 @@
 </style>
 </head>
 <body>
-  <div class="abs grad-top"></div>
   <div class="abs grad-bot"></div>
 
-  <div class="abs top">
-    <div class="logo-badge"><img src="assets/logo.png" alt=""></div>
-    <div class="pill"><span class="dot"></span><span id="etiqueta"></span></div>
-  </div>
-
-  <div class="abs hook" id="hook"></div>
 
   <div class="abs beneficios" id="beneficios"></div>
 
@@ -152,7 +145,7 @@
 
   <div class="abs precio">
     <div class="inner">
-      <svg viewBox="0 0 330 330" width="280" height="280" id="estrella"></svg>
+      <svg viewBox="0 0 330 330" width="220" height="220" id="estrella"></svg>
       <div class="txt"><div><small>SOLO</small><strong id="precio"></strong></div></div>
     </div>
   </div>
@@ -178,9 +171,7 @@
     ctaTitulo: '¿LA QUIERES?', ctaTexto: 'Escríbenos por DM y te la reservamos', ctaBoton: 'RESPONDE "PUNTO"'
   };
   const $ = id => document.getElementById(id);
-  $('etiqueta').textContent = D.etiqueta;
-  $('hook').innerHTML = D.hook.map((t, i) => `<span class="l l${i + 1}"><span>${t}</span></span>`).join('');
-  const check = '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0b1223" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+    const check = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b1223" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
   $('beneficios').innerHTML = D.beneficios.map(t => `<div class="b"><span class="ok">${check}</span>${t}</div>`).join('');
   $('nombre').textContent = D.nombre;
   $('nombreAcento').textContent = D.nombreAcento;

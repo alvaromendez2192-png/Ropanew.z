@@ -7,4 +7,4 @@ Plantilla para crear historias (1080x1920, MP4) de cada prenda.
 3. Ejecuta: `node render.js productos/<prenda>.json`
 4. El video queda en `salida/<prenda>_historia_v2.mp4`.
 
-Estructura del video (11,5 s): gancho grande (0–2,3 s) → tarjeta con precio y beneficios → cierre con llamada a la acción ("Responde esta historia").
+Estructura del video (11,5 s): la prenda limpia a pantalla completa con una tarjeta compacta (nombre, talla, precio) y beneficios breves → cierre con llamada a la acción ("Responde esta historia").

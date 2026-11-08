@@ -1,0 +1,39 @@
+{
+  "slug": "polera-rio",
+  "clips": [
+    { "video": "../entrada/polera-rio-frente.mov", "inicio": 0.5, "dur": 5.0, "hdr": true },
+    { "video": "../entrada/polera-rio-espalda.mov", "inicio": 0.3, "dur": 9.2, "hdr": true, "saturacion": 1.15 }
+  ],
+  "transicion": { "tipo": "squeezeh", "dur": 0.5 },
+  "tema": { "rosa": "#FF6B1A", "verde": "#16C172" },
+  "segmentos": [
+    {
+      "desde": 0.3, "hasta": 4.5, "pos": "abajo",
+      "tag": ["TIENDA VIRTUAL 100% ORIGINAL", "DE FRENTE: TRANQUILA..."],
+      "nombre": "POLERA", "acento": "ESTAMPADA",
+      "chips": ["HOMBRE", "TALLA M"],
+      "frases": ["Por delante: limpia y elegante", "Pero el show está atrás..."], "frasesHasta": 2.9
+    },
+    {
+      "desde": 5.0, "hasta": 13.7, "pos": "abajo",
+      "tag": ["100% ORIGINAL · 100% CARIOCA", "VIRTUAL LA TIENDA, TROPICAL LA VIBRA"],
+      "nombre": "POLERA", "acento": "RÍO",
+      "chips": ["HOMBRE", "TALLA M", "ESTAMPADA"], "precio": "$17.000",
+      "frases": ["Una arara que roba miradas", "Tu espalda, ahora protagonista"]
+    }
+  ],
+  "stickers": [
+    { "texto": "ESPERA...", "desde": 2.9, "hasta": 4.6, "x": "centro", "y": 640, "rot": -5, "color": "blanco grande" },
+    { "texto": "¡DALE LA VUELTA!", "desde": 3.3, "hasta": 4.7, "x": "centro", "y": 800, "rot": 4, "color": "grande" },
+    { "texto": "BEM-VINDO AO RIO!", "desde": 5.4, "hasta": 7.6, "x": 300, "y": 300, "rot": -6, "color": "verde" },
+    { "texto": "SOL, SAMBA Y ESTILO", "desde": 10.0, "hasta": 12.2, "x": 330, "y": 300, "rot": 5, "color": "azul" }
+  ],
+  "cierre": {
+    "titulo": "¿NOS VAMOS A RÍO?", "nombre": "POLERA RÍO", "precio": "$17.000",
+    "detalle": "Hombre · Talla M · Estampado en la espalda",
+    "texto": "Sin pasaje ni maleta: escríbenos y te la apartamos",
+    "boton": "RESPONDE \"RÍO\"",
+    "tinte": "linear-gradient(160deg, rgba(255,107,26,.45), rgba(14,159,79,.45))",
+    "hojas": true
+  }
+}

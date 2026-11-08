@@ -40,6 +40,8 @@
     border-radius: 18px; border: 5px solid #fff; color: var(--navy2); background: var(--amarillo);
     box-shadow: 0 12px 30px rgba(0,0,0,.4); white-space: nowrap; opacity: 0; }
   .sticker.rosa { background: var(--rosa); color: #fff; }
+  .sticker.grande { font-size: 92px; padding: 14px 44px; border-radius: 28px; border-width: 7px; }
+  .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
   .sticker .w { display: inline-block; }
@@ -62,6 +64,10 @@
   .precio .txt strong { display: block; font-family: 'Anton', sans-serif; font-size: 56px; line-height: .95; font-weight: 400; }
 
   /* Cierre */
+  .tinte { left: 0; top: 0; width: 1080px; height: 1920px; opacity: 0; }
+  .hoja { width: 420px; opacity: 0; filter: drop-shadow(0 16px 30px rgba(0,0,0,.35)); }
+  .hoja svg { width: 100%; display: block; }
+  .hoja .m { transform-origin: 10% 90%; }
   .cta { left: 0; top: 0; width: 1080px; height: 1920px; display: flex; flex-direction: column;
     align-items: center; padding-top: 270px; text-align: center; opacity: 0; }
   .cta > * { opacity: 0; }
@@ -86,6 +92,8 @@
   @keyframes stickerIn { 0% { opacity: 0; transform: scale(0) rotate(var(--r0)) } 70% { opacity: 1; transform: scale(1.15) rotate(var(--r)) } 100% { opacity: 1; transform: scale(1) rotate(var(--r)) } }
   @keyframes stickerOut { from { opacity: 1; transform: scale(1) rotate(var(--r)) } to { opacity: 0; transform: scale(0) rotate(var(--r0)) } }
   @keyframes tambaleo { 0%,100% { transform: rotate(-4deg) } 50% { transform: rotate(4deg) } }
+  @keyframes hojaIn { from { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) } to { opacity: 1; transform: rotate(var(--rot)) } }
+  @keyframes mecer { 0%,100% { transform: rotate(-4deg) } 50% { transform: rotate(4deg) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -110,6 +118,9 @@
     cierre: { titulo: '¿LA QUIERES?', nombre: 'POLERA PUNTO', precio: '$18.000',
       texto: 'Escríbenos por DM y te la reservamos', boton: 'RESPONDE "PUNTO"' }
   };
+
+  // Colores opcionales por historia (tema)
+  Object.entries(D.tema || {}).forEach(([k, v]) => document.documentElement.style.setProperty('--' + k, v));
 
   const EASE_IN = 'cubic-bezier(.2,1.25,.4,1)', EASE_POP = 'cubic-bezier(.2,1.8,.4,1)';
   const el = (cls, html, parent = document.body) => {
@@ -155,11 +166,13 @@
     });
     anim(card, `${arriba ? 'bajarCard' : 'subirCard'} .6s ${EASE_IN} ${s(t0)} both`, out);
 
+    if (seg.precio) {
     const precio = el('abs precio', `<div class="inner">${estrella}
       <div class="txt"><div><small>SOLO</small><strong>${seg.precio}</strong></div></div></div>`);
     precio.style.top = (arriba ? cardTop + 110 : cardTop - 140) + 'px';
     anim(precio, `pop .6s ${EASE_POP} ${s(t0 + 0.5)} both`, out);
     anim(precio.firstElementChild, `bamboleo 1.6s ease-in-out ${s(t0 + 1.1)} infinite`);
+    }
 
     const fr = el('abs frases');
     const n = seg.frases.length;
@@ -175,7 +188,9 @@
   // ---------- Stickers divertidos (aparecen y se van rápido) ----------
   (D.stickers || []).forEach(st => {
     const k = el(`abs sticker ${st.color || ''}`, `<span class="w">${st.texto}</span>`);
-    k.style.left = st.x + 'px'; k.style.top = st.y + 'px';
+    k.style.top = st.y + 'px';
+    if (st.x === 'centro') { k.style.left = '0'; k.style.right = '0'; k.style.margin = '0 auto'; k.style.width = 'max-content'; }
+    else k.style.left = st.x + 'px';
     k.style.setProperty('--r', (st.rot || 0) + 'deg');
     k.style.setProperty('--r0', ((st.rot || 0) - 30) + 'deg');
     anim(k, `stickerIn .45s ease-out ${s(st.desde)} both`, `stickerOut .3s ease-in ${s(st.hasta - 0.3)} forwards`);
@@ -184,6 +199,30 @@
 
   // ---------- Cierre con llamada a la acción ----------
   const T = D.duracionClip, C = D.cierre;
+  if (C.tinte) {
+    const ti = el('abs tinte'); ti.style.background = C.tinte;
+    anim(ti, `fadeIn .5s ease ${s(T - 0.1)} both`);
+  }
+  if (C.hojas) {
+    const hoja = c => `<svg viewBox="0 0 200 260"><g class="m">
+      <path d="M20 250 C 30 160, 60 80, 180 10 C 170 110, 120 200, 20 250 Z" fill="${c}"/>
+      <path d="M20 250 C 70 170, 120 90, 178 14" stroke="rgba(255,255,255,.55)" stroke-width="5" fill="none"/>
+      ${[0.25, 0.42, 0.58, 0.74].map(f => { const x = 20 + 158 * f, y = 250 - 236 * f;
+        return `<path d="M${x} ${y} l ${-30 + f * 10} ${-12 - f * 10}" stroke="rgba(255,255,255,.4)" stroke-width="3"/>`; }).join('')}
+    </g></svg>`;
+    [
+      { l: -120, t: 60, rot: 160, c: '#0E9F4F', dx: '-200px', dy: '-200px' },
+      { l: 760, t: -40, rot: 250, c: '#16C172', dx: '200px', dy: '-200px' },
+      { l: -150, t: 1400, rot: 70, c: '#16C172', dx: '-200px', dy: '200px' },
+      { l: 800, t: 1420, rot: -20, c: '#0E9F4F', dx: '200px', dy: '200px' },
+    ].forEach((h, i) => {
+      const e = el('abs hoja', hoja(h.c));
+      e.style.left = h.l + 'px'; e.style.top = h.t + 'px';
+      e.style.setProperty('--rot', h.rot + 'deg'); e.style.setProperty('--dx', h.dx); e.style.setProperty('--dy', h.dy);
+      anim(e, `hojaIn .6s cubic-bezier(.2,1.3,.4,1) ${s(T + 0.05 + i * 0.08)} both`);
+      anim(e.querySelector('.m'), `mecer 1.8s ease-in-out ${s(T + 0.6)} infinite`);
+    });
+  }
   const cta = el('abs cta', `
     <div class="logo-big"><img src="assets/logo.png" alt=""></div>
     <h2>${C.titulo}</h2>

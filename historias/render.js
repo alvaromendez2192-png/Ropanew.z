@@ -11,39 +11,51 @@ const CIERRE = 2.7; // segundos de la pantalla final (llamada a la acción)
 (async () => {
   const cfgPath = path.resolve(process.argv[2] || 'productos/polera-punto.json');
   const D = JSON.parse(fs.readFileSync(cfgPath, 'utf8'));
-  const video = path.resolve(path.dirname(cfgPath), D.video);
   const outDir = path.join(__dirname, 'salida');
   fs.mkdirSync(outDir, { recursive: true });
   const out = path.join(outDir, `${D.slug}_historia.mp4`);
 
-  const clip = D.duracionClip;
+  // Uno o varios videos (p. ej. frente y espalda), unidos con una transición.
+  const clips = D.clips || [{ video: D.video, inicio: D.inicio, dur: D.duracionClip, hdr: D.hdr, crop: D.crop }];
+  const tr = D.transicion || { tipo: 'squeezeh', dur: 0.5 };
+  const clip = +(clips.reduce((a, c) => a + c.dur, 0) - (clips.length - 1) * tr.dur).toFixed(3);
+  D.duracionClip = clip;
   const TOTAL = +(clip + CIERRE).toFixed(2);
   const pad = (TOTAL - clip).toFixed(3);
   const blurStart = (clip - 0.2).toFixed(2);
 
-  // Fondo: recorta la prenda (sin el marco antiguo), la lleva a pantalla completa,
-  // mejora color/nitidez, congela el último cuadro y lo desenfoca para el cierre.
-  const filter = [
-    `[0:v]trim=${D.inicio || 0}:${(D.inicio || 0) + clip},setpts=PTS-STARTPTS,` +
-      // Videos HDR de iPhone (HLG): pasarlos a SDR para que no se vean lavados en Instagram.
-      (D.hdr ? 'zscale=t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=mobius:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,' : '') +
-      (D.crop ? `crop=${D.crop},` : '') +
+  // Fondo: cada clip a pantalla completa (HDR de iPhone pasado a SDR para que no se vea lavado),
+  // con color/nitidez mejorados; al final se congela el último cuadro y se desenfoca para el cierre.
+  const parts = clips.map((c, i) => {
+    const t0 = c.inicio || 0;
+    return `[${i}:v]trim=${t0}:${t0 + c.dur},setpts=PTS-STARTPTS,` +
+      (c.hdr ? 'zscale=t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=mobius:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,' : '') +
+      (c.crop ? `crop=${c.crop},` : '') +
       `scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,setsar=1,` +
-      `eq=contrast=1.07:saturation=1.06:brightness=0.01,unsharp=5:5:0.6,fps=${FPS},` +
-      `tpad=stop_mode=clone:stop_duration=${pad},split[a][b]`,
+      `eq=contrast=1.07:saturation=${c.saturacion || 1.06}:brightness=0.01,unsharp=5:5:0.6,fps=${FPS},format=yuv420p,settb=AVTB[c${i}]`;
+  });
+  let last = 'c0', acc = clips[0].dur;
+  for (let i = 1; i < clips.length; i++) {
+    parts.push(`[${last}][c${i}]xfade=transition=${tr.tipo}:duration=${tr.dur}:offset=${(acc - tr.dur).toFixed(3)}[x${i}]`);
+    last = `x${i}`; acc += clips[i].dur - tr.dur;
+  }
+  const n = clips.length;
+  const filter = [
+    ...parts,
+    `[${last}]tpad=stop_mode=clone:stop_duration=${pad},split[a][b]`,
     `[b]gblur=sigma=28,eq=brightness=-0.18,format=yuva420p,fade=in:st=${blurStart}:d=0.45:alpha=1[bb]`,
     `[a][bb]overlay=format=auto[bg]`,
-    `[1:v]format=rgba[ov]`,
+    `[${n}:v]format=rgba[ov]`,
     `[bg][ov]overlay=format=auto,format=yuv420p[v]`,
   ].join(';');
 
   const ff = spawn('ffmpeg', [
     '-y', '-v', 'error',
-    '-i', video,
+    ...clips.flatMap(c => ['-i', path.resolve(path.dirname(cfgPath), c.video)]),
     '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', 'png', '-i', '-',
     '-f', 'lavfi', '-t', String(TOTAL), '-i', 'anullsrc=r=48000:cl=stereo',
     '-filter_complex', filter,
-    '-map', '[v]', '-map', '2:a',
+    '-map', '[v]', '-map', `${n + 1}:a`,
     '-c:v', 'libx264', '-preset', 'slow', '-crf', '17', '-profile:v', 'high', '-pix_fmt', 'yuv420p',
     '-c:a', 'aac', '-b:a', '128k', '-t', String(TOTAL), '-movflags', '+faststart', out,
   ], { stdio: ['pipe', 'inherit', 'inherit'] });

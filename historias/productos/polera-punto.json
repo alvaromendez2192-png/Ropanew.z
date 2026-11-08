@@ -3,18 +3,16 @@
   "video": "../entrada/polera-punto.mp4",
   "crop": "760:1352:160:142",
   "duracionClip": 8.8,
-  "nombre": "POLERA",
-  "nombreAcento": "PUNTO",
-  "chips": [
-    "HOMBRE",
-    "TALLA S"
+  "segmentos": [
+    {
+      "desde": 0.4, "hasta": 8.8, "pos": "abajo",
+      "nombre": "POLERA", "acento": "PUNTO",
+      "chips": ["HOMBRE", "TALLA S"], "precio": "$18.000",
+      "frases": ["Tejido de punto", "100% original"], "frasesHasta": 6.6
+    }
   ],
-  "precio": "$18.000",
-  "beneficios": [
-    "Tejido de punto",
-    "100% original"
-  ],
-  "ctaTitulo": "¿LA QUIERES?",
-  "ctaTexto": "Escríbenos por DM y te la reservamos",
-  "ctaBoton": "RESPONDE \"PUNTO\""
+  "cierre": {
+    "titulo": "¿LA QUIERES?", "nombre": "POLERA PUNTO", "precio": "$18.000",
+    "texto": "Escríbenos por DM y te la reservamos", "boton": "RESPONDE \"PUNTO\""
+  }
 }

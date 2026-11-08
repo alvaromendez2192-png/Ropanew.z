@@ -1,0 +1,25 @@
+{
+  "slug": "look-regular-jogger",
+  "video": "../entrada/look-regular-jogger.mov",
+  "hdr": true,
+  "duracionClip": 13.6,
+  "segmentos": [
+    {
+      "desde": 0.3, "hasta": 8.7, "pos": "abajo",
+      "nombre": "POLERA", "acento": "REGULAR FIT",
+      "chips": ["HOMBRE", "TALLA M"], "precio": "$18.000",
+      "frases": ["Blanca, básica y cero aburrida", "Ni apretada ni carpa: justa"]
+    },
+    {
+      "desde": 9.0, "hasta": 13.6, "pos": "arriba",
+      "nombre": "SHORT", "acento": "JOGGER",
+      "chips": ["HOMBRE", "TALLA M"], "precio": "$20.000",
+      "frases": ["Modo domingo, todos los días", "Cordón + bolsillos = cero drama"]
+    }
+  ],
+  "cierre": {
+    "titulo": "¿ARMAMOS EL LOOK?", "nombre": "LOOK COMPLETO", "precio": "$38.000",
+    "detalle": "Polera $18.000 · Short $20.000 · Talla M",
+    "texto": "Llévate uno o los dos: escríbenos y te los apartamos", "boton": "RESPONDE \"LOOK\""
+  }
+}

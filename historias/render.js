@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 
 const FPS = 30;
-const TOTAL = 11.5; // segundos del video final
+const CIERRE = 2.7; // segundos de la pantalla final (llamada a la acción)
 
 (async () => {
   const cfgPath = path.resolve(process.argv[2] || 'productos/polera-punto.json');
@@ -14,16 +14,21 @@ const TOTAL = 11.5; // segundos del video final
   const video = path.resolve(path.dirname(cfgPath), D.video);
   const outDir = path.join(__dirname, 'salida');
   fs.mkdirSync(outDir, { recursive: true });
-  const out = path.join(outDir, `${D.slug}_historia_v2.mp4`);
+  const out = path.join(outDir, `${D.slug}_historia.mp4`);
 
   const clip = D.duracionClip;
+  const TOTAL = +(clip + CIERRE).toFixed(2);
   const pad = (TOTAL - clip).toFixed(3);
   const blurStart = (clip - 0.2).toFixed(2);
 
   // Fondo: recorta la prenda (sin el marco antiguo), la lleva a pantalla completa,
   // mejora color/nitidez, congela el último cuadro y lo desenfoca para el cierre.
   const filter = [
-    `[0:v]trim=0:${clip},setpts=PTS-STARTPTS,crop=${D.crop},scale=1080:1920:flags=lanczos,setsar=1,` +
+    `[0:v]trim=${D.inicio || 0}:${(D.inicio || 0) + clip},setpts=PTS-STARTPTS,` +
+      // Videos HDR de iPhone (HLG): pasarlos a SDR para que no se vean lavados en Instagram.
+      (D.hdr ? 'zscale=t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=mobius:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,' : '') +
+      (D.crop ? `crop=${D.crop},` : '') +
+      `scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,setsar=1,` +
       `eq=contrast=1.07:saturation=1.06:brightness=0.01,unsharp=5:5:0.6,fps=${FPS},` +
       `tpad=stop_mode=clone:stop_duration=${pad},split[a][b]`,
     `[b]gblur=sigma=28,eq=brightness=-0.18,format=yuva420p,fade=in:st=${blurStart}:d=0.45:alpha=1[bb]`,

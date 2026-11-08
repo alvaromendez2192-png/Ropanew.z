@@ -12,186 +12,166 @@
     --amarillo: #FFD23F;
     --rosa: #FF4F8B;
     --verde: #2FD6A1;
-    --blanco: #ffffff;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { width: 1080px; height: 1920px; background: transparent; overflow: hidden; }
-  body { font-family: 'Poppins', sans-serif; color: var(--blanco); position: relative; }
+  body { font-family: 'Poppins', sans-serif; color: #fff; position: relative; }
   .abs { position: absolute; }
 
-  /* ---------- Degradados para que el texto se lea ---------- */
-  .grad-top { left: 0; top: 0; width: 1080px; height: 420px;
-    background: linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,0)); }
-  .grad-bot { left: 0; bottom: 0; width: 1080px; height: 520px;
-    background: linear-gradient(to top, rgba(5,8,20,.6) 15%, rgba(5,8,20,0));
-    animation: fadeIn .6s ease .3s both, fadeOut .4s ease 8.5s forwards; }
+  .grad { left: 0; width: 1080px; height: 520px; opacity: 0; }
+  .grad.abajo { bottom: 0; background: linear-gradient(to top, rgba(5,8,20,.6) 15%, rgba(5,8,20,0)); }
+  .grad.arriba { top: 0; background: linear-gradient(to bottom, rgba(5,8,20,.55) 15%, rgba(5,8,20,0)); }
 
-  /* ---------- Barra superior (fuera de la zona del perfil de IG) ---------- */
-  .top { left: 48px; top: 230px; display: flex; align-items: center; gap: 20px;
-    animation: bajar .6s cubic-bezier(.2,1.4,.4,1) .15s both, fadeOut .3s ease 8.5s forwards; }
-  .logo-badge { width: 150px; height: 128px; border-radius: 28px; background: var(--navy);
-    display: grid; place-items: center; overflow: hidden; border: 4px solid #fff;
-    box-shadow: 0 10px 30px rgba(0,0,0,.4); }
-  .logo-badge img { width: 142px; }
-  .pill { font-weight: 800; font-size: 34px; letter-spacing: 2px; padding: 12px 28px;
-    border-radius: 999px; background: var(--rosa); box-shadow: 0 8px 24px rgba(255,79,139,.45); }
-  .pill .dot { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: #fff;
-    margin-right: 12px; vertical-align: middle; animation: parpadeo 1s steps(2) infinite; }
-
-  /* ---------- Gancho (primeros 2 segundos) ---------- */
-  .hook { left: 0; width: 1080px; top: 640px; text-align: center;
-    animation: subirSalir .35s ease-in 2.25s forwards; }
-  .hook .l { display: block; font-family: 'Anton', sans-serif; font-size: 168px; line-height: 1.02;
-    text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 8px 40px rgba(0,0,0,.6); }
-  .hook .l span { display: inline-block; padding: 0 26px; }
-  .hook .l1 span { background: var(--navy2); transform: rotate(-2deg); }
-  .hook .l2 span { color: var(--navy2); background: #fff; transform: rotate(1.5deg); }
-  .hook .l3 span { color: var(--navy2); background: var(--amarillo); transform: rotate(-1.5deg); }
-  .hook .l1 { animation: golpe .45s cubic-bezier(.2,1.5,.4,1) .30s both; }
-  .hook .l2 { animation: golpe .45s cubic-bezier(.2,1.5,.4,1) .62s both; }
-  .hook .l3 { animation: golpe .45s cubic-bezier(.2,1.5,.4,1) .94s both; }
-
-  /* ---------- Beneficios ---------- */
-  .beneficios { left: 60px; top: 1290px; display: flex; flex-direction: column; gap: 10px;
-    animation: fadeOut .4s ease 6.6s forwards; }
-  .b { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 26px;
+  /* Frases cortas */
+  .frases { left: 60px; display: flex; flex-direction: column; gap: 10px; }
+  .f { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 26px;
     background: rgba(255,255,255,.96); color: var(--navy2); padding: 8px 22px 8px 10px;
-    border-radius: 999px; width: max-content; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
-  .b .ok { width: 34px; height: 34px; border-radius: 50%; background: var(--verde);
-    display: grid; place-items: center; }
-  .b:nth-child(1) { animation: entrarIzq .5s cubic-bezier(.2,1.3,.4,1) 1.6s both; }
-  .b:nth-child(2) { animation: entrarIzq .5s cubic-bezier(.2,1.3,.4,1) 1.9s both; }
-  .b:nth-child(3) { animation: entrarIzq .5s cubic-bezier(.2,1.3,.4,1) 2.2s both; }
+    border-radius: 999px; width: max-content; box-shadow: 0 8px 24px rgba(0,0,0,.3); opacity: 0; }
+  .f .ok { width: 34px; height: 34px; border-radius: 50%; background: var(--verde); display: grid; place-items: center; }
 
-  /* ---------- Tarjeta producto ---------- */
-  .card { left: 60px; top: 1470px; width: 960px; height: 180px; border-radius: 32px;
-    background: var(--navy); border: 5px solid #fff; box-shadow: 0 20px 60px rgba(0,0,0,.5);
-    animation: subirCard .6s cubic-bezier(.2,1.25,.4,1) .4s both, fadeOut .35s ease 8.5s forwards; }
+  /* Tarjeta producto */
+  .card { left: 60px; width: 960px; height: 180px; border-radius: 32px; background: var(--navy);
+    border: 5px solid #fff; box-shadow: 0 20px 60px rgba(0,0,0,.5); opacity: 0; }
   .card .tag { position: absolute; left: 40px; top: -26px; background: var(--rosa); font-weight: 800;
     font-size: 20px; letter-spacing: 1px; padding: 5px 18px; border-radius: 999px; border: 4px solid #fff; }
   .card .logo { position: absolute; left: 18px; top: 26px; width: 140px; }
   .card .nombre { position: absolute; left: 175px; top: 34px; font-family: 'Anton', sans-serif; font-size: 68px;
-    line-height: 1; letter-spacing: 1px; }
+    line-height: 1; letter-spacing: 1px; white-space: nowrap; }
   .card .nombre b { color: var(--amarillo); font-weight: 400; }
   .card .chips { position: absolute; left: 177px; top: 116px; display: flex; gap: 16px; }
   .card .chip { font-weight: 800; font-size: 22px; padding: 4px 18px; border-radius: 999px; }
   .card .chip:nth-child(1) { background: var(--rosa); }
   .card .chip:nth-child(2) { background: var(--verde); color: var(--navy2); }
+  .card .chip:nth-child(3) { background: #fff; color: var(--navy2); }
 
-  .precio { left: 815px; top: 1330px; width: 220px; height: 220px;
-    animation: pop .6s cubic-bezier(.2,1.8,.4,1) .9s both, fadeOut .35s ease 8.5s forwards; }
-  .precio .inner { width: 100%; height: 100%; position: relative; animation: bamboleo 1.6s ease-in-out 1.5s infinite; }
+  .precio { left: 815px; width: 220px; height: 220px; opacity: 0; }
+  .precio .inner { width: 100%; height: 100%; position: relative; }
   .precio svg { position: absolute; inset: 0; filter: drop-shadow(0 12px 22px rgba(0,0,0,.45)); }
   .precio .txt { position: absolute; inset: 0; display: grid; place-items: center; text-align: center;
     color: var(--navy2); transform: rotate(-8deg); }
   .precio .txt small { display: block; font-weight: 800; font-size: 20px; letter-spacing: 2px; }
   .precio .txt strong { display: block; font-family: 'Anton', sans-serif; font-size: 56px; line-height: .95; font-weight: 400; }
 
-  /* ---------- Cierre / llamada a la acción ---------- */
+  /* Cierre */
   .cta { left: 0; top: 0; width: 1080px; height: 1920px; display: flex; flex-direction: column;
-    align-items: center; padding-top: 330px; text-align: center;
-    animation: fadeIn .4s ease 8.75s both; }
-  .cta .logo-big { width: 360px; height: 300px; border-radius: 56px; background: var(--navy);
-    border: 6px solid #fff; display: grid; place-items: center; overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,.5);
-    animation: pop .6s cubic-bezier(.2,1.6,.4,1) 8.85s both; }
-  .cta .logo-big img { width: 340px; }
-  .cta h2 { margin-top: 60px; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 170px; line-height: 1;
-    color: var(--amarillo); text-shadow: 0 10px 40px rgba(0,0,0,.6);
-    animation: golpe .5s cubic-bezier(.2,1.5,.4,1) 9.1s both; }
-  .cta .linea { margin-top: 24px; font-size: 54px; font-weight: 700; display: flex; gap: 22px; align-items: center;
-    animation: subir .5s ease-out 9.35s both; }
-  .cta .linea .p { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 76px; background: var(--amarillo);
+    align-items: center; padding-top: 270px; text-align: center; opacity: 0; }
+  .cta > * { opacity: 0; }
+  .cta .logo-big { width: 300px; height: 250px; border-radius: 56px; background: var(--navy);
+    border: 6px solid #fff; display: grid; place-items: center; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+  .cta .logo-big img { width: 284px; }
+  .cta h2 { margin-top: 44px; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 132px; line-height: 1;
+    color: var(--amarillo); text-shadow: 0 10px 40px rgba(0,0,0,.6); max-width: 1000px; }
+  .cta .linea { margin-top: 28px; font-size: 50px; font-weight: 700; display: flex; gap: 22px; align-items: center; }
+  .cta .linea .p { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 72px; background: var(--amarillo);
     color: var(--navy2); padding: 0 22px; border-radius: 16px; transform: rotate(-3deg); }
-  .cta p { margin-top: 30px; font-size: 44px; font-weight: 600; max-width: 860px; line-height: 1.25;
-    animation: subir .5s ease-out 9.55s both; }
-  .cta .boton { margin-top: 56px; font-weight: 900; font-size: 52px; letter-spacing: 1px; color: var(--navy2);
+  .cta .detalle { margin-top: 18px; font-size: 32px; font-weight: 600; opacity: .85; }
+  .cta p { margin-top: 26px; font-size: 44px; font-weight: 600; max-width: 860px; line-height: 1.25; }
+  .cta .boton { margin-top: 44px; font-weight: 900; font-size: 52px; letter-spacing: 1px; color: var(--navy2);
     background: #fff; padding: 30px 60px; border-radius: 999px; display: flex; gap: 22px; align-items: center;
-    box-shadow: 0 0 0 10px rgba(255,255,255,.25), 0 20px 50px rgba(0,0,0,.5);
-    animation: pop .5s cubic-bezier(.2,1.6,.4,1) 9.8s both, latido .9s ease-in-out 10.3s infinite; }
-  .cta .flecha { position: absolute; left: 50%; top: 1480px; margin-left: -60px; width: 120px;
-    animation: fadeIn .3s ease 10.1s both, rebote .7s ease-in-out 10.1s infinite; }
-  .cta .flecha-txt { position: absolute; top: 1610px; left: 0; width: 1080px; font-weight: 800; font-size: 36px;
-    letter-spacing: 3px; animation: fadeIn .3s ease 10.1s both; }
+    box-shadow: 0 0 0 10px rgba(255,255,255,.25), 0 20px 50px rgba(0,0,0,.5); }
+  .cta .flecha { position: absolute; left: 50%; top: 1500px; margin-left: -60px; width: 120px; }
+  .cta .flecha-txt { position: absolute; top: 1626px; left: 0; width: 1080px; font-weight: 800; font-size: 36px; letter-spacing: 3px; }
 
-  /* ---------- Keyframes ---------- */
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
-  @keyframes bajar { from { opacity: 0; transform: translateY(-120px) } to { opacity: 1; transform: none } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
   @keyframes subirCard { from { opacity: 0; transform: translateY(380px) } to { opacity: 1; transform: none } }
-  @keyframes subirSalir { from { opacity: 1; transform: none } to { opacity: 0; transform: translateY(-160px) scale(.9) } }
+  @keyframes bajarCard { from { opacity: 0; transform: translateY(-380px) } to { opacity: 1; transform: none } }
   @keyframes golpe { from { opacity: 0; transform: scale(2.2) } to { opacity: 1; transform: scale(1) } }
   @keyframes entrarIzq { from { opacity: 0; transform: translateX(-600px) } to { opacity: 1; transform: none } }
+  @keyframes salirIzq { from { opacity: 1; transform: none } to { opacity: 0; transform: translateX(-600px) } }
   @keyframes pop { from { opacity: 0; transform: scale(0) rotate(-40deg) } to { opacity: 1; transform: scale(1) rotate(0) } }
   @keyframes bamboleo { 0%,100% { transform: rotate(0) scale(1) } 50% { transform: rotate(6deg) scale(1.06) } }
   @keyframes latido { 0%,100% { transform: scale(1) } 50% { transform: scale(1.07) } }
   @keyframes rebote { 0%,100% { transform: translateY(0) } 50% { transform: translateY(28px) } }
-  @keyframes parpadeo { 0% { opacity: 1 } 100% { opacity: .2 } }
 </style>
 </head>
 <body>
-  <div class="abs grad-bot"></div>
+<script>
+  // Datos del producto: los inyecta render.js (window.DATA). Este es un ejemplo para abrir el HTML directo.
+  const D = window.DATA || {
+    duracionClip: 8.8,
+    segmentos: [{ desde: 0.4, hasta: 8.8, pos: 'abajo', nombre: 'POLERA', acento: 'PUNTO',
+      chips: ['HOMBRE', 'TALLA S'], precio: '$18.000', frases: ['Tejido de punto', '100% original'] }],
+    cierre: { titulo: '¿LA QUIERES?', nombre: 'POLERA PUNTO', precio: '$18.000',
+      texto: 'Escríbenos por DM y te la reservamos', boton: 'RESPONDE "PUNTO"' }
+  };
 
+  const EASE_IN = 'cubic-bezier(.2,1.25,.4,1)', EASE_POP = 'cubic-bezier(.2,1.8,.4,1)';
+  const el = (cls, html, parent = document.body) => {
+    const e = document.createElement('div'); e.className = cls; if (html) e.innerHTML = html; parent.appendChild(e); return e;
+  };
+  const anim = (e, ...a) => { e.style.animation = a.join(', '); };
+  const s = n => `${n.toFixed(2)}s`;
 
-  <div class="abs beneficios" id="beneficios"></div>
+  const check = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b1223" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  const pts = [];
+  for (let i = 0; i < 44; i++) {
+    const r = i % 2 ? 128 : 160, a = (Math.PI * i) / 22 - Math.PI / 2;
+    pts.push(`${(165 + r * Math.cos(a)).toFixed(1)},${(165 + r * Math.sin(a)).toFixed(1)}`);
+  }
+  const estrella = `<svg viewBox="0 0 330 330" width="220" height="220">
+    <polygon points="${pts.join(' ')}" fill="#FF4F8B" transform="translate(8 8)"/>
+    <polygon points="${pts.join(' ')}" fill="#FFD23F" stroke="#fff" stroke-width="6" stroke-linejoin="round"/></svg>`;
 
-  <div class="abs card">
-    <div class="tag">TIENDA VIRTUAL 100% ORIGINAL</div>
-    <img class="logo" src="assets/logo.png" alt="">
-    <div class="nombre"><span id="nombre"></span> <b id="nombreAcento"></b></div>
-    <div class="chips" id="chips"></div>
-  </div>
+  // ---------- Un bloque (tarjeta + precio + frases) por producto ----------
+  D.segmentos.forEach(seg => {
+    const t0 = seg.desde, t1 = seg.hasta, arriba = seg.pos === 'arriba';
+    const cardTop = arriba ? 290 : 1470;
+    const out = `fadeOut .35s ease ${s(t1 - 0.35)} forwards`;
 
-  <div class="abs precio">
-    <div class="inner">
-      <svg viewBox="0 0 330 330" width="220" height="220" id="estrella"></svg>
-      <div class="txt"><div><small>SOLO</small><strong id="precio"></strong></div></div>
-    </div>
-  </div>
+    const g = el(`abs grad ${arriba ? 'arriba' : 'abajo'}`);
+    anim(g, `fadeIn .5s ease ${s(Math.max(0, t0 - 0.1))} both`, out);
 
-  <div class="abs cta">
+    const card = el('abs card', `
+      <div class="tag">TIENDA VIRTUAL 100% ORIGINAL</div>
+      <img class="logo" src="assets/logo.png" alt="">
+      <div class="nombre">${seg.nombre} <b>${seg.acento}</b></div>
+      <div class="chips">${seg.chips.map(c => `<span class="chip">${c}</span>`).join('')}</div>`);
+    card.style.top = cardTop + 'px';
+    anim(card, `${arriba ? 'bajarCard' : 'subirCard'} .6s ${EASE_IN} ${s(t0)} both`, out);
+
+    const precio = el('abs precio', `<div class="inner">${estrella}
+      <div class="txt"><div><small>SOLO</small><strong>${seg.precio}</strong></div></div></div>`);
+    precio.style.top = (arriba ? cardTop + 110 : cardTop - 140) + 'px';
+    anim(precio, `pop .6s ${EASE_POP} ${s(t0 + 0.5)} both`, out);
+    anim(precio.firstElementChild, `bamboleo 1.6s ease-in-out ${s(t0 + 1.1)} infinite`);
+
+    const fr = el('abs frases');
+    const n = seg.frases.length;
+    fr.style.top = (arriba ? cardTop + 215 : cardTop - 32 - n * 60) + 'px';
+    const fin = seg.frasesHasta ?? (t1 - 1.6);
+    seg.frases.forEach((txt, i) => {
+      const f = el('f', `<span class="ok">${check}</span>${txt}`, fr);
+      anim(f, `entrarIzq .5s ${EASE_IN} ${s(t0 + 1.2 + i * 0.3)} both`,
+              `salirIzq .4s ease-in ${s(fin + i * 0.1)} forwards`);
+    });
+  });
+
+  // ---------- Cierre con llamada a la acción ----------
+  const T = D.duracionClip, C = D.cierre;
+  const cta = el('abs cta', `
     <div class="logo-big"><img src="assets/logo.png" alt=""></div>
-    <h2 id="ctaTitulo"></h2>
-    <div class="linea"><span id="ctaNombre"></span><span class="p" id="ctaPrecio"></span></div>
-    <p id="ctaTexto"></p>
+    <h2>${C.titulo}</h2>
+    <div class="linea"><span>${C.nombre}</span><span class="p">${C.precio}</span></div>
+    ${C.detalle ? `<div class="detalle">${C.detalle}</div>` : ''}
+    <p>${C.texto}</p>
     <div class="boton">
       <svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#0b1223" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
-      <span id="ctaBoton"></span>
+      <span>${C.boton}</span>
     </div>
     <svg class="flecha" viewBox="0 0 120 120"><path d="M60 10v86M22 62l38 38 38-38" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <div class="flecha-txt">RESPONDE ESTA HISTORIA</div>
-  </div>
-
-<script>
-  const D = window.DATA || {
-    etiqueta: 'NUEVO INGRESO', hook: ['LA POLERA', 'QUE COMBINA', 'CON TODO'],
-    nombre: 'POLERA', nombreAcento: 'PUNTO', chips: ['HOMBRE', 'TALLA S'], precio: '$18.000',
-    beneficios: ['Tejido de punto', '100% original'],
-    ctaTitulo: '¿LA QUIERES?', ctaTexto: 'Escríbenos por DM y te la reservamos', ctaBoton: 'RESPONDE "PUNTO"'
-  };
-  const $ = id => document.getElementById(id);
-    const check = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b1223" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
-  $('beneficios').innerHTML = D.beneficios.map(t => `<div class="b"><span class="ok">${check}</span>${t}</div>`).join('');
-  $('nombre').textContent = D.nombre;
-  $('nombreAcento').textContent = D.nombreAcento;
-  $('chips').innerHTML = D.chips.map(t => `<span class="chip">${t}</span>`).join('');
-  $('precio').textContent = D.precio;
-  $('ctaTitulo').textContent = D.ctaTitulo;
-  $('ctaNombre').textContent = `${D.nombre} ${D.nombreAcento}`;
-  $('ctaPrecio').textContent = D.precio;
-  $('ctaTexto').textContent = D.ctaTexto;
-  $('ctaBoton').textContent = D.ctaBoton;
-
-  // Estrella de precio (starburst)
-  const pts = [], n = 22, cx = 165, cy = 165;
-  for (let i = 0; i < n * 2; i++) {
-    const r = i % 2 ? 128 : 160, a = (Math.PI * i) / n - Math.PI / 2;
-    pts.push(`${(cx + r * Math.cos(a)).toFixed(1)},${(cy + r * Math.sin(a)).toFixed(1)}`);
-  }
-  $('estrella').innerHTML =
-    `<polygon points="${pts.join(' ')}" fill="#FF4F8B" transform="translate(8 8)"/>` +
-    `<polygon points="${pts.join(' ')}" fill="#FFD23F" stroke="#fff" stroke-width="6" stroke-linejoin="round"/>`;
+    <div class="flecha-txt">RESPONDE ESTA HISTORIA</div>`);
+  anim(cta, `fadeIn .4s ease ${s(T - 0.05)} both`);
+  const q = sel => cta.querySelector(sel);
+  anim(q('.logo-big'), `pop .6s cubic-bezier(.2,1.6,.4,1) ${s(T + 0.05)} both`);
+  anim(q('h2'), `golpe .5s cubic-bezier(.2,1.5,.4,1) ${s(T + 0.3)} both`);
+  anim(q('.linea'), `subir .5s ease-out ${s(T + 0.55)} both`);
+  if (q('.detalle')) anim(q('.detalle'), `subir .5s ease-out ${s(T + 0.7)} both`);
+  anim(q('p'), `subir .5s ease-out ${s(T + 0.8)} both`);
+  anim(q('.boton'), `pop .5s cubic-bezier(.2,1.6,.4,1) ${s(T + 1.0)} both`, `latido .9s ease-in-out ${s(T + 1.5)} infinite`);
+  anim(q('.flecha'), `fadeIn .3s ease ${s(T + 1.3)} both`, `rebote .7s ease-in-out ${s(T + 1.3)} infinite`);
+  anim(q('.flecha-txt'), `fadeIn .3s ease ${s(T + 1.3)} both`);
 </script>
 </body>
 </html>

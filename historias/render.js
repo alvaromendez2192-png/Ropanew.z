@@ -39,6 +39,19 @@ const CIERRE = 2.7; // segundos de la pantalla final (llamada a la acción)
     parts.push(`[${last}][c${i}]xfade=transition=${tr.tipo}:duration=${tr.dur}:offset=${(acc - tr.dur).toFixed(3)}[x${i}]`);
     last = `x${i}`; acc += clips[i].dur - tr.dur;
   }
+  // Lupa opcional: un círculo que muestra el tejido ampliado.
+  const L = D.lupa;
+  if (L) {
+    const side = Math.round((2 * L.r) / L.zoom), d = 2 * L.r;
+    parts.push(
+      `[${last}]split[base][lz]`,
+      `[lz]crop=${side}:${side}:${L.cx - side / 2}:${L.cy - side / 2},scale=${d}:${d}:flags=lanczos,format=yuva444p,` +
+        `geq=lum='lum(X,Y)':cb='cb(X,Y)':cr='cr(X,Y)':a='if(lte(hypot(X-${L.r},Y-${L.r}),${L.r}),255,0)',` +
+        `fade=in:st=${L.desde}:d=0.3:alpha=1,fade=out:st=${L.hasta - 0.3}:d=0.3:alpha=1[lens]`,
+      `[base][lens]overlay=${L.x - L.r}:${L.y - L.r}:enable='between(t,${L.desde},${L.hasta})'[lupa]`
+    );
+    last = 'lupa';
+  }
   const n = clips.length;
   const filter = [
     ...parts,

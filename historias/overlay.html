@@ -34,18 +34,24 @@
     border: 5px solid #fff; box-shadow: 0 20px 60px rgba(0,0,0,.5); opacity: 0; }
   .card .tag { position: absolute; left: 40px; top: -26px; background: var(--rosa); font-weight: 800;
     font-size: 20px; letter-spacing: 1px; padding: 5px 18px; border-radius: 999px; border: 4px solid #fff; }
-  .card .tag { white-space: nowrap; transform-origin: 50% 100%; }
+  .card .tag { color: var(--tagTexto, #fff); white-space: nowrap; transform-origin: 50% 100%; }
   .card .tag.ciclo { opacity: 0; }
   .sticker { font-family: 'Anton', sans-serif; font-size: 46px; letter-spacing: 1px; padding: 10px 28px;
     border-radius: 18px; border: 5px solid #fff; color: var(--navy2); background: var(--amarillo);
     box-shadow: 0 12px 30px rgba(0,0,0,.4); white-space: nowrap; opacity: 0; }
   .sticker.rosa { background: var(--rosa); color: #fff; }
   .sticker.grande { font-size: 92px; padding: 14px 44px; border-radius: 28px; border-width: 7px; }
+  .sticker.oro { background: linear-gradient(135deg, #F7E3A1, #D4AF37 55%, #A8801F); color: #111; }
+  .sticker.negro { background: #111; color: #F2D27A; border-color: #D4AF37; }
+  .lupa { border-radius: 50%; border: 10px solid #D4AF37; box-shadow: 0 0 0 4px #fff, 0 20px 50px rgba(0,0,0,.55); opacity: 0; }
+  .lupa-txt { font-family: 'Anton', sans-serif; font-size: 40px; letter-spacing: 2px; background: #111; color: #F2D27A;
+    border: 4px solid #D4AF37; padding: 6px 24px; border-radius: 999px; white-space: nowrap; opacity: 0; }
+  .brillo { width: 70px; height: 70px; opacity: 0; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
   .sticker .w { display: inline-block; }
-  .card .logo { position: absolute; left: 18px; top: 26px; width: 140px; }
+  .card .logo { position: absolute; left: 18px; top: 26px; width: 140px; border-radius: 16px; }
   .card .nombre { position: absolute; left: 175px; top: 34px; font-family: 'Anton', sans-serif; font-size: 68px;
     line-height: 1; letter-spacing: 1px; white-space: nowrap; }
   .card .nombre b { color: var(--amarillo); font-weight: 400; }
@@ -94,6 +100,7 @@
   @keyframes tambaleo { 0%,100% { transform: rotate(-4deg) } 50% { transform: rotate(4deg) } }
   @keyframes hojaIn { from { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) } to { opacity: 1; transform: rotate(var(--rot)) } }
   @keyframes mecer { 0%,100% { transform: rotate(-4deg) } 50% { transform: rotate(4deg) } }
+  @keyframes titilar { 0%,100% { opacity: 0; transform: scale(.3) rotate(0) } 50% { opacity: 1; transform: scale(1) rotate(45deg) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -136,8 +143,8 @@
     pts.push(`${(165 + r * Math.cos(a)).toFixed(1)},${(165 + r * Math.sin(a)).toFixed(1)}`);
   }
   const estrella = `<svg viewBox="0 0 330 330" width="220" height="220">
-    <polygon points="${pts.join(' ')}" fill="#FF4F8B" transform="translate(8 8)"/>
-    <polygon points="${pts.join(' ')}" fill="#FFD23F" stroke="#fff" stroke-width="6" stroke-linejoin="round"/></svg>`;
+    <polygon points="${pts.join(' ')}" style="fill:var(--sombraPrecio, var(--rosa))" transform="translate(8 8)"/>
+    <polygon points="${pts.join(' ')}" style="fill:var(--amarillo)" stroke="#fff" stroke-width="6" stroke-linejoin="round"/></svg>`;
 
   // ---------- Un bloque (tarjeta + precio + frases) por producto ----------
   D.segmentos.forEach(seg => {
@@ -150,7 +157,7 @@
 
     const card = el('abs card', `
       <img class="logo" src="assets/logo.png" alt="">
-      <div class="nombre">${seg.nombre} <b>${seg.acento}</b></div>
+      <div class="nombre" style="font-size:${(seg.nombre + seg.acento).length > 15 ? 58 : 68}px">${seg.nombre} <b>${seg.acento}</b></div>
       <div class="chips">${seg.chips.map(c => `<span class="chip">${c}</span>`).join('')}</div>`);
     card.style.top = cardTop + 'px';
     // Etiqueta rosada: una frase fija o varias que van rotando
@@ -197,11 +204,37 @@
     anim(k.firstElementChild, `tambaleo .5s ease-in-out ${s(st.desde + 0.45)} infinite`);
   });
 
+  // ---------- Lupa (el video ampliado lo pone render.js; aquí el aro y su texto) ----------
+  const brillo = (x, y, t, dur = 1.4) => {
+    const b = el('abs brillo', `<svg viewBox="0 0 70 70"><path d="M35 0 C38 25 45 32 70 35 C45 38 38 45 35 70 C32 45 25 38 0 35 C25 32 32 25 35 0Z" fill="#F7E3A1"/></svg>`);
+    b.style.left = x + 'px'; b.style.top = y + 'px';
+    anim(b, `titilar ${dur}s ease-in-out ${s(t)} infinite`);
+    return b;
+  };
+  if (D.lupa) {
+    const L = D.lupa;
+    const ring = el('abs lupa');
+    Object.assign(ring.style, { left: L.x - L.r - 10 + 'px', top: L.y - L.r - 10 + 'px', width: 2 * L.r + 20 + 'px', height: 2 * L.r + 20 + 'px' });
+    anim(ring, `pop .45s cubic-bezier(.2,1.5,.4,1) ${s(L.desde)} both`, `fadeOut .3s ease ${s(L.hasta - 0.3)} forwards`);
+    const tx = el('abs lupa-txt', L.texto);
+    Object.assign(tx.style, { left: '0', right: '0', margin: '0 auto', width: 'max-content', top: L.y + L.r + 30 + 'px' });
+    tx.style.transform = `translateX(${L.x - 540}px)`;
+    tx.style.left = '0'; tx.style.right = '0';
+    anim(tx, `fadeIn .3s ease ${s(L.desde + 0.3)} both`, `fadeOut .3s ease ${s(L.hasta - 0.3)} forwards`);
+    [[-L.r * 0.95, -L.r * 0.9, 0], [L.r * 0.75, -L.r * 1.05, 0.4], [L.r * 0.95, L.r * 0.6, 0.8]].forEach(([dx, dy, d]) => {
+      const b = brillo(L.x + dx - 35, L.y + dy - 35, L.desde + 0.3 + d, 1.2);
+      b.style.animation += `, fadeOut .01s linear ${s(L.hasta)} forwards`;
+    });
+  }
+
   // ---------- Cierre con llamada a la acción ----------
   const T = D.duracionClip, C = D.cierre;
   if (C.tinte) {
     const ti = el('abs tinte'); ti.style.background = C.tinte;
     anim(ti, `fadeIn .5s ease ${s(T - 0.1)} both`);
+  }
+  if (C.brillos) {
+    [[120, 260], [880, 300], [80, 1150], [930, 1050], [200, 1700], [840, 1720], [500, 180]].forEach(([x, y], i) => brillo(x, y, T + 0.3 + i * 0.17, 1.3));
   }
   if (C.hojas) {
     const hoja = c => `<svg viewBox="0 0 200 260"><g class="m">

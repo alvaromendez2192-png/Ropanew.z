@@ -1,0 +1,30 @@
+{
+  "slug": "polera-calado",
+  "clips": [{ "video": "../entrada/polera-calado.mov", "inicio": 0.2, "dur": 9.1, "hdr": true }],
+  "tema": {
+    "navy": "#0E0E10", "amarillo": "#E9C766", "rosa": "#D4AF37", "verde": "#E9C766",
+    "sombraPrecio": "#111", "tagTexto": "#111"
+  },
+  "segmentos": [
+    {
+      "desde": 0.3, "hasta": 9.1, "pos": "abajo",
+      "tag": ["TIENDA VIRTUAL 100% ORIGINAL", "100% ORIGINAL · 0% BÁSICO", "TIENDA VIRTUAL, PINTA REAL"],
+      "nombre": "POLERA", "acento": "PUNTO CALADO",
+      "chips": ["HOMBRE", "TALLA M"], "precio": "$25.000",
+      "frases": ["Ventilación con estilo", "Cuello polo: sube de nivel"], "frasesHasta": 3.6
+    }
+  ],
+  "stickers": [
+    { "texto": "AGUJEROS CON INTENCIÓN", "desde": 1.6, "hasta": 3.6, "x": "centro", "y": 520, "rot": -5, "color": "oro" },
+    { "texto": "FRESCO + ELEGANTE = GUAPO", "desde": 6.8, "hasta": 8.9, "x": "centro", "y": 520, "rot": 4, "color": "negro" }
+  ],
+  "lupa": { "desde": 3.8, "hasta": 6.6, "cx": 430, "cy": 1050, "zoom": 2.6, "r": 230, "x": 700, "y": 760, "texto": "ZOOM AL CALADO" },
+  "cierre": {
+    "titulo": "¿TE ATREVES?", "nombre": "POLERA PUNTO CALADO", "precio": "$25.000",
+    "detalle": "Hombre · Talla M · Tejido calado con cuello polo",
+    "texto": "Los agujeros son de diseño; las miradas, de regalo",
+    "boton": "RESPONDE \"GUAPO\"",
+    "tinte": "radial-gradient(circle at 50% 40%, rgba(212,175,55,.18), rgba(0,0,0,.55))",
+    "brillos": true
+  }
+}

@@ -30,7 +30,7 @@ const CIERRE = 2.7; // segundos de la pantalla final (llamada a la acción)
   const parts = clips.map((c, i) => {
     const t0 = c.inicio || 0;
     return `[${i}:v]trim=${t0}:${t0 + c.dur},setpts=PTS-STARTPTS,` +
-      (c.hdr ? 'zscale=t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=mobius:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,' : '') +
+      (c.hdr ? `zscale=t=linear:npl=${c.npl || 203},format=gbrpf32le,zscale=p=bt709,tonemap=${c.tonemap || 'mobius'}:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,` : '') +
       (c.crop ? `crop=${c.crop},` : '') +
       `scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,setsar=1,` +
       `eq=contrast=1.07:saturation=${c.saturacion || 1.06}:brightness=0.01,unsharp=5:5:0.6,fps=${FPS},format=yuv420p,settb=AVTB[c${i}]`;

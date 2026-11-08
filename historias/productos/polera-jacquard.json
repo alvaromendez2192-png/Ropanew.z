@@ -1,0 +1,22 @@
+{
+  "slug": "polera-jacquard",
+  "clips": [{ "video": "../entrada/polera-jacquard.mov", "inicio": 0.2, "dur": 7.4, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.0 }],
+  "segmentos": [],
+  "colgante": {
+    "desde": 0.4, "hasta": 7.4, "x": 700, "y": 150,
+    "nombre": "POLERA", "acento": "Jacquard",
+    "chips": ["HOMBRE", "TALLA M"], "precio": "$17.000",
+    "tag": ["TIENDA VIRTUAL 100% ORIGINAL", "100% ORIGINAL, CERO FOME", "FINA, PERO NO PITUCA"]
+  },
+  "stickers": [
+    { "texto": "¿OTRA POLERA BLANCA MÁS?", "desde": 0.8, "hasta": 2.6, "x": 60, "y": 1000, "rot": -4, "color": "papel" },
+    { "texto": "ELEGANCIA NIVEL MATRIMONIO", "desde": 5.5, "hasta": 7.4, "x": 60, "y": 1240, "rot": -3, "color": "marino" },
+    { "texto": "COMODIDAD NIVEL SILLÓN", "desde": 5.85, "hasta": 7.4, "x": 140, "y": 1350, "rot": 3, "color": "papel" }
+  ],
+  "diccionario": {
+    "desde": 2.7, "hasta": 5.4, "y": 1000,
+    "palabra": "jac·quard", "fonetica": "/ya-kár/",
+    "definicion": "Tejido con el diseño metido en la misma tela.",
+    "chileno": "En buen chileno: <b>una polera fina, po.</b>"
+  }
+}

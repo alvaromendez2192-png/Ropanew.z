@@ -71,6 +71,39 @@
     background: #111; padding: 6px 20px; border-radius: 999px;
     display: flex; align-items: center; gap: 12px; text-shadow: 0 2px 8px rgba(0,0,0,.7); white-space: nowrap; }
   .visor .rec::before { content: ''; width: 22px; height: 22px; border-radius: 50%; background: #FF2E2E; animation: inherit; }
+  /* Pase de socio (variante de tarjeta) */
+  .pase { left: 50px; width: 980px; height: 250px; border-radius: 26px; opacity: 0;
+    background: linear-gradient(135deg, #0F5132, #13693F 60%, #0B3F27); border: 4px solid #E7C35A;
+    box-shadow: 0 20px 50px rgba(0,0,0,.5);
+    -webkit-mask: radial-gradient(circle 26px at 0 62%, #0000 97%, #000) left / 51% 100% no-repeat,
+                  radial-gradient(circle 26px at 100% 62%, #0000 97%, #000) right / 51% 100% no-repeat; }
+  .pase .head { position: absolute; left: 0; right: 0; top: 0; height: 56px; border-bottom: 3px dashed rgba(231,195,90,.7);
+    display: flex; align-items: center; justify-content: space-between; padding: 0 34px; }
+  .pase .head .tg { position: relative; height: 56px; flex: 1; }
+  .pase .head .tg span { position: absolute; left: 0; top: 12px; font-weight: 800; font-size: 24px; letter-spacing: 2px;
+    color: #E7C35A; white-space: nowrap; transform-origin: 50% 100%; }
+  .pase .head .nro { font-family: 'Courier New', monospace; font-weight: 700; font-size: 26px; color: #F4E3A8; letter-spacing: 3px; }
+  .pase .logo { position: absolute; left: 30px; top: 82px; width: 140px; border-radius: 16px; border: 3px solid #E7C35A; }
+  .pase .tit { position: absolute; left: 196px; top: 74px; font-weight: 800; font-size: 22px; letter-spacing: 6px; color: #E7C35A; }
+  .pase .nombre { position: absolute; left: 194px; top: 104px; font-family: 'Anton', sans-serif; font-size: 66px; line-height: 1; color: #fff; white-space: nowrap; }
+  .pase .nombre b { color: #F4E3A8; font-weight: 400; }
+  .pase .chips { position: absolute; left: 196px; top: 186px; display: flex; gap: 14px; }
+  .pase .chip { font-weight: 800; font-size: 21px; padding: 4px 16px; border-radius: 999px; background: #F4E3A8; color: #0B3F27; }
+  .sello { width: 250px; height: 250px; border-radius: 50%; border: 9px double #D7263D; color: #D7263D; opacity: 0;
+    display: grid; place-items: center; text-align: center; background: rgba(255,250,235,.88);
+    box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+  .sello small { display: block; font-weight: 900; font-size: 26px; letter-spacing: 4px; }
+  .sello strong { display: block; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 66px; line-height: 1; }
+  /* Golf */
+  .hoyo { width: 110px; height: 30px; border-radius: 50%; background: radial-gradient(#000 55%, #1d1d1d); box-shadow: 0 0 0 6px #2E9E4F; opacity: 0; }
+  .bandera { width: 140px; height: 230px; opacity: 0; transform-origin: 6px 100%; }
+  .pelota { width: 54px; height: 54px; border-radius: 50%; opacity: 0;
+    background: radial-gradient(circle at 35% 30%, #fff 30%, #dcdcdc 70%, #b9b9b9);
+    box-shadow: 0 6px 10px rgba(0,0,0,.4); }
+  .pelota::after { content: ''; position: absolute; inset: 8px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,0,0,.12) 2px, transparent 3px) 0 0 / 10px 10px; }
+  .sticker.club { background: #0F5132; color: #F4E3A8; border-color: #E7C35A; }
+  .sticker.crema { background: #F4E3A8; color: #0B3F27; border-color: #0F5132; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -130,6 +163,10 @@
   @keyframes golpecito { 0% { transform: scale(1) } 40% { transform: scale(1.3) } 100% { transform: scale(1) } }
   @keyframes destello { 0% { opacity: 0 } 25% { opacity: 1 } 100% { opacity: 0 } }
   @keyframes enfocar { from { opacity: 0; transform: scale(1.25) } to { opacity: 1; transform: scale(1) } }
+  @keyframes timbrazo { 0% { opacity: 0; transform: scale(3) rotate(-30deg) } 60% { opacity: 1; transform: scale(.92) rotate(-14deg) } 100% { opacity: 1; transform: scale(1) rotate(-14deg) } }
+  @keyframes rodar { from { opacity: 1; transform: translateX(-1100px) rotate(-1080deg) } to { opacity: 1; transform: none } }
+  @keyframes caer { to { opacity: 0; transform: translateY(8px) scale(.2) } }
+  @keyframes ondear { 0%,100% { transform: skewY(0) } 50% { transform: skewY(-6deg) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -178,9 +215,51 @@
   const ruletas = [];
   window.onFrame = t => ruletas.forEach(f => f(t));
 
+  // ---------- Variante "pase de socio" con timbre de precio ----------
+  function pase(seg) {
+    const t0 = seg.desde, t1 = seg.hasta, top = seg.top || 1410;
+    const g = el('abs grad abajo'); anim(g, `fadeIn .5s ease ${s(t0)} both`);
+    const c = el('abs pase', `
+      <div class="head"><div class="tg"></div><div class="nro">${seg.numero || 'Nº 0001'}</div></div>
+      <img class="logo" src="assets/logo.png" alt="">
+      <div class="tit">${seg.titulo || 'PASE DE SOCIO'}</div>
+      <div class="nombre">${seg.nombre} <b>${seg.acento}</b></div>
+      <div class="chips">${seg.chips.map(x => `<span class="chip">${x}</span>`).join('')}</div>`);
+    c.style.top = top + 'px';
+    anim(c, `subirCard .6s ${EASE_IN} ${s(t0)} both`);
+    const tags = [].concat(seg.tag || 'TIENDA VIRTUAL 100% ORIGINAL'), paso = (t1 - t0) / tags.length;
+    tags.forEach((txt, i) => {
+      const sp = document.createElement('span'); sp.textContent = txt; c.querySelector('.tg').appendChild(sp);
+      const a = [`tagIn .35s ease-out ${s(t0 + (i ? i * paso : 0.3))} both`];
+      if (i < tags.length - 1) a.push(`tagOut .3s ease-in ${s(t0 + (i + 1) * paso - 0.3)} forwards`);
+      anim(sp, ...a);
+    });
+    if (seg.precio) {
+      const se = el('abs sello', `<div><small>${seg.selloTexto || 'APROBADO'}</small><strong>${seg.precio}</strong><small>SOLO</small></div>`);
+      Object.assign(se.style, { left: '790px', top: top - 200 + 'px' });
+      anim(se, `timbrazo .45s cubic-bezier(.3,1.4,.5,1) ${s(seg.selloEn ?? t0 + 0.8)} both`);
+    }
+  }
+
+  // ---------- Golf: pelota que rueda y cae al hoyo ----------
+  if (D.golf) {
+    const G = D.golf, hx = G.x, hy = G.y;
+    const hoyo = el('abs hoyo'); Object.assign(hoyo.style, { left: hx - 55 + 'px', top: hy - 15 + 'px' });
+    const band = el('abs bandera', `<svg viewBox="0 0 140 230"><rect x="2" y="0" width="8" height="230" rx="4" fill="#fff"/>
+      <path d="M10 6 L130 40 L10 76 Z" fill="#D7263D" stroke="#fff" stroke-width="4"/></svg>`);
+    Object.assign(band.style, { left: hx - 6 + 'px', top: hy - 225 + 'px' });
+    const bola = el('abs pelota'); Object.assign(bola.style, { left: hx - 27 + 'px', top: hy - 40 + 'px' });
+    const fin = `fadeOut .35s ease ${s(G.hasta - 0.35)} forwards`;
+    anim(hoyo, `pop .4s ${EASE_POP} ${s(G.desde)} both`, fin);
+    anim(band, `pop .45s ${EASE_POP} ${s(G.desde + 0.1)} both`, `ondear .8s ease-in-out ${s(G.desde + 0.5)} infinite`, fin);
+    anim(bola, `rodar ${G.rodar || 1.4}s cubic-bezier(.15,.7,.3,1) ${s(G.desde + 0.2)} both`,
+               `caer .25s ease-in ${s(G.desde + 0.2 + (G.rodar || 1.4))} forwards`);
+  }
+
   // ---------- Un bloque (tarjeta + precio + frases) por producto ----------
   D.segmentos.forEach(seg => {
     const t0 = seg.desde, t1 = seg.hasta, arriba = seg.pos === 'arriba';
+    if (seg.estilo === 'pase') return pase(seg);
     const cardTop = arriba ? 290 : 1470;
     const out = `fadeOut .35s ease ${s(t1 - 0.35)} forwards`;
 

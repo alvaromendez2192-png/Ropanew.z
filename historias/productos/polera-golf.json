@@ -1,0 +1,21 @@
+{
+  "slug": "polera-golf",
+  "clips": [{ "video": "../entrada/polera-golf.mov", "inicio": 0.2, "dur": 7.2, "hdr": true }],
+  "golf": { "desde": 0.3, "hasta": 3.0, "x": 860, "y": 1330, "rodar": 1.4 },
+  "segmentos": [
+    {
+      "estilo": "pase", "desde": 2.3, "hasta": 7.2, "top": 1420,
+      "numero": "Nº 0015", "titulo": "PASE DE SOCIO · TALLA M",
+      "tag": ["TIENDA VIRTUAL 100% ORIGINAL", "100% ORIGINAL · 0% CUOTA DE SOCIO"],
+      "nombre": "POLERA", "acento": "GOLF VILLA",
+      "chips": ["HOMBRE", "TALLA M", "ESTAMPADA"],
+      "precio": "$15.000", "selloTexto": "APROBADO", "selloEn": 3.0,
+      "frases": []
+    }
+  ],
+  "stickers": [
+    { "texto": "¡HOYO EN UNO!", "desde": 1.9, "hasta": 3.5, "x": "centro", "y": 1060, "rot": -5, "color": "club grande" },
+    { "texto": "PINTA DE CUICO, PRECIO DE FERIA", "desde": 3.8, "hasta": 5.5, "x": "centro", "y": 1190, "rot": 3, "color": "crema" },
+    { "texto": "SIN PITUTO NI CUOTA DE SOCIO", "desde": 5.6, "hasta": 7.2, "x": "centro", "y": 1190, "rot": -3, "color": "club" }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "slug": "polera-foto",
+  "clips": [
+    { "video": "../entrada/polera-foto-frente.mov", "inicio": 0.3, "dur": 5.0, "hdr": true },
+    { "video": "../entrada/polera-foto-espalda.mov", "inicio": 0.3, "dur": 7.2, "hdr": true }
+  ],
+  "transicion": { "tipo": "fadewhite", "dur": 0.4 },
+  "tema": {
+    "navy": "#111111", "amarillo": "#D7FF3A", "rosa": "#FFFFFF", "verde": "#D7FF3A",
+    "sombraPrecio": "#111111", "tagTexto": "#111"
+  },
+  "segmentos": [
+    {
+      "desde": 0.3, "hasta": 4.6, "pos": "abajo",
+      "tag": ["TIENDA VIRTUAL 100% ORIGINAL", "DE FRENTE: PIOLITA..."],
+      "nombre": "POLERA", "acento": "ESTAMPADA",
+      "chips": ["HOMBRE", "TALLA M"],
+      "frases": ["Por delante, piolita", "Pero atrás se pone cuático..."], "frasesHasta": 2.7
+    },
+    {
+      "desde": 5.0, "hasta": 11.8, "pos": "abajo",
+      "tag": ["100% ORIGINAL, NADA DE CHANTA", "TIENDA VIRTUAL, PINTA PULENTA"],
+      "nombre": "POLERA", "acento": "ESTAMPADA",
+      "chips": ["HOMBRE", "TALLA M", "FRENTE + ESPALDA"], "precio": "$18.000",
+      "frases": ["Estampado bacán en la espalda", "Pa' sacar pica en el carrete"]
+    }
+  ],
+  "stickers": [
+    { "texto": "¿CACHAI LO QUE VIENE?", "desde": 2.8, "hasta": 4.5, "x": "centro", "y": 700, "rot": -4, "color": "lima grande" },
+    { "texto": "¡CLICK!", "desde": 4.55, "hasta": 5.5, "x": "centro", "y": 820, "rot": 6, "color": "negro2 grande" },
+    { "texto": "¡QUÉ CUÁTICO!", "desde": 7.7, "hasta": 9.5, "x": 90, "y": 270, "rot": -6, "color": "lima" },
+    { "texto": "18 LUCAS NOMÁS", "desde": 9.8, "hasta": 11.7, "x": 560, "y": 1080, "rot": 5, "color": "negro2" }
+  ],
+  "flashes": [4.5],
+  "visores": [
+    { "desde": 5.2, "hasta": 7.5, "x": 120, "y": 300, "w": 840, "h": 800, "texto": "REC · FOTO DE ESPALDA" }
+  ],
+  "cierre": {
+    "titulo": "¿TE TINCA?", "nombre": "POLERA ESTAMPADA", "precio": "$18.000",
+    "detalle": "Hombre · Talla M · Estampado frente y espalda",
+    "texto": "Por 18 lucas andai filete. Escríbenos altiro y te la guardamos",
+    "boton": "RESPONDE \"ME TINCA\"",
+    "tinte": "linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.55))",
+    "brillos": true
+  }
+}

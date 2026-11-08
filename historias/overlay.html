@@ -54,6 +54,23 @@
   .trazo .t { font-family: 'Anton', sans-serif; font-size: 60px; color: #fff; text-shadow: 0 6px 20px rgba(0,0,0,.7); margin-top: -10px; white-space: nowrap; }
   .trazo .t b { color: #FFB800; font-weight: 400; }
   .llama { width: 180px; opacity: 0; transform-origin: 50% 100%; }
+  .sticker.lima { background: #D7FF3A; color: #111; border-color: #111; }
+  .sticker.negro2 { background: #111; color: #fff; }
+  .flash { left: 0; top: 0; width: 1080px; height: 1920px; background: #fff; opacity: 0; }
+  .visor { opacity: 0; }
+  .visor i { position: absolute; width: 90px; height: 90px; border: 0 solid var(--amarillo); filter: drop-shadow(0 0 3px #111) drop-shadow(0 2px 8px rgba(0,0,0,.6)); }
+  .visor i:nth-child(1) { left: 0; top: 0; border-top-width: 10px; border-left-width: 10px; }
+  .visor i:nth-child(2) { right: 0; top: 0; border-top-width: 10px; border-right-width: 10px; }
+  .visor i:nth-child(3) { left: 0; bottom: 0; border-bottom-width: 10px; border-left-width: 10px; }
+  .visor i:nth-child(4) { right: 0; bottom: 0; border-bottom-width: 10px; border-right-width: 10px; }
+  .visor .foco { position: absolute; left: 50%; top: 50%; width: 60px; height: 60px; margin: -30px; }
+  .visor .foco::before, .visor .foco::after { content: ''; position: absolute; background: var(--amarillo); box-shadow: 0 0 3px #111; }
+  .visor .foco::before { left: 27px; top: 0; width: 6px; height: 60px; }
+  .visor .foco::after { top: 27px; left: 0; height: 6px; width: 60px; }
+  .visor .rec { position: absolute; left: 10px; top: -70px; font-weight: 800; font-size: 32px; letter-spacing: 2px;
+    background: #111; padding: 6px 20px; border-radius: 999px;
+    display: flex; align-items: center; gap: 12px; text-shadow: 0 2px 8px rgba(0,0,0,.7); white-space: nowrap; }
+  .visor .rec::before { content: ''; width: 22px; height: 22px; border-radius: 50%; background: #FF2E2E; animation: inherit; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -64,7 +81,7 @@
   .card .nombre b { color: var(--amarillo); font-weight: 400; }
   .card .chips { position: absolute; left: 177px; top: 116px; display: flex; gap: 16px; }
   .card .chip { font-weight: 800; font-size: 22px; padding: 4px 18px; border-radius: 999px; }
-  .card .chip:nth-child(1) { background: var(--rosa); }
+  .card .chip:nth-child(1) { background: var(--rosa); color: var(--tagTexto, #fff); }
   .card .chip:nth-child(2) { background: var(--verde); color: var(--navy2); }
   .card .chip:nth-child(3) { background: #fff; color: var(--navy2); }
 
@@ -111,6 +128,8 @@
   @keyframes dibujar { to { stroke-dashoffset: 0 } }
   @keyframes flamear { 0%,100% { transform: scaleY(1) scaleX(1) } 33% { transform: scaleY(1.12) scaleX(.94) } 66% { transform: scaleY(.92) scaleX(1.05) } }
   @keyframes golpecito { 0% { transform: scale(1) } 40% { transform: scale(1.3) } 100% { transform: scale(1) } }
+  @keyframes destello { 0% { opacity: 0 } 25% { opacity: 1 } 100% { opacity: 0 } }
+  @keyframes enfocar { from { opacity: 0; transform: scale(1.25) } to { opacity: 1; transform: scale(1) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -228,6 +247,16 @@
     k.style.setProperty('--r0', ((st.rot || 0) - 30) + 'deg');
     anim(k, `stickerIn .45s ease-out ${s(st.desde)} both`, `stickerOut .3s ease-in ${s(st.hasta - 0.3)} forwards`);
     anim(k.firstElementChild, `tambaleo .5s ease-in-out ${s(st.desde + 0.45)} infinite`);
+  });
+
+  // ---------- Flash de cámara ----------
+  (D.flashes || []).forEach(t => anim(el('abs flash'), `destello .5s ease-out ${s(t)} both`));
+
+  // ---------- Visor de cámara ----------
+  (D.visores || []).forEach(v => {
+    const k = el('abs visor', `<i></i><i></i><i></i><i></i><div class="foco"></div><div class="rec">${v.texto || ''}</div>`);
+    Object.assign(k.style, { left: v.x + 'px', top: v.y + 'px', width: v.w + 'px', height: v.h + 'px' });
+    anim(k, `enfocar .35s ease-out ${s(v.desde)} both`, `fadeOut .3s ease ${s(v.hasta - 0.3)} forwards`);
   });
 
   // ---------- Trazo dibujado a mano (p. ej. una V) ----------

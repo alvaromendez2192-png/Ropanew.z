@@ -277,6 +277,27 @@
   .ficha .fl.top .v { color: #111; background: #F2C94C; padding: 0 14px; border-radius: 8px; font-size: 44px; }
   .sticker.oro2 { background: #F2C94C; color: #111; border-color: #111; }
   .sticker.ring { background: #111; color: #F2C94C; border-color: #F2C94C; }
+  /* Portada de revista */
+  .revista-top { left: 0; right: 0; text-align: center; color: #fff; }
+  .revista-top .pre { display: inline-block; font-weight: 800; font-size: 26px; letter-spacing: 14px; opacity: 0; background: #111; padding: 4px 6px 4px 20px; }
+  .revista-top .mast { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 210px; line-height: .9; letter-spacing: -4px;
+    -webkit-text-stroke: 3px #111; text-shadow: 0 8px 30px rgba(0,0,0,.55); }
+  .revista-top .mast span { display: inline-block; opacity: 0; }
+  .revista-top .ed { display: inline-block; margin-top: 8px; font-weight: 700; font-size: 22px; letter-spacing: 5px; padding: 6px 16px;
+    background: rgba(17,17,17,.85); opacity: 0; text-shadow: 0 2px 8px rgba(0,0,0,.6); }
+  .cover { left: 50px; width: 520px; color: #fff; }
+  .cover .cl { margin-bottom: 30px; opacity: 0; text-shadow: 0 3px 14px rgba(0,0,0,.75), 0 0 2px rgba(0,0,0,.8); }
+  .cover .cl b { display: block; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 76px; line-height: 1; letter-spacing: 1px; }
+  .cover .cl b em { font-style: normal; color: #E8C26A; }
+  .cover .cl i { display: block; font-family: 'Playfair Display', serif; font-size: 36px; line-height: 1.2; margin-top: 4px; }
+  .barcode { width: 290px; background: #fff; color: #111; padding: 14px 18px 12px; border-radius: 6px; opacity: 0; box-shadow: 0 10px 24px rgba(0,0,0,.4); }
+  .barcode .bars { position: relative; height: 92px; overflow: hidden;
+    background: repeating-linear-gradient(90deg, #111 0 3px, #fff 3px 5px, #111 5px 6px, #fff 6px 10px, #111 10px 14px, #fff 14px 16px, #111 16px 17px, #fff 17px 21px); }
+  .barcode .laser { position: absolute; top: 0; bottom: 0; width: 6px; background: #ff2a2a; box-shadow: 0 0 14px 4px rgba(255,42,42,.8); left: -10px; }
+  .barcode .num { font-family: 'Courier New', monospace; font-weight: 700; font-size: 16px; letter-spacing: 3px; text-align: center; margin-top: 4px; }
+  .barcode .pr { font-family: 'Anton', sans-serif; font-size: 66px; text-align: center; line-height: 1; margin-top: 4px; opacity: 0; }
+  .lateral { color: #fff; font-weight: 800; font-size: 22px; letter-spacing: 8px; writing-mode: vertical-rl; opacity: 0; text-shadow: 0 2px 8px rgba(0,0,0,.7); }
+  .sticker.revista { background: #fff; color: #111; border-color: #111; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -364,6 +385,8 @@
   @keyframes expandir { 0% { opacity: .9; transform: scale(.3) } 100% { opacity: 0; transform: scale(4) } }
   @keyframes temblor { 0%,100% { transform: translate(0,0) } 20% { transform: translate(-14px,8px) } 40% { transform: translate(12px,-10px) } 60% { transform: translate(-8px,-6px) } 80% { transform: translate(6px,10px) } }
   @keyframes entrarDer { from { opacity: 0; transform: translateX(80px) } to { opacity: 1; transform: none } }
+  @keyframes caerLetra { from { opacity: 0; transform: translateY(-120px) rotate(-8deg) } to { opacity: 1; transform: none } }
+  @keyframes escanear { from { left: -10px } to { left: 100% } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -642,6 +665,28 @@
     Object.assign(f.style, { left: F.x + 'px', top: F.y + 'px' });
     anim(f, `entrarIzq .5s ${EASE_IN} ${s(F.desde)} both`, ...(D.cierre ? [`fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`] : []));
     f.querySelectorAll('.fl').forEach((r, i) => anim(r, `entrarDer .35s ease-out ${s(F.desde + 0.4 + i * (F.paso || 0.35))} both`));
+  }
+
+  // ---------- Portada de revista ----------
+  if (D.revista) {
+    const R = D.revista;
+    const top = el('abs revista-top', `<div class="pre">${R.pre}</div><div class="mast">${[...R.titulo].map(c => `<span>${c}</span>`).join('')}</div><div class="ed">${R.edicion}</div>`);
+    top.style.top = R.y + 'px';
+    anim(top.querySelector('.pre'), `fadeIn .4s ease ${s(R.desde)} both`);
+    top.querySelectorAll('.mast span').forEach((c, i) => anim(c, `caerLetra .45s cubic-bezier(.2,1.4,.4,1) ${s(R.desde + 0.15 + i * 0.09)} both`));
+    anim(top.querySelector('.ed'), `fadeIn .4s ease ${s(R.desde + 0.8)} both`);
+    const cv = el('abs cover', R.lineas.map(l => `<div class="cl"><b>${l.grande}</b><i>${l.chico}</i></div>`).join(''));
+    cv.style.top = R.lineasY + 'px';
+    cv.querySelectorAll('.cl').forEach((c, i) => anim(c, `entrarIzq .5s ${EASE_IN} ${s(R.lineas[i].t)} both`));
+    const B = R.barcode, bc = el('abs barcode', `<div class="bars"><div class="laser"></div></div><div class="num">${B.num}</div><div class="pr">${B.precio}</div>`);
+    Object.assign(bc.style, { left: B.x + 'px', top: B.y + 'px', transform: 'rotate(-3deg)' });
+    anim(bc, `subir .45s ${EASE_IN} ${s(B.t)} both`);
+    anim(bc.querySelector('.laser'), `escanear .7s ease-in-out ${s(B.t + 0.4)} both`, `fadeOut .15s linear ${s(B.t + 1.1)} forwards`);
+    anim(bc.querySelector('.pr'), `golpe .4s cubic-bezier(.2,1.5,.4,1) ${s(B.t + 1.1)} both`);
+    if (R.lateral) {
+      const la = el('abs lateral', R.lateral); Object.assign(la.style, { left: '1022px', top: R.lateralY + 'px' });
+      anim(la, `fadeIn .5s ease ${s(R.desde + 1)} both`);
+    }
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

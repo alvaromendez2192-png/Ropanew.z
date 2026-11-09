@@ -1,0 +1,15 @@
+{
+  "slug": "polera-rib-negra",
+  "clips": [{ "video": "../entrada/polera-rib-negra.mov", "inicio": 0.2, "dur": 9.4, "velocidad": 0.88, "hdr": true }],
+  "segmentos": [],
+  "citas": {
+    "desde": 0.2, "fotos": 3, "y": 1090, "yBotones": 1530, "like": 6.4, "match": 7.1,
+    "nombre": "Polera Rib", "edad": "L",
+    "detalle": "💰 <b>$12.000</b> · Hombre · 📍 a un mensaje de distancia",
+    "bio": "Negrita, básica y nunca fome. Busco brazos pa' lucirme 💪",
+    "tags": ["#Gym", "#Carrete", "#Verano", "#100%Original"],
+    "matchTexto": "Tú y la Polera Rib se gustaron 🔥",
+    "matchPrecio": "TALLA L · $12.000",
+    "boton": "💬 ENVIAR MENSAJE"
+  }
+}

@@ -405,6 +405,45 @@
     background: #1ED760; color: #0b0b0b; font-weight: 900; font-size: 46px; padding: 22px 54px; border-radius: 999px; box-shadow: 0 14px 40px rgba(30,215,96,.45); }
   .cmus .btn b { font-size: 60px; line-height: 1; }
   .cmus .baja { position: absolute; left: 0; right: 0; top: 1650px; font-weight: 800; font-size: 30px; letter-spacing: 3px; }
+  /* App de citas */
+  .citas-top { left: 40px; right: 40px; top: 210px; opacity: 0; }
+  .citas-top .seg { display: flex; gap: 8px; }
+  .citas-top .seg i { flex: 1; height: 7px; border-radius: 4px; background: rgba(255,255,255,.35); overflow: hidden; position: relative; }
+  .citas-top .seg i b { position: absolute; inset: 0; background: #fff; transform-origin: 0 50%; transform: scaleX(0); }
+  .citas-top .hd { margin-top: 16px; display: flex; align-items: center; justify-content: space-between; }
+  .citas-top .app { display: flex; align-items: center; gap: 12px; font-weight: 900; font-size: 40px; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.6); }
+  .citas-top .app span { color: #FF4F8B; }
+  .citas-top .app img { width: 64px; border-radius: 14px; }
+  .perfil { left: 50px; right: 50px; color: #fff; text-shadow: 0 3px 12px rgba(0,0,0,.75); opacity: 0; }
+  .perfil .nm { display: flex; align-items: center; gap: 16px; font-size: 78px; font-weight: 900; line-height: 1; }
+  .perfil .nm small { font-weight: 600; font-size: 64px; }
+  .perfil .nm .ok { width: 52px; height: 52px; border-radius: 50%; background: #2F8CFF; display: grid; place-items: center; font-size: 32px; text-shadow: none; }
+  .perfil .dt { margin-top: 12px; font-size: 32px; font-weight: 600; opacity: .95; }
+  .perfil .dt b { color: #FFD23F; }
+  .perfil .bio { margin-top: 12px; font-size: 32px; font-style: italic; font-weight: 600; opacity: 0; }
+  .perfil .tags { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 12px; text-shadow: none; }
+  .perfil .tags span { font-weight: 700; font-size: 26px; padding: 8px 20px; border-radius: 999px; background: rgba(255,255,255,.2);
+    border: 2px solid rgba(255,255,255,.6); backdrop-filter: blur(4px); opacity: 0; }
+  .botones { left: 0; right: 0; display: flex; justify-content: center; gap: 46px; opacity: 0; }
+  .botones div { width: 120px; height: 120px; border-radius: 50%; background: #fff; display: grid; place-items: center; font-size: 56px; font-weight: 900;
+    box-shadow: 0 10px 26px rgba(0,0,0,.4); }
+  .botones .x { color: #9aa0a6; } .botones .st { color: #2F8CFF; width: 96px; height: 96px; margin-top: 12px; font-size: 46px; } .botones .co { color: #FF4F8B; }
+  .megusta { left: 70px; top: 470px; font-family: 'Anton', sans-serif; font-size: 110px; letter-spacing: 4px; color: #2FD6A1; border: 12px solid #2FD6A1;
+    border-radius: 24px; padding: 0 30px; opacity: 0; text-shadow: none; }
+  .match { left: 0; top: 0; width: 1080px; height: 1920px; opacity: 0; text-align: center; color: #fff;
+    background: radial-gradient(circle at 50% 40%, rgba(255,79,139,.9), rgba(19,32,65,.95) 75%); }
+  .match .t { position: absolute; left: 0; right: 0; top: 380px; font-family: 'Pacifico', cursive; font-size: 140px; line-height: 1.1; color: #FFD23F;
+    text-shadow: 0 8px 30px rgba(0,0,0,.4); }
+  .match .s { position: absolute; left: 80px; right: 80px; top: 640px; font-size: 42px; font-weight: 700; }
+  .match .av { position: absolute; top: 800px; width: 330px; height: 330px; border-radius: 50%; border: 10px solid #fff; overflow: hidden; background: #132041;
+    box-shadow: 0 16px 40px rgba(0,0,0,.4); display: grid; place-items: center; }
+  .match .av img { width: 100%; height: 100%; object-fit: cover; }
+  .match .av.yo { font-size: 170px; background: #FFD23F; }
+  .match .cor { position: absolute; left: 50%; top: 900px; margin-left: -70px; width: 140px; font-size: 120px; line-height: 1; }
+  .match .pr { position: absolute; left: 0; right: 0; top: 1200px; }
+  .match .pr span { display: inline-block; background: #FFD23F; color: #132041; font-family: 'Anton', sans-serif; font-size: 70px; padding: 4px 30px; border-radius: 16px; transform: rotate(-2deg); }
+  .match .msg { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1360px; background: #FF4F8B; color: #fff; font-weight: 900;
+    font-size: 44px; padding: 24px 60px; border-radius: 999px; box-shadow: 0 12px 34px rgba(0,0,0,.35); }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -501,6 +540,11 @@
   @keyframes eqA { 0%,100% { height: 14px } 50% { height: 54px } }
   @keyframes pistaIn { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
   @keyframes pistaOut { from { opacity: 1; transform: none } to { opacity: 0; transform: translateY(-60px) } }
+  @keyframes llenar { to { transform: scaleX(1) } }
+  @keyframes presionar { 0%,100% { transform: scale(1) } 40% { transform: scale(.8) } 70% { transform: scale(1.18) } }
+  @keyframes timbre { 0% { opacity: 0; transform: scale(2) rotate(-24deg) } 100% { opacity: 1; transform: scale(1) rotate(-16deg) } }
+  @keyframes deIzq { from { opacity: 0; transform: translateX(-500px) rotate(-20deg) } to { opacity: 1; transform: rotate(-6deg) } }
+  @keyframes deDer { from { opacity: 0; transform: translateX(500px) rotate(20deg) } to { opacity: 1; transform: rotate(6deg) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -911,6 +955,42 @@
     (L.colores || []).forEach(cc => {
       const w = document.createElement('div');
     });
+  }
+
+  // ---------- App de citas ----------
+  if (D.citas) {
+    const Q = D.citas;
+    const top = el('abs citas-top', `<div class="seg">${'<i><b></b></i>'.repeat(Q.fotos)}</div>
+      <div class="hd"><div class="app"><img src="assets/logo.png" alt="">ropa<span>new.z</span> ❤</div></div>`);
+    anim(top, `fadeIn .4s ease ${s(Q.desde)} both`, `fadeOut .3s ease ${s(Q.match - 0.2)} forwards`);
+    const paso = (Q.match - Q.desde) / Q.fotos;
+    top.querySelectorAll('.seg b').forEach((b, i) => anim(b, `llenar ${paso.toFixed(2)}s linear ${s(Q.desde + i * paso)} forwards`));
+    const g = el('abs grad abajo'); g.style.height = '900px';
+    anim(g, `fadeIn .5s ease ${s(Q.desde)} both`, `fadeOut .3s ease ${s(Q.match - 0.2)} forwards`);
+    const pf = el('abs perfil', `<div class="nm">${Q.nombre} <small>${Q.edad}</small><span class="ok">✓</span></div>
+      <div class="dt">${Q.detalle}</div><div class="bio">“${Q.bio}”</div>
+      <div class="tags">${Q.tags.map(t => `<span>${t}</span>`).join('')}</div>`);
+    pf.style.top = Q.y + 'px';
+    anim(pf, `subir .5s ${EASE_IN} ${s(Q.desde + 0.3)} both`, `fadeOut .3s ease ${s(Q.match - 0.2)} forwards`);
+    anim(pf.querySelector('.bio'), `fadeIn .5s ease ${s(Q.desde + 1.4)} both`);
+    pf.querySelectorAll('.tags span').forEach((t, i) => anim(t, `pop .35s ${EASE_POP} ${s(Q.desde + 2.2 + i * 0.25)} both`));
+    const bt = el('abs botones', '<div class="x">✕</div><div class="st">★</div><div class="co">♥</div>');
+    bt.style.top = Q.yBotones + 'px';
+    anim(bt, `subir .45s ${EASE_IN} ${s(Q.desde + 0.6)} both`, `fadeOut .3s ease ${s(Q.match - 0.2)} forwards`);
+    anim(bt.querySelector('.co'), `presionar .45s ease-in-out ${s(Q.like)} both`);
+    const mg = el('abs megusta', 'ME GUSTA');
+    anim(mg, `timbre .3s ease-out ${s(Q.like + 0.2)} both`, `fadeOut .3s ease ${s(Q.match - 0.2)} forwards`);
+    const m = el('abs match', `<div class="t">¡Es un match!</div><div class="s">${Q.matchTexto}</div>
+      <div class="av yo" style="left:150px">😍</div><div class="av" style="left:600px"><img src="assets/logo.png" alt=""></div><div class="cor">💘</div>
+      <div class="pr"><span>${Q.matchPrecio}</span></div><div class="msg">${Q.boton}</div>`);
+    anim(m, `fadeIn .35s ease ${s(Q.match)} both`);
+    anim(m.querySelector('.t'), `golpe .5s cubic-bezier(.2,1.5,.4,1) ${s(Q.match + 0.1)} both`);
+    anim(m.querySelector('.yo'), `deIzq .5s cubic-bezier(.2,1.3,.4,1) ${s(Q.match + 0.3)} both`);
+    anim(m.querySelector('.av:not(.yo)'), `deDer .5s cubic-bezier(.2,1.3,.4,1) ${s(Q.match + 0.3)} both`);
+    anim(m.querySelector('.cor'), `pop .45s ${EASE_POP} ${s(Q.match + 0.7)} both`, `latir .6s ease-in-out ${s(Q.match + 1.1)} infinite`);
+    anim(m.querySelector('.s'), `fadeIn .4s ease ${s(Q.match + 0.4)} both`);
+    anim(m.querySelector('.pr'), `golpe .4s cubic-bezier(.2,1.5,.4,1) ${s(Q.match + 0.9)} both`);
+    anim(m.querySelector('.msg'), `pop .4s ${EASE_POP} ${s(Q.match + 1.1)} both`);
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

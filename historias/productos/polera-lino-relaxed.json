@@ -1,0 +1,80 @@
+{
+  "slug": "polera-lino-relaxed",
+  "clips": [
+    {
+      "video": "../entrada/polera-lino-relaxed.mov",
+      "inicio": 0.2,
+      "dur": 12.0,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "saturacion": 1.05
+    }
+  ],
+  "segmentos": [],
+  "cara": {
+    "desde": 0.3,
+    "hasta": 5.4,
+    "x": 330,
+    "y": 860,
+    "globoY": 470,
+    "fases": [
+      {
+        "t": 0.4,
+        "expr": "enojo",
+        "texto": "¿QUÉ MIRAI, BOBO? 🤨",
+        "temblor": true
+      },
+      {
+        "t": 2.1,
+        "expr": "risa",
+        "texto": "<span class='ja'>JA</span><span class='ja'>JA</span><span class='ja'>JA</span>, ¡ES BROMA! 😂"
+      },
+      {
+        "t": 3.6,
+        "expr": "lentes",
+        "texto": "OBVIO, MIRE NO MÁS 😎"
+      }
+    ]
+  },
+  "comic": {
+    "narracion": {
+      "t": 5.5,
+      "y": 240,
+      "texto": "MIENTRAS TANTO, EN ROPA NEW.Z..."
+    },
+    "panel": {
+      "t": 5.9,
+      "y": 1420,
+      "nombre": "POLERA RELAXED DE LINO",
+      "detalle": "HOMBRE · TALLA L · 100% ORIGINAL"
+    },
+    "pow": {
+      "t": 6.5,
+      "x": 700,
+      "y": 1130,
+      "sobre": "¡POW!",
+      "precio": "$15.000"
+    }
+  },
+  "stickers": [
+    {
+      "texto": "FRESQUITA, LIVIANITA Y CON PINTA",
+      "desde": 7.6,
+      "hasta": 9.8,
+      "x": 50,
+      "y": 1000,
+      "rot": -3,
+      "color": "comic"
+    },
+    {
+      "texto": "LINO PA'L CALOR SANTIAGUINO 🥵",
+      "desde": 9.9,
+      "hasta": 12.0,
+      "x": 50,
+      "y": 1000,
+      "rot": 3,
+      "color": "comic2"
+    }
+  ]
+}

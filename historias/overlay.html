@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Historia Ropa New.Z</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Poppins:wght@400;600;700;800;900&family=Noto+Color+Emoji&family=Pacifico&family=Caveat:wght@600;700&family=Rubik+Spray+Paint&family=Permanent+Marker&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Poppins:wght@400;600;700;800;900&family=Noto+Color+Emoji&family=Pacifico&family=Caveat:wght@600;700&family=Rubik+Spray+Paint&family=Permanent+Marker&family=Bangers&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #132041;
@@ -468,6 +468,29 @@
   .resultado .sn { margin-top: 10px; font-size: 30px; color: #3c4043; }
   .sticker.marca { background: #132041; color: #FFD23F; border-color: #FF4F8B; }
   .sticker.marca2 { background: #FF4F8B; color: #fff; border-color: #132041; }
+  /* Cara animada + cómic */
+  .cara { width: 420px; height: 260px; }
+  .cara .fase { position: absolute; inset: 0; opacity: 0; }
+  .cara svg { width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 6px 10px rgba(0,0,0,.35)); }
+  .globo { max-width: 1000px; white-space: nowrap; background: #fff; color: #111; font-family: 'Bangers', 'Anton', cursive; font-size: 76px; letter-spacing: 2px; line-height: 1;
+    padding: 26px 40px 22px; border: 7px solid #111; border-radius: 60px; opacity: 0; box-shadow: 10px 10px 0 #111; text-align: center; }
+  .globo::after { content: ''; position: absolute; left: 50%; bottom: -54px; margin-left: -20px; border: 30px solid transparent; border-top: 50px solid #111; }
+  .globo::before { content: ''; position: absolute; left: 50%; bottom: -36px; margin-left: -12px; border: 22px solid transparent; border-top: 38px solid #fff; z-index: 1; }
+  .globo .ja { display: inline-block; }
+  .narra { left: 50px; background: #FFD23F; color: #111; font-family: 'Bangers', cursive; font-size: 54px; letter-spacing: 2px; padding: 12px 28px;
+    border: 6px solid #111; box-shadow: 8px 8px 0 #111; opacity: 0; transform: rotate(-1.5deg); }
+  .panel { left: 50px; width: 980px; padding: 22px 30px 24px 200px; background: #fff; border: 7px solid #111; box-shadow: 12px 12px 0 #111; opacity: 0;
+    background-image: radial-gradient(rgba(255,79,139,.28) 2.5px, transparent 3px); background-size: 18px 18px; }
+  .panel img { position: absolute; left: 22px; top: 50%; transform: translateY(-50%); width: 150px; border-radius: 14px; border: 4px solid #111; }
+  .panel b { display: block; font-family: 'Bangers', cursive; font-weight: 400; font-size: 72px; letter-spacing: 2px; line-height: 1; color: #132041; }
+  .panel span { display: block; font-weight: 800; font-size: 28px; color: #111; margin-top: 6px; letter-spacing: 1px; }
+  .pow { width: 340px; height: 300px; opacity: 0; }
+  .pow svg { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(8px 8px 0 #111); }
+  .pow .t { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; font-family: 'Bangers', cursive; color: #111; transform: rotate(-10deg); }
+  .pow .t small { display: block; font-size: 40px; color: #FF4F8B; -webkit-text-stroke: 2px #111; }
+  .pow .t strong { display: block; font-weight: 400; font-size: 64px; line-height: .9; }
+  .sticker.comic { font-family: 'Bangers', cursive; letter-spacing: 2px; background: #FF4F8B; color: #fff; border-color: #111; box-shadow: 8px 8px 0 #111; font-size: 52px; }
+  .sticker.comic2 { font-family: 'Bangers', cursive; letter-spacing: 2px; background: #2FD6A1; color: #111; border-color: #111; box-shadow: 8px 8px 0 #111; font-size: 52px; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -571,6 +594,9 @@
   @keyframes deDer { from { opacity: 0; transform: translateX(500px) rotate(20deg) } to { opacity: 1; transform: rotate(6deg) } }
   @keyframes desplegar { from { opacity: 0; transform: scaleY(.3) } to { opacity: 1; transform: none } }
   @keyframes onda2 { 0% { opacity: .9; transform: scale(.2) } 100% { opacity: 0; transform: scale(8) } }
+  @keyframes mirar { 0%,100% { transform: translate(0,0) } 25% { transform: translate(-14px,4px) } 50% { transform: translate(12px,-6px) } 75% { transform: translate(-4px,8px) } }
+  @keyframes saltito { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-16px) } }
+  @keyframes lentes { 0% { transform: translateY(-420px) rotate(-12deg) } 70% { transform: translateY(10px) rotate(3deg) } 100% { transform: none } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -1038,6 +1064,54 @@
       <div class="tl">${R.titulo}</div><div class="meta"><span class="pz">${R.precio}</span>${R.meta}</div><div class="sn">${R.snippet}</div>`);
     r.style.top = R.y + 'px';
     anim(r, `subir .5s ${EASE_IN} ${s(R.desde)} both`);
+  }
+
+  // ---------- Cara animada que habla ----------
+  if (D.cara) {
+    const F = D.cara;
+    const ojo = (cx, ang) => `<g><circle cx="${cx}" cy="150" r="72" fill="#fff" stroke="#111" stroke-width="9"/>
+      <g class="pup"><circle cx="${cx}" cy="158" r="30" fill="#111"/><circle cx="${cx + 10}" cy="148" r="9" fill="#fff"/></g></g>`;
+    const ceja = (x1, y1, x2, y2) => `<path d="M${x1} ${y1} L${x2} ${y2}" stroke="#111" stroke-width="18" stroke-linecap="round"/>`;
+    const caras = {
+      enojo: `<svg viewBox="0 0 420 260">${ojo(110)}${ojo(310)}${ceja(40, 40, 170, 80)}${ceja(380, 40, 250, 80)}</svg>`,
+      risa: `<svg viewBox="0 0 420 260"><path d="M45 160 Q110 70 175 160" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round"/>
+        <path d="M245 160 Q310 70 375 160" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round"/>
+        <path d="M150 200 Q210 290 270 200 Z" fill="#111"/><path d="M175 232 Q210 262 245 232" fill="#FF4F8B"/></svg>`,
+      lentes: `<svg viewBox="0 0 420 260">${ojo(110)}${ojo(310)}<g class="gafas"><path d="M20 105 H400" stroke="#111" stroke-width="16"/>
+        <path d="M30 100 H190 Q190 215 110 215 Q30 215 30 100Z" fill="#111"/><path d="M230 100 H390 Q390 215 310 215 Q230 215 230 100Z" fill="#111"/>
+        <path d="M60 125 L95 125" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".6"/><path d="M260 125 L295 125" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".6"/></g>
+        <path d="M160 225 Q210 250 270 215" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/></svg>`
+    };
+    const c = el('abs cara'); Object.assign(c.style, { left: F.x + 'px', top: F.y + 'px' });
+    anim(c, `pop .45s ${EASE_POP} ${s(F.desde)} both`, `fadeOut .3s ease ${s(F.hasta - 0.3)} forwards`);
+    F.fases.forEach((f, i) => {
+      const next = F.fases[i + 1], fin = next ? next.t : F.hasta;
+      const fz = el('fase', caras[f.expr], c);
+      anim(fz, `fadeIn .12s linear ${s(f.t)} both`, ...(next ? [`fadeOut .12s linear ${s(fin)} forwards`] : []));
+      fz.querySelectorAll('.pup').forEach(pu => anim(pu, `mirar 1.4s ease-in-out ${s(f.t)} infinite`));
+      if (f.expr === 'risa') anim(fz, `fadeIn .12s linear ${s(f.t)} both`, `saltito .28s ease-in-out ${s(f.t)} infinite`, ...(next ? [`fadeOut .12s linear ${s(fin)} forwards`] : []));
+      const gf = fz.querySelector('.gafas'); if (gf) anim(gf, `lentes .6s cubic-bezier(.3,1.2,.5,1) ${s(f.t)} both`);
+      const gl = el('abs globo', f.texto);
+      Object.assign(gl.style, { left: '0', right: '0', margin: '0 auto', width: 'max-content', top: F.globoY + 'px' });
+      anim(gl, `golpe .35s cubic-bezier(.2,1.5,.4,1) ${s(f.t + 0.1)} both`, ...(f.temblor ? [`temblor .35s linear ${s(f.t + 0.45)} 2`] : []), `fadeOut .15s linear ${s(fin - 0.05)} forwards`);
+      gl.querySelectorAll('.ja').forEach((j, k) => anim(j, `saltito .3s ease-in-out ${s(f.t + k * 0.08)} infinite`));
+    });
+  }
+
+  // ---------- Cómic: narración, panel y POW ----------
+  if (D.comic) {
+    const K = D.comic;
+    const n = el('abs narra', K.narracion.texto); n.style.top = K.narracion.y + 'px';
+    anim(n, `entrarIzq .45s ${EASE_IN} ${s(K.narracion.t)} both`, ...(K.narracion.hasta ? [`fadeOut .3s ease ${s(K.narracion.hasta - 0.3)} forwards`] : []));
+    const pn = el('abs panel', `<img src="assets/logo.png" alt=""><b>${K.panel.nombre}</b><span>${K.panel.detalle}</span>`);
+    pn.style.top = K.panel.y + 'px';
+    anim(pn, `subirCard .55s ${EASE_IN} ${s(K.panel.t)} both`);
+    const pts2 = [];
+    for (let i = 0; i < 28; i++) { const r = i % 2 ? 105 : 160, a = Math.PI * i / 14; pts2.push(`${(170 + r * Math.cos(a)).toFixed(0)},${(150 + r * 0.88 * Math.sin(a)).toFixed(0)}`); }
+    const pw = el('abs pow', `<svg viewBox="0 0 340 300"><polygon points="${pts2.join(' ')}" fill="#FFD23F" stroke="#111" stroke-width="8" stroke-linejoin="round"/></svg>
+      <div class="t"><div><small>${K.pow.sobre}</small><strong>${K.pow.precio}</strong></div></div>`);
+    Object.assign(pw.style, { left: K.pow.x + 'px', top: K.pow.y + 'px' });
+    anim(pw, `azote .5s cubic-bezier(.3,1.2,.5,1) ${s(K.pow.t)} both`, `bamboleo 1.6s ease-in-out ${s(K.pow.t + 0.6)} infinite`);
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

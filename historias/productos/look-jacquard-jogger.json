@@ -1,0 +1,17 @@
+{
+  "slug": "look-jacquard-jogger",
+  "clips": [{ "video": "../entrada/look-jacquard-jogger.mov", "inicio": 0.2, "dur": 10.4, "hdr": true }],
+  "segmentos": [],
+  "stickers": [
+    { "texto": "¡LLEVE, LLEVE, CASERO!", "desde": 0.3, "hasta": 2.4, "x": "centro", "y": 300, "rot": -4, "color": "feria grande" },
+    { "texto": "LO MEJOR DEL MERCADO, EN UN SOLO LUGAR", "desde": 4.6, "hasta": 6.6, "x": "centro", "y": 300, "rot": 3, "color": "feria" }
+  ],
+  "carteles": [
+    { "desde": 1.2, "x": 700, "y": 560, "rot": 7, "color": "lima", "nombre": "POLERA<br>JACQUARD", "detalle": "HOMBRE · TALLA L", "precio": "$15.000" },
+    { "desde": 2.8, "x": 690, "y": 1080, "rot": -6, "color": "fucsia", "nombre": "SHORT<br>JOGGER", "detalle": "HOMBRE · TALLA L", "precio": "$20.000" }
+  ],
+  "boleta": {
+    "desde": 7.0, "dur": 2.0, "x": 50, "y": 300, "alto": 640,
+    "html": "<div class='cen gr'>ROPA NEW.Z</div><div class='cen'>TIENDA VIRTUAL 100% ORIGINAL</div><div class='sep'></div><div class='ln'><span>1 POLERA JACQUARD L</span><span>$15.000</span></div><div class='ln'><span>1 SHORT JOGGER L</span><span>$20.000</span></div><div class='sep'></div><div class='ln tot'><span>TOTAL LOOK</span><span>$35.000</span></div><div class='sep'></div><div class='cen'>LO MEJOR DEL MERCADO<br>EN UN SOLO LUGAR</div><div class='cen gr' style='margin-top:6px'>¡GRACIAS, CASERO!</div><div class='bar'></div>"
+  }
+}

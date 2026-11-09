@@ -298,6 +298,32 @@
   .barcode .pr { font-family: 'Anton', sans-serif; font-size: 66px; text-align: center; line-height: 1; margin-top: 4px; opacity: 0; }
   .lateral { color: #fff; font-weight: 800; font-size: 22px; letter-spacing: 8px; writing-mode: vertical-rl; opacity: 0; text-shadow: 0 2px 8px rgba(0,0,0,.7); }
   .sticker.revista { background: #fff; color: #111; border-color: #111; }
+  /* Cartulina de feria */
+  .cartel { width: 340px; padding: 34px 22px 30px; text-align: center; color: #111; font-family: 'Permanent Marker', cursive; opacity: 0;
+    clip-path: polygon(4% 6%, 30% 0, 62% 4%, 96% 0, 100% 34%, 95% 66%, 100% 96%, 66% 100%, 34% 95%, 2% 100%, 5% 62%, 0 30%);
+    filter: drop-shadow(0 10px 18px rgba(0,0,0,.45)); }
+  .cartel.lima { background: #C6FF3D; }
+  .cartel.fucsia { background: #FF5FD2; }
+  .cartel.naranjo { background: #FFB33D; }
+  .cartel .a { font-size: 40px; line-height: 1.05; }
+  .cartel .b { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 2px; margin-top: 8px; }
+  .cartel .c { font-size: 64px; line-height: 1; margin-top: 8px; text-decoration: underline; text-decoration-thickness: 6px; text-underline-offset: 10px; }
+  .cartel-w { filter: drop-shadow(0 10px 18px rgba(0,0,0,.45)); }
+  /* Boleta térmica */
+  .boleta { width: 450px; overflow: hidden; height: 0; }
+  .boleta .papel { background: #FBFBF7; color: #222; font-family: 'Courier New', monospace; font-weight: 700; font-size: 23px; line-height: 1.45;
+    padding: 24px 26px 34px; box-shadow: 0 16px 30px rgba(0,0,0,.4);
+    -webkit-mask: linear-gradient(#000 0 0) top / 100% calc(100% - 14px) no-repeat, conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / 20px 14px repeat-x; }
+  .boleta .cen { text-align: center; }
+  .boleta .gr { font-size: 34px; letter-spacing: 2px; }
+  .boleta .ln { display: flex; justify-content: space-between; }
+  .boleta .sep { border-top: 3px dashed #999; margin: 8px 0; }
+  .boleta .tot { font-size: 30px; }
+  .boleta .bar { height: 54px; margin-top: 10px;
+    background: repeating-linear-gradient(90deg, #222 0 2px, transparent 2px 4px, #222 4px 7px, transparent 7px 9px, #222 9px 10px, transparent 10px 13px); }
+  .impresora { width: 490px; height: 34px; border-radius: 12px; background: linear-gradient(#3a3a3a, #161616); box-shadow: 0 8px 20px rgba(0,0,0,.45); opacity: 0; }
+  .impresora::after { content: ''; position: absolute; left: 14px; right: 14px; bottom: 6px; height: 6px; background: #000; border-radius: 3px; }
+  .sticker.feria { background: #FFE14D; color: #111; border-color: #111; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -387,6 +413,7 @@
   @keyframes entrarDer { from { opacity: 0; transform: translateX(80px) } to { opacity: 1; transform: none } }
   @keyframes caerLetra { from { opacity: 0; transform: translateY(-120px) rotate(-8deg) } to { opacity: 1; transform: none } }
   @keyframes escanear { from { left: -10px } to { left: 100% } }
+  @keyframes imprimir { from { height: 0 } to { height: var(--h) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -694,6 +721,25 @@
         anim(w, `fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`);
       });
     }
+  }
+
+  // ---------- Cartulinas de feria ----------
+  (D.carteles || []).forEach(c => {
+    const w = el('abs cartel-w'); Object.assign(w.style, { left: c.x + 'px', top: c.y + 'px' });
+    const k = el(`cartel ${c.color}`, `<div class="a">${c.nombre}</div><div class="b">${c.detalle}</div><div class="c">${c.precio}</div>`, w);
+    k.style.setProperty('--r', (c.rot || 0) + 'deg'); k.style.setProperty('--r0', ((c.rot || 0) - 20) + 'deg');
+    anim(k, `pegar .45s cubic-bezier(.3,1.4,.5,1) ${s(c.desde)} both`, ...(c.hasta ? [`fadeOut .3s ease ${s(c.hasta - 0.3)} forwards`] : []));
+  });
+
+  // ---------- Boleta que se imprime ----------
+  if (D.boleta) {
+    const B = D.boleta;
+    const pr = el('abs impresora'); Object.assign(pr.style, { left: B.x - 20 + 'px', top: B.y - 30 + 'px' });
+    anim(pr, `bajar .35s ease-out ${s(B.desde)} both`);
+    const b = el('abs boleta', `<div class="papel">${B.html}</div>`);
+    Object.assign(b.style, { left: B.x + 'px', top: B.y + 'px' });
+    b.style.setProperty('--h', B.alto + 'px');
+    anim(b, `imprimir ${B.dur}s steps(${Math.round(B.dur * 14)}) ${s(B.desde + 0.3)} forwards`);
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

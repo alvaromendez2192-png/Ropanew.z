@@ -1,0 +1,75 @@
+{
+  "slug": "look-rib-easy",
+  "clips": [
+    {
+      "video": "../entrada/look-rib-easy.mov",
+      "inicio": 0.2,
+      "dur": 14.2,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "saturacion": 1.0
+    }
+  ],
+  "segmentos": [],
+  "player": {
+    "desde": 0.3,
+    "y": 1380,
+    "header": "REPRODUCIENDO DESDE · <b>TIENDA VIRTUAL 100% ORIGINAL</b>",
+    "pistas": [
+      {
+        "t": 0.3,
+        "titulo": "Polera Rib",
+        "artista": "Ropa New.Z · Hombre · Talla L · <em>$12.000</em>",
+        "dur": 167,
+        "escala": 1
+      },
+      {
+        "t": 7.6,
+        "titulo": "Short Easy",
+        "artista": "Ropa New.Z · Hombre · Talla L · <em>$20.000</em>",
+        "dur": 182,
+        "escala": 1
+      }
+    ]
+  },
+  "letras": {
+    "desde": 0.6,
+    "y": 230,
+    "color": "linear-gradient(135deg, #C2410C, #9A3412)",
+    "titulo": "LETRA",
+    "alto": 56,
+    "lineas": [
+      {
+        "t0": 0.8,
+        "t1": 3.0,
+        "texto": "Sin mangas, pa' lucir el brazo 💪"
+      },
+      {
+        "t0": 3.0,
+        "t1": 5.2,
+        "texto": "Tejido rib que te queda al pelo"
+      },
+      {
+        "t0": 5.2,
+        "t1": 7.5,
+        "texto": "Doce lucas... ni lo pienses 🎶"
+      },
+      {
+        "t0": 7.8,
+        "t1": 10.0,
+        "texto": "Short easy, cómodo y piola"
+      },
+      {
+        "t0": 10.0,
+        "t1": 12.2,
+        "texto": "Pa' la playa, la plaza o la once ☕"
+      },
+      {
+        "t0": 12.2,
+        "t1": 14.2,
+        "texto": "Veinte lucas y quedai impeque ✨"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "slug": "short-jogger-beige",
+  "clips": [
+    {
+      "video": "../entrada/short-jogger-beige.mov",
+      "inicio": 0.1,
+      "dur": 8.8,
+      "velocidad": 0.9,
+      "hdr": true,
+      "saturacion": 0.9
+    }
+  ],
+  "segmentos": [],
+  "amanecer": {
+    "desde": 0,
+    "hasta": 3.6,
+    "titulo": "¡Buenos días,<br>querida clientela!",
+    "texto": "Que tengan un excelente inicio de semana ☀️ Partimos el lunes con todo y con novedades 💛",
+    "firma": "CON CARIÑO, ROPA NEW.Z"
+  },
+  "libreta": {
+    "desde": 3.5,
+    "x": 50,
+    "y": 1130,
+    "rot": -2,
+    "cinta": "TIENDA VIRTUAL 100% ORIGINAL",
+    "titulo": "Pendientes del lunes:",
+    "items": [
+      {
+        "texto": "Cafecito cargado ☕",
+        "t": 4.3
+      },
+      {
+        "texto": "Short Jogger hombre, talla M: <b>$20.000</b>",
+        "t": 5.2
+      },
+      {
+        "texto": "Andar fresco toda la semana 😎",
+        "t": 6.1
+      }
+    ]
+  },
+  "stickers": [
+    {
+      "texto": "LUNES, PERO CON PINTA",
+      "desde": 6.6,
+      "hasta": 8.8,
+      "x": "centro",
+      "y": 330,
+      "rot": -4,
+      "color": "sol grande"
+    }
+  ]
+}

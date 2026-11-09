@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Historia Ropa New.Z</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Poppins:wght@400;600;700;800;900&family=Noto+Color+Emoji&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Poppins:wght@400;600;700;800;900&family=Noto+Color+Emoji&family=Pacifico&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #132041;
@@ -153,6 +153,39 @@
   .pluma { width: 150px; opacity: 0; }
   .sticker.arena { background: #E8D3A8; color: #2B2A27; border-color: #fff; }
   .sticker.cafe { background: #2B2A27; color: #E8D3A8; }
+  /* Amanecer con saludo */
+  .amanecer { left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; opacity: 0;
+    background: linear-gradient(180deg, rgba(255,196,120,.93) 0%, rgba(255,150,120,.9) 45%, rgba(255,112,140,.88) 100%); }
+  .amanecer .sol { position: absolute; left: 50%; top: 1150px; width: 420px; height: 420px; margin-left: -210px; }
+  .amanecer .sol .disco { position: absolute; inset: 90px; border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #FFF6C9, #FFD45C 55%, #FFB02E); box-shadow: 0 0 120px 40px rgba(255,220,120,.7); }
+  .amanecer .sol svg { position: absolute; inset: 0; }
+  .amanecer .hola { position: absolute; left: 0; right: 0; top: 330px; text-align: center; color: #fff;
+    font-family: 'Pacifico', cursive; font-size: 112px; line-height: 1.15; text-shadow: 0 6px 24px rgba(160,60,40,.45); }
+  .amanecer .sub { position: absolute; left: 90px; right: 90px; top: 680px; text-align: center; color: #5a2a1e;
+    font-size: 46px; font-weight: 700; line-height: 1.3; background: rgba(255,255,255,.75); border-radius: 30px; padding: 26px 30px; }
+  .amanecer .firma { position: absolute; left: 0; right: 0; top: 1640px; text-align: center; color: #fff; font-weight: 800;
+    font-size: 30px; letter-spacing: 4px; }
+  /* Libreta de pendientes */
+  .libreta { width: 920px; background: #FFFDF5; border-radius: 10px 10px 18px 18px; padding: 70px 40px 34px 110px; opacity: 0;
+    box-shadow: 0 24px 50px rgba(0,0,0,.4);
+    background-image: linear-gradient(90deg, transparent 84px, #F28B82 84px, #F28B82 88px, transparent 88px),
+                      repeating-linear-gradient(180deg, transparent 0 63px, #C9DDF2 63px 65px); background-position: 0 0, 0 50px; }
+  .libreta .cinta { position: absolute; left: 50%; top: -26px; transform: translateX(-50%) rotate(-2deg); background: rgba(255,210,120,.92);
+    padding: 10px 30px; font-weight: 800; font-size: 22px; letter-spacing: 2px; color: #5a3a10; white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0,0,0,.15); }
+  .libreta .logo { position: absolute; right: -40px; top: -60px; width: 150px; border-radius: 16px; transform: rotate(8deg);
+    border: 4px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,.3); }
+  .libreta h3 { font-family: 'Caveat', cursive; font-weight: 700; font-size: 66px; color: #1A2B4C; line-height: 1; margin-bottom: 8px; }
+  .libreta .it { display: flex; align-items: center; gap: 22px; font-family: 'Caveat', cursive; font-weight: 600; font-size: 50px; white-space: nowrap;
+    color: #263238; line-height: 64px; }
+  .libreta .it .box { flex: none; width: 46px; height: 46px; border: 4px solid #263238; border-radius: 8px; position: relative; }
+  .libreta .it .box svg { position: absolute; left: -6px; top: -14px; width: 66px; }
+  .libreta .it .box path { fill: none; stroke: #E53935; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round;
+    stroke-dasharray: 100; stroke-dashoffset: 100; }
+  .libreta .it b { font-weight: 700; background: linear-gradient(transparent 55%, #FFE066 55%); padding: 0 6px; }
+  .sticker.sol { background: #FFD45C; color: #5a2a1e; }
+  .sticker.durazno { background: #FF8A7A; color: #fff; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -226,6 +259,9 @@
   @keyframes puntitos { 0%,100% { transform: translateY(0); opacity: .5 } 50% { transform: translateY(-8px); opacity: 1 } }
   @keyframes burbuja { from { opacity: 0; transform: scale(.6) translateY(30px) } to { opacity: 1; transform: none } }
   @keyframes bajar { from { opacity: 0; transform: translateY(-80px) } to { opacity: 1; transform: none } }
+  @keyframes salir { 0% { opacity: 0; transform: translateY(260px) } 100% { opacity: 1; transform: none } }
+  @keyframes girar { to { transform: rotate(360deg) } }
+  @keyframes telon { to { transform: translateY(-1920px) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -353,6 +389,33 @@
       }
       anim(sl.querySelector('.msg'), `burbuja .3s cubic-bezier(.2,1.4,.4,1) ${s(m.t)} both`);
     });
+  }
+
+  // ---------- Amanecer con saludo ----------
+  if (D.amanecer) {
+    const A = D.amanecer;
+    const rayos = Array.from({ length: 16 }, (_, i) =>
+      `<rect x="205" y="0" width="10" height="70" rx="5" fill="#FFF1B8" transform="rotate(${i * 22.5} 210 210)"/>`).join('');
+    const a = el('abs amanecer', `<div class="sol"><svg viewBox="0 0 420 420">${rayos}</svg><div class="disco"></div></div>
+      <div class="hola">${A.titulo}</div><div class="sub">${A.texto}</div><div class="firma">${A.firma || ''}</div>`);
+    anim(a, `fadeIn .4s ease ${s(A.desde)} both`, `telon .6s cubic-bezier(.6,0,.4,1) ${s(A.hasta - 0.6)} forwards`);
+    anim(a.querySelector('.sol'), `salir 1.4s cubic-bezier(.2,.9,.3,1) ${s(A.desde + 0.1)} both`);
+    anim(a.querySelector('.sol svg'), `girar 8s linear ${s(A.desde)} infinite`);
+    anim(a.querySelector('.hola'), `golpe .6s cubic-bezier(.2,1.4,.4,1) ${s(A.desde + 0.4)} both`);
+    anim(a.querySelector('.sub'), `subir .5s ease-out ${s(A.desde + 1.0)} both`);
+    anim(a.querySelector('.firma'), `fadeIn .4s ease ${s(A.desde + 1.4)} both`);
+  }
+
+  // ---------- Libreta de pendientes (tarjeta de producto) ----------
+  if (D.libreta) {
+    const B = D.libreta;
+    const wrap = el('abs');
+    Object.assign(wrap.style, { left: B.x + 'px', top: B.y + 'px', transform: `rotate(${B.rot || -2}deg)` });
+    const lb = el('libreta', `<div class="cinta">${B.cinta}</div><img class="logo" src="assets/logo.png" alt="">
+      <h3>${B.titulo}</h3>${B.items.map(it => `<div class="it"><span class="box"><svg viewBox="0 0 66 66"><path d="M8 34 L26 52 L60 10"/></svg></span><span>${it.texto}</span></div>`).join('')}`);
+    lb.style.position = 'relative'; wrap.appendChild(lb);
+    anim(lb, `subir .6s ${EASE_IN} ${s(B.desde)} both`);
+    lb.querySelectorAll('.it path').forEach((pa, i) => anim(pa, `dibujar .4s ease-out ${s(B.items[i].t)} forwards`));
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

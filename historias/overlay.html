@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Historia Ropa New.Z</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Poppins:wght@400;600;700;800;900&family=Noto+Color+Emoji&family=Pacifico&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Poppins:wght@400;600;700;800;900&family=Noto+Color+Emoji&family=Pacifico&family=Caveat:wght@600;700&family=Rubik+Spray+Paint&family=Permanent+Marker&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #132041;
@@ -225,6 +225,30 @@
     font-family: 'Playfair Display', serif; font-style: italic; font-size: 50px; opacity: 0; }
   .subt { left: 60px; right: 60px; top: 1500px; text-align: center; color: #FFF6D8; font-weight: 700; font-size: 42px; line-height: 1.25; opacity: 0;
     text-shadow: 0 0 4px #000, 0 0 4px #000, 0 3px 10px rgba(0,0,0,.9); }
+  /* Calle: grafiti, rotuladora, sticker hello, medidor de talla */
+  .grafiti { left: 0; right: 0; text-align: center; opacity: 0; }
+  .grafiti .g { display: inline-block; position: relative; font-family: 'Rubik Spray Paint', 'Anton', sans-serif; font-size: 190px; line-height: 1;
+    color: var(--g-color, #FF6A00); -webkit-text-stroke: 4px #111; text-shadow: 8px 8px 0 #111; }
+  .grafiti .gota { position: absolute; top: 150px; width: 12px; border-radius: 0 0 8px 8px; background: var(--g-color, #FF6A00);
+    border: 3px solid #111; border-top: 0; height: 0; }
+  .dymo { display: inline-block; background: #111; color: #f2f2f2; font-family: 'Courier New', monospace; font-weight: 700; font-size: 34px;
+    letter-spacing: 6px; padding: 10px 24px; border-radius: 4px; text-shadow: 0 -1px 0 #000, 0 1px 0 #666;
+    box-shadow: 0 6px 14px rgba(0,0,0,.4); opacity: 0; }
+  .dymo.rojo { background: #C62828; }
+  .hello { width: 330px; border-radius: 22px; overflow: hidden; background: #fff; border: 5px solid #C62828; opacity: 0;
+    box-shadow: 0 14px 30px rgba(0,0,0,.4); text-align: center; }
+  .hello .h1 { background: #C62828; color: #fff; padding: 12px 0 6px; font-family: 'Anton', sans-serif; font-size: 46px; letter-spacing: 3px; line-height: 1; }
+  .hello .h2 { background: #C62828; color: #fff; font-weight: 700; font-size: 20px; letter-spacing: 2px; padding-bottom: 12px; }
+  .hello .h3 { font-family: 'Permanent Marker', cursive; color: #111; font-size: 78px; padding: 10px 0 14px; line-height: 1; }
+  .medidor { left: 60px; width: 960px; opacity: 0; }
+  .medidor .riel { position: relative; height: 26px; border-radius: 13px; background: rgba(17,17,17,.85); border: 4px solid #fff; }
+  .medidor .marcas { display: flex; justify-content: space-between; padding: 0 40px; margin-top: 10px; }
+  .medidor .marcas span { font-family: 'Anton', sans-serif; font-size: 48px; color: #fff; -webkit-text-stroke: 2px #111; width: 80px; text-align: center; }
+  .medidor .flecha { position: absolute; top: -78px; width: 60px; margin-left: -30px; }
+  .medidor .rot { margin: 0 auto 96px; display: block; width: max-content; background: #FF6A00; color: #111; font-family: 'Anton', sans-serif;
+    font-size: 44px; padding: 6px 26px; border-radius: 12px; border: 4px solid #111; opacity: 0; }
+  .sticker.calle { background: #111; color: #FF6A00; border-color: #FF6A00; }
+  .sticker.naranja { background: #FF6A00; color: #111; border-color: #111; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -304,6 +328,10 @@
   @keyframes correr { from { transform: translateX(0) } to { transform: translateX(-50%) } }
   @keyframes barraIn { to { transform: none } }
   @keyframes espaciar { from { opacity: 0; letter-spacing: 40px; filter: blur(8px) } to { opacity: 1; letter-spacing: 2px; filter: blur(0) } }
+  @keyframes spray { from { opacity: 1; clip-path: inset(0 100% 0 0) } to { opacity: 1; clip-path: inset(0 0 0 0) } }
+  @keyframes chorrear { to { height: var(--h) } }
+  @keyframes pegar { 0% { opacity: 0; transform: scale(1.8) rotate(var(--r0)) } 60% { opacity: 1; transform: scale(.95) rotate(var(--r)) } 100% { opacity: 1; transform: scale(1) rotate(var(--r)) } }
+  @keyframes deslizar { from { left: var(--de) } to { left: var(--a) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -515,6 +543,50 @@
       const st = el('abs subt', u.texto);
       anim(st, `fadeIn .2s ease ${s(u.desde)} both`, `fadeOut .2s ease ${s(u.hasta - 0.2)} forwards`);
     });
+  }
+
+  // ---------- Grafiti con chorreo ----------
+  if (D.grafiti) {
+    const G = D.grafiti, g = el('abs grafiti', `<span class="g">${G.texto}</span>`);
+    g.style.top = G.y + 'px';
+    if (G.color) g.style.setProperty('--g-color', G.color);
+    anim(g, `spray .9s steps(14) ${s(G.desde)} both`);
+    (G.gotas || [0.12, 0.35, 0.62, 0.86]).forEach((f, i) => {
+      const d = el('gota', '', g.firstElementChild);
+      d.style.left = (f * 100) + '%'; d.style.setProperty('--h', (40 + (i * 37) % 60) + 'px');
+      anim(d, `chorrear 1.6s ease-out ${s(G.desde + 0.8 + i * 0.15)} forwards`);
+    });
+  }
+
+  // ---------- Etiquetas de rotuladora ----------
+  (D.dymos || []).forEach(dm => {
+    const w = el('abs'); Object.assign(w.style, { left: dm.x + 'px', top: dm.y + 'px' });
+    const k = el(`dymo ${dm.color || ''}`, dm.texto, w);
+    k.style.setProperty('--r', (dm.rot || 0) + 'deg'); k.style.setProperty('--r0', ((dm.rot || 0) + 12) + 'deg');
+    anim(k, `pegar .4s ease-out ${s(dm.desde)} both`);
+  });
+
+  // ---------- Sticker "Hola, mi precio es" ----------
+  if (D.hello) {
+    const H = D.hello, w = el('abs'); Object.assign(w.style, { left: H.x + 'px', top: H.y + 'px' });
+    const k = el('hello', `<div class="h1">${H.titulo || 'HOLA'}</div><div class="h2">${H.sub || 'MI PRECIO ES'}</div><div class="h3">${H.precio}</div>`, w);
+    k.style.setProperty('--r', (H.rot || 6) + 'deg'); k.style.setProperty('--r0', ((H.rot || 6) - 25) + 'deg');
+    anim(k, `pegar .45s cubic-bezier(.3,1.4,.5,1) ${s(H.desde)} both`);
+  }
+
+  // ---------- Medidor de talla ----------
+  if (D.medidor) {
+    const M = D.medidor, n = M.tallas.length;
+    const pos = t => `calc(40px + ${M.tallas.indexOf(t)} * (100% - 160px) / ${n - 1} + 40px)`;
+    const m = el('abs medidor', `<div class="rot">${M.texto}</div><div class="riel">
+      <svg class="flecha" viewBox="0 0 60 70"><path d="M30 68 L4 28 L18 28 L18 2 L42 2 L42 28 L56 28 Z" fill="#FF6A00" stroke="#111" stroke-width="5" stroke-linejoin="round"/></svg></div>
+      <div class="marcas">${M.tallas.map(t => `<span>${t}</span>`).join('')}</div>`);
+    m.style.top = M.y + 'px';
+    const fl = m.querySelector('.flecha');
+    fl.style.setProperty('--de', pos(M.desdeTalla)); fl.style.setProperty('--a', pos(M.hastaTalla));
+    anim(m, `subir .5s ${EASE_IN} ${s(M.desde)} both`);
+    anim(fl, `deslizar .8s cubic-bezier(.5,0,.2,1.4) ${s(M.mover)} both`);
+    anim(m.querySelector('.rot'), `golpe .45s cubic-bezier(.2,1.5,.4,1) ${s(M.mover + 0.7)} both`);
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

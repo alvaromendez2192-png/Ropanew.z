@@ -1,0 +1,16 @@
+{
+  "slug": "short-baggy",
+  "clips": [{ "video": "../entrada/short-baggy.mov", "inicio": 0.1, "dur": 7.7, "hdr": true }],
+  "segmentos": [],
+  "grafiti": { "texto": "BAGGY", "desde": 0.3, "y": 210, "color": "#FF6A00" },
+  "dymos": [
+    { "texto": "SHORT BUZO · HOMBRE", "desde": 1.1, "x": 50, "y": 470, "rot": -3 },
+    { "texto": "100% ORIGINAL", "desde": 1.4, "x": 50, "y": 545, "rot": 2, "color": "rojo" }
+  ],
+  "hello": { "desde": 2.0, "x": 690, "y": 1130, "rot": 6, "titulo": "HOLA", "sub": "MI PRECIO ES", "precio": "$25.000" },
+  "medidor": { "desde": 3.0, "mover": 3.7, "y": 1360, "tallas": ["XS", "S", "M", "L"], "desdeTalla": "S", "hastaTalla": "M", "texto": "TALLA S... ¡QUE DA PA' M!" },
+  "stickers": [
+    { "texto": "PA' ANDAR CHORO EN LA PLAZA", "desde": 4.9, "hasta": 6.3, "x": 50, "y": 1050, "rot": -4, "color": "calle" },
+    { "texto": "CERO APRETADO, PURO FLOW", "desde": 6.3, "hasta": 7.7, "x": 50, "y": 1050, "rot": 3, "color": "naranja" }
+  ]
+}

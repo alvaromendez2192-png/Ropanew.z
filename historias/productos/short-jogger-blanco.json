@@ -1,0 +1,21 @@
+{
+  "slug": "short-jogger-blanco",
+  "clips": [{ "video": "../entrada/short-jogger-blanco.mov", "inicio": 0.1, "dur": 7.5, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.0 }],
+  "segmentos": [],
+  "ticker": {
+    "desde": 0.2, "y": 1575, "rot": -2, "vuelta": 16,
+    "texto": "SHORT JOGGER <b>★</b> HOMBRE <b>★</b> TALLA M <b>★</b> <b>$20.000</b> <b>★</b> TIENDA VIRTUAL 100% ORIGINAL <b>★</b> BLANCO IMPECABLE <b>★</b> "
+  },
+  "insignia": { "desde": 0.6, "x": 800, "y": 250, "precio": "$20.000", "anillo": "SHORT JOGGER · HOMBRE · TALLA M · 100% ORIGINAL ·" },
+  "maquina": {
+    "x": 60, "y": 260, "cps": 14,
+    "lineas": [
+      { "texto": "Blanco.", "t": 0.8 },
+      { "texto": "Fresco.", "t": 1.9 },
+      { "texto": "Tuyo por 20 lucas.", "t": 3.0 }
+    ]
+  },
+  "stickers": [
+    { "texto": "PIDE SOL, PLAYA Y COMPLETO 🌭", "desde": 4.8, "hasta": 7.5, "x": 60, "y": 1440, "rot": -3, "color": "mar" }
+  ]
+}

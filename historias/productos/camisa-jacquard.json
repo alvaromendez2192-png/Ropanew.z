@@ -1,21 +1,68 @@
 {
   "slug": "camisa-jacquard",
-  "clips": [{ "video": "../entrada/camisa-jacquard.mov", "inicio": 0.2, "dur": 9.0, "hdr": true }],
+  "clips": [
+    {
+      "video": "../entrada/camisa-jacquard.mov",
+      "inicio": 0.2,
+      "dur": 9.0,
+      "hdr": true
+    }
+  ],
   "segmentos": [],
   "revista": {
-    "desde": 0.2, "y": 150,
-    "pre": "ROPA", "titulo": "NEW.Z", "edicion": "EDICIÓN HOMBRE · Nº 16 · NOV 2026",
+    "desde": 0.2,
+    "y": 150,
+    "pre": "ROPA",
+    "titulo": "NEW.Z",
+    "edicion": "EDICIÓN HOMBRE · Nº 16 · NOV 2026",
     "lineasY": 640,
     "lineas": [
-      { "grande": "LA <em>CAMISA</em>", "chico": "que manda este verano", "t": 1.2 },
-      { "grande": "JACQUARD", "chico": "textura que se nota (y se siente)", "t": 1.7 },
-      { "grande": "TALLA <em>L</em>", "chico": "pa'l que pisa fuerte", "t": 2.2 }
+      {
+        "grande": "LA <em>CAMISA</em>",
+        "chico": "que manda este verano",
+        "t": 1.2
+      },
+      {
+        "grande": "JACQUARD",
+        "chico": "textura que se nota (y se siente)",
+        "t": 1.7
+      },
+      {
+        "grande": "TALLA <em>L</em>",
+        "chico": "pa'l que pisa fuerte",
+        "t": 2.2
+      }
     ],
-    "barcode": { "t": 2.8, "x": 730, "y": 1380, "num": "7 802026 112816", "precio": "$28.000" },
-    "lateral": "TIENDA VIRTUAL 100% ORIGINAL", "lateralY": 640
+    "barcode": {
+      "t": 2.8,
+      "x": 730,
+      "y": 1380,
+      "num": "7 802026 112816",
+      "precio": "$28.000"
+    },
+    "lateral": "TIENDA VIRTUAL 100% ORIGINAL",
+    "lateralY": 640
   },
-  "lupa": { "desde": 4.3, "hasta": 6.9, "cx": 330, "cy": 1150, "zoom": 2.4, "r": 190, "x": 790, "y": 900, "texto": "ZOOM AL JACQUARD" },
-  "stickers": [
-    { "texto": "PA' ROBARLE PANTALLA AL NOVIO", "desde": 7.1, "hasta": 9.0, "x": 50, "y": 1250, "rot": -3, "color": "revista" }
-  ]
+  "lupa": {
+    "desde": 4.3,
+    "hasta": 6.9,
+    "cx": 330,
+    "cy": 1150,
+    "zoom": 2.4,
+    "r": 190,
+    "x": 790,
+    "y": 900,
+    "texto": "ZOOM AL JACQUARD"
+  },
+  "stickers": [],
+  "cierre": {
+    "titulo": "¿TE LA LLEVAS?",
+    "nombre": "CAMISA JACQUARD",
+    "precio": "$28.000",
+    "detalle": "Hombre · Talla L · Tienda virtual 100% original",
+    "texto": "Si la quieres, pídela o déjanos un mensaje 📩",
+    "boton": "RESPONDE \"CAMISA\"",
+    "tinte": "linear-gradient(180deg, rgba(10,10,10,.55), rgba(40,32,15,.5))",
+    "brillos": true
+  }
 }

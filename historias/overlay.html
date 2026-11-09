@@ -687,6 +687,13 @@
       const la = el('abs lateral', R.lateral); Object.assign(la.style, { left: '1022px', top: R.lateralY + 'px' });
       anim(la, `fadeIn .5s ease ${s(R.desde + 1)} both`);
     }
+    if (D.cierre) {
+      // Al entrar el cierre, la portada se retira para que no se mezcle
+      [top, cv, bc, document.querySelector('.lateral')].filter(Boolean).forEach(e => {
+        const w = el('abs'); w.style.inset = '0'; e.parentNode.insertBefore(w, e); w.appendChild(e);
+        anim(w, `fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`);
+      });
+    }
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

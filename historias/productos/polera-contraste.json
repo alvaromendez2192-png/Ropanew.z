@@ -1,0 +1,21 @@
+{
+  "slug": "polera-contraste",
+  "clips": [{ "video": "../entrada/polera-contraste.mov", "inicio": 0.2, "dur": 8.3, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.05 }],
+  "segmentos": [],
+  "buscador": {
+    "desde": 0.3, "hasta": 3.4, "y": 230, "escribe": 0.6, "cps": 15, "sugEn": 1.5, "click": 2.6, "elegida": 2,
+    "texto": "polera deportiva talla L",
+    "sugerencias": ["polera deportiva talla L <b>original</b>", "polera deportiva talla L <b>que no sea cara</b>", "polera deportiva talla L <b>ropa new.z ✓</b>"],
+    "resultado": {
+      "desde": 3.2, "y": 1250,
+      "sitio": "Ropa New.Z", "url": "Tienda virtual 100% original · Instagram",
+      "titulo": "Polera Contraste deportiva · Hombre · Talla L",
+      "precio": "$12.000", "meta": "<span class='fav'>⭐ Favorita de la semana</span>",
+      "snippet": "La moda en un solo lugar. ¿Pa' qué pagar de más? 😉"
+    }
+  },
+  "stickers": [
+    { "texto": "¿PA' QUÉ PAGAR DE MÁS?", "desde": 4.6, "hasta": 6.4, "x": "centro", "y": 1080, "rot": -3, "color": "marca grande" },
+    { "texto": "PA' CORRER... O PA' HACERSE EL QUE CORRE 😅", "desde": 6.5, "hasta": 8.3, "x": "centro", "y": 1120, "rot": 3, "color": "marca2" }
+  ]
+}

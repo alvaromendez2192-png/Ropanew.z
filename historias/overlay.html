@@ -444,6 +444,30 @@
   .match .pr span { display: inline-block; background: #FFD23F; color: #132041; font-family: 'Anton', sans-serif; font-size: 70px; padding: 4px 30px; border-radius: 16px; transform: rotate(-2deg); }
   .match .msg { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1360px; background: #FF4F8B; color: #fff; font-weight: 900;
     font-size: 44px; padding: 24px 60px; border-radius: 999px; box-shadow: 0 12px 34px rgba(0,0,0,.35); }
+  /* Buscador */
+  .buscador { left: 50px; width: 980px; opacity: 0; }
+  .buscador .caja { display: flex; align-items: center; gap: 18px; background: #fff; border-radius: 40px; padding: 20px 30px;
+    box-shadow: 0 12px 34px rgba(0,0,0,.35); font-size: 40px; color: #222; font-weight: 600; border: 4px solid #FF4F8B; }
+  .buscador .caja .lupa { font-size: 40px; }
+  .buscador .caja .q { flex: 1; white-space: nowrap; overflow: hidden; }
+  .buscador .caja .cur { display: inline-block; width: 3px; height: 42px; background: #FF4F8B; vertical-align: -6px; margin-left: 2px; }
+  .buscador .sug { margin-top: 10px; background: #fff; border-radius: 26px; overflow: hidden; box-shadow: 0 12px 34px rgba(0,0,0,.3); opacity: 0; transform-origin: 50% 0; }
+  .buscador .sug div { display: flex; align-items: center; gap: 18px; padding: 18px 30px; font-size: 34px; color: #333; border-top: 1px solid #eee; position: relative; }
+  .buscador .sug div b { color: #111; }
+  .buscador .sug div.sel { background: #FFE3EE; }
+  .buscador .sug .ripple { position: absolute; left: 50%; top: 50%; width: 60px; height: 60px; margin: -30px; border-radius: 50%; background: rgba(255,79,139,.45); opacity: 0; }
+  .resultado { left: 50px; width: 980px; background: #fff; border-radius: 30px; padding: 26px 32px; opacity: 0; box-shadow: 0 16px 40px rgba(0,0,0,.4); color: #222; }
+  .resultado .src { display: flex; align-items: center; gap: 16px; }
+  .resultado .src img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid #eee; }
+  .resultado .src b { display: block; font-size: 28px; }
+  .resultado .src span { display: block; font-size: 22px; color: #5f6368; }
+  .resultado .tl { margin-top: 14px; font-size: 44px; font-weight: 800; color: #1A3E9C; line-height: 1.15; }
+  .resultado .meta { margin-top: 10px; display: flex; align-items: center; gap: 18px; font-size: 28px; color: #5f6368; font-weight: 600; flex-wrap: wrap; }
+  .resultado .meta .pz { font-family: 'Anton', sans-serif; font-size: 52px; color: #132041; background: #FFD23F; padding: 0 16px; border-radius: 12px; }
+  .resultado .meta .fav { background: #FF4F8B; color: #fff; padding: 4px 16px; border-radius: 999px; font-weight: 800; font-size: 24px; }
+  .resultado .sn { margin-top: 10px; font-size: 30px; color: #3c4043; }
+  .sticker.marca { background: #132041; color: #FFD23F; border-color: #FF4F8B; }
+  .sticker.marca2 { background: #FF4F8B; color: #fff; border-color: #132041; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -545,6 +569,8 @@
   @keyframes timbre { 0% { opacity: 0; transform: scale(2) rotate(-24deg) } 100% { opacity: 1; transform: scale(1) rotate(-16deg) } }
   @keyframes deIzq { from { opacity: 0; transform: translateX(-500px) rotate(-20deg) } to { opacity: 1; transform: rotate(-6deg) } }
   @keyframes deDer { from { opacity: 0; transform: translateX(500px) rotate(20deg) } to { opacity: 1; transform: rotate(6deg) } }
+  @keyframes desplegar { from { opacity: 0; transform: scaleY(.3) } to { opacity: 1; transform: none } }
+  @keyframes onda2 { 0% { opacity: .9; transform: scale(.2) } 100% { opacity: 0; transform: scale(8) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -991,6 +1017,27 @@
     anim(m.querySelector('.s'), `fadeIn .4s ease ${s(Q.match + 0.4)} both`);
     anim(m.querySelector('.pr'), `golpe .4s cubic-bezier(.2,1.5,.4,1) ${s(Q.match + 0.9)} both`);
     anim(m.querySelector('.msg'), `pop .4s ${EASE_POP} ${s(Q.match + 1.1)} both`);
+  }
+
+  // ---------- Buscador con sugerencias y resultado ----------
+  if (D.buscador) {
+    const Bq = D.buscador;
+    const b = el('abs buscador', `<div class="caja"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#FF4F8B" stroke-width="2.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><span class="q"></span></div>
+      <div class="sug">${Bq.sugerencias.map((t, i) => `<div class="${i === Bq.elegida ? 'sel' : ''}"><span>🔍</span><span>${t}</span>${i === Bq.elegida ? '<i class="ripple"></i>' : ''}</div>`).join('')}</div>`);
+    b.style.top = Bq.y + 'px';
+    anim(b, `bajar .4s ease-out ${s(Bq.desde)} both`, `fadeOut .3s ease ${s(Bq.hasta - 0.3)} forwards`);
+    anim(b.querySelector('.sug'), `desplegar .3s ease-out ${s(Bq.sugEn)} both`);
+    anim(b.querySelector('.ripple'), `onda2 .5s ease-out ${s(Bq.click)} both`);
+    const q = b.querySelector('.q'), cps = Bq.cps || 14;
+    ruletas.push(t => {
+      const n = Math.max(0, Math.min(Bq.texto.length, Math.floor((t - Bq.escribe) * cps)));
+      q.innerHTML = Bq.texto.slice(0, n) + (Math.floor(t * 2.5) % 2 === 0 ? '<span class="cur"></span>' : '');
+    });
+    const R = Bq.resultado;
+    const r = el('abs resultado', `<div class="src"><img src="assets/logo.png" alt=""><div><b>${R.sitio}</b><span>${R.url}</span></div></div>
+      <div class="tl">${R.titulo}</div><div class="meta"><span class="pz">${R.precio}</span>${R.meta}</div><div class="sn">${R.snippet}</div>`);
+    r.style.top = R.y + 'px';
+    anim(r, `subir .5s ${EASE_IN} ${s(R.desde)} both`);
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

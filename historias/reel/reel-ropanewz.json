@@ -1,0 +1,232 @@
+{
+  "slug": "reel-ropanewz",
+  "usuario": "ropanew.z",
+  "cortes": [
+    {
+      "seccion": "gancho",
+      "video": "../entrada/polera-rio-espalda.mov",
+      "inicio": 4.0,
+      "dur": 0.4
+    },
+    {
+      "seccion": "gancho",
+      "video": "../entrada/polera-golf.mov",
+      "inicio": 3.0,
+      "dur": 0.4
+    },
+    {
+      "seccion": "gancho",
+      "video": "../entrada/conjunto-burdeo.mov",
+      "inicio": 3.0,
+      "dur": 0.4
+    },
+    {
+      "seccion": "gancho",
+      "video": "../entrada/short-baggy.mov",
+      "inicio": 3.0,
+      "dur": 0.4
+    },
+    {
+      "seccion": "gancho",
+      "video": "../entrada/polera-foto-espalda.mov",
+      "inicio": 4.0,
+      "dur": 0.4
+    },
+    {
+      "seccion": "gancho",
+      "video": "../entrada/combi-playa.mov",
+      "inicio": 5.0,
+      "dur": 0.4
+    },
+    {
+      "seccion": "marca",
+      "video": "../entrada/polera-calado.mov",
+      "inicio": 5.0,
+      "dur": 2.0,
+      "golpe": false
+    },
+    {
+      "seccion": "desfile",
+      "video": "../entrada/polera-rio-espalda.mov",
+      "inicio": 2.5,
+      "dur": 1.25,
+      "nombre": "POLERA RÍO",
+      "detalle": "ESTAMPADA · TALLA M",
+      "precio": "$17.000"
+    },
+    {
+      "seccion": "desfile",
+      "video": "../entrada/camisa-jacquard.mov",
+      "inicio": 4.0,
+      "dur": 1.25,
+      "nombre": "CAMISA JACQUARD",
+      "detalle": "TALLA L",
+      "precio": "$28.000"
+    },
+    {
+      "seccion": "desfile",
+      "video": "../entrada/conjunto-burdeo.mov",
+      "inicio": 0.6,
+      "dur": 1.25,
+      "nombre": "CONJUNTO BURDEO",
+      "detalle": "POLERA + SHORT · TALLA M",
+      "precio": "$37.000"
+    },
+    {
+      "seccion": "desfile",
+      "video": "../entrada/polera-golf.mov",
+      "inicio": 1.2,
+      "dur": 1.25,
+      "nombre": "POLERA GOLF VILLA",
+      "detalle": "TALLA M",
+      "precio": "$15.000"
+    },
+    {
+      "seccion": "desfile",
+      "video": "../entrada/polera-calado.mov",
+      "inicio": 2.0,
+      "dur": 1.25,
+      "nombre": "PUNTO CALADO",
+      "detalle": "TALLA M",
+      "precio": "$25.000"
+    },
+    {
+      "seccion": "desfile",
+      "video": "../entrada/short-baggy.mov",
+      "inicio": 1.0,
+      "dur": 1.25,
+      "nombre": "SHORT BAGGY",
+      "detalle": "TALLA S (DA PA' M)",
+      "precio": "$25.000"
+    },
+    {
+      "seccion": "desfile",
+      "video": "../entrada/polera-foto-espalda.mov",
+      "inicio": 2.0,
+      "dur": 1.25,
+      "nombre": "POLERA ESTAMPADA",
+      "detalle": "TALLA M",
+      "precio": "$18.000"
+    },
+    {
+      "seccion": "desfile",
+      "video": "../entrada/combi-playa.mov",
+      "inicio": 0.6,
+      "dur": 1.25,
+      "nombre": "COMBI PLAYERA",
+      "detalle": "POLERA + SHORT DE BAÑO · L",
+      "precio": "$32.000"
+    },
+    {
+      "seccion": "desfile",
+      "video": "../entrada/polera-slim-v.mov",
+      "inicio": 1.0,
+      "dur": 1.25,
+      "nombre": "SLIM FIT CUELLO V",
+      "detalle": "TALLA M",
+      "precio": "$10.000"
+    },
+    {
+      "seccion": "desfile",
+      "video": "../entrada/polera-relaxed-l.mov",
+      "inicio": 1.0,
+      "dur": 1.25,
+      "nombre": "RELAXED ESTRUCTURA",
+      "detalle": "TALLA L",
+      "precio": "$18.000"
+    },
+    {
+      "seccion": "desfile",
+      "video": "../entrada/look-jacquard-jogger.mov",
+      "inicio": 0.6,
+      "dur": 1.25,
+      "nombre": "JACQUARD + JOGGER",
+      "detalle": "TALLA L",
+      "precio": "$35.000"
+    },
+    {
+      "seccion": "desfile",
+      "video": "../entrada/polera-contraste.mov",
+      "inicio": 1.0,
+      "dur": 1.25,
+      "nombre": "POLERA CONTRASTE",
+      "detalle": "TALLA L",
+      "precio": "$12.000"
+    },
+    {
+      "seccion": "desfile",
+      "video": "../entrada/short-lino.mov",
+      "inicio": 1.0,
+      "dur": 1.25,
+      "nombre": "SHORT DE LINO",
+      "detalle": "TALLA M",
+      "precio": "$23.000"
+    },
+    {
+      "seccion": "desfile",
+      "video": "../entrada/polera-lino-relaxed.mov",
+      "inicio": 0.6,
+      "dur": 1.25,
+      "nombre": "RELAXED DE LINO",
+      "detalle": "TALLA L",
+      "precio": "$15.000"
+    },
+    {
+      "seccion": "desfile",
+      "video": "../entrada/polera-aesthetic.mov",
+      "inicio": 1.0,
+      "dur": 1.25,
+      "nombre": "POLERA AESTHETIC",
+      "detalle": "TALLA L",
+      "precio": "$15.000"
+    },
+    {
+      "seccion": "desfile",
+      "video": "../entrada/polera-rib-negra.mov",
+      "inicio": 0.6,
+      "dur": 1.25,
+      "nombre": "POLERA RIB",
+      "detalle": "TALLA L",
+      "precio": "$12.000"
+    },
+    {
+      "seccion": "precios",
+      "video": "../entrada/short-jogger-blanco.mov",
+      "inicio": 2.0,
+      "dur": 1.0
+    },
+    {
+      "seccion": "precios",
+      "video": "../entrada/polera-relaxed.mov",
+      "inicio": 2.0,
+      "dur": 1.0
+    },
+    {
+      "seccion": "final",
+      "video": "../entrada/polera-jacquard.mov",
+      "inicio": 1.0,
+      "dur": 4.4,
+      "golpe": false
+    }
+  ],
+  "gancho": [
+    "¿TODAVÍA PAGAS",
+    "DE MÁS POR",
+    "ROPA ORIGINAL?"
+  ],
+  "marca": {
+    "titulo": "ROPA NEW.Z",
+    "sub": "TIENDA VIRTUAL 100% ORIGINAL",
+    "sub2": "Moda hombre en un solo lugar"
+  },
+  "precioDesde": "$10.000",
+  "final": {
+    "titulo": "¡SÍGUENOS PA' NO PERDERTE NA'!",
+    "bio": [
+      "🛍️ Tienda virtual 100% original",
+      "👕 Moda hombre · Tallas S a L",
+      "🔥 Nuevos ingresos cada semana",
+      "📩 Pedidos por DM"
+    ]
+  }
+}

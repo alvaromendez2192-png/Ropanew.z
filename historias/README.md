@@ -12,3 +12,9 @@ Cada historia: la prenda a pantalla completa con una tarjeta compacta por produc
 - Un video con varios productos: agrega un bloque en `segmentos` por prenda, con `desde`/`hasta` (segundos) y `pos` (`abajo` o `arriba`, para no tapar la prenda que se está mostrando).
 - Videos de iPhone (HDR): pon `"hdr": true` para que los colores no salgan lavados.
 - La música agrégala dentro de Instagram (sticker de música).
+
+## Reel para publicación
+
+`node reel.js reel/reel-ropanewz.json` une cortes de los videos de `entrada/` en un reel de ~30 s
+(gancho, marca, desfile de prendas con precios, "precios desde" y final con perfil + botón Seguir).
+Edita `reel/reel-ropanewz.json` para cambiar cortes, prendas, precios o el usuario de Instagram.

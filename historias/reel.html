@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Reel Ropa New.Z</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;600;700;800;900&family=Pacifico&family=Noto+Color+Emoji&display=swap" rel="stylesheet">
+<style>
+  :root { --navy: #132041; --rosa: #FF4F8B; --amarillo: #FFD23F; --verde: #2FD6A1; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1920px; background: transparent; overflow: hidden; }
+  body { font-family: 'Poppins', 'Noto Color Emoji', sans-serif; color: #fff; position: relative; }
+  .abs { position: absolute; }
+
+  .flash { left: 0; top: 0; width: 1080px; height: 1920px; background: #fff; opacity: 0; }
+  .velo { left: 0; top: 0; width: 1080px; height: 1920px; opacity: 0; }
+
+  /* Gancho */
+  .gancho { left: 0; right: 0; top: 620px; text-align: center; }
+  .gancho .l { display: block; margin-bottom: 18px; opacity: 0; }
+  .gancho .l span { display: inline-block; font-family: 'Anton', sans-serif; font-size: 132px; line-height: 1.05; padding: 4px 30px;
+    color: var(--navy); background: var(--amarillo); border: 7px solid #111; box-shadow: 12px 12px 0 #111; }
+  .gancho .l:nth-child(2) span { background: #fff; transform: rotate(2deg); }
+  .gancho .l:nth-child(3) span { background: var(--rosa); color: #fff; transform: rotate(-2deg); }
+
+  /* Marca */
+  .marca { left: 0; right: 0; top: 520px; text-align: center; }
+  .marca .logo { width: 430px; height: 360px; margin: 0 auto; border-radius: 60px; background: var(--navy); border: 8px solid #fff; overflow: hidden;
+    display: grid; place-items: center; box-shadow: 0 0 0 10px var(--rosa), 0 30px 80px rgba(0,0,0,.6); opacity: 0; }
+  .marca .logo img { width: 410px; }
+  .marca .t { margin-top: 60px; font-family: 'Anton', sans-serif; font-size: 150px; line-height: 1; letter-spacing: 4px; text-shadow: 0 10px 40px rgba(0,0,0,.6); }
+  .marca .t span { display: inline-block; opacity: 0; }
+  .marca .t span:nth-child(n+6) { color: var(--amarillo); }
+  .marca .s { display: inline-block; margin-top: 26px; background: var(--rosa); font-weight: 900; font-size: 38px; letter-spacing: 3px; padding: 10px 30px; border-radius: 999px; opacity: 0; }
+  .marca .s2 { margin-top: 20px; font-family: 'Pacifico', cursive; font-size: 54px; opacity: 0; text-shadow: 0 4px 20px rgba(0,0,0,.6); }
+
+  /* Desfile */
+  .marcaTop { left: 0; right: 0; margin: 0 auto; width: max-content; top: 210px; display: flex; align-items: center; gap: 14px;
+    background: rgba(19,32,65,.9); border: 3px solid var(--amarillo); border-radius: 999px; padding: 8px 26px 8px 10px; opacity: 0; }
+  .marcaTop img { width: 64px; height: 56px; object-fit: cover; border-radius: 999px; }
+  .marcaTop b { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 36px; letter-spacing: 2px; }
+  .marcaTop span { font-weight: 800; font-size: 22px; color: var(--amarillo); letter-spacing: 2px; }
+  .cont { left: 50px; top: 300px; font-family: 'Anton', sans-serif; font-size: 64px; color: #fff; text-shadow: 0 4px 16px rgba(0,0,0,.7); opacity: 0; }
+  .cont small { font-size: 36px; color: var(--amarillo); }
+  .barras { left: 50px; right: 50px; top: 400px; display: flex; gap: 6px; opacity: 0; }
+  .barras i { flex: 1; height: 8px; border-radius: 4px; background: rgba(255,255,255,.35); }
+  .barras i.on { background: var(--amarillo); }
+  .item { left: 50px; top: 1240px; width: 820px; opacity: 0; }
+  .item .nm { display: inline-block; font-family: 'Anton', sans-serif; font-size: 88px; line-height: 1; letter-spacing: 1px; padding: 6px 24px;
+    background: #fff; color: var(--navy); border: 6px solid #111; box-shadow: 10px 10px 0 #111; transform: rotate(-2deg); }
+  .item .dt { display: inline-block; margin-top: 18px; font-weight: 800; font-size: 30px; letter-spacing: 2px; background: var(--navy); padding: 6px 18px; border-radius: 10px; }
+  .item .pr { position: absolute; right: -10px; top: -175px; font-family: 'Anton', sans-serif; font-size: 80px; color: var(--navy); background: var(--amarillo);
+    padding: 6px 24px; border-radius: 18px; border: 6px solid #111; box-shadow: 8px 8px 0 #111; transform: rotate(5deg); }
+  .pica { left: 0; right: 0; margin: 0 auto; width: max-content; top: 520px; font-family: 'Anton', sans-serif; font-size: 58px; letter-spacing: 1px;
+    background: var(--rosa); color: #fff; padding: 12px 34px; border: 6px solid #111; border-radius: 20px; box-shadow: 10px 10px 0 #111; opacity: 0; }
+
+  /* Precios */
+  .precios { left: 0; right: 0; top: 700px; text-align: center; opacity: 0; }
+  .precios .a { font-family: 'Anton', sans-serif; font-size: 110px; letter-spacing: 4px; text-shadow: 0 8px 30px rgba(0,0,0,.6); }
+  .precios .b { display: inline-block; margin-top: 10px; font-family: 'Anton', sans-serif; font-size: 230px; line-height: 1; color: var(--navy); background: var(--amarillo);
+    padding: 10px 40px; border-radius: 30px; border: 10px solid #111; box-shadow: 16px 16px 0 #111; transform: rotate(-3deg); }
+  .precios .c { margin-top: 40px; font-weight: 900; font-size: 44px; text-shadow: 0 4px 16px rgba(0,0,0,.7); }
+
+  /* Final: perfil */
+  .final { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; /* 1px sin cubrir: el PNG conserva el canal alfa */
+    background: linear-gradient(170deg, rgba(19,32,65,.97), rgba(40,18,60,.96) 55%, rgba(255,79,139,.93)); }
+  .final h2 { position: absolute; left: 60px; right: 60px; top: 230px; text-align: center; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 100px; line-height: 1.05;
+    color: var(--amarillo); text-shadow: 0 8px 30px rgba(0,0,0,.5); }
+  .perfil { position: absolute; left: 60px; right: 60px; top: 560px; background: #fff; color: #111; border-radius: 40px; padding: 40px 44px 44px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+  .perfil .cab { display: flex; align-items: center; gap: 36px; }
+  .perfil .av { flex: none; width: 210px; height: 210px; border-radius: 50%; padding: 9px;
+    background: conic-gradient(from 200deg, var(--amarillo), var(--rosa), #8A3FFC, var(--amarillo)); }
+  .perfil .av div { width: 100%; height: 100%; border-radius: 50%; border: 7px solid #fff; overflow: hidden; background: var(--navy); }
+  .perfil .av img { width: 100%; height: 100%; object-fit: cover; }
+  .perfil .us { font-size: 50px; font-weight: 800; }
+  .perfil .nb { font-size: 32px; font-weight: 700; color: #555; }
+  .perfil .bio { margin-top: 28px; font-size: 36px; line-height: 1.5; font-weight: 600; }
+  .perfil .bio div { opacity: 0; }
+  .perfil .seguir { position: relative; margin-top: 32px; height: 110px; border-radius: 24px; background: #0095F6; color: #fff; display: grid; place-items: center;
+    font-size: 46px; font-weight: 800; overflow: hidden; }
+  .perfil .seguir .b2 { position: absolute; inset: 0; display: grid; place-items: center; background: #EFEFEF; color: #111; opacity: 0; }
+  .dedo { width: 130px; opacity: 0; font-size: 120px; line-height: 1; }
+  .corazon { font-size: 90px; opacity: 0; }
+  .final .comparte { position: absolute; left: 60px; right: 60px; top: 1520px; text-align: center; font-weight: 900; font-size: 44px; line-height: 1.3; }
+  .final .comparte b { color: var(--amarillo); }
+
+  @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+  @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
+  @keyframes destello { 0% { opacity: .85 } 100% { opacity: 0 } }
+  @keyframes golpe { from { opacity: 0; transform: scale(2.3) } to { opacity: 1; transform: scale(1) } }
+  @keyframes pop { from { opacity: 0; transform: scale(0) rotate(-30deg) } to { opacity: 1; transform: none } }
+  @keyframes caer { from { opacity: 0; transform: translateY(-160px) } to { opacity: 1; transform: none } }
+  @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
+  @keyframes entrarIzq { from { opacity: 0; transform: translateX(-700px) } to { opacity: 1; transform: none } }
+  @keyframes temblor { 0%,100% { transform: translate(0,0) } 25% { transform: translate(-12px,8px) } 50% { transform: translate(10px,-8px) } 75% { transform: translate(-6px,-6px) } }
+  @keyframes tocar { 0% { opacity: 0; transform: translate(140px, 160px) } 60% { opacity: 1; transform: none } 80% { transform: scale(.85) } 100% { opacity: 1; transform: none } }
+  @keyframes subirCorazon { 0% { opacity: 0; transform: translateY(0) scale(.4) } 15% { opacity: 1 } 100% { opacity: 0; transform: translateY(-700px) scale(1.2) rotate(var(--r)) } }
+  @keyframes latido { 0%,100% { transform: scale(1) } 50% { transform: scale(1.05) } }
+</style>
+</head>
+<body>
+<script>
+  const D = window.DATA;
+  const s = n => `${n.toFixed(2)}s`;
+  const el = (cls, html, parent = document.body) => { const e = document.createElement('div'); e.className = cls; if (html) e.innerHTML = html; parent.appendChild(e); return e; };
+  const anim = (e, ...a) => { e.style.animation = a.join(', '); };
+  const frames = [];
+  window.onFrame = t => frames.forEach(f => f(t));
+
+  const sec = name => D.cortes.filter(c => c.seccion === name);
+  const ini = name => sec(name)[0].t;
+  const fin = name => { const x = sec(name); return x[x.length - 1].t + x[x.length - 1].dur; };
+
+  // Destello blanco en cada corte (menos en el primero y en el final)
+  D.cortes.forEach((c, i) => { if (i > 0 && c.seccion !== 'final') anim(el("abs flash"), `destello .22s ease-out ${s(c.t)} forwards`); });
+
+  // ---------- Gancho ----------
+  {
+    const t0 = ini('gancho'), t1 = fin('gancho');
+    const g = el('abs gancho', D.gancho.map(l => `<span class="l"><span>${l}</span></span>`).join(''));
+    g.querySelectorAll('.l').forEach((l, i) => anim(l, `golpe .3s cubic-bezier(.2,1.5,.4,1) ${s(t0 + 0.1 + i * 0.7)} both`));
+    anim(g, `fadeOut .15s linear ${s(t1 - 0.1)} forwards`);
+  }
+
+  // ---------- Marca ----------
+  {
+    const t0 = ini('marca'), t1 = fin('marca');
+    const v = el('abs velo'); v.style.background = 'radial-gradient(circle at 50% 45%, rgba(19,32,65,.55), rgba(0,0,0,.8))';
+    anim(v, `fadeIn .2s ease ${s(t0)} both`, `fadeOut .2s ease ${s(t1 - 0.2)} forwards`);
+    const M = D.marca;
+    const m = el('abs marca', `<div class="logo"><img src="assets/logo.png" alt=""></div>
+      <div class="t">${[...M.titulo].map(c => `<span>${c === ' ' ? '&nbsp;' : c}</span>`).join('')}</div>
+      <div class="s">${M.sub}</div><div class="s2">${M.sub2}</div>`);
+    anim(m.querySelector('.logo'), `golpe .45s cubic-bezier(.3,1.3,.5,1) ${s(t0 + 0.05)} both`);
+    m.querySelectorAll('.t span').forEach((c, i) => anim(c, `caer .3s cubic-bezier(.2,1.4,.4,1) ${s(t0 + 0.35 + i * 0.05)} both`));
+    anim(m.querySelector('.s'), `golpe .35s cubic-bezier(.2,1.5,.4,1) ${s(t0 + 0.95)} both`);
+    anim(m.querySelector('.s2'), `fadeIn .3s ease ${s(t0 + 1.25)} both`);
+    anim(m, `temblor .3s linear ${s(t0 + 0.4)} 1`, `fadeOut .15s linear ${s(t1 - 0.1)} forwards`);
+  }
+
+  // ---------- Desfile de prendas ----------
+  {
+    const items = sec('desfile'), t0 = ini('desfile'), t1 = fin('desfile'), N = items.length;
+    const top = el('abs marcaTop', `<img src="assets/logo.png" alt=""><b>ROPA NEW.Z</b><span>· 100% ORIGINAL</span>`);
+    anim(top, `caer .35s ease-out ${s(t0)} both`, `fadeOut .2s ease ${s(t1 - 0.2)} forwards`);
+    const cont = el('abs cont'); anim(cont, `fadeIn .2s ease ${s(t0)} both`, `fadeOut .2s ease ${s(t1 - 0.2)} forwards`);
+    const bars = el('abs barras', '<i></i>'.repeat(N)); anim(bars, `fadeIn .2s ease ${s(t0)} both`, `fadeOut .2s ease ${s(t1 - 0.2)} forwards`);
+    frames.push(t => {
+      let k = -1; items.forEach((c, i) => { if (t >= c.t) k = i; });
+      cont.innerHTML = k < 0 ? '' : `${String(k + 1).padStart(2, '0')}<small>/${N}</small>`;
+      bars.querySelectorAll('i').forEach((b, i) => b.classList.toggle('on', i <= k));
+    });
+    items.forEach((c, i) => {
+      const it = el('abs item', `<div class="nm">${c.nombre}</div><br><div class="dt">${c.detalle}</div><div class="pr">${c.precio}</div>`);
+      anim(it, `entrarIzq .28s cubic-bezier(.2,1.2,.4,1) ${s(c.t + 0.05)} both`, `fadeOut .1s linear ${s(c.t + c.dur - 0.08)} forwards`);
+      anim(it.querySelector('.pr'), `pop .3s cubic-bezier(.2,1.8,.4,1) ${s(c.t + 0.2)} both`);
+    });
+    // Un remate a mitad del desfile
+    const mid = items[Math.floor(N / 2)];
+    anim(el('abs pica', '¿Y VAI A SEGUIR MIRANDO? 😏'), `golpe .3s cubic-bezier(.2,1.5,.4,1) ${s(mid.t + 0.1)} both`, `fadeOut .15s linear ${s(mid.t + mid.dur * 2 - 0.15)} forwards`);
+  }
+
+  // ---------- Precios desde ----------
+  {
+    const t0 = ini('precios'), t1 = fin('precios');
+    const v = el('abs velo'); v.style.background = 'rgba(0,0,0,.45)';
+    anim(v, `fadeIn .15s ease ${s(t0)} both`, `fadeOut .2s ease ${s(t1 - 0.2)} forwards`);
+    const p = el('abs precios', `<div class="a">PRECIOS DESDE</div><div class="b">$40.000</div><div class="c">ROPA ORIGINAL · SIN PAGAR DE MÁS</div>`);
+    anim(p, `golpe .35s cubic-bezier(.2,1.4,.4,1) ${s(t0 + 0.05)} both`, `fadeOut .15s linear ${s(t1 - 0.1)} forwards`);
+    const b = p.querySelector('.b'), final = +D.precioDesde.replace(/\D/g, '');
+    frames.push(t => {
+      const q = Math.max(0, Math.min(1, (t - t0 - 0.2) / 0.9));
+      const v = Math.round((40000 - (40000 - final) * (1 - Math.pow(1 - q, 3))) / 1000) * 1000;
+      b.textContent = '$' + v.toLocaleString('es-CL');
+    });
+  }
+
+  // ---------- Final: perfil y botón Seguir ----------
+  {
+    const t0 = ini('final'), F = D.final;
+    const f = el('abs final', `<h2>${F.titulo}</h2>
+      <div class="perfil"><div class="cab"><div class="av"><div><img src="assets/logo.png" alt=""></div></div>
+        <div><div class="us">${D.usuario}</div><div class="nb">Ropa New.Z · Tienda de ropa</div></div></div>
+        <div class="bio">${F.bio.map(b => `<div>${b}</div>`).join('')}</div>
+        <div class="seguir">Seguir<div class="b2">Siguiendo ✓</div></div></div>
+      <div class="comparte">Etiqueta al compa que <b>necesita pinta nueva</b> 👇</div>`);
+    anim(f, `fadeIn .3s ease ${s(t0)} both`);
+    anim(f.querySelector('h2'), `golpe .45s cubic-bezier(.2,1.5,.4,1) ${s(t0 + 0.15)} both`);
+    anim(f.querySelector('.perfil'), `subir .45s cubic-bezier(.2,1.2,.4,1) ${s(t0 + 0.3)} both`);
+    f.querySelectorAll('.bio div').forEach((d, i) => anim(d, `fadeIn .25s ease ${s(t0 + 0.6 + i * 0.18)} both`));
+    const tap = t0 + 1.9;
+    anim(f.querySelector('.seguir'), `latido .6s ease-in-out ${s(t0 + 1.2)} 1`);
+    anim(f.querySelector('.b2'), `fadeIn .15s linear ${s(tap + 0.05)} both`);
+    const dedo = el('abs dedo', '👆'); Object.assign(dedo.style, { left: '470px', top: '1440px' });
+    anim(dedo, `tocar .5s ease-out ${s(tap - 0.4)} both`, `fadeOut .2s ease ${s(tap + 0.5)} forwards`);
+    ['💛', '💖', '🔥', '💛', '💖', '🔥', '💛', '💖'].forEach((h, i) => {
+      const c = el('abs corazon', h);
+      Object.assign(c.style, { left: (120 + i * 110) + 'px', top: '1500px' });
+      c.style.setProperty('--r', ((i % 2 ? 1 : -1) * (10 + i * 4)) + 'deg');
+      anim(c, `subirCorazon 1.4s ease-out ${s(tap + 0.1 + (i % 4) * 0.12)} both`);
+    });
+    anim(f.querySelector('.comparte'), `subir .4s ease-out ${s(tap + 0.6)} both`);
+  }
+</script>
+</body>
+</html>

@@ -324,6 +324,35 @@
   .impresora { width: 490px; height: 34px; border-radius: 12px; background: linear-gradient(#3a3a3a, #161616); box-shadow: 0 8px 20px rgba(0,0,0,.45); opacity: 0; }
   .impresora::after { content: ''; position: absolute; left: 14px; right: 14px; bottom: 6px; height: 6px; background: #000; border-radius: 3px; }
   .sticker.feria { background: #FFE14D; color: #111; border-color: #111; }
+  /* App de entrenamiento */
+  .reloj { width: 290px; height: 330px; border-radius: 70px; background: #0b0b0b; border: 8px solid #2a2a2a; opacity: 0;
+    box-shadow: 0 0 0 3px #555, 0 18px 40px rgba(0,0,0,.55); display: grid; place-items: center; }
+  .reloj svg { position: absolute; left: 25px; top: 18px; width: 224px; height: 224px; transform: rotate(-90deg); }
+  .reloj circle { fill: none; stroke-width: 20; stroke-linecap: round; }
+  .reloj .fondo { stroke: rgba(255,255,255,.08); }
+  .reloj .bpm { position: absolute; left: 0; right: 0; bottom: 22px; text-align: center; color: #fff; font-family: 'Anton', sans-serif; font-size: 44px; line-height: 1; }
+  .reloj .bpm i { font-style: normal; color: #FF3B5C; display: inline-block; margin-right: 8px; }
+  .reloj .bpm small { font-family: 'Poppins'; font-weight: 700; font-size: 18px; color: #aaa; margin-left: 6px; }
+  .progreso { left: 50px; width: 980px; background: rgba(8,8,8,.9); border: 3px solid #39FF14; border-radius: 26px; padding: 20px 28px 24px; opacity: 0;
+    box-shadow: 0 0 30px rgba(57,255,20,.35); }
+  .progreso .fila { display: flex; justify-content: space-between; align-items: baseline; color: #fff; }
+  .progreso .tt { font-family: 'Anton', sans-serif; font-size: 44px; letter-spacing: 2px; }
+  .progreso .pc { font-family: 'Anton', sans-serif; font-size: 58px; color: #39FF14; }
+  .progreso .barra2 { margin-top: 12px; height: 30px; border-radius: 15px; background: #222; overflow: hidden; }
+  .progreso .barra2 div { height: 100%; width: 0; border-radius: 15px; background: repeating-linear-gradient(-45deg, #39FF14 0 18px, #2BD10F 18px 36px); }
+  .progreso .fin { position: absolute; left: 0; right: 0; top: -70px; text-align: center; opacity: 0; }
+  .progreso .fin span { display: inline-block; background: #39FF14; color: #0b0b0b; font-family: 'Anton', sans-serif; font-size: 50px; padding: 6px 28px;
+    border-radius: 14px; border: 4px solid #0b0b0b; transform: rotate(-2deg); }
+  .logro { left: 60px; width: 960px; display: flex; align-items: center; gap: 22px; background: rgba(20,20,22,.94); border-radius: 30px;
+    padding: 18px 26px; box-shadow: 0 16px 40px rgba(0,0,0,.5); border: 2px solid rgba(255,255,255,.15); opacity: 0; }
+  .logro .ic { flex: none; width: 96px; height: 96px; border-radius: 22px; background: linear-gradient(135deg, #FFD54F, #FF9F1C); display: grid; place-items: center; font-size: 56px; }
+  .logro .tx { flex: 1; color: #fff; }
+  .logro .tx small { display: block; font-weight: 800; font-size: 20px; letter-spacing: 3px; color: #39FF14; }
+  .logro .tx b { display: block; font-size: 38px; font-weight: 800; line-height: 1.15; }
+  .logro .tx span { display: block; font-size: 22px; color: #bbb; font-weight: 600; }
+  .logro .pr { font-family: 'Anton', sans-serif; font-size: 58px; color: #0b0b0b; background: #39FF14; padding: 4px 18px; border-radius: 14px; }
+  .sticker.neon { background: #0b0b0b; color: #39FF14; border-color: #39FF14; }
+  .sticker.verdeneon { background: #39FF14; color: #0b0b0b; border-color: #0b0b0b; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -414,6 +443,8 @@
   @keyframes caerLetra { from { opacity: 0; transform: translateY(-120px) rotate(-8deg) } to { opacity: 1; transform: none } }
   @keyframes escanear { from { left: -10px } to { left: 100% } }
   @keyframes imprimir { from { height: 0 } to { height: var(--h) } }
+  @keyframes latir { 0%,100% { transform: scale(1) } 30% { transform: scale(1.35) } }
+  @keyframes toast { 0% { opacity: 0; transform: translateY(-160px) } 70% { opacity: 1; transform: translateY(14px) } 100% { opacity: 1; transform: none } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -740,6 +771,46 @@
     Object.assign(b.style, { left: B.x + 'px', top: B.y + 'px' });
     b.style.setProperty('--h', B.alto + 'px');
     anim(b, `imprimir ${B.dur}s steps(${Math.round(B.dur * 14)}) ${s(B.desde + 0.3)} forwards`);
+  }
+
+  // ---------- Reloj deportivo ----------
+  if (D.reloj) {
+    const W = D.reloj, aros = [[98, '#FF2D55', .92], [72, '#39FF14', .78], [46, '#2FD8FF', .64]];
+    const r = el('abs reloj', `<svg viewBox="0 0 224 224">${aros.map(([rad, col]) =>
+      `<circle class="fondo" cx="112" cy="112" r="${rad}"/><circle class="ar" cx="112" cy="112" r="${rad}" stroke="${col}"/>`).join('')}</svg>
+      <div class="bpm"><i>♥</i><span class="n">--</span><small>BPM</small></div>`);
+    Object.assign(r.style, { left: W.x + 'px', top: W.y + 'px' });
+    anim(r, `pop .5s ${EASE_POP} ${s(W.desde)} both`);
+    anim(r.querySelector('.bpm i'), `latir .55s ease-in-out ${s(W.desde)} infinite`);
+    const arcs = [...r.querySelectorAll('.ar')], n = r.querySelector('.n');
+    ruletas.push(t => {
+      const p = Math.max(0, Math.min(1, (t - W.desde - 0.3) / 2.5)), e = 1 - Math.pow(1 - p, 3);
+      arcs.forEach((c, i) => { const L = 2 * Math.PI * aros[i][0]; c.style.strokeDasharray = L; c.style.strokeDashoffset = L * (1 - aros[i][2] * e); });
+      n.textContent = t < W.desde ? '--' : Math.round(W.bpm[0] + (W.bpm[1] - W.bpm[0]) * e + (p >= 1 ? Math.round(3 * Math.sin(t * 7)) : 0));
+    });
+  }
+
+  // ---------- Barra de progreso ----------
+  if (D.progreso) {
+    const P = D.progreso;
+    const g = el('abs progreso', `<div class="fin"><span>${P.fin}</span></div><div class="fila"><span class="tt">${P.titulo}</span><span class="pc">0%</span></div><div class="barra2"><div></div></div>`);
+    g.style.top = P.y + 'px';
+    anim(g, `subir .5s ${EASE_IN} ${s(P.desde)} both`);
+    anim(g.querySelector('.fin'), `golpe .45s cubic-bezier(.2,1.5,.4,1) ${s(P.t1 + 0.1)} both`);
+    const pc = g.querySelector('.pc'), bar = g.querySelector('.barra2 div');
+    ruletas.push(t => {
+      const p = Math.max(0, Math.min(1, (t - P.t0) / (P.t1 - P.t0)));
+      const e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2, v = Math.round(e * 100);
+      pc.textContent = v + '%'; bar.style.width = v + '%';
+    });
+  }
+
+  // ---------- Notificación de logro ----------
+  if (D.logro) {
+    const O = D.logro;
+    const l = el('abs logro', `<div class="ic">🏆</div><div class="tx"><small>${O.titulo}</small><b>${O.nombre}</b><span>${O.detalle}</span></div><div class="pr">${O.precio}</div>`);
+    l.style.top = O.y + 'px';
+    anim(l, `toast .6s cubic-bezier(.2,1,.3,1) ${s(O.desde)} both`);
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

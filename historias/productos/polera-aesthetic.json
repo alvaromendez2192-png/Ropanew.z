@@ -1,0 +1,12 @@
+{
+  "slug": "polera-aesthetic",
+  "clips": [{ "video": "../entrada/polera-aesthetic.mov", "inicio": 0.2, "dur": 8.8, "hdr": true }],
+  "segmentos": [],
+  "reloj": { "desde": 0.3, "x": 740, "y": 480, "bpm": [92, 148] },
+  "progreso": { "desde": 0.6, "y": 1460, "t0": 1.0, "t1": 5.6, "titulo": "OPERACIÓN VERANO", "fin": "¡TEÑIDA ASEGURADA PA'L VERANO! ✅" },
+  "logro": { "desde": 4.4, "y": 230, "titulo": "🔓 LOGRO DESBLOQUEADO", "nombre": "Polera Aesthetic", "detalle": "Hombre · Talla L · 100% original", "precio": "$15.000" },
+  "stickers": [
+    { "texto": "PA'L GYM O PA'L CARRETE 💪", "desde": 2.2, "hasta": 4.3, "x": 50, "y": 1270, "rot": -3, "color": "verdeneon" },
+    { "texto": "BRAZOS LISTOS PA' LA PLAYA 🏖️", "desde": 6.6, "hasta": 8.8, "x": 50, "y": 1170, "rot": 3, "color": "neon" }
+  ]
+}

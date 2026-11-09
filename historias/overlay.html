@@ -206,6 +206,25 @@
   .maquina .ln { display: inline-block; background: rgba(10,37,64,.9); padding: 2px 22px 8px; margin-bottom: 10px; border-radius: 10px; text-shadow: none; }
   .maquina .cur { display: inline-block; width: 5px; height: 66px; background: #fff; margin-left: 6px; vertical-align: -6px; }
   .sticker.mar { background: #00B4D8; color: #fff; }
+  /* Modo cine */
+  .barra { left: 0; width: 1080px; background: #0b0b0b; }
+  .barra.arriba { top: 0; height: 200px; transform: translateY(-200px); }
+  .barra.abajo { top: 1620px; height: 300px; transform: translateY(300px); }
+  .barra .in { position: absolute; left: 50px; right: 50px; display: flex; align-items: center; justify-content: space-between; }
+  .barra.arriba .in { bottom: 22px; }
+  .barra.abajo .in { top: 26px; }
+  .barra .marca { display: flex; align-items: center; gap: 16px; color: #d9cba6; font-weight: 700; font-size: 22px; letter-spacing: 5px; }
+  .barra .marca img { width: 84px; border-radius: 10px; }
+  .barra .coleccion { color: #d9cba6; font-family: 'Playfair Display', serif; font-style: italic; font-size: 34px; }
+  .barra .nom { color: #fff; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 58px; line-height: 1; }
+  .barra .det { margin-top: 8px; color: #b9ad8f; font-weight: 700; font-size: 22px; letter-spacing: 4px; }
+  .barra .pre { font-family: 'Anton', sans-serif; font-size: 84px; color: #E2C275; opacity: 0; }
+  .cine-titulo { left: 0; right: 0; top: 760px; text-align: center; color: #fff; opacity: 0; text-shadow: 0 6px 30px rgba(0,0,0,.65); }
+  .cine-titulo .t { font-family: 'Playfair Display', serif; font-weight: 900; font-style: italic; font-size: 210px; line-height: 1; }
+  .cine-titulo .s { display: inline-block; margin-top: 16px; padding: 6px 28px 10px; border-radius: 12px; background: rgba(11,11,11,.72);
+    font-family: 'Playfair Display', serif; font-style: italic; font-size: 50px; opacity: 0; }
+  .subt { left: 60px; right: 60px; top: 1500px; text-align: center; color: #FFF6D8; font-weight: 700; font-size: 42px; line-height: 1.25; opacity: 0;
+    text-shadow: 0 0 4px #000, 0 0 4px #000, 0 3px 10px rgba(0,0,0,.9); }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -283,6 +302,8 @@
   @keyframes girar { to { transform: rotate(360deg) } }
   @keyframes telon { to { transform: translateY(-1920px) } }
   @keyframes correr { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+  @keyframes barraIn { to { transform: none } }
+  @keyframes espaciar { from { opacity: 0; letter-spacing: 40px; filter: blur(8px) } to { opacity: 1; letter-spacing: 2px; filter: blur(0) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -473,6 +494,26 @@
       });
       const parpadea = Math.floor(t * 2.5) % 2 === 0;
       m.innerHTML = html.replace(/%CUR(\d+)/g, (_, k) => (+k === ultimo && parpadea ? '<span class="cur"></span>' : ''));
+    });
+  }
+
+  // ---------- Modo cine: franjas, título y subtítulos ----------
+  if (D.cine) {
+    const Z = D.cine, fin = D.cierre ? `fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards` : null;
+    const top = el('abs barra arriba', `<div class="in"><div class="marca"><img src="assets/logo.png" alt="">${Z.presenta}</div><div class="coleccion">${Z.coleccion}</div></div>`);
+    const bot = el('abs barra abajo', `<div class="in"><div><div class="nom">${Z.nombre}</div><div class="det">${Z.detalle}</div></div><div class="pre">${Z.precio}</div></div>`);
+    anim(top, `barraIn .7s cubic-bezier(.6,0,.2,1) ${s(Z.desde)} forwards`, ...(fin ? [fin] : []));
+    anim(bot, `barraIn .7s cubic-bezier(.6,0,.2,1) ${s(Z.desde)} forwards`, ...(fin ? [fin] : []));
+    anim(bot.querySelector('.pre'), `golpe .5s cubic-bezier(.2,1.5,.4,1) ${s(Z.precioEn)} both`);
+    if (Z.titulo) {
+      const ti = el('abs cine-titulo', `<div class="t">${Z.titulo.texto}</div><div class="s">${Z.titulo.sub}</div>`);
+      anim(ti, `fadeIn .01s linear ${s(Z.titulo.desde)} both`, `fadeOut .5s ease ${s(Z.titulo.hasta - 0.5)} forwards`);
+      anim(ti.querySelector('.t'), `espaciar 1s cubic-bezier(.2,.8,.2,1) ${s(Z.titulo.desde)} both`);
+      anim(ti.querySelector('.s'), `fadeIn .6s ease ${s(Z.titulo.desde + 0.8)} both`);
+    }
+    (Z.subtitulos || []).forEach(u => {
+      const st = el('abs subt', u.texto);
+      anim(st, `fadeIn .2s ease ${s(u.desde)} both`, `fadeOut .2s ease ${s(u.hasta - 0.2)} forwards`);
     });
   }
 

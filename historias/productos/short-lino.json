@@ -1,0 +1,27 @@
+{
+  "slug": "short-lino",
+  "clips": [{ "video": "../entrada/short-lino.mov", "inicio": 0.1, "dur": 8.3, "velocidad": 0.9, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.0 }],
+  "segmentos": [],
+  "cine": {
+    "desde": 0.0,
+    "presenta": "ROPA NEW.Z PRESENTA",
+    "coleccion": "Colección exclusiva",
+    "nombre": "Short de Lino",
+    "detalle": "HOMBRE · TALLA M · 100% ORIGINAL",
+    "precio": "$23.000", "precioEn": 1.4,
+    "titulo": { "desde": 0.4, "hasta": 2.7, "texto": "Lino.", "sub": "Lo fino no se grita: se nota." },
+    "subtitulos": [
+      { "desde": 3.0, "hasta": 4.6, "texto": "— ¿Y esto es de lino?" },
+      { "desde": 4.7, "hasta": 6.4, "texto": "— Del fino, compadre. Fresco como brisa en Zapallar." },
+      { "desde": 6.5, "hasta": 8.2, "texto": "— ¿Y cuánto sale?<br>— 23 lucas. Una joyita." }
+    ]
+  },
+  "cierre": {
+    "titulo": "¿TE LO GUARDAMOS?", "nombre": "SHORT DE LINO", "precio": "$23.000",
+    "detalle": "Hombre · Talla M · Tienda virtual 100% original",
+    "texto": "Pocos, finos y pa' los que tienen buen ojo. Escríbenos altiro",
+    "boton": "RESPONDE \"LINO\"",
+    "tinte": "linear-gradient(180deg, rgba(20,18,12,.55), rgba(60,50,30,.45))",
+    "brillos": true
+  }
+}

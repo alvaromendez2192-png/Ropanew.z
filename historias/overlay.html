@@ -381,6 +381,30 @@
     color: rgba(0,0,0,.35); background: linear-gradient(90deg, #fff 50%, transparent 50%) 100% 0 / 200% 100% no-repeat;
     -webkit-background-clip: text; background-clip: text; }
   .letra .tit { font-size: 20px; font-weight: 800; letter-spacing: 3px; color: rgba(255,255,255,.75); margin-bottom: 8px; }
+  /* Cierre estilo música */
+  .cmus { left: 0; top: 0; width: 1080px; height: 1920px; opacity: 0; color: #fff; text-align: center;
+    background: linear-gradient(180deg, rgba(194,65,12,.92) 0%, rgba(60,20,8,.94) 45%, rgba(8,8,8,.97) 100%); }
+  .cmus .vin { position: absolute; left: 50%; top: 250px; width: 560px; height: 560px; margin-left: -280px; }
+  .cmus .disco { position: absolute; left: 140px; top: 0; width: 560px; height: 560px; border-radius: 50%;
+    background: repeating-radial-gradient(circle, #111 0 3px, #1c1c1c 3px 6px); box-shadow: 0 20px 60px rgba(0,0,0,.6); }
+  .cmus .disco::after { content: ''; position: absolute; inset: 200px; border-radius: 50%; background: #1ED760; box-shadow: inset 0 0 0 60px #C2410C; }
+  .cmus .tapa { position: absolute; left: -120px; top: 30px; width: 500px; height: 500px; border-radius: 22px; overflow: hidden; background: #132041;
+    box-shadow: 0 24px 60px rgba(0,0,0,.6); }
+  .cmus .tapa img { width: 100%; height: 100%; object-fit: cover; }
+  .cmus .lbl { position: absolute; left: 0; right: 0; top: 860px; font-weight: 800; font-size: 24px; letter-spacing: 5px; color: #f5c7a8; }
+  .cmus h2 { position: absolute; left: 60px; right: 60px; top: 900px; font-weight: 900; font-size: 84px; line-height: 1.05; }
+  .cmus .tracks { position: absolute; left: 110px; right: 110px; top: 1110px; text-align: left; }
+  .cmus .tr { display: flex; align-items: center; gap: 20px; font-size: 36px; font-weight: 700; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.15); }
+  .cmus .tr .n { width: 40px; color: #aaa; font-weight: 600; }
+  .cmus .tr .x { flex: 1; }
+  .cmus .tr .p { color: #1ED760; font-weight: 800; }
+  .cmus .tr.tot { border-bottom: 0; font-size: 40px; }
+  .cmus .tr.tot .p { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 54px; color: #111; background: #1ED760; padding: 0 16px; border-radius: 12px; }
+  .cmus p { position: absolute; left: 80px; right: 80px; top: 1385px; font-size: 38px; font-weight: 600; line-height: 1.3; color: #eee; }
+  .cmus .btn { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1500px; display: flex; align-items: center; gap: 18px; white-space: nowrap;
+    background: #1ED760; color: #0b0b0b; font-weight: 900; font-size: 46px; padding: 22px 54px; border-radius: 999px; box-shadow: 0 14px 40px rgba(30,215,96,.45); }
+  .cmus .btn b { font-size: 60px; line-height: 1; }
+  .cmus .baja { position: absolute; left: 0; right: 0; top: 1650px; font-weight: 800; font-size: 30px; letter-spacing: 3px; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -856,7 +880,7 @@
       <div class="bar"><div></div></div><div class="tm"><span class="a">0:00</span><span class="b">0:00</span></div>
       <div class="ctl">${icon('M6 6h2v12H6zm3.5 6 8.5 6V6z')}<div class="play">${icon('M6 5h4v14H6zm8 0h4v14h-4z')}</div>${icon('M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z')}</div>`);
     pl.style.top = P.y + 'px';
-    anim(pl, `subir .5s ${EASE_IN} ${s(P.desde)} both`);
+    anim(pl, `subir .5s ${EASE_IN} ${s(P.desde)} both`, ...(D.cierre ? [`fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`] : []));
     pl.querySelectorAll('.eq i').forEach((b, i) => anim(b, `eqA ${0.42 + i * 0.07}s ease-in-out ${s(P.desde + i * 0.05)} infinite`));
     const pistas = [...pl.querySelectorAll('.pista')];
     pistas.forEach((e, i) => {
@@ -878,7 +902,7 @@
     const L = D.letras;
     const c = el('abs letra', `<div class="tit">${L.titulo}</div><div style="position:relative;height:${L.alto || 130}px">${L.lineas.map(l => `<div class="ll">${l.texto}</div>`).join('')}</div>`);
     Object.assign(c.style, { top: L.y + 'px', background: L.color });
-    anim(c, `subir .5s ${EASE_IN} ${s(L.desde)} both`);
+    anim(c, `subir .5s ${EASE_IN} ${s(L.desde)} both`, ...(D.cierre ? [`fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`] : []));
     c.querySelectorAll('.ll').forEach((e, i) => {
       const l = L.lineas[i];
       if (l.color) e.style.color = l.color;
@@ -1023,7 +1047,22 @@
 
   // ---------- Cierre con llamada a la acción ----------
   const T = D.duracionClip, C = D.cierre;
-  if (C) {
+  if (C && C.estilo === 'musica') {
+    const m = el('abs cmus', `<div class="vin"><div class="disco"></div><div class="tapa"><img src="assets/logo.png" alt=""></div></div>
+      <div class="lbl">${C.etiqueta}</div><h2>${C.titulo}</h2>
+      <div class="tracks">${C.temas.map((t, i) => `<div class="tr${t.total ? ' tot' : ''}"><span class="n">${t.total ? '' : i + 1}</span><span class="x">${t.nombre}</span><span class="p">${t.precio}</span></div>`).join('')}</div>
+      <p>${C.texto}</p><div class="btn"><b>＋</b>${C.boton}</div><div class="baja">↓ RESPONDE ESTA HISTORIA ↓</div>`);
+    anim(m, `fadeIn .45s ease ${s(T - 0.1)} both`);
+    const q2 = x => m.querySelector(x);
+    anim(q2('.vin'), `pop .6s cubic-bezier(.2,1.4,.4,1) ${s(T)} both`);
+    anim(q2('.disco'), `girar 2.4s linear ${s(T)} infinite`);
+    anim(q2('.lbl'), `fadeIn .3s ease ${s(T + 0.3)} both`);
+    anim(q2('h2'), `subir .45s ease-out ${s(T + 0.35)} both`);
+    m.querySelectorAll('.tr').forEach((r, i) => anim(r, `entrarDer .35s ease-out ${s(T + 0.6 + i * 0.15)} both`));
+    anim(q2('p'), `fadeIn .4s ease ${s(T + 1.1)} both`);
+    anim(q2('.btn'), `pop .45s cubic-bezier(.2,1.6,.4,1) ${s(T + 1.3)} both`);
+    anim(q2('.baja'), `fadeIn .3s ease ${s(T + 1.6)} both`, `rebote .7s ease-in-out ${s(T + 1.6)} infinite`);
+  } else if (C) {
   if (C.tinte) {
     const ti = el('abs tinte'); ti.style.background = C.tinte;
     anim(ti, `fadeIn .5s ease ${s(T - 0.1)} both`);

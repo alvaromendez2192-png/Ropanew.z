@@ -71,5 +71,27 @@
         "texto": "Veinte lucas y quedai impeque ✨"
       }
     ]
+  },
+  "cierre": {
+    "estilo": "musica",
+    "etiqueta": "FIN DEL ÁLBUM · ROPA NEW.Z",
+    "titulo": "¿Lo agregamos a tu clóset?",
+    "temas": [
+      {
+        "nombre": "Polera Rib · Talla L",
+        "precio": "$12.000"
+      },
+      {
+        "nombre": "Short Easy · Talla L",
+        "precio": "$20.000"
+      },
+      {
+        "nombre": "Álbum completo",
+        "precio": "$32.000",
+        "total": true
+      }
+    ],
+    "texto": "Si te gustó, pídelo o déjanos un mensaje 📩",
+    "boton": "RESPONDE \"PLAYLIST\""
   }
 }

@@ -21,7 +21,7 @@ const CIERRE = 2.7; // segundos de la pantalla final (llamada a la acción)
   const clip = +(clips.reduce((a, c) => a + c.dur, 0) - (clips.length - 1) * tr.dur).toFixed(3);
   D.duracionClip = clip;
   const conCierre = !!D.cierre; // sin "cierre" en el JSON, el video termina en la prenda
-  const TOTAL = +(clip + (conCierre ? CIERRE : 0)).toFixed(2);
+  const TOTAL = +(clip + (conCierre ? (D.cierre.dur || CIERRE) : 0)).toFixed(2);
   const pad = (TOTAL - clip).toFixed(3);
   const blurStart = (clip - 0.2).toFixed(2);
 

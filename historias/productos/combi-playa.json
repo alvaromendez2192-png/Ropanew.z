@@ -1,0 +1,28 @@
+{
+  "slug": "combi-playa",
+  "clips": [{ "video": "../entrada/combi-playa.mov", "inicio": 0.2, "dur": 13.0, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.05 }],
+  "segmentos": [],
+  "clima": { "desde": 0.3, "hasta": 4.6, "y": 230, "lugar": "Tu playa favorita · Hoy", "temp": [18, 32], "t1": 2.2,
+    "estado": "Despejado<br>Índice UV: extremo 🥵", "reco": "Recomendación: <b>andar fresco</b> con la combi de Ropa New.Z 😎" },
+  "tablas": [
+    { "desde": 4.8, "hasta": 8.8, "x": 90, "y": 1360, "color": "#00B4D8", "raya": "#FFD23F", "nombre": "POLERA SIN MANGAS", "detalle": "HOMBRE · TALLA L", "precio": "$10.000" },
+    { "desde": 9.0, "x": 90, "y": 290, "desdeDer": true, "color": "#FF6B6B", "raya": "#FFFFFF", "nombre": "SHORT DE BAÑO", "detalle": "HOMBRE · TALLA L", "precio": "$22.000" }
+  ],
+  "stickers": [
+    { "texto": "¡QUE SE ARMEN LOS PIQUEROS! 🌊", "desde": 6.3, "hasta": 8.6, "x": "centro", "y": 1190, "rot": -3, "color": "mar2" },
+    { "texto": "MOTE CON HUESILLO Y ESTA COMBI 🍑", "desde": 10.6, "hasta": 13.0, "x": "centro", "y": 540, "rot": 3, "color": "arena2" }
+  ],
+  "cierre": {
+    "estilo": "playa", "dur": 3.8,
+    "titulo": "¡La combi playera!",
+    "nota": "Mensaje en una botella 🍾",
+    "items": [
+      { "nombre": "Polera sin mangas L", "precio": "$10.000" },
+      { "nombre": "Short de baño L", "precio": "$22.000" },
+      { "nombre": "Combi completa", "precio": "$32.000", "total": true }
+    ],
+    "texto": "Déjanos tu mensaje y te la guardamos pa' la playa 🏖️",
+    "altoPapel": 470,
+    "boton": "📩 RESPONDE \"PLAYA\""
+  }
+}

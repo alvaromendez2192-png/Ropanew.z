@@ -491,6 +491,47 @@
   .pow .t strong { display: block; font-weight: 400; font-size: 64px; line-height: .9; }
   .sticker.comic { font-family: 'Bangers', cursive; letter-spacing: 2px; background: #FF4F8B; color: #fff; border-color: #111; box-shadow: 8px 8px 0 #111; font-size: 52px; }
   .sticker.comic2 { font-family: 'Bangers', cursive; letter-spacing: 2px; background: #2FD6A1; color: #111; border-color: #111; box-shadow: 8px 8px 0 #111; font-size: 52px; }
+  /* Clima */
+  .clima { left: 50px; width: 980px; border-radius: 34px; padding: 24px 32px; color: #fff; opacity: 0;
+    background: linear-gradient(135deg, rgba(41,151,255,.94), rgba(0,196,204,.92)); box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+  .clima .lg { font-size: 30px; font-weight: 700; opacity: .95; }
+  .clima .row { display: flex; align-items: center; gap: 24px; margin-top: 4px; }
+  .clima .tp { font-size: 150px; font-weight: 300; line-height: 1; letter-spacing: -4px; }
+  .clima .sol2 { font-size: 110px; }
+  .clima .es { font-size: 30px; font-weight: 700; line-height: 1.4; }
+  .clima .reco { margin-top: 12px; background: rgba(255,255,255,.95); color: #0a4d7a; border-radius: 18px; padding: 12px 22px; font-size: 34px; font-weight: 800; opacity: 0; }
+  .clima .reco b { color: #FF4F8B; }
+  /* Tablas de surf */
+  .tabla { width: 900px; height: 190px; opacity: 0; }
+  .tabla svg { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 12px 18px rgba(0,0,0,.4)); }
+  .tabla .tx { position: absolute; left: 130px; right: 150px; top: 32px; color: #fff; text-shadow: 0 2px 6px rgba(0,0,0,.35); }
+  .tabla .tx b { display: block; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 48px; line-height: 1; letter-spacing: 1px; }
+  .tabla .tx span { display: block; font-weight: 800; font-size: 24px; letter-spacing: 2px; margin-top: 8px; }
+  .tabla .pz { position: absolute; right: 120px; top: 50px; font-family: 'Anton', sans-serif; font-size: 66px; color: #0a4d7a; background: #FFD23F;
+    padding: 0 16px; border-radius: 14px; transform: rotate(-4deg); text-shadow: none; }
+  .sticker.mar2 { background: #00C4CC; color: #fff; border-color: #fff; }
+  .sticker.arena2 { background: #FFE7B3; color: #0a4d7a; border-color: #fff; }
+  /* Cierre playa: mensaje en una botella */
+  .cplaya { left: 0; top: 0; width: 1080px; height: 1919px; overflow: hidden; opacity: 0; /* 1px transparente: mantiene el PNG con canal alfa */
+    background: linear-gradient(180deg, #7FD3FF 0%, #BDEBFF 38%, #FFE7B3 38.1%, #FFD98A 100%); }
+  .cplaya .solx { position: absolute; left: 760px; top: 170px; width: 200px; height: 200px; border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #FFF6C9, #FFD45C 60%, #FFB02E); box-shadow: 0 0 80px 30px rgba(255,214,92,.6); }
+  .cplaya .mar { position: absolute; left: -540px; width: 2160px; }
+  .cplaya .logo { position: absolute; left: 60px; top: 200px; width: 170px; border-radius: 20px; border: 5px solid #fff; box-shadow: 0 10px 24px rgba(0,0,0,.2); }
+  .cplaya h2 { position: absolute; left: 0; right: 0; top: 420px; text-align: center; font-family: 'Pacifico', cursive; font-weight: 400; font-size: 104px;
+    color: #fff; text-shadow: 0 6px 0 #0a7fb5, 0 10px 24px rgba(0,0,0,.25); line-height: 1.1; }
+  .cplaya .botella { position: absolute; left: 60px; top: 760px; width: 300px; transform-origin: 50% 50%; }
+  .cplaya .papel { position: absolute; left: 330px; top: 700px; width: 690px; background: #FFF6DE; border-radius: 12px; overflow: hidden; height: 0;
+    box-shadow: 0 16px 34px rgba(0,0,0,.25); border: 3px solid #E6C98A; }
+  .cplaya .papel .in { padding: 26px 32px; color: #3b2a14; }
+  .cplaya .papel .ttl { font-family: 'Caveat', cursive; font-weight: 700; font-size: 58px; line-height: 1; }
+  .cplaya .papel .it { display: flex; justify-content: space-between; font-family: 'Caveat', cursive; font-weight: 600; font-size: 46px; margin-top: 8px; }
+  .cplaya .papel .it.tot { border-top: 3px dashed #c9a35a; margin-top: 12px; padding-top: 8px; font-weight: 700; font-size: 52px; }
+  .cplaya .papel .it b { color: #0a7fb5; }
+  .cplaya .papel .ms { margin-top: 14px; font-weight: 700; font-size: 30px; line-height: 1.3; }
+  .cplaya .btn2 { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1470px; background: #FF4F8B; color: #fff; font-weight: 900; font-size: 48px;
+    padding: 24px 58px; border-radius: 999px; border: 5px solid #fff; box-shadow: 0 14px 34px rgba(0,0,0,.25); }
+  .cplaya .baja { position: absolute; left: 0; right: 0; top: 1640px; text-align: center; color: #0a4d7a; font-weight: 900; font-size: 32px; letter-spacing: 3px; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -597,6 +638,11 @@
   @keyframes mirar { 0%,100% { transform: translate(0,0) } 25% { transform: translate(-14px,4px) } 50% { transform: translate(12px,-6px) } 75% { transform: translate(-4px,8px) } }
   @keyframes saltito { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-16px) } }
   @keyframes lentes { 0% { transform: translateY(-420px) rotate(-12deg) } 70% { transform: translateY(10px) rotate(3deg) } 100% { transform: none } }
+  @keyframes olas { from { transform: translateX(0) } to { transform: translateX(540px) } }
+  @keyframes flotar2 { 0%,100% { transform: translateY(0) rotate(-14deg) } 50% { transform: translateY(-26px) rotate(-6deg) } }
+  @keyframes surf { 0% { opacity: 0; transform: translateX(-1100px) rotate(-8deg) } 70% { opacity: 1; transform: translateX(20px) rotate(2deg) } 100% { opacity: 1; transform: rotate(-2deg) } }
+  @keyframes surfDer { 0% { opacity: 0; transform: translateX(1100px) rotate(8deg) } 70% { opacity: 1; transform: translateX(-20px) rotate(-2deg) } 100% { opacity: 1; transform: rotate(2deg) } }
+  @keyframes desenrollar { from { height: 0 } to { height: var(--h) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -1114,6 +1160,31 @@
     anim(pw, `azote .5s cubic-bezier(.3,1.2,.5,1) ${s(K.pow.t)} both`, `bamboleo 1.6s ease-in-out ${s(K.pow.t + 0.6)} infinite`);
   }
 
+  // ---------- Pronóstico del tiempo ----------
+  if (D.clima) {
+    const W = D.clima;
+    const c = el('abs clima', `<div class="lg">📍 ${W.lugar}</div><div class="row"><span class="tp">18°</span><span class="sol2">☀️</span>
+      <span class="es">${W.estado}</span></div><div class="reco">${W.reco}</div>`);
+    c.style.top = W.y + 'px';
+    anim(c, `bajar .45s ease-out ${s(W.desde)} both`, `fadeOut .35s ease ${s(W.hasta - 0.35)} forwards`);
+    anim(c.querySelector('.sol2'), `girar 6s linear ${s(W.desde)} infinite`);
+    anim(c.querySelector('.reco'), `golpe .45s cubic-bezier(.2,1.5,.4,1) ${s(W.t1 + 0.2)} both`);
+    const tp = c.querySelector('.tp');
+    ruletas.push(t => {
+      const p = Math.max(0, Math.min(1, (t - W.desde - 0.3) / (W.t1 - W.desde - 0.3)));
+      tp.textContent = Math.round(W.temp[0] + (W.temp[1] - W.temp[0]) * (1 - Math.pow(1 - p, 2))) + '°';
+    });
+  }
+
+  // ---------- Tablas de surf con precio ----------
+  (D.tablas || []).forEach(tb => {
+    const w = el('abs tabla', `<svg viewBox="0 0 900 190"><path d="M60 95 C60 30 200 10 450 10 C700 10 880 50 890 95 C880 140 700 180 450 180 C200 180 60 160 60 95Z" fill="${tb.color}" stroke="#fff" stroke-width="8"/>
+      <path d="M110 150 Q450 168 860 128" stroke="${tb.raya}" stroke-width="12" fill="none"/></svg>
+      <div class="tx"><b>${tb.nombre}</b><span>${tb.detalle}</span></div><div class="pz">${tb.precio}</div>`);
+    Object.assign(w.style, { left: tb.x + 'px', top: tb.y + 'px' });
+    anim(w, `${tb.desdeDer ? 'surfDer' : 'surf'} .8s cubic-bezier(.2,.9,.3,1) ${s(tb.desde)} both`, ...(tb.hasta ? [`fadeOut .35s ease ${s(tb.hasta - 0.35)} forwards`] : []));
+  });
+
   // ---------- Golf: pelota que rueda y cae al hoyo ----------
   if (D.golf) {
     const G = D.golf, hx = G.x, hy = G.y;
@@ -1248,7 +1319,30 @@
 
   // ---------- Cierre con llamada a la acción ----------
   const T = D.duracionClip, C = D.cierre;
-  if (C && C.estilo === 'musica') {
+  if (C && C.estilo === 'playa') {
+    const ola = (y, col, amp) => `<svg class="mar" style="top:${y}px" viewBox="0 0 2160 400" preserveAspectRatio="none" height="400">
+      <path d="M0 ${amp} ${Array.from({ length: 8 }, (_, i) => `Q ${135 + i * 270} 0 ${270 + i * 270} ${amp}`).join(' ')} V400 H0Z" fill="${col}"/></svg>`;
+    const cp = el('abs cplaya', `<div class="solx"></div><img class="logo" src="assets/logo.png" alt="">
+      ${ola(640, '#4FC3F7', 60)}${ola(700, '#29B6F6', 70)}${ola(780, '#0288D1', 60)}
+      <h2>${C.titulo}</h2>
+      <svg class="botella" viewBox="0 0 300 140"><rect x="0" y="35" width="210" height="70" rx="35" fill="rgba(170,230,210,.75)" stroke="#fff" stroke-width="6"/>
+        <rect x="200" y="50" width="60" height="40" rx="8" fill="rgba(170,230,210,.8)" stroke="#fff" stroke-width="6"/><rect x="255" y="55" width="36" height="30" rx="6" fill="#B07A43"/>
+        <rect x="40" y="52" width="140" height="36" rx="6" fill="#FFF6DE"/></svg>
+      <div class="papel"><div class="in"><div class="ttl">${C.nota}</div>${C.items.map(i => `<div class="it${i.total ? ' tot' : ''}"><span>${i.nombre}</span><b>${i.precio}</b></div>`).join('')}
+        <div class="ms">${C.texto}</div></div></div>
+      <div class="btn2">${C.boton}</div><div class="baja">↓ DEJA TU MENSAJE AQUÍ ABAJO ↓</div>`);
+    anim(cp, `fadeIn .5s ease ${s(T - 0.1)} both`);
+    cp.querySelectorAll('.mar').forEach((m, i) => anim(m, `olas ${2.2 + i * 0.7}s linear ${s(T)} infinite`));
+    const q3 = x => cp.querySelector(x);
+    anim(q3('.solx'), `salir 1s cubic-bezier(.2,.9,.3,1) ${s(T)} both`);
+    anim(q3('.logo'), `pop .45s ${EASE_POP} ${s(T + 0.2)} both`);
+    anim(q3('h2'), `golpe .5s cubic-bezier(.2,1.5,.4,1) ${s(T + 0.3)} both`);
+    anim(q3('.botella'), `entrarIzq .6s ease-out ${s(T + 0.4)} both`, `flotar2 1.6s ease-in-out ${s(T + 1)} infinite`);
+    const pa = q3('.papel'); pa.style.setProperty('--h', C.altoPapel + 'px');
+    anim(pa, `desenrollar .9s ease-out ${s(T + 0.9)} both`);
+    anim(q3('.btn2'), `pop .45s ${EASE_POP} ${s(T + 1.8)} both`, `latido .9s ease-in-out ${s(T + 2.3)} infinite`);
+    anim(q3('.baja'), `fadeIn .3s ease ${s(T + 2.1)} both`, `rebote .7s ease-in-out ${s(T + 2.1)} infinite`);
+  } else if (C && C.estilo === 'musica') {
     const m = el('abs cmus', `<div class="vin"><div class="disco"></div><div class="tapa"><img src="assets/logo.png" alt=""></div></div>
       <div class="lbl">${C.etiqueta}</div><h2>${C.titulo}</h2>
       <div class="tracks">${C.temas.map((t, i) => `<div class="tr${t.total ? ' tot' : ''}"><span class="n">${t.total ? '' : i + 1}</span><span class="x">${t.nombre}</span><span class="p">${t.precio}</span></div>`).join('')}</div>

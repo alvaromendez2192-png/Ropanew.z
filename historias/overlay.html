@@ -249,6 +249,34 @@
     font-size: 44px; padding: 6px 26px; border-radius: 12px; border: 4px solid #111; opacity: 0; }
   .sticker.calle { background: #111; color: #FF6A00; border-color: #FF6A00; }
   .sticker.naranja { background: #FF6A00; color: #111; border-color: #111; }
+  /* Anuncio tipo pelea */
+  .anuncio { left: 0; top: 0; width: 1080px; height: 1920px; opacity: 0;
+    background: radial-gradient(ellipse 520px 760px at 50% 46%, rgba(255,240,200,.10), rgba(0,0,0,.86) 70%); }
+  .anuncio .foco { position: absolute; left: 50%; top: -200px; width: 900px; height: 1500px; margin-left: -450px;
+    background: linear-gradient(180deg, rgba(255,236,170,.35), rgba(255,236,170,0)); clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%); }
+  .anuncio .ln { position: absolute; left: 0; right: 0; text-align: center; font-family: 'Anton', sans-serif; color: #fff;
+    font-size: 58px; letter-spacing: 2px; text-shadow: 0 6px 20px rgba(0,0,0,.8); opacity: 0; }
+  .anuncio .L { position: absolute; left: 0; right: 0; top: 720px; text-align: center; font-family: 'Anton', sans-serif; font-size: 520px; line-height: 1;
+    color: #F2C94C; -webkit-text-stroke: 10px #111; text-shadow: 0 0 60px rgba(242,201,76,.7), 14px 14px 0 #111; opacity: 0; }
+  .anuncio .onda { position: absolute; left: 50%; top: 990px; width: 300px; height: 300px; margin: -150px; border-radius: 50%;
+    border: 12px solid #F2C94C; opacity: 0; }
+  .anuncio .sub { position: absolute; left: 0; right: 0; top: 1300px; text-align: center; opacity: 0; }
+  .anuncio .sub span { display: inline-block; font-family: 'Anton', sans-serif; font-size: 96px; color: #111; background: #F2C94C;
+    padding: 6px 36px; border-radius: 16px; transform: rotate(-3deg); border: 6px solid #fff; }
+  /* Ficha del campeón */
+  .ficha { width: 660px; background: rgba(12,12,14,.93); border: 5px solid #F2C94C; border-radius: 20px; padding: 18px 28px 22px; opacity: 0;
+    box-shadow: 0 20px 50px rgba(0,0,0,.5); }
+  .ficha .tt { display: flex; align-items: center; gap: 16px; border-bottom: 3px solid #F2C94C; padding-bottom: 12px; margin-bottom: 8px; }
+  .ficha .tt img { width: 92px; border-radius: 10px; }
+  .ficha .tt b { display: block; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 46px; color: #F2C94C; letter-spacing: 2px; line-height: 1; }
+  .ficha .tt small { display: block; font-weight: 700; font-size: 18px; color: #ddd; letter-spacing: 2px; margin-top: 4px; }
+  .ficha .fl { display: flex; align-items: baseline; gap: 10px; font-size: 32px; line-height: 54px; color: #fff; opacity: 0; }
+  .ficha .fl .k { font-weight: 700; color: #bbb; letter-spacing: 2px; font-size: 26px; }
+  .ficha .fl .dots { flex: 1; border-bottom: 3px dotted #555; transform: translateY(-8px); }
+  .ficha .fl .v { font-family: 'Anton', sans-serif; letter-spacing: 1px; }
+  .ficha .fl.top .v { color: #111; background: #F2C94C; padding: 0 14px; border-radius: 8px; font-size: 44px; }
+  .sticker.oro2 { background: #F2C94C; color: #111; border-color: #111; }
+  .sticker.ring { background: #111; color: #F2C94C; border-color: #F2C94C; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -332,6 +360,10 @@
   @keyframes chorrear { to { height: var(--h) } }
   @keyframes pegar { 0% { opacity: 0; transform: scale(1.8) rotate(var(--r0)) } 60% { opacity: 1; transform: scale(.95) rotate(var(--r)) } 100% { opacity: 1; transform: scale(1) rotate(var(--r)) } }
   @keyframes deslizar { from { left: var(--de) } to { left: var(--a) } }
+  @keyframes azote { 0% { opacity: 0; transform: scale(4) } 55% { opacity: 1; transform: scale(.9) } 75% { transform: scale(1.06) } 100% { opacity: 1; transform: scale(1) } }
+  @keyframes expandir { 0% { opacity: .9; transform: scale(.3) } 100% { opacity: 0; transform: scale(4) } }
+  @keyframes temblor { 0%,100% { transform: translate(0,0) } 20% { transform: translate(-14px,8px) } 40% { transform: translate(12px,-10px) } 60% { transform: translate(-8px,-6px) } 80% { transform: translate(6px,10px) } }
+  @keyframes entrarDer { from { opacity: 0; transform: translateX(80px) } to { opacity: 1; transform: none } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -587,6 +619,29 @@
     anim(m, `subir .5s ${EASE_IN} ${s(M.desde)} both`);
     anim(fl, `deslizar .8s cubic-bezier(.5,0,.2,1.4) ${s(M.mover)} both`);
     anim(m.querySelector('.rot'), `golpe .45s cubic-bezier(.2,1.5,.4,1) ${s(M.mover + 0.7)} both`);
+  }
+
+  // ---------- Anuncio tipo pelea ----------
+  if (D.anuncio) {
+    const A = D.anuncio;
+    const a = el('abs anuncio', `<div class="foco"></div>${A.lineas.map((l, i) => `<div class="ln" style="top:${l.y}px">${l.texto}</div>`).join('')}
+      <div class="onda"></div><div class="onda"></div><div class="L">${A.letra}</div><div class="sub"><span>${A.sub}</span></div>`);
+    anim(a, `fadeIn .3s ease ${s(A.desde)} both`, `fadeOut .45s ease ${s(A.hasta - 0.45)} forwards`);
+    a.querySelectorAll('.ln').forEach((e, i) => anim(e, `subir .4s ease-out ${s(A.lineas[i].t)} both`));
+    anim(a.querySelector('.L'), `azote .55s cubic-bezier(.3,1.2,.5,1) ${s(A.letraT)} both`);
+    a.querySelectorAll('.onda').forEach((e, i) => anim(e, `expandir .7s ease-out ${s(A.letraT + 0.3 + i * 0.18)} both`));
+    anim(a.querySelector('.sub'), `golpe .45s cubic-bezier(.2,1.5,.4,1) ${s(A.letraT + 0.45)} both`);
+    a.style.animation += `, temblor .35s linear ${s(A.letraT + 0.3)} 1`;
+  }
+
+  // ---------- Ficha del campeón ----------
+  if (D.ficha) {
+    const F = D.ficha;
+    const f = el('abs ficha', `<div class="tt"><img src="assets/logo.png" alt=""><div><b>${F.titulo}</b><small>${F.sub}</small></div></div>
+      ${F.filas.map(r => `<div class="fl${r[2] ? ' top' : ''}"><span class="k">${r[0]}</span><span class="dots"></span><span class="v">${r[1]}</span></div>`).join('')}`);
+    Object.assign(f.style, { left: F.x + 'px', top: F.y + 'px' });
+    anim(f, `entrarIzq .5s ${EASE_IN} ${s(F.desde)} both`, ...(D.cierre ? [`fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`] : []));
+    f.querySelectorAll('.fl').forEach((r, i) => anim(r, `entrarDer .35s ease-out ${s(F.desde + 0.4 + i * (F.paso || 0.35))} both`));
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

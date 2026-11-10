@@ -563,6 +563,36 @@
   .objeto .pz { position: absolute; right: 26px; top: 20px; font-size: 34px; color: #FFD23F; background: #000; padding: 12px 16px; border: 4px solid #FFD23F; }
   .sticker.pixel { font-family: 'Press Start 2P', monospace; font-size: 30px; line-height: 1.4; background: #FFD23F; color: #120c2e; border-color: #120c2e; box-shadow: 8px 8px 0 #000; border-radius: 0; }
   .sticker.pixel2 { font-family: 'Press Start 2P', monospace; font-size: 30px; line-height: 1.4; background: #FF4F8B; color: #fff; border-color: #120c2e; box-shadow: 8px 8px 0 #000; border-radius: 0; }
+  /* Pizarra de menú */
+  .pizarra { left: 50px; width: 980px; padding: 26px 40px 30px; opacity: 0; border-radius: 14px;
+    background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,.07), transparent 60%), #1f3b2d;
+    border: 18px solid #8B5A2B; box-shadow: inset 0 0 40px rgba(0,0,0,.6), 0 18px 40px rgba(0,0,0,.5); color: #f4f1e8;
+    font-family: 'Caveat', cursive; text-shadow: 0 0 2px rgba(255,255,255,.4); }
+  .pizarra .tt { text-align: center; font-family: 'Permanent Marker', cursive; font-size: 58px; color: #FFE38A; }
+  .pizarra .ln { font-size: 52px; font-weight: 700; line-height: 1.25; min-height: 58px; white-space: nowrap; }
+  .pizarra .ln b { color: #9FE6C7; font-weight: 700; }
+  .pizarra .cir { position: absolute; width: 330px; height: 130px; opacity: 0; }
+  .pizarra .cir path { fill: none; stroke: #FF8FB3; stroke-width: 6; stroke-linecap: round; stroke-dasharray: 900; stroke-dashoffset: 900; }
+  .sticker.tiza { background: #1f3b2d; color: #FFE38A; border-color: #8B5A2B; font-family: 'Permanent Marker', cursive; letter-spacing: 0; }
+  .sticker.negro3 { background: #111; color: #fff; border-color: #fff; }
+  /* Cierre: pinta servida */
+  .cserv { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; text-align: center; color: #fff;
+    background: radial-gradient(ellipse at 50% 38%, rgba(120,70,30,.92), rgba(25,14,8,.97) 70%); }
+  .cserv .plato { position: absolute; left: 140px; top: 760px; width: 800px; height: 200px; border-radius: 50%;
+    background: radial-gradient(ellipse at 50% 40%, #fff, #e6e6e6 60%, #bdbdbd); box-shadow: 0 20px 40px rgba(0,0,0,.5); }
+  .cserv .logo { position: absolute; left: 50%; top: 470px; width: 380px; height: 330px; margin-left: -190px; border-radius: 40px; overflow: hidden;
+    border: 6px solid #fff; background: #132041; box-shadow: 0 16px 40px rgba(0,0,0,.4); }
+  .cserv .logo img { width: 100%; height: 100%; object-fit: cover; }
+  .cserv .campana { position: absolute; left: 190px; top: 380px; width: 700px; transform-origin: 85% 100%; }
+  .cserv .vapor { position: absolute; top: 380px; font-size: 80px; opacity: 0; }
+  .cserv h2 { position: absolute; left: 0; right: 0; top: 1010px; font-family: 'Pacifico', cursive; font-weight: 400; font-size: 108px; color: #FFD23F;
+    text-shadow: 0 6px 24px rgba(0,0,0,.5); }
+  .cserv .lin { position: absolute; left: 0; right: 0; top: 1190px; font-size: 46px; font-weight: 700; }
+  .cserv .lin span { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 66px; color: #132041; background: #FFD23F; padding: 0 20px; border-radius: 14px; margin-left: 12px; }
+  .cserv p { position: absolute; left: 80px; right: 80px; top: 1300px; font-size: 40px; font-weight: 600; line-height: 1.3; }
+  .cserv .btn3 { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1430px; background: #fff; color: #3b2412; font-weight: 900; font-size: 48px;
+    padding: 24px 58px; border-radius: 999px; box-shadow: 0 0 0 10px rgba(255,255,255,.2), 0 16px 40px rgba(0,0,0,.4); }
+  .cserv .baja { position: absolute; left: 0; right: 0; top: 1610px; font-weight: 900; font-size: 32px; letter-spacing: 3px; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -677,6 +707,8 @@
   @keyframes parpadeo2 { 0%,49% { opacity: 1 } 50%,100% { opacity: 0 } }
   @keyframes romper { 0% { opacity: 1; transform: none } 40% { transform: rotate(-20deg) scale(1.2) } 100% { opacity: 0; transform: translate(60px, 260px) rotate(80deg) } }
   @keyframes chispazo { 0% { opacity: 1; transform: translate(0,0) } 100% { opacity: 0; transform: translate(var(--dx), var(--dy)) } }
+  @keyframes levantar { 0% { transform: none } 30% { transform: translateY(-30px) rotate(-3deg) } 100% { transform: translate(260px, -520px) rotate(28deg); opacity: 0 } }
+  @keyframes vaporear { 0% { opacity: 0; transform: translateY(0) } 30% { opacity: .9 } 100% { opacity: 0; transform: translateY(-220px) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -1261,6 +1293,28 @@
     });
   }
 
+  // ---------- Pizarra de menú (se escribe con tiza) ----------
+  if (D.pizarra) {
+    const P = D.pizarra;
+    const pz = el('abs pizarra', `<div class="tt">${P.titulo}</div>${P.lineas.map(() => '<div class="ln"></div>').join('')}
+      <svg class="cir" viewBox="0 0 330 120" preserveAspectRatio="none"><path d="M20 70 C 10 20, 300 5, 315 55 C 325 100, 60 120, 25 80 C 15 65, 60 30, 120 25"/></svg>`);
+    pz.style.top = P.y + 'px';
+    anim(pz, `subir .5s ${EASE_IN} ${s(P.desde)} both`, ...(D.cierre ? [`fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`] : []));
+    const lns = [...pz.querySelectorAll('.ln')], cps = P.cps || 20;
+    ruletas.push(t => P.lineas.forEach((l, i) => {
+      const full = `<b>${l.k}</b> ${l.v}`, plain = l.k + ' ' + l.v;
+      const n = Math.max(0, Math.min(plain.length, Math.floor((t - l.t) * cps)));
+      lns[i].innerHTML = n <= l.k.length ? `<b>${l.k.slice(0, n)}</b>` : `<b>${l.k}</b> <span class="vv">${l.v.slice(0, n - l.k.length - 1)}</span>`;
+    }));
+    if (P.circulo) {
+      const c = pz.querySelector('.cir'), linea = lns[P.circulo.linea];
+      ruletas.push(() => { const v = linea.querySelector('.vv'); if (!v) return;
+        c.style.left = (v.offsetLeft - 40) + 'px'; c.style.top = (v.offsetTop - 34) + 'px'; c.style.width = (v.offsetWidth + 80) + 'px'; });
+      anim(c, `fadeIn .01s linear ${s(P.circulo.t)} both`);
+      anim(c.querySelector('path'), `dibujar .6s ease-out ${s(P.circulo.t)} forwards`);
+    }
+  }
+
   // ---------- Golf: pelota que rueda y cae al hoyo ----------
   if (D.golf) {
     const G = D.golf, hx = G.x, hy = G.y;
@@ -1395,7 +1449,26 @@
 
   // ---------- Cierre con llamada a la acción ----------
   const T = D.duracionClip, C = D.cierre;
-  if (C && C.estilo === 'playa') {
+  if (C && C.estilo === 'servido') {
+    const cs = el('abs cserv', `<div class="logo"><img src="assets/logo.png" alt=""></div><div class="plato"></div>
+      <svg class="campana" viewBox="0 0 700 420"><defs><linearGradient id="met" x1="0" x2="1"><stop offset="0" stop-color="#8d8d8d"/><stop offset=".35" stop-color="#f4f4f4"/><stop offset=".6" stop-color="#c9c9c9"/><stop offset="1" stop-color="#7a7a7a"/></linearGradient></defs>
+        <path d="M30 400 C 30 160, 670 160, 670 400 Z" fill="url(#met)" stroke="#555" stroke-width="6"/><rect x="10" y="392" width="680" height="24" rx="12" fill="#9a9a9a"/>
+        <circle cx="350" cy="168" r="30" fill="url(#met)" stroke="#555" stroke-width="5"/></svg>
+      ${[400, 520, 640].map(x => `<svg class="vapor" style="left:${x}px;width:60px" viewBox="0 0 60 160"><path d="M30 150 C 0 120, 60 100, 30 70 C 0 40, 60 20, 30 0" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="8" stroke-linecap="round"/></svg>`).join('')}
+      <h2>${C.titulo}</h2><div class="lin">${C.nombre}<span>${C.precio}</span></div><p>${C.texto}</p>
+      <div class="btn3">${C.boton}</div><div class="baja">↓ RESPONDE ESTA HISTORIA ↓</div>`);
+    anim(cs, `fadeIn .4s ease ${s(T - 0.1)} both`);
+    const q4 = x => cs.querySelector(x);
+    anim(q4('.plato'), `subir .4s ease-out ${s(T)} both`);
+    anim(q4('.campana'), `subir .4s ease-out ${s(T)} both`, `levantar .8s cubic-bezier(.5,0,.3,1) ${s(T + 0.7)} forwards`);
+    cs.querySelectorAll('.vapor').forEach((v, i) => anim(v, `vaporear 1.4s ease-out ${s(T + 1.0 + i * 0.25)} infinite`));
+    anim(q4('.logo'), `pop .5s cubic-bezier(.2,1.5,.4,1) ${s(T + 0.95)} both`);
+    anim(q4('h2'), `golpe .45s cubic-bezier(.2,1.5,.4,1) ${s(T + 1.2)} both`);
+    anim(q4('.lin'), `subir .4s ease-out ${s(T + 1.45)} both`);
+    anim(q4('p'), `fadeIn .4s ease ${s(T + 1.65)} both`);
+    anim(q4('.btn3'), `pop .45s ${EASE_POP} ${s(T + 1.9)} both`, `latido .9s ease-in-out ${s(T + 2.4)} infinite`);
+    anim(q4('.baja'), `fadeIn .3s ease ${s(T + 2.2)} both`, `rebote .7s ease-in-out ${s(T + 2.2)} infinite`);
+  } else if (C && C.estilo === 'playa') {
     const ola = (y, col, amp) => `<svg class="mar" style="top:${y}px" viewBox="0 0 2160 400" preserveAspectRatio="none" height="400">
       <path d="M0 ${amp} ${Array.from({ length: 8 }, (_, i) => `Q ${135 + i * 270} 0 ${270 + i * 270} ${amp}`).join(' ')} V400 H0Z" fill="${col}"/></svg>`;
     const cp = el('abs cplaya', `<div class="solx"></div><img class="logo" src="assets/logo.png" alt="">

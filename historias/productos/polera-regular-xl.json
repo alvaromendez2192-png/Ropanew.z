@@ -1,0 +1,25 @@
+{
+  "slug": "polera-regular-xl",
+  "clips": [{ "video": "../entrada/polera-regular-xl.mov", "inicio": 0.2, "dur": 7.8, "hdr": true }],
+  "segmentos": [],
+  "stickers": [
+    { "texto": "EL NEGRO NUNCA FALLA 🖤", "desde": 0.3, "hasta": 2.4, "x": "centro", "y": 330, "rot": -4, "color": "negro3 grande" }
+  ],
+  "pizarra": {
+    "desde": 1.2, "y": 1100, "cps": 22, "titulo": "🍽️ MENÚ DEL DÍA",
+    "lineas": [
+      { "t": 1.7, "k": "Plato fondo:", "v": "Polera Regular Fit negra" },
+      { "t": 3.0, "k": "Porción:", "v": "Talla XL de hombre 💪" },
+      { "t": 4.0, "k": "Acompaña:", "v": "con todo, compadre" },
+      { "t": 5.0, "k": "Postre:", "v": "piropos gratis 😏" },
+      { "t": 6.0, "k": "Valor:", "v": "$15.000" }
+    ],
+    "circulo": { "t": 6.7, "linea": 4, "x": 110 }
+  },
+  "cierre": {
+    "estilo": "servido", "dur": 3.6,
+    "titulo": "¡Pinta servida!", "nombre": "POLERA REGULAR FIT XL", "precio": "$15.000",
+    "texto": "Si la quieres, pídela o déjanos un mensaje 📩",
+    "boton": "🍽️ RESPONDE \"MENÚ\""
+  }
+}

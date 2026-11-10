@@ -651,6 +651,8 @@
   .pincel { left: 0; right: 0; text-align: center; font-family: 'Pacifico', cursive; font-size: 130px; line-height: 1.1;
     background: linear-gradient(90deg, #E0245E, #F59E0B 35%, #0E9F6E 65%, #0369A1); -webkit-background-clip: text; background-clip: text; color: transparent;
     -webkit-text-stroke: 2px rgba(20,20,20,.55); filter: drop-shadow(0 4px 0 rgba(0,0,0,.25)) drop-shadow(0 8px 14px rgba(0,0,0,.3)); clip-path: inset(0 100% 0 0); font-size: 150px; }
+  .subplaca { left: 0; right: 0; margin: 0 auto; width: max-content; top: 128px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 34px;
+    color: #f6dd8f; background: rgba(20,14,4,.72); padding: 6px 26px; border-radius: 6px; letter-spacing: 1px; opacity: 0; }
   .cartela { width: 640px; background: #fbfaf6; color: #222; padding: 26px 32px; border-radius: 4px; box-shadow: 0 14px 30px rgba(0,0,0,.4); opacity: 0;
     font-family: 'Playfair Display', serif; border-left: 10px solid #b88a2a; }
   .cartela .t1 { font-weight: 900; font-size: 46px; font-style: italic; line-height: 1.1; }
@@ -1466,13 +1468,16 @@
       pts.push(`${(100 + r * Math.cos(a)).toFixed(0)},${(100 + r * Math.sin(a)).toFixed(0)}`); }
       return `<svg viewBox="0 0 200 200" width="200" height="200"><polygon points="${pts.join(' ')}" fill="${c}"/>
         <circle cx="${170 - seed * 9}" cy="${30 + seed * 7}" r="12" fill="${c}"/><circle cx="${25 + seed * 6}" cy="${175 - seed * 5}" r="9" fill="${c}"/></svg>`; };
-    U.manchas.forEach((m, i) => {
+    (U.manchas || []).forEach((m, i) => {
       const e = el('abs mancha', blob(m.c, i + 2)); Object.assign(e.style, { left: m.x + 'px', top: m.y + 'px' });
       e.style.setProperty('--r', (i * 47) + 'deg');
       anim(e, `salpicar .35s cubic-bezier(.2,1.5,.4,1) ${s(m.t)} both`, `fadeOut .4s ease ${s(U.manchasHasta)} forwards`);
     });
-    const pc = el('abs pincel', U.pincel.texto); pc.style.top = U.pincel.y + 'px';
-    anim(pc, `pintar 1.1s steps(18) ${s(U.pincel.t)} forwards`, `fadeOut .4s ease ${s(U.pincel.hasta)} forwards`);
+    if (U.pincel) {
+      const pc = el('abs pincel', U.pincel.texto); pc.style.top = U.pincel.y + 'px';
+      anim(pc, `pintar 1.1s steps(18) ${s(U.pincel.t)} forwards`, `fadeOut .4s ease ${s(U.pincel.hasta)} forwards`);
+    }
+    if (U.subplaca) anim(el('abs subplaca', U.subplaca.texto), `fadeIn .6s ease ${s(U.subplaca.t)} both`);
     const C2 = U.cartela;
     const ct = el('abs cartela', `<div class="t1">${C2.titulo}</div><div class="t2">${C2.autor}</div>
       <div class="t3">${C2.lineas.map(l => `<div>${l}</div>`).join('')}</div><div class="vl"><span>VALOR</span><b>${C2.precio}</b></div>`);

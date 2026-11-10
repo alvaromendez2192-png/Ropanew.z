@@ -664,6 +664,24 @@
   .cartela .vl b { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 60px; color: #132041; }
   .sticker.museo { background: #fff; color: #D7263D; border-color: #D7263D; }
   .sticker.museo2 { background: #132041; color: #FFD23F; border-color: #fff; }
+  /* Carta de color */
+  .swatch { width: 560px; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 18px 40px rgba(0,0,0,.4); opacity: 0; color: #222; }
+  .swatch .col { position: relative; height: 230px; background: #eee; }
+  .swatch .col div { position: absolute; left: 0; right: 0; bottom: 0; height: 0; }
+  .swatch .col span { position: absolute; left: 22px; bottom: 16px; font-family: 'Courier New', monospace; font-weight: 700; font-size: 26px; color: rgba(255,255,255,.9); opacity: 0; }
+  .swatch .bt { padding: 18px 24px 22px; }
+  .swatch .marca2 { font-weight: 900; font-size: 22px; letter-spacing: 4px; }
+  .swatch .nom { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 46px; line-height: 1.05; margin-top: 4px; }
+  .swatch .det { font-weight: 700; font-size: 24px; color: #666; margin-top: 6px; letter-spacing: 1px; }
+  .swatch .fila3 { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; }
+  .swatch .comb { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 700; color: #777; }
+  .swatch .comb i { width: 38px; height: 38px; border-radius: 50%; border: 3px solid #ddd; opacity: 0; }
+  .swatch .pz { font-family: 'Anton', sans-serif; font-size: 58px; color: #132041; }
+  .gotero { width: 180px; opacity: 0; transform-origin: 20% 80%; }
+  .anillo { width: 120px; height: 120px; margin: -60px; border-radius: 50%; border: 6px solid #fff; opacity: 0; }
+  .chipTop { left: 50px; top: 220px; font-weight: 900; font-size: 26px; letter-spacing: 4px; color: #222; background: rgba(255,255,255,.92); padding: 10px 22px;
+    border-radius: 8px; opacity: 0; }
+  .sticker.tierra { background: #6b6a5a; color: #F3EFE2; border-color: #F3EFE2; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -786,6 +804,8 @@
   @keyframes borrar { to { transform: scaleX(0) } }
   @keyframes pintar { to { clip-path: inset(0 0 0 0) } }
   @keyframes salpicar { 0% { opacity: 0; transform: scale(0) rotate(var(--r)) } 70% { opacity: 1; transform: scale(1.15) rotate(var(--r)) } 100% { opacity: 1; transform: scale(1) rotate(var(--r)) } }
+  @keyframes llenarCol { to { height: 100% } }
+  @keyframes apretar { 0%,100% { transform: none } 50% { transform: scale(.88) rotate(-6deg) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -1485,6 +1505,28 @@
     anim(ct, `entrarIzq .5s ${EASE_IN} ${s(C2.desde)} both`);
     ct.querySelectorAll('.t3 div').forEach((d, i) => anim(d, `fadeIn .3s ease ${s(C2.desde + 0.5 + i * 0.35)} both`));
     anim(ct.querySelector('.vl'), `golpe .4s cubic-bezier(.2,1.5,.4,1) ${s(C2.desde + 0.6 + C2.lineas.length * 0.35)} both`);
+  }
+
+  // ---------- Carta de color con cuentagotas ----------
+  if (D.swatch) {
+    const W = D.swatch;
+    if (W.chip) anim(el('abs chipTop', W.chip), `entrarIzq .4s ${EASE_IN} ${s(W.desde)} both`);
+    const G = W.gotero;
+    const go = el('abs gotero', `<svg viewBox="0 0 120 120"><path d="M88 8 l24 24 -14 14 -6 -6 -44 44 -18 6 6 -18 44 -44 -6 -6z" fill="#fff" stroke="#111" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M30 78 l-14 14" stroke="${W.color}" stroke-width="10" stroke-linecap="round"/></svg>`);
+    Object.assign(go.style, { left: G.x - 15 + 'px', top: G.y - 105 + 'px' });
+    anim(go, `pop .35s ${EASE_POP} ${s(G.t)} both`, `apretar .35s ease-in-out ${s(G.t + 0.45)} 2`, `fadeOut .3s ease ${s(G.t + 1.4)} forwards`);
+    const an = el('abs anillo'); Object.assign(an.style, { left: G.x + 'px', top: G.y + 'px' });
+    anim(an, `onda2 .7s ease-out ${s(G.t + 0.5)} both`);
+    const sw = el('abs swatch', `<div class="col"><div></div><span>${W.codigo}</span></div><div class="bt">
+      <div class="marca2">ROPA NEW.Z · COLOR</div><div class="nom">${W.nombre}</div><div class="det">${W.detalle}</div>
+      <div class="fila3"><div class="comb">COMBÍNALA: ${W.combina.map(c => `<i style="background:${c}"></i>`).join('')}</div><div class="pz">${W.precio}</div></div></div>`);
+    Object.assign(sw.style, { left: W.x + 'px', top: W.y + 'px' });
+    anim(sw, `subir .45s ${EASE_IN} ${s(W.desde + 0.3)} both`);
+    const fill = sw.querySelector('.col div'); fill.style.background = W.color;
+    anim(fill, `llenarCol .6s ease-out ${s(G.t + 0.9)} forwards`);
+    anim(sw.querySelector('.col span'), `fadeIn .3s ease ${s(G.t + 1.4)} both`);
+    sw.querySelectorAll('.comb i').forEach((c, i) => anim(c, `pop .3s ${EASE_POP} ${s(G.t + 1.7 + i * 0.15)} both`));
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

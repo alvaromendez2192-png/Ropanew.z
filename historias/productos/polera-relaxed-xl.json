@@ -1,0 +1,16 @@
+{
+  "slug": "polera-relaxed-xl",
+  "clips": [{ "video": "../entrada/polera-relaxed-xl.mov", "inicio": 0.2, "dur": 10.2, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.06 }],
+  "segmentos": [],
+  "swatch": {
+    "desde": 0.3, "x": 50, "y": 1150, "chip": "PALETA ROPA NEW.Z",
+    "color": "#9F9A8C", "codigo": "#9F9A8C", "nombre": "Gris Oliva Relax",
+    "detalle": "POLERA RELAXED FIT · HOMBRE · XL",
+    "combina": ["#FFFFFF", "#111111", "#D9C9A8"],
+    "precio": "$18.000",
+    "gotero": { "t": 0.9, "x": 560, "y": 760 }
+  },
+  "stickers": [
+    { "texto": "TONO TIERRA, ONDA RELAJADA 🌿", "desde": 4.6, "hasta": 10.2, "x": 400, "y": 1040, "rot": 3, "color": "tierra" }
+  ]
+}

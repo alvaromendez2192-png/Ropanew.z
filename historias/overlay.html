@@ -640,6 +640,28 @@
   .dossier .apro { position: absolute; right: 40px; bottom: 26px; font-family: 'Anton', sans-serif; font-size: 66px; color: #1d7a3a; border: 7px solid #1d7a3a;
     padding: 0 18px; letter-spacing: 3px; opacity: 0; }
   .sticker.militar { background: #3d4a2c; color: #E9F5C9; border-color: #E9F5C9; font-family: 'Anton', sans-serif; }
+  /* Museo */
+  .marco { left: 0; top: 0; width: 1080px; height: 1920px; opacity: 0; pointer-events: none;
+    border: 46px solid transparent; border-image: linear-gradient(135deg, #8a6a1f, #f6dd8f 25%, #b88a2a 50%, #f9e7a8 75%, #8a6a1f) 1;
+    box-shadow: inset 0 0 0 10px #5a4310, inset 0 0 0 16px #e9cf7c, inset 0 0 50px rgba(0,0,0,.55); }
+  .placa { left: 0; right: 0; margin: 0 auto; width: max-content; top: 62px; background: linear-gradient(#f6dd8f, #b88a2a); color: #3b2a08;
+    font-family: 'Playfair Display', serif; font-weight: 900; font-size: 28px; letter-spacing: 4px; padding: 8px 28px; border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.4); opacity: 0; }
+  .mancha { opacity: 0; }
+  .pincel { left: 0; right: 0; text-align: center; font-family: 'Pacifico', cursive; font-size: 130px; line-height: 1.1;
+    background: linear-gradient(90deg, #E0245E, #F59E0B 35%, #0E9F6E 65%, #0369A1); -webkit-background-clip: text; background-clip: text; color: transparent;
+    -webkit-text-stroke: 2px rgba(20,20,20,.55); filter: drop-shadow(0 4px 0 rgba(0,0,0,.25)) drop-shadow(0 8px 14px rgba(0,0,0,.3)); clip-path: inset(0 100% 0 0); font-size: 150px; }
+  .cartela { width: 640px; background: #fbfaf6; color: #222; padding: 26px 32px; border-radius: 4px; box-shadow: 0 14px 30px rgba(0,0,0,.4); opacity: 0;
+    font-family: 'Playfair Display', serif; border-left: 10px solid #b88a2a; }
+  .cartela .t1 { font-weight: 900; font-size: 46px; font-style: italic; line-height: 1.1; }
+  .cartela .t2 { font-size: 28px; color: #666; margin-top: 4px; }
+  .cartela .t3 { font-family: 'Poppins'; font-size: 26px; color: #444; margin-top: 14px; line-height: 1.45; }
+  .cartela .t3 div { opacity: 0; }
+  .cartela .vl { margin-top: 14px; display: flex; justify-content: space-between; align-items: center; border-top: 2px solid #ddd; padding-top: 12px; opacity: 0; }
+  .cartela .vl span { font-family: 'Poppins'; font-weight: 700; font-size: 24px; letter-spacing: 2px; color: #888; }
+  .cartela .vl b { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 60px; color: #132041; }
+  .sticker.museo { background: #fff; color: #D7263D; border-color: #D7263D; }
+  .sticker.museo2 { background: #132041; color: #FFD23F; border-color: #fff; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -760,6 +782,8 @@
   @keyframes timbre2 { 0% { opacity: 0; transform: scale(2.4) rotate(-30deg) } 100% { opacity: 1; transform: scale(1) rotate(-12deg) } }
   @keyframes buscar { 0% { transform: translate(-260px, -200px) } 30% { transform: translate(220px, -60px) } 60% { transform: translate(-120px, 160px) } 100% { transform: none } }
   @keyframes borrar { to { transform: scaleX(0) } }
+  @keyframes pintar { to { clip-path: inset(0 0 0 0) } }
+  @keyframes salpicar { 0% { opacity: 0; transform: scale(0) rotate(var(--r)) } 70% { opacity: 1; transform: scale(1.15) rotate(var(--r)) } 100% { opacity: 1; transform: scale(1) rotate(var(--r)) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -1431,6 +1455,31 @@
       rows[i].innerHTML = n <= f.k.length ? `<b>${f.k.slice(0, n)}</b>` : `<b>${f.k}</b> ${f.v.slice(0, n - f.k.length - 1)}`;
     }));
     anim(ds.querySelector('.apro'), `timbre2 .3s ease-out ${s(Dz.aprobado)} both`);
+  }
+
+  // ---------- Museo: marco, pintura y ficha ----------
+  if (D.museo) {
+    const U = D.museo;
+    anim(el('abs marco'), `fadeIn .5s ease ${s(U.desde)} both`);
+    const pl = el('abs placa', U.placa); anim(pl, `bajar .4s ease-out ${s(U.desde + 0.3)} both`);
+    const blob = (c, seed) => { const pts = []; for (let i = 0; i < 14; i++) { const a = i / 14 * Math.PI * 2, r = 60 + ((i * seed * 37) % 45);
+      pts.push(`${(100 + r * Math.cos(a)).toFixed(0)},${(100 + r * Math.sin(a)).toFixed(0)}`); }
+      return `<svg viewBox="0 0 200 200" width="200" height="200"><polygon points="${pts.join(' ')}" fill="${c}"/>
+        <circle cx="${170 - seed * 9}" cy="${30 + seed * 7}" r="12" fill="${c}"/><circle cx="${25 + seed * 6}" cy="${175 - seed * 5}" r="9" fill="${c}"/></svg>`; };
+    U.manchas.forEach((m, i) => {
+      const e = el('abs mancha', blob(m.c, i + 2)); Object.assign(e.style, { left: m.x + 'px', top: m.y + 'px' });
+      e.style.setProperty('--r', (i * 47) + 'deg');
+      anim(e, `salpicar .35s cubic-bezier(.2,1.5,.4,1) ${s(m.t)} both`, `fadeOut .4s ease ${s(U.manchasHasta)} forwards`);
+    });
+    const pc = el('abs pincel', U.pincel.texto); pc.style.top = U.pincel.y + 'px';
+    anim(pc, `pintar 1.1s steps(18) ${s(U.pincel.t)} forwards`, `fadeOut .4s ease ${s(U.pincel.hasta)} forwards`);
+    const C2 = U.cartela;
+    const ct = el('abs cartela', `<div class="t1">${C2.titulo}</div><div class="t2">${C2.autor}</div>
+      <div class="t3">${C2.lineas.map(l => `<div>${l}</div>`).join('')}</div><div class="vl"><span>VALOR</span><b>${C2.precio}</b></div>`);
+    Object.assign(ct.style, { left: C2.x + 'px', top: C2.y + 'px' });
+    anim(ct, `entrarIzq .5s ${EASE_IN} ${s(C2.desde)} both`);
+    ct.querySelectorAll('.t3 div').forEach((d, i) => anim(d, `fadeIn .3s ease ${s(C2.desde + 0.5 + i * 0.35)} both`));
+    anim(ct.querySelector('.vl'), `golpe .4s cubic-bezier(.2,1.5,.4,1) ${s(C2.desde + 0.6 + C2.lineas.length * 0.35)} both`);
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

@@ -1,0 +1,24 @@
+{
+  "slug": "polera-regular-xl-blanca",
+  "clips": [{ "video": "../entrada/polera-regular-xl-blanca.mov", "inicio": 0.2, "dur": 10.2, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.0 }],
+  "segmentos": [],
+  "museo": {
+    "desde": 0.1, "placa": "MUSEO ROPA NEW.Z",
+    "manchas": [
+      { "t": 0.7, "x": 80, "y": 260, "c": "#FF4F8B" }, { "t": 0.9, "x": 800, "y": 380, "c": "#FFD23F" },
+      { "t": 1.1, "x": 110, "y": 980, "c": "#2FD6A1" }, { "t": 1.3, "x": 790, "y": 1060, "c": "#00B4D8" }
+    ],
+    "manchasHasta": 3.8,
+    "pincel": { "t": 1.4, "hasta": 3.8, "y": 620, "texto": "Obra<br>maestra" },
+    "cartela": {
+      "desde": 4.0, "x": 90, "y": 1190,
+      "titulo": "Polera Regular Fit", "autor": "Ropa New.Z, 2026",
+      "lineas": ["Blanca · Hombre · Talla XL", "Técnica: algodón sobre buena pinta", "Colección permanente 100% original"],
+      "precio": "$15.000"
+    }
+  },
+  "stickers": [
+    { "texto": "🚫 NO TOCAR... ¡MENTIRA, PÍDELA! 😜", "desde": 6.4, "hasta": 8.4, "x": "centro", "y": 520, "rot": -3, "color": "museo" },
+    { "texto": "OJO: NO APTA PA' COMER COMPLETO 🌭😅", "desde": 8.5, "hasta": 10.2, "x": "centro", "y": 520, "rot": 3, "color": "museo2" }
+  ]
+}

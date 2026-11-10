@@ -1,17 +1,83 @@
 {
   "slug": "short-bano-xl",
-  "clips": [{ "video": "../entrada/short-bano-xl.mov", "inicio": 0.2, "dur": 10.4, "velocidad": 0.9, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.1 }],
+  "clips": [
+    {
+      "video": "../entrada/short-bano-xl.mov",
+      "inicio": 0.2,
+      "dur": 10.4,
+      "velocidad": 0.9,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "saturacion": 1.1
+    }
+  ],
   "segmentos": [],
-  "trivia": {
-    "desde": 0.3, "y": 250, "cuenta": 5.6,
-    "etiqueta": "🧠 TRIVIA ROPA NEW.Z",
-    "pregunta": "¿CUÁNTO CREES QUE<br>CUESTA ESTE <em>SHORT</em>?",
-    "pista": { "desde": 1.4, "hasta": 5.4, "y": 690, "texto": "👇 ¡TOCA TU RESPUESTA!" },
-    "precio": "$23.000", "remate": "¿LE ACHUNTASTE? 😏",
-    "info": { "desde": 0.8, "y": 1400, "nombre": "SHORT DE BAÑO", "detalle": "HOMBRE · TALLA XL · 100% ORIGINAL" }
-  },
   "stickers": [
-    { "texto": "MODO CAMUFLAJE: ACTIVADO 🌿", "desde": 3.0, "hasta": 5.4, "x": "centro", "y": 1290, "rot": -3, "color": "camo" },
-    { "texto": "NI EL SALVAVIDAS TE VA A ENCONTRAR 😂", "desde": 8.4, "hasta": 10.4, "x": "centro", "y": 1290, "rot": 3, "color": "camo" }
-  ]
+    {
+      "texto": "MODO CAMUFLAJE: ACTIVADO 🌿",
+      "desde": 4.2,
+      "hasta": 6.6,
+      "x": "centro",
+      "y": 480,
+      "rot": -3,
+      "color": "militar"
+    },
+    {
+      "texto": "NI EL SALVAVIDAS TE VA A ENCONTRAR 😂",
+      "desde": 8.3,
+      "hasta": 10.4,
+      "x": "centro",
+      "y": 480,
+      "rot": 3,
+      "color": "militar"
+    }
+  ],
+  "expediente": {
+    "desde": 0.2,
+    "archivo": "📁 EXPEDIENTE N° 023",
+    "mira": {
+      "desde": 0.6,
+      "hasta": 3.6,
+      "buscar": 1.6,
+      "x": 540,
+      "y": 820,
+      "texto": "🎯 OBJETIVO LOCALIZADO"
+    },
+    "dossier": {
+      "desde": 2.6,
+      "y": 1180,
+      "pestana": "OPERACIÓN VERANO",
+      "cps": 26,
+      "aprobado": 8.0,
+      "filas": [
+        {
+          "t": 3.1,
+          "k": "CÓDIGO:",
+          "v": "SHORT DE BAÑO"
+        },
+        {
+          "t": 3.9,
+          "k": "TALLA:",
+          "v": "XL · HOMBRE"
+        },
+        {
+          "t": 4.6,
+          "k": "CAMUFLAJE:",
+          "v": "NIVEL EXPERTO 🌿"
+        },
+        {
+          "t": 5.4,
+          "k": "MISIÓN:",
+          "v": "ANDAR FRESCO EN LA PLAYA"
+        },
+        {
+          "t": 6.4,
+          "k": "VALOR:",
+          "precio": "$23.000",
+          "revela": 7.2
+        }
+      ]
+    }
+  }
 }

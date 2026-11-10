@@ -617,6 +617,29 @@
   .info2 .pr2 { position: relative; font-family: 'Anton', sans-serif; font-size: 58px; color: #111; background: #FFD23F; padding: 2px 18px; border-radius: 14px; min-width: 210px; text-align: center; }
   .info2 .pr2 .q { position: absolute; inset: 0; display: grid; place-items: center; background: #8A3FFC; color: #fff; border-radius: 14px; }
   .sticker.camo { background: #4b5d3a; color: #E9F5C9; border-color: #E9F5C9; }
+  /* Expediente secreto */
+  .exp-top { left: 50px; right: 50px; top: 220px; display: flex; align-items: center; justify-content: space-between; opacity: 0; }
+  .exp-top .fexp { font-family: 'Courier New', monospace; font-weight: 700; font-size: 32px; color: #E9F5C9; background: rgba(20,26,16,.88);
+    padding: 10px 20px; border: 3px solid #E9F5C9; letter-spacing: 2px; }
+  .clasif { font-family: 'Anton', sans-serif; font-size: 72px; color: #D7263D; border: 8px solid #D7263D; padding: 0 22px; letter-spacing: 4px; opacity: 0;
+    background: rgba(255,255,255,.12); }
+  .mira { width: 360px; height: 360px; opacity: 0; }
+  .mira svg { width: 100%; height: 100%; filter: drop-shadow(0 0 6px rgba(0,0,0,.8)); }
+  .mira .lk { position: absolute; left: 50%; top: 380px; transform: translateX(-50%); white-space: nowrap; font-family: 'Courier New', monospace; font-weight: 700;
+    font-size: 34px; color: #111; background: #9BFF3D; padding: 6px 18px; opacity: 0; }
+  .dossier { left: 50px; width: 980px; background: #EFE6CC; color: #2b2416; font-family: 'Courier New', monospace; font-weight: 700; font-size: 34px; line-height: 1.5;
+    padding: 70px 34px 26px; border-radius: 6px; opacity: 0; box-shadow: 0 18px 40px rgba(0,0,0,.45);
+    background-image: repeating-linear-gradient(0deg, transparent 0 50px, rgba(120,100,60,.12) 50px 51px); }
+  .dossier .pest { position: absolute; left: 30px; top: -38px; background: #EFE6CC; padding: 6px 26px 10px; border-radius: 10px 10px 0 0; font-size: 26px; letter-spacing: 3px; }
+  .dossier .clip { position: absolute; right: 60px; top: -30px; width: 40px; height: 110px; border: 6px solid #9a9a9a; border-radius: 20px; }
+  .dossier .row { white-space: nowrap; min-height: 51px; }
+  .dossier .row b { color: #6b5a2e; }
+  .dossier .red { position: relative; display: inline-block; }
+  .dossier .red .bar { position: absolute; left: -6px; right: -6px; top: 4px; bottom: 4px; background: #111; transform-origin: 100% 50%; }
+  .dossier .red .pz { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 52px; color: #1d4d1d; }
+  .dossier .apro { position: absolute; right: 40px; bottom: 26px; font-family: 'Anton', sans-serif; font-size: 66px; color: #1d7a3a; border: 7px solid #1d7a3a;
+    padding: 0 18px; letter-spacing: 3px; opacity: 0; }
+  .sticker.militar { background: #3d4a2c; color: #E9F5C9; border-color: #E9F5C9; font-family: 'Anton', sans-serif; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -734,6 +757,9 @@
   @keyframes levantar { 0% { transform: none } 30% { transform: translateY(-30px) rotate(-3deg) } 100% { transform: translate(260px, -520px) rotate(28deg); opacity: 0 } }
   @keyframes vaporear { 0% { opacity: 0; transform: translateY(0) } 30% { opacity: .9 } 100% { opacity: 0; transform: translateY(-220px) } }
   @keyframes caerConf { 0% { opacity: 1; transform: translate(0, 0) rotate(0) } 100% { opacity: 1; transform: translate(var(--dx), 1500px) rotate(var(--rr)) } }
+  @keyframes timbre2 { 0% { opacity: 0; transform: scale(2.4) rotate(-30deg) } 100% { opacity: 1; transform: scale(1) rotate(-12deg) } }
+  @keyframes buscar { 0% { transform: translate(-260px, -200px) } 30% { transform: translate(220px, -60px) } 60% { transform: translate(-120px, 160px) } 100% { transform: none } }
+  @keyframes borrar { to { transform: scaleX(0) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -1370,6 +1396,41 @@
     ic.style.top = I.y + 'px';
     anim(ic, `subir .45s ${EASE_IN} ${s(I.desde)} both`);
     anim(ic.querySelector('.q'), `fadeOut .2s ease ${s(tR)} forwards`);
+  }
+
+  // ---------- Expediente secreto ----------
+  if (D.expediente) {
+    const X = D.expediente;
+    const tp = el('abs exp-top', `<div class="fexp">${X.archivo}</div><div class="clasif">CLASIFICADO</div>`);
+    anim(tp, `fadeIn .3s ease ${s(X.desde)} both`);
+    anim(tp.querySelector('.clasif'), `timbre2 .3s ease-out ${s(X.desde + 0.4)} both`);
+    const M = X.mira;
+    const mr = el('abs mira', `<svg viewBox="0 0 360 360"><circle cx="180" cy="180" r="150" fill="none" stroke="#9BFF3D" stroke-width="6"/>
+      <circle cx="180" cy="180" r="8" fill="#D7263D"/><path d="M180 10 V120 M180 240 V350 M10 180 H120 M240 180 H350" stroke="#9BFF3D" stroke-width="6"/>
+      <path d="M180 60 V80 M180 280 V300 M60 180 H80 M280 180 H300" stroke="#9BFF3D" stroke-width="3"/></svg><div class="lk">${M.texto}</div>`);
+    Object.assign(mr.style, { left: M.x - 180 + 'px', top: M.y - 180 + 'px' });
+    anim(mr, `fadeIn .2s ease ${s(M.desde)} both`, `buscar ${M.buscar}s ease-in-out ${s(M.desde)} both`, `fadeOut .3s ease ${s(M.hasta - 0.3)} forwards`);
+    anim(mr.querySelector('.lk'), `golpe .3s cubic-bezier(.2,1.5,.4,1) ${s(M.desde + M.buscar)} both`);
+    const Dz = X.dossier;
+    const ds = el('abs dossier', `<div class="pest">${Dz.pestana}</div><div class="clip"></div>
+      ${Dz.filas.map(() => '<div class="row"></div>').join('')}<div class="apro">APROBADO</div>`);
+    ds.style.top = Dz.y + 'px';
+    anim(ds, `subir .45s ${EASE_IN} ${s(Dz.desde)} both`);
+    const rows = [...ds.querySelectorAll('.row')], cps = Dz.cps || 24;
+    ruletas.push(t => Dz.filas.forEach((f, i) => {
+      if (f.precio) {
+        if (t < f.t) { rows[i].innerHTML = ''; return; }
+        if (!rows[i].dataset.ok) {
+          rows[i].dataset.ok = 1;
+          rows[i].innerHTML = `<b>${f.k}</b> <span class="red"><span class="pz">${f.precio}</span><span class="bar"></span></span>`;
+          anim(rows[i].querySelector('.bar'), `borrar .45s ease-in ${s(f.revela)} forwards`);
+        }
+        return;
+      }
+      const full = f.k + ' ' + f.v, n = Math.max(0, Math.min(full.length, Math.floor((t - f.t) * cps)));
+      rows[i].innerHTML = n <= f.k.length ? `<b>${f.k.slice(0, n)}</b>` : `<b>${f.k}</b> ${f.v.slice(0, n - f.k.length - 1)}`;
+    }));
+    anim(ds.querySelector('.apro'), `timbre2 .3s ease-out ${s(Dz.aprobado)} both`);
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

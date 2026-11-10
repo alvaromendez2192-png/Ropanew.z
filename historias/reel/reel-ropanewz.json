@@ -202,6 +202,13 @@
       "dur": 1.0
     },
     {
+      "seccion": "categorias",
+      "video": "../entrada/look-rib-easy.mov",
+      "inicio": 9.0,
+      "dur": 3.0,
+      "golpe": false
+    },
+    {
       "seccion": "final",
       "video": "../entrada/polera-jacquard.mov",
       "inicio": 1.0,
@@ -217,16 +224,48 @@
   "marca": {
     "titulo": "ROPA NEW.Z",
     "sub": "TIENDA VIRTUAL 100% ORIGINAL",
-    "sub2": "Moda hombre en un solo lugar"
+    "sub2": "Moda pa' toda la familia"
   },
   "precioDesde": "$10.000",
   "final": {
     "titulo": "¡SÍGUENOS PA' NO PERDERTE NA'!",
     "bio": [
       "🛍️ Tienda virtual 100% original",
-      "👕 Moda hombre · Tallas S a L",
+      "👕 Hombre · 👗 Mujer · 🧒 Niños · 👜 Accesorios",
       "🔥 Nuevos ingresos cada semana",
       "📩 Pedidos por DM"
     ]
-  }
+  },
+  "categorias": {
+    "lista": [
+      "HOMBRE",
+      "MUJER",
+      "NIÑO",
+      "NIÑA",
+      "ACCESORIOS"
+    ],
+    "activa": "HOMBRE",
+    "aviso": "👀 Una muestra de nuestra categoría HOMBRE",
+    "intro": "Y ESTO ES SOLO HOMBRE...",
+    "tarjetas": [
+      [
+        "👗",
+        "MUJER"
+      ],
+      [
+        "🧒",
+        "NIÑO"
+      ],
+      [
+        "👧",
+        "NIÑA"
+      ],
+      [
+        "👜",
+        "ACCESORIOS"
+      ]
+    ],
+    "remate": "¡TENEMOS DE TODO!"
+  },
+  "precioNota": "EN NUESTRA COLECCIÓN HOMBRE"
 }

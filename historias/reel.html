@@ -54,6 +54,25 @@
   .pica { left: 0; right: 0; margin: 0 auto; width: max-content; top: 520px; font-family: 'Anton', sans-serif; font-size: 58px; letter-spacing: 1px;
     background: var(--rosa); color: #fff; padding: 12px 34px; border: 6px solid #111; border-radius: 20px; box-shadow: 10px 10px 0 #111; opacity: 0; }
 
+  /* Categorías */
+  .tabs { left: 30px; right: 30px; top: 470px; display: flex; justify-content: center; gap: 10px; opacity: 0; }
+  .tabs span { font-weight: 800; font-size: 25px; letter-spacing: 1px; padding: 10px 18px; border-radius: 999px; background: rgba(19,32,65,.75);
+    color: rgba(255,255,255,.75); border: 2px solid rgba(255,255,255,.35); }
+  .tabs span.on { background: var(--amarillo); color: var(--navy); border-color: #111; box-shadow: 4px 4px 0 #111; }
+  .aviso { left: 0; right: 0; margin: 0 auto; width: max-content; top: 560px; font-weight: 800; font-size: 30px; background: rgba(255,255,255,.95); color: var(--navy);
+    padding: 10px 26px; border-radius: 999px; box-shadow: 0 8px 20px rgba(0,0,0,.3); opacity: 0; }
+  .cats { left: 0; top: 0; width: 1080px; height: 1920px; }
+  .cats .intro { position: absolute; left: 0; right: 0; top: 330px; text-align: center; font-family: 'Anton', sans-serif; font-size: 100px; text-shadow: 0 8px 30px rgba(0,0,0,.7); opacity: 0; }
+  .cats .grid { position: absolute; left: 70px; right: 70px; top: 560px; display: grid; grid-template-columns: 1fr 1fr; gap: 34px; }
+  .cats .card { height: 330px; border-radius: 36px; border: 7px solid #111; box-shadow: 12px 12px 0 #111; display: grid; place-items: center; text-align: center; opacity: 0; }
+  .cats .card div { font-size: 130px; line-height: 1; }
+  .cats .card b { display: block; margin-top: 14px; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 64px; color: #111; letter-spacing: 2px; }
+  .cats .card:nth-child(1) { background: var(--rosa); } .cats .card:nth-child(2) { background: var(--amarillo); }
+  .cats .card:nth-child(3) { background: var(--verde); } .cats .card:nth-child(4) { background: #fff; }
+  .cats .remate { position: absolute; left: 0; right: 0; top: 1360px; text-align: center; opacity: 0; }
+  .cats .remate span { display: inline-block; font-family: 'Anton', sans-serif; font-size: 112px; color: #fff; background: var(--navy); padding: 6px 40px;
+    border-radius: 24px; border: 8px solid var(--amarillo); transform: rotate(-3deg); }
+
   /* Precios */
   .precios { left: 0; right: 0; top: 700px; text-align: center; opacity: 0; }
   .precios .a { font-family: 'Anton', sans-serif; font-size: 110px; letter-spacing: 4px; text-shadow: 0 8px 30px rgba(0,0,0,.6); }
@@ -145,6 +164,10 @@
     const top = el('abs marcaTop', `<img src="assets/logo.png" alt=""><b>ROPA NEW.Z</b><span>· 100% ORIGINAL</span>`);
     anim(top, `caer .35s ease-out ${s(t0)} both`, `fadeOut .2s ease ${s(t1 - 0.2)} forwards`);
     const cont = el('abs cont'); anim(cont, `fadeIn .2s ease ${s(t0)} both`, `fadeOut .2s ease ${s(t1 - 0.2)} forwards`);
+    const C = D.categorias;
+    const tabs = el('abs tabs', C.lista.map(c => `<span class="${c === C.activa ? 'on' : ''}">${c}</span>`).join(''));
+    anim(tabs, `caer .35s ease-out ${s(t0 + 0.1)} both`, `fadeOut .2s ease ${s(t1 - 0.2)} forwards`);
+    anim(el('abs aviso', C.aviso), `golpe .35s cubic-bezier(.2,1.5,.4,1) ${s(t0 + 0.3)} both`, `fadeOut .25s ease ${s(t0 + 3.0)} forwards`);
     const bars = el('abs barras', '<i></i>'.repeat(N)); anim(bars, `fadeIn .2s ease ${s(t0)} both`, `fadeOut .2s ease ${s(t1 - 0.2)} forwards`);
     frames.push(t => {
       let k = -1; items.forEach((c, i) => { if (t >= c.t) k = i; });
@@ -166,7 +189,7 @@
     const t0 = ini('precios'), t1 = fin('precios');
     const v = el('abs velo'); v.style.background = 'rgba(0,0,0,.45)';
     anim(v, `fadeIn .15s ease ${s(t0)} both`, `fadeOut .2s ease ${s(t1 - 0.2)} forwards`);
-    const p = el('abs precios', `<div class="a">PRECIOS DESDE</div><div class="b">$40.000</div><div class="c">ROPA ORIGINAL · SIN PAGAR DE MÁS</div>`);
+    const p = el('abs precios', `<div class="a">PRECIOS DESDE</div><div class="b">$40.000</div><div class="c">${D.precioNota || 'ROPA ORIGINAL · SIN PAGAR DE MÁS'}</div>`);
     anim(p, `golpe .35s cubic-bezier(.2,1.4,.4,1) ${s(t0 + 0.05)} both`, `fadeOut .15s linear ${s(t1 - 0.1)} forwards`);
     const b = p.querySelector('.b'), final = +D.precioDesde.replace(/\D/g, '');
     frames.push(t => {
@@ -176,12 +199,25 @@
     });
   }
 
+  // ---------- Y hay de todo: categorías ----------
+  {
+    const t0 = ini('categorias'), t1 = fin('categorias'), C = D.categorias;
+    const v = el('abs velo'); v.style.background = 'rgba(19,32,65,.72)';
+    anim(v, `fadeIn .2s ease ${s(t0)} both`, `fadeOut .2s ease ${s(t1 - 0.15)} forwards`);
+    const c = el('abs cats', `<div class="intro">${C.intro}</div><div class="grid">${C.tarjetas.map(([e, n]) => `<div class="card"><div>${e}<b>${n}</b></div></div>`).join('')}</div>
+      <div class="remate"><span>${C.remate}</span></div>`);
+    anim(c.querySelector('.intro'), `golpe .35s cubic-bezier(.2,1.5,.4,1) ${s(t0 + 0.05)} both`);
+    c.querySelectorAll('.card').forEach((k, i) => anim(k, `pop .35s cubic-bezier(.2,1.6,.4,1) ${s(t0 + 0.6 + i * 0.25)} both`));
+    anim(c.querySelector('.remate'), `golpe .4s cubic-bezier(.2,1.5,.4,1) ${s(t0 + 1.8)} both`);
+    anim(c, `temblor .3s linear ${s(t0 + 2.0)} 1`, `fadeOut .15s linear ${s(t1 - 0.12)} forwards`);
+  }
+
   // ---------- Final: perfil y botón Seguir ----------
   {
     const t0 = ini('final'), F = D.final;
     const f = el('abs final', `<h2>${F.titulo}</h2>
       <div class="perfil"><div class="cab"><div class="av"><div><img src="assets/logo.png" alt=""></div></div>
-        <div><div class="us">${D.usuario}</div><div class="nb">Ropa New.Z · Tienda de ropa</div></div></div>
+        <div><div class="us">${D.usuario}</div><div class="nb">Ropa New.Z · Moda pa' toda la familia</div></div></div>
         <div class="bio">${F.bio.map(b => `<div>${b}</div>`).join('')}</div>
         <div class="seguir">Seguir<div class="b2">Siguiendo ✓</div></div></div>
       <div class="comparte">Etiqueta al compa que <b>necesita pinta nueva</b> 👇</div>`);

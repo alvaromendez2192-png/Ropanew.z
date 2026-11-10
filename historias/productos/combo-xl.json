@@ -1,0 +1,20 @@
+{
+  "slug": "combo-xl",
+  "clips": [{ "video": "../entrada/combo-xl.mov", "inicio": 0.2, "dur": 13.6, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.05 }],
+  "segmentos": [],
+  "arcade": {
+    "intro": { "desde": 0, "hasta": 3.8, "coin": "INSERT COIN 🪙", "niveles": ["S", "M", "L", "XL"], "meta": "XL",
+      "cursor": 0.8, "paso": 0.35, "desbloqueo": 2.1, "titulo": "¡NIVEL XL<br>DESBLOQUEADO!", "sub": "POR FIN UNA PINTA<br>DE TU TAMAÑO 💪" },
+    "hud": { "desde": 3.6, "izq": "P1 · XL", "der": "ROPA NEW.Z" },
+    "objetos": [
+      { "desde": 3.9, "hasta": 8.7, "y": 1240, "rareza": "OBJETO ÉPICO", "color": "#a55eea", "nombre": "POLERA<br>RELAXED", "detalle": "HOMBRE · TALLA XL",
+        "precio": "$18.000", "stats": [["COMODIDAD", 99], ["ESTILO", 95]] },
+      { "desde": 8.9, "y": 300, "rareza": "OBJETO LEGENDARIO", "color": "#FFD23F", "nombre": "SHORT<br>JOGGER", "detalle": "HOMBRE · TALLA XL",
+        "precio": "$20.000", "stats": [["FRESCURA", 98], ["FLOW", 97]] }
+    ]
+  },
+  "stickers": [
+    { "texto": "ANCHITO Y CÓMODO,<br>COMO DEBE SER 👌", "desde": 6.4, "hasta": 8.6, "x": "centro", "y": 1000, "rot": -3, "color": "pixel" },
+    { "texto": "COMBO XL:<br>NIVEL JEFE FINAL 😎", "desde": 11.0, "hasta": 13.6, "x": "centro", "y": 820, "rot": 3, "color": "pixel2" }
+  ]
+}

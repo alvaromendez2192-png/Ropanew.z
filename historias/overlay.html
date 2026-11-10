@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Historia Ropa New.Z</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Poppins:wght@400;600;700;800;900&family=Noto+Color+Emoji&family=Pacifico&family=Caveat:wght@600;700&family=Rubik+Spray+Paint&family=Permanent+Marker&family=Bangers&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Poppins:wght@400;600;700;800;900&family=Noto+Color+Emoji&family=Pacifico&family=Caveat:wght@600;700&family=Rubik+Spray+Paint&family=Permanent+Marker&family=Bangers&family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #132041;
@@ -532,6 +532,37 @@
   .cplaya .btn2 { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1470px; background: #FF4F8B; color: #fff; font-weight: 900; font-size: 48px;
     padding: 24px 58px; border-radius: 999px; border: 5px solid #fff; box-shadow: 0 14px 34px rgba(0,0,0,.25); }
   .cplaya .baja { position: absolute; left: 0; right: 0; top: 1640px; text-align: center; color: #0a4d7a; font-weight: 900; font-size: 32px; letter-spacing: 3px; }
+  /* Arcade retro */
+  .px { font-family: 'Press Start 2P', monospace; }
+  .arc { left: 0; top: 0; width: 1080px; height: 1920px; opacity: 0;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,.25) 0 3px, transparent 3px 6px), radial-gradient(circle at 50% 45%, rgba(40,10,80,.86), rgba(5,5,20,.94)); }
+  .arc .coin { position: absolute; left: 0; right: 0; top: 330px; text-align: center; font-size: 46px; color: #FFD23F; text-shadow: 4px 4px 0 #FF4F8B; }
+  .arc .sel { position: absolute; left: 90px; right: 90px; top: 600px; display: flex; justify-content: space-between; }
+  .arc .sel div { width: 190px; height: 190px; display: grid; place-items: center; font-size: 54px; color: #fff; background: #1b1440;
+    border: 8px solid #6c5ce7; box-shadow: 8px 8px 0 #000; position: relative; }
+  .arc .sel .xl { border-color: #FFD23F; color: #FFD23F; }
+  .arc .candado { position: absolute; right: -24px; top: -36px; font-size: 64px; font-family: 'Noto Color Emoji'; }
+  .arc .cursor { position: absolute; top: 820px; width: 0; height: 0; border-left: 34px solid transparent; border-right: 34px solid transparent; border-bottom: 46px solid #2FD6A1; }
+  .arc .unl { position: absolute; left: 40px; right: 40px; top: 960px; text-align: center; opacity: 0; }
+  .arc .unl b { display: block; font-weight: 400; font-size: 64px; line-height: 1.35; color: #FFD23F; text-shadow: 6px 6px 0 #FF4F8B, 0 0 30px rgba(255,210,63,.6); }
+  .arc .unl span { display: block; margin-top: 30px; font-size: 30px; color: #fff; line-height: 1.5; }
+  .arc .chispa { position: absolute; width: 20px; height: 20px; background: #FFD23F; opacity: 0; box-shadow: 0 0 10px #FFD23F; }
+  .hud { left: 40px; right: 40px; top: 210px; display: flex; justify-content: space-between; align-items: center; opacity: 0; font-size: 26px;
+    color: #fff; text-shadow: 3px 3px 0 #000; }
+  .hud .vid { color: #FF4F8B; font-family: 'Noto Color Emoji'; font-size: 34px; text-shadow: none; }
+  .hud .pts { color: #FFD23F; }
+  .objeto { left: 50px; width: 980px; background: #120c2e; border: 8px solid var(--rar, #a55eea); box-shadow: 10px 10px 0 #000, 0 0 40px var(--rar, #a55eea); padding: 22px 28px; opacity: 0; color: #fff; }
+  .objeto .r { font-size: 24px; color: var(--rar, #a55eea); letter-spacing: 2px; }
+  .objeto .tt { display: flex; align-items: center; gap: 20px; margin-top: 12px; }
+  .objeto .tt img { width: 110px; border: 5px solid #fff; image-rendering: pixelated; }
+  .objeto .tt b { font-weight: 400; font-size: 40px; line-height: 1.3; }
+  .objeto .tt small { display: block; font-size: 20px; color: #2FD6A1; margin-top: 8px; }
+  .objeto .st { margin-top: 16px; display: grid; grid-template-columns: 260px 1fr 70px; gap: 12px 16px; align-items: center; font-size: 20px; }
+  .objeto .st i { display: block; height: 26px; background: #2b2360; border: 3px solid #000; position: relative; overflow: hidden; }
+  .objeto .st i em { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: repeating-linear-gradient(90deg, #2FD6A1 0 18px, #1fae84 18px 22px); }
+  .objeto .pz { position: absolute; right: 26px; top: 20px; font-size: 34px; color: #FFD23F; background: #000; padding: 12px 16px; border: 4px solid #FFD23F; }
+  .sticker.pixel { font-family: 'Press Start 2P', monospace; font-size: 30px; line-height: 1.4; background: #FFD23F; color: #120c2e; border-color: #120c2e; box-shadow: 8px 8px 0 #000; border-radius: 0; }
+  .sticker.pixel2 { font-family: 'Press Start 2P', monospace; font-size: 30px; line-height: 1.4; background: #FF4F8B; color: #fff; border-color: #120c2e; box-shadow: 8px 8px 0 #000; border-radius: 0; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -643,6 +674,9 @@
   @keyframes surf { 0% { opacity: 0; transform: translateX(-1100px) rotate(-8deg) } 70% { opacity: 1; transform: translateX(20px) rotate(2deg) } 100% { opacity: 1; transform: rotate(-2deg) } }
   @keyframes surfDer { 0% { opacity: 0; transform: translateX(1100px) rotate(8deg) } 70% { opacity: 1; transform: translateX(-20px) rotate(-2deg) } 100% { opacity: 1; transform: rotate(2deg) } }
   @keyframes desenrollar { from { height: 0 } to { height: var(--h) } }
+  @keyframes parpadeo2 { 0%,49% { opacity: 1 } 50%,100% { opacity: 0 } }
+  @keyframes romper { 0% { opacity: 1; transform: none } 40% { transform: rotate(-20deg) scale(1.2) } 100% { opacity: 0; transform: translate(60px, 260px) rotate(80deg) } }
+  @keyframes chispazo { 0% { opacity: 1; transform: translate(0,0) } 100% { opacity: 0; transform: translate(var(--dx), var(--dy)) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -1184,6 +1218,48 @@
     Object.assign(w.style, { left: tb.x + 'px', top: tb.y + 'px' });
     anim(w, `${tb.desdeDer ? 'surfDer' : 'surf'} .8s cubic-bezier(.2,.9,.3,1) ${s(tb.desde)} both`, ...(tb.hasta ? [`fadeOut .35s ease ${s(tb.hasta - 0.35)} forwards`] : []));
   });
+
+  // ---------- Arcade retro ----------
+  if (D.arcade) {
+    const A = D.arcade, I = A.intro;
+    const a = el('abs arc', `<div class="coin px">${I.coin}</div>
+      <div class="sel px">${I.niveles.map(n => `<div class="${n === I.meta ? 'xl' : ''}">${n}${n === I.meta ? '<span class="candado">🔒</span>' : ''}</div>`).join('')}</div>
+      <div class="cursor"></div><div class="unl px"><b>${I.titulo}</b><span>${I.sub}</span></div>`);
+    anim(a, `fadeIn .25s ease ${s(I.desde)} both`, `fadeOut .35s ease ${s(I.hasta - 0.35)} forwards`);
+    anim(a.querySelector('.coin'), `parpadeo2 .5s steps(1) ${s(I.desde)} infinite`);
+    const cur = a.querySelector('.cursor'), cajas = a.querySelectorAll('.sel div');
+    ruletas.push(t => {
+      const k = Math.max(0, Math.min(cajas.length - 1, Math.floor((t - I.cursor) / I.paso)));
+      const b = cajas[k].getBoundingClientRect();
+      cur.style.left = (b.left + b.width / 2 - 34) + 'px';
+      cajas.forEach((c, i) => { c.style.transform = i === k && t > I.cursor ? 'scale(1.12)' : ''; });
+    });
+    anim(a.querySelector('.candado'), `romper .5s ease-in ${s(I.desbloqueo)} forwards`);
+    anim(a.querySelector('.unl'), `golpe .45s cubic-bezier(.2,1.5,.4,1) ${s(I.desbloqueo + 0.25)} both`);
+    const xl = a.querySelector('.sel .xl').getBoundingClientRect();
+    for (let i = 0; i < 14; i++) {
+      const c = el('chispa', '', a), ang = i / 14 * Math.PI * 2;
+      Object.assign(c.style, { left: xl.left + xl.width / 2 - 10 + 'px', top: xl.top + xl.height / 2 - 10 + 'px' });
+      c.style.setProperty('--dx', Math.cos(ang) * 260 + 'px'); c.style.setProperty('--dy', Math.sin(ang) * 260 + 'px');
+      anim(c, `chispazo .6s ease-out ${s(I.desbloqueo + 0.1)} both`);
+    }
+    if (A.hud) {
+      const h = el('abs hud px', `<span>${A.hud.izq} <span class="vid">❤️❤️❤️</span></span><span class="pts">${A.hud.der}</span>`);
+      anim(h, `fadeIn .3s ease ${s(A.hud.desde)} both`);
+    }
+    A.objetos.forEach(o => {
+      const k = el('abs objeto px', `<div class="r">⭐ ${o.rareza} ⭐</div><div class="pz">🪙 ${o.precio}</div>
+        <div class="tt"><img src="assets/logo.png" alt=""><div><b>${o.nombre}</b><small>${o.detalle}</small></div></div>
+        <div class="st">${o.stats.map(([n, v]) => `<span>${n}</span><i><em data-v="${v}"></em></i><span>${v}</span>`).join('')}</div>`);
+      Object.assign(k.style, { top: o.y + 'px' }); k.style.setProperty('--rar', o.color);
+      anim(k, `${o.y < 900 ? 'bajar' : 'subir'} .4s steps(6) ${s(o.desde)} both`, ...(o.hasta ? [`fadeOut .3s steps(3) ${s(o.hasta - 0.3)} forwards`] : []));
+      const ems = [...k.querySelectorAll('em')];
+      ruletas.push(t => ems.forEach((e, i) => {
+        const p = Math.max(0, Math.min(1, (t - o.desde - 0.5 - i * 0.25) / 0.6));
+        e.style.width = (Math.round(p * e.dataset.v / 10) * 10) + '%';
+      }));
+    });
+  }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------
   if (D.golf) {

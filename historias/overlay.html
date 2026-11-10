@@ -593,6 +593,30 @@
   .cserv .btn3 { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1430px; background: #fff; color: #3b2412; font-weight: 900; font-size: 48px;
     padding: 24px 58px; border-radius: 999px; box-shadow: 0 0 0 10px rgba(255,255,255,.2), 0 16px 40px rgba(0,0,0,.4); }
   .cserv .baja { position: absolute; left: 0; right: 0; top: 1610px; font-weight: 900; font-size: 32px; letter-spacing: 3px; }
+  /* Trivia interactiva */
+  .triv { left: 50px; right: 50px; text-align: center; }
+  .triv .tg2 { display: inline-block; font-family: 'Anton', sans-serif; font-size: 50px; letter-spacing: 3px; background: #8A3FFC; color: #fff;
+    padding: 8px 30px; border-radius: 999px; border: 5px solid #fff; box-shadow: 0 10px 24px rgba(0,0,0,.35); opacity: 0; }
+  .triv .pq { margin-top: 22px; font-family: 'Anton', sans-serif; font-size: 82px; line-height: 1.05; color: #fff; text-shadow: 0 6px 24px rgba(0,0,0,.7), 0 0 3px #000; opacity: 0; }
+  .triv .pq em { font-style: normal; color: #FFD23F; }
+  .pista2 { left: 0; right: 0; margin: 0 auto; width: max-content; font-weight: 900; font-size: 40px; color: #111; background: #FFD23F; padding: 12px 30px;
+    border-radius: 999px; border: 4px solid #111; opacity: 0; }
+  .cuenta { left: 0; right: 0; text-align: center; font-family: 'Anton', sans-serif; font-size: 300px; line-height: 1; color: #fff;
+    -webkit-text-stroke: 8px #111; text-shadow: 12px 12px 0 #8A3FFC; opacity: 0; }
+  .revela { left: 0; right: 0; text-align: center; opacity: 0; }
+  .revela .p { display: inline-block; font-family: 'Anton', sans-serif; font-size: 190px; line-height: 1; color: #111; background: #FFD23F; padding: 6px 40px;
+    border-radius: 30px; border: 10px solid #111; box-shadow: 14px 14px 0 #8A3FFC; transform: rotate(-3deg); }
+  .revela .a { margin-top: 26px; font-family: 'Anton', sans-serif; font-size: 72px; color: #fff; text-shadow: 0 6px 20px rgba(0,0,0,.8), 0 0 3px #000; }
+  .confeti { width: 18px; height: 30px; opacity: 0; }
+  .info2 { left: 50px; right: 50px; display: flex; align-items: center; gap: 22px; background: rgba(18,18,22,.9); border-radius: 30px; padding: 18px 26px;
+    border: 3px solid rgba(255,255,255,.25); opacity: 0; }
+  .info2 img { width: 104px; border-radius: 16px; }
+  .info2 .tx { flex: 1; }
+  .info2 .tx b { display: block; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 54px; line-height: 1; }
+  .info2 .tx span { display: block; font-weight: 700; font-size: 24px; color: #bbb; letter-spacing: 2px; margin-top: 6px; }
+  .info2 .pr2 { position: relative; font-family: 'Anton', sans-serif; font-size: 58px; color: #111; background: #FFD23F; padding: 2px 18px; border-radius: 14px; min-width: 210px; text-align: center; }
+  .info2 .pr2 .q { position: absolute; inset: 0; display: grid; place-items: center; background: #8A3FFC; color: #fff; border-radius: 14px; }
+  .sticker.camo { background: #4b5d3a; color: #E9F5C9; border-color: #E9F5C9; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -709,6 +733,7 @@
   @keyframes chispazo { 0% { opacity: 1; transform: translate(0,0) } 100% { opacity: 0; transform: translate(var(--dx), var(--dy)) } }
   @keyframes levantar { 0% { transform: none } 30% { transform: translateY(-30px) rotate(-3deg) } 100% { transform: translate(260px, -520px) rotate(28deg); opacity: 0 } }
   @keyframes vaporear { 0% { opacity: 0; transform: translateY(0) } 30% { opacity: .9 } 100% { opacity: 0; transform: translateY(-220px) } }
+  @keyframes caerConf { 0% { opacity: 1; transform: translate(0, 0) rotate(0) } 100% { opacity: 1; transform: translate(var(--dx), 1500px) rotate(var(--rr)) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -1313,6 +1338,38 @@
       anim(c, `fadeIn .01s linear ${s(P.circulo.t)} both`);
       anim(c.querySelector('path'), `dibujar .6s ease-out ${s(P.circulo.t)} forwards`);
     }
+  }
+
+  // ---------- Trivia interactiva (deja espacio para el sticker de Instagram) ----------
+  if (D.trivia) {
+    const Q = D.trivia;
+    const tr = el('abs triv', `<div class="tg2">${Q.etiqueta}</div><div class="pq">${Q.pregunta}</div>`);
+    tr.style.top = Q.y + 'px';
+    anim(tr.querySelector('.tg2'), `golpe .4s cubic-bezier(.2,1.5,.4,1) ${s(Q.desde)} both`);
+    anim(tr.querySelector('.pq'), `subir .45s ease-out ${s(Q.desde + 0.35)} both`);
+    anim(tr, `fadeOut .25s ease ${s(Q.cuenta - 0.25)} forwards`);
+    const pi = el('abs pista2', Q.pista.texto); pi.style.top = Q.pista.y + 'px';
+    anim(pi, `pop .4s ${EASE_POP} ${s(Q.pista.desde)} both`, `rebote .7s ease-in-out ${s(Q.pista.desde + 0.4)} infinite`, `fadeOut .2s ease ${s(Q.pista.hasta - 0.2)} forwards`);
+    ['3', '2', '1'].forEach((n, i) => {
+      const c = el('abs cuenta', n); c.style.top = Q.y + 'px';
+      anim(c, `golpe .35s cubic-bezier(.2,1.5,.4,1) ${s(Q.cuenta + i * 0.6)} both`, `fadeOut .12s linear ${s(Q.cuenta + i * 0.6 + 0.5)} forwards`);
+    });
+    const tR = Q.cuenta + 1.8;
+    const rv = el('abs revela', `<div class="p">${Q.precio}</div><div class="a">${Q.remate}</div>`); rv.style.top = Q.y + 'px';
+    anim(rv, `azote .5s cubic-bezier(.3,1.2,.5,1) ${s(tR)} both`);
+    const colores = ['#FFD23F', '#FF4F8B', '#2FD6A1', '#8A3FFC', '#00B4D8', '#fff'];
+    for (let i = 0; i < 46; i++) {
+      const c = el('abs confeti'), x = (i * 97) % 1080, r = ((i * 53) % 7) - 3;
+      Object.assign(c.style, { left: x + 'px', top: (-80 - (i * 37) % 300) + 'px', background: colores[i % colores.length], borderRadius: i % 3 ? '3px' : '50%' });
+      c.style.setProperty('--dx', (r * 40) + 'px'); c.style.setProperty('--rr', (r * 220) + 'deg');
+      anim(c, `caerConf ${(1.6 + (i % 5) * 0.25).toFixed(2)}s cubic-bezier(.3,.6,.6,1) ${s(tR + (i % 6) * 0.05)} both`);
+    }
+    const I = Q.info;
+    const ic = el('abs info2', `<img src="assets/logo.png" alt=""><div class="tx"><b>${I.nombre}</b><span>${I.detalle}</span></div>
+      <div class="pr2">${Q.precio}<div class="q">¿ ? ? ?</div></div>`);
+    ic.style.top = I.y + 'px';
+    anim(ic, `subir .45s ${EASE_IN} ${s(I.desde)} both`);
+    anim(ic.querySelector('.q'), `fadeOut .2s ease ${s(tR)} forwards`);
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

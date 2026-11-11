@@ -1,13 +1,65 @@
 {
   "slug": "short-jogger-mujer-xs",
-  "clips": [{ "video": "../entrada/short-jogger-mujer-xs.mov", "inicio": 0.2, "dur": 9.7, "hdr": true }],
+  "clips": [
+    {
+      "video": "../entrada/short-jogger-mujer-xs.mov",
+      "inicio": 0.2,
+      "dur": 9.7,
+      "hdr": true
+    }
+  ],
   "segmentos": [],
-  "nubes": { "desde": 0.2, "chip": "comfy era ☁️",
-    "lista": [{ "x": -40, "y": 60, "w": 260, "vel": 4 }, { "x": 330, "y": 20, "w": 200, "vel": 5 }, { "x": 760, "y": 70, "w": 280, "vel": 4.5 }] },
-  "ajuste": { "desde": 1.2, "mover": 1.8, "y": 1330, "opciones": ["CEÑIDO", "REGULAR", "RELAXED"], "activa": "RELAXED",
-    "nota": "<b>Relaxed fit</b> = corte holgado, cero apretado 😌" },
-  "mini": { "desde": 2.6, "y": 1560, "nombre": "Short Jogger Relaxed Fit", "detalle": "MUJER · XS", "precio": "$18.000" },
+  "nubes": {
+    "desde": 0.2,
+    "lista": [
+      {
+        "x": -40,
+        "y": 60,
+        "w": 260,
+        "vel": 4
+      },
+      {
+        "x": 330,
+        "y": 20,
+        "w": 200,
+        "vel": 5
+      },
+      {
+        "x": 760,
+        "y": 70,
+        "w": 280,
+        "vel": 4.5
+      }
+    ]
+  },
+  "ajuste": {
+    "desde": 1.2,
+    "mover": 1.8,
+    "y": 1330,
+    "opciones": [
+      "CEÑIDO",
+      "REGULAR",
+      "RELAXED"
+    ],
+    "activa": "RELAXED",
+    "nota": "<b>Relaxed fit</b> = corte holgado, cero apretado 😌"
+  },
+  "mini": {
+    "desde": 2.6,
+    "y": 1560,
+    "nombre": "Short Jogger Relaxed Fit",
+    "detalle": "MUJER · XS",
+    "precio": "$18.000"
+  },
   "stickers": [
-    { "texto": "PA'L SILLÓN, LA FERIA O EL MALL ☁️", "desde": 5.0, "hasta": 9.9, "x": "centro", "y": 330, "rot": -2, "color": "comfy" }
+    {
+      "texto": "PA'L SILLÓN, LA FERIA O EL MALL ☁️",
+      "desde": 5.0,
+      "hasta": 9.9,
+      "x": "centro",
+      "y": 330,
+      "rot": -2,
+      "color": "comfy"
+    }
   ]
 }

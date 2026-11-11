@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Historia Ropa New.Z</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Poppins:wght@400;600;700;800;900&family=Noto+Color+Emoji&family=Pacifico&family=Caveat:wght@600;700&family=Rubik+Spray+Paint&family=Permanent+Marker&family=Bangers&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Poppins:wght@400;600;700;800;900&family=Noto+Color+Emoji&family=Pacifico&family=Caveat:wght@600;700&family=Rubik+Spray+Paint&family=Permanent+Marker&family=Bangers&family=Press+Start+2P&family=Rubik+Bubbles&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #132041;
@@ -713,6 +713,43 @@
   .chipM { left: 50px; top: 220px; font-weight: 900; font-size: 28px; letter-spacing: 3px; color: #fff; background: #FF4F8B; padding: 10px 24px; border-radius: 999px;
     border: 3px solid #fff; opacity: 0; }
   .sticker.rosa2 { background: #FFE1EC; color: #d6105c; border-color: #FF4F8B; }
+  /* Y2K girly */
+  .y2kT { left: 0; right: 0; top: 215px; text-align: center; opacity: 0; }
+  .y2kT b { font-family: 'Rubik Bubbles', 'Anton', cursive; font-weight: 400; font-size: 118px; line-height: 1; color: #FF8FC7;
+    -webkit-text-stroke: 5px #fff; text-shadow: 0 0 0 #fff, 6px 6px 0 #C266FF, 0 10px 30px rgba(194,102,255,.5); }
+  .y2kChip { left: 0; right: 0; margin: 0 auto; width: max-content; top: 360px; font-weight: 900; font-size: 30px; letter-spacing: 3px; color: #fff;
+    background: linear-gradient(90deg, #FF8FC7, #C266FF); padding: 10px 28px; border-radius: 999px; border: 3px solid #fff; opacity: 0; }
+  .mariposa { font-size: 90px; opacity: 0; font-family: 'Noto Color Emoji'; }
+  .mariposa span { display: inline-block; }
+  .holo { left: 60px; right: 60px; padding: 22px 30px; border-radius: 30px; opacity: 0; color: #3a1550; border: 4px solid #fff;
+    background: linear-gradient(115deg, #ffd6f0, #d9c2ff 25%, #c2f0ff 45%, #fff0b8 65%, #ffd6f0 85%); background-size: 300% 100%;
+    box-shadow: 0 16px 40px rgba(194,102,255,.45), inset 0 0 30px rgba(255,255,255,.6); display: flex; align-items: center; gap: 20px; }
+  .holo .ic2 { font-size: 72px; }
+  .holo .tx { flex: 1; }
+  .holo .tx small { display: block; font-weight: 900; font-size: 20px; letter-spacing: 3px; color: #C266FF; }
+  .holo .tx b { display: block; font-family: 'Rubik Bubbles', cursive; font-weight: 400; font-size: 60px; line-height: 1.05; color: #FF5FA8; -webkit-text-stroke: 2px #fff; }
+  .holo .tx span { display: block; font-weight: 800; font-size: 24px; letter-spacing: 1px; margin-top: 4px; }
+  .holo .pz { font-family: 'Anton', sans-serif; font-size: 62px; color: #fff; background: #FF5FA8; padding: 4px 20px; border-radius: 18px; border: 3px solid #fff; }
+  .sticker.girly { background: #FFE3F3; color: #D6107A; border-color: #fff; box-shadow: 0 10px 24px rgba(214,16,122,.3); }
+  .sticker.lila { background: #C266FF; color: #fff; border-color: #fff; }
+  /* Cierre Y2K: cupón de reserva */
+  .cy2k { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; text-align: center; color: #3a1550;
+    background: linear-gradient(170deg, rgba(255,214,240,.96), rgba(217,194,255,.96) 55%, rgba(194,240,255,.95)); }
+  .cy2k h2 { position: absolute; left: 40px; right: 40px; top: 250px; font-family: 'Rubik Bubbles', cursive; font-weight: 400; font-size: 120px; line-height: 1.05;
+    color: #FF5FA8; -webkit-text-stroke: 5px #fff; text-shadow: 7px 7px 0 #C266FF; }
+  .cy2k .cupon { position: absolute; left: 110px; right: 110px; top: 600px; background: #fff; border-radius: 30px; padding: 40px 44px; text-align: left;
+    border: 5px dashed #FF8FC7; box-shadow: 0 20px 50px rgba(194,102,255,.35); }
+  .cy2k .cupon .h { font-weight: 900; font-size: 30px; letter-spacing: 5px; color: #C266FF; text-align: center; }
+  .cy2k .cupon .r { display: flex; justify-content: space-between; font-size: 38px; font-weight: 700; padding: 12px 0; border-bottom: 2px dotted #e8c9f5; }
+  .cy2k .cupon .r b { color: #FF5FA8; }
+  .cy2k .cupon .chk { margin-top: 26px; display: flex; align-items: center; gap: 22px; font-family: 'Pacifico', cursive; font-size: 52px; color: #D6107A; }
+  .cy2k .cupon .bx { width: 70px; height: 70px; border: 6px solid #FF5FA8; border-radius: 16px; position: relative; flex: none; }
+  .cy2k .cupon .bx svg { position: absolute; left: -10px; top: -26px; width: 100px; }
+  .cy2k .cupon .bx path { fill: none; stroke: #FF5FA8; stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 160; stroke-dashoffset: 160; }
+  .cy2k p { position: absolute; left: 80px; right: 80px; top: 1270px; font-size: 40px; font-weight: 700; line-height: 1.3; }
+  .cy2k .btn4 { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1400px; font-weight: 900; font-size: 46px; color: #fff;
+    background: linear-gradient(90deg, #FF5FA8, #C266FF); padding: 24px 56px; border-radius: 999px; border: 5px solid #fff; box-shadow: 0 14px 34px rgba(194,102,255,.45); }
+  .cy2k .baja { position: absolute; left: 0; right: 0; top: 1580px; font-weight: 900; font-size: 32px; letter-spacing: 3px; color: #8a2bbd; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -842,6 +879,9 @@
   @keyframes caerSobre { from { opacity: 0; transform: translateY(-900px) rotate(-8deg) } to { opacity: 1; transform: none } }
   @keyframes saltarSello { 0% { transform: none } 40% { transform: scale(1.3) } 100% { opacity: 0; transform: translate(-260px, -400px) scale(.5) rotate(-60deg) } }
   @keyframes flotarCor { 0% { opacity: 0; transform: translateY(0) scale(.6) } 20% { opacity: 1 } 100% { opacity: 0; transform: translateY(-420px) scale(1.1) } }
+  @keyframes aletear { 0%,100% { transform: scaleX(1) } 50% { transform: scaleX(.35) } }
+  @keyframes volar { from { opacity: 0; transform: translate(var(--fx), var(--fy)) rotate(-20deg) } to { opacity: 1; transform: none } }
+  @keyframes holoMove { from { background-position: 0% 0 } to { background-position: 100% 0 } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -1596,6 +1636,24 @@
     });
   }
 
+  // ---------- Y2K girly ----------
+  if (D.y2k) {
+    const Y = D.y2k;
+    const t = el('abs y2kT', `<b>${Y.titulo}</b>`); anim(t, `golpe .5s cubic-bezier(.2,1.5,.4,1) ${s(Y.desde + 0.3)} both`);
+    anim(el('abs y2kChip', Y.chip), `pop .4s ${EASE_POP} ${s(Y.desde + 0.8)} both`);
+    (Y.mariposas || []).forEach((m, i) => {
+      const e = el('abs mariposa', `<span>${m.e}</span>`); Object.assign(e.style, { left: m.x + 'px', top: m.y + 'px' });
+      e.style.setProperty('--fx', (m.x < 540 ? -400 : 400) + 'px'); e.style.setProperty('--fy', '-300px');
+      anim(e, `volar 1s cubic-bezier(.2,.9,.3,1) ${s(Y.desde + 0.2 + i * 0.25)} both`);
+      if (m.e === '🦋') anim(e.firstElementChild, `aletear ${(0.35 + i * 0.05).toFixed(2)}s ease-in-out ${s(Y.desde)} infinite`);
+    });
+    (Y.brillos || []).forEach(([x, y], i) => brillo(x, y, Y.desde + 0.6 + i * 0.3, 1.3));
+    const H = Y.holo;
+    const h = el('abs holo', `<div class="ic2">🎀</div><div class="tx"><small>${H.etiqueta}</small><b>${H.nombre}</b><span>${H.detalle}</span></div><div class="pz">${H.precio}</div>`);
+    h.style.top = H.y + 'px';
+    anim(h, `subir .5s ${EASE_IN} ${s(H.desde)} both`, `holoMove 3s ease-in-out ${s(H.desde)} infinite alternate`, ...(D.cierre ? [`fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`] : []));
+  }
+
   // ---------- Golf: pelota que rueda y cae al hoyo ----------
   if (D.golf) {
     const G = D.golf, hx = G.x, hy = G.y;
@@ -1706,12 +1764,12 @@
   });
 
   // ---------- Lupa (el video ampliado lo pone render.js; aquí el aro y su texto) ----------
-  const brillo = (x, y, t, dur = 1.4) => {
+  function brillo(x, y, t, dur = 1.4) {  // declaración de función: disponible en todo el script
     const b = el('abs brillo', `<svg viewBox="0 0 70 70"><path d="M35 0 C38 25 45 32 70 35 C45 38 38 45 35 70 C32 45 25 38 0 35 C25 32 32 25 35 0Z" fill="#F7E3A1"/></svg>`);
     b.style.left = x + 'px'; b.style.top = y + 'px';
     anim(b, `titilar ${dur}s ease-in-out ${s(t)} infinite`);
     return b;
-  };
+  }
   if (D.lupa) {
     const L = D.lupa;
     const ring = el('abs lupa');
@@ -1730,7 +1788,27 @@
 
   // ---------- Cierre con llamada a la acción ----------
   const T = D.duracionClip, C = D.cierre;
-  if (C && C.estilo === 'servido') {
+  if (C && C.estilo === 'y2k') {
+    const cy = el('abs cy2k', `<h2>${C.titulo}</h2>
+      <div class="cupon"><div class="h">${C.cuponTitulo}</div>${C.filas.map(([k, v]) => `<div class="r"><span>${k}</span><b>${v}</b></div>`).join('')}
+        <div class="chk"><span class="bx"><svg viewBox="0 0 100 100"><path d="M14 52 L40 78 L92 14"/></svg></span>${C.check}</div></div>
+      <p>${C.texto}</p><div class="btn4">${C.boton}</div><div class="baja">↓ RESPONDE ESTA HISTORIA ↓</div>`);
+    anim(cy, `fadeIn .4s ease ${s(T - 0.1)} both`);
+    const q6 = x => cy.querySelector(x);
+    anim(q6('h2'), `golpe .5s cubic-bezier(.2,1.5,.4,1) ${s(T + 0.1)} both`);
+    anim(q6('.cupon'), `subir .45s cubic-bezier(.2,1.3,.4,1) ${s(T + 0.35)} both`);
+    anim(q6('.bx path'), `dibujar .4s ease-out ${s(T + 1.3)} forwards`);
+    anim(q6('.chk'), `latido .5s ease-in-out ${s(T + 1.6)} 1`);
+    anim(q6('p'), `fadeIn .4s ease ${s(T + 1.6)} both`);
+    anim(q6('.btn4'), `pop .45s ${EASE_POP} ${s(T + 1.9)} both`, `latido .9s ease-in-out ${s(T + 2.4)} infinite`);
+    anim(q6('.baja'), `fadeIn .3s ease ${s(T + 2.2)} both`, `rebote .7s ease-in-out ${s(T + 2.2)} infinite`);
+    [['🦋', 70, 620], ['🎀', 900, 560], ['🦋', 930, 1180], ['✨', 60, 1200], ['💖', 120, 1500], ['✨', 900, 1460]].forEach(([e, x, y], i) => {
+      const m = el('abs mariposa', `<span>${e}</span>`, cy); Object.assign(m.style, { left: x + 'px', top: y + 'px' });
+      m.style.setProperty('--fx', (x < 540 ? -300 : 300) + 'px'); m.style.setProperty('--fy', '200px');
+      anim(m, `volar .8s ease-out ${s(T + 0.4 + i * 0.12)} both`);
+      if (e === '🦋') anim(m.firstElementChild, `aletear .4s ease-in-out ${s(T)} infinite`);
+    });
+  } else if (C && C.estilo === 'servido') {
     const cs = el('abs cserv', `<div class="logo"><img src="assets/logo.png" alt=""></div><div class="plato"></div>
       <svg class="campana" viewBox="0 0 700 420"><defs><linearGradient id="met" x1="0" x2="1"><stop offset="0" stop-color="#8d8d8d"/><stop offset=".35" stop-color="#f4f4f4"/><stop offset=".6" stop-color="#c9c9c9"/><stop offset="1" stop-color="#7a7a7a"/></linearGradient></defs>
         <path d="M30 400 C 30 160, 670 160, 670 400 Z" fill="url(#met)" stroke="#555" stroke-width="6"/><rect x="10" y="392" width="680" height="24" rx="12" fill="#9a9a9a"/>

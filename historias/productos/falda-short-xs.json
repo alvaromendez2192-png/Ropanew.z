@@ -1,0 +1,24 @@
+{
+  "slug": "falda-short-xs",
+  "clips": [{ "video": "../entrada/falda-short-xs.mov", "inicio": 0.2, "dur": 10.8, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.05 }],
+  "segmentos": [],
+  "y2k": {
+    "desde": 0.1, "titulo": "✧ falda short ✧", "chip": "NUEVO EN MUJER 🎀",
+    "mariposas": [{ "e": "🦋", "x": 40, "y": 470 }, { "e": "🎀", "x": 950, "y": 470 }, { "e": "🦋", "x": 960, "y": 1230 }, { "e": "💖", "x": 30, "y": 1250 }],
+    "brillos": [[140, 230], [900, 260], [80, 1100], [960, 1050], [500, 1720]],
+    "holo": { "desde": 1.6, "y": 1410, "etiqueta": "COLECCIÓN MUJER", "nombre": "Falda Short", "detalle": "MUJER · TALLA XS · 100% ORIGINAL", "precio": "$23.000" }
+  },
+  "stickers": [
+    { "texto": "SÚPER LINDA Y SÚPER CÓMODA ✨", "desde": 4.0, "hasta": 7.2, "x": "centro", "y": 1300, "rot": -3, "color": "girly" },
+    { "texto": "PA' SALIR CON LAS AMIGAS 💅", "desde": 7.3, "hasta": 10.8, "x": "centro", "y": 1300, "rot": 3, "color": "lila" }
+  ],
+  "cierre": {
+    "estilo": "y2k", "dur": 3.8,
+    "titulo": "¿Te la reservo? 🎀",
+    "cuponTitulo": "✿ CUPÓN DE RESERVA ✿",
+    "filas": [["Prenda", "Falda Short"], ["Talla", "XS"], ["Valor", "$23.000"]],
+    "check": "¡La quiero! 💖",
+    "texto": "Escríbenos y te la apartamos al tiro ✨",
+    "boton": "💌 RESPONDE \"RESERVA\""
+  }
+}

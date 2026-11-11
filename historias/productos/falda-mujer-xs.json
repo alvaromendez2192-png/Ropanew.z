@@ -1,0 +1,61 @@
+{
+  "slug": "falda-mujer-xs",
+  "clips": [
+    {
+      "video": "../entrada/falda-mujer-xs.mov",
+      "inicio": 0.2,
+      "dur": 10.2,
+      "velocidad": 0.9,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "saturacion": 1.05
+    }
+  ],
+  "segmentos": [],
+  "carta": {
+    "desde": 0,
+    "hasta": 5.0,
+    "para": "Para todas las que<br>estaban preguntando... 💌",
+    "titulo": "¡Llegó<br>MUJER!",
+    "texto": "Este verano, atentas a nuestras historias… ¡se van a enamorar! 💖",
+    "firma": "Ropa New.Z"
+  },
+  "fichaM": {
+    "desde": 5.0,
+    "y": 1430,
+    "chip": "💖 NUEVA CATEGORÍA: MUJER",
+    "etiqueta": "COLECCIÓN MUJER",
+    "nombre": "Falda Mini de Pana",
+    "detalle": "AZUL · TALLA XS · 100% ORIGINAL",
+    "precio": "$23.000",
+    "corazones": [
+      {
+        "e": "💙",
+        "x": 900,
+        "y": 1300
+      },
+      {
+        "e": "💖",
+        "x": 70,
+        "y": 1300
+      },
+      {
+        "e": "💙",
+        "x": 960,
+        "y": 900
+      }
+    ]
+  },
+  "stickers": [
+    {
+      "texto": "AZUL QUE ENAMORA 💙",
+      "desde": 6.4,
+      "hasta": 10.2,
+      "x": 560,
+      "y": 330,
+      "rot": 3,
+      "color": "rosa2"
+    }
+  ]
+}

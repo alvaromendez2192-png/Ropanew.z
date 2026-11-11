@@ -682,6 +682,37 @@
   .chipTop { left: 50px; top: 220px; font-weight: 900; font-size: 26px; letter-spacing: 4px; color: #222; background: rgba(255,255,255,.92); padding: 10px 22px;
     border-radius: 8px; opacity: 0; }
   .sticker.tierra { background: #6b6a5a; color: #F3EFE2; border-color: #F3EFE2; }
+  /* Carta de amor (lanzamiento mujer) */
+  .carta { left: 0; top: 0; width: 1080px; height: 1919px; overflow: hidden; opacity: 0;
+    background: radial-gradient(circle at 50% 40%, rgba(255,182,213,.95), rgba(255,79,139,.94) 60%, rgba(160,20,90,.95)); }
+  .carta .sobre { position: absolute; left: 140px; top: 900px; width: 800px; height: 520px; }
+  .carta .sobre .cuerpo { position: absolute; inset: 0; background: #FFF3F7; border-radius: 18px; box-shadow: 0 30px 70px rgba(120,0,50,.45); }
+  .carta .sobre .solapa { position: absolute; left: 0; top: 0; width: 800px; height: 330px; transform-origin: 50% 0;
+    background: #FFE1EC; clip-path: polygon(0 0, 100% 0, 50% 100%); z-index: 3; }
+  .carta .sobre .frente { position: absolute; left: 0; bottom: 0; width: 800px; height: 520px; z-index: 4; border-radius: 18px;
+    background: linear-gradient(#FFF3F7, #FFF3F7); clip-path: polygon(0 35%, 50% 72%, 100% 35%, 100% 100%, 0 100%); }
+  .carta .sello { position: absolute; left: 50%; top: 270px; width: 130px; height: 130px; margin-left: -65px; z-index: 6; border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #ff7aa8, #d6105c); display: grid; place-items: center; font-size: 66px; box-shadow: 0 6px 14px rgba(0,0,0,.3); }
+  .carta .papel2 { position: absolute; left: 190px; top: 920px; width: 700px; height: 760px; z-index: 8; transform-origin: 50% 30%; background: #fffdf8; border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.3); padding: 54px 46px; text-align: center; color: #5b1236;
+    background-image: repeating-linear-gradient(180deg, transparent 0 58px, rgba(214,16,92,.10) 58px 60px); }
+  .carta .papel2 .para { font-family: 'Pacifico', cursive; font-size: 50px; line-height: 1.3; }
+  .carta .papel2 .big { margin-top: 26px; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 122px; line-height: 1; color: #d6105c; letter-spacing: -1px; }
+  .carta .papel2 .txt2 { margin-top: 30px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 44px; line-height: 1.35; }
+  .carta .papel2 .firma { margin-top: 26px; font-family: 'Pacifico', cursive; font-size: 40px; color: #d6105c; }
+  .carta .logoC { position: absolute; left: 50%; top: 260px; width: 260px; margin-left: -130px; border-radius: 30px; border: 6px solid #fff; box-shadow: 0 16px 40px rgba(0,0,0,.3); }
+  .corazonF { font-size: 70px; opacity: 0; }
+  .fichaM { left: 60px; right: 60px; display: flex; align-items: center; gap: 22px; padding: 20px 26px; border-radius: 34px; opacity: 0;
+    background: rgba(255,255,255,.9); border: 4px solid #FF4F8B; box-shadow: 0 16px 40px rgba(0,0,0,.3); color: #5b1236; }
+  .fichaM img { width: 110px; border-radius: 18px; }
+  .fichaM .tx { flex: 1; }
+  .fichaM .tx small { display: block; font-weight: 900; font-size: 20px; letter-spacing: 3px; color: #FF4F8B; }
+  .fichaM .tx b { display: block; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 54px; line-height: 1.05; }
+  .fichaM .tx span { display: block; font-weight: 700; font-size: 24px; color: #8a4a66; margin-top: 4px; letter-spacing: 1px; }
+  .fichaM .pr3 { font-family: 'Anton', sans-serif; font-size: 62px; color: #fff; background: #FF4F8B; padding: 4px 20px; border-radius: 16px; }
+  .chipM { left: 50px; top: 220px; font-weight: 900; font-size: 28px; letter-spacing: 3px; color: #fff; background: #FF4F8B; padding: 10px 24px; border-radius: 999px;
+    border: 3px solid #fff; opacity: 0; }
+  .sticker.rosa2 { background: #FFE1EC; color: #d6105c; border-color: #FF4F8B; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -806,6 +837,11 @@
   @keyframes salpicar { 0% { opacity: 0; transform: scale(0) rotate(var(--r)) } 70% { opacity: 1; transform: scale(1.15) rotate(var(--r)) } 100% { opacity: 1; transform: scale(1) rotate(var(--r)) } }
   @keyframes llenarCol { to { height: 100% } }
   @keyframes apretar { 0%,100% { transform: none } 50% { transform: scale(.88) rotate(-6deg) } }
+  @keyframes abrirSolapa { to { transform: rotateX(180deg); } }
+  @keyframes sacarCarta { 0% { opacity: 0; transform: translateY(80px) scale(.55) } 25% { opacity: 1 } 100% { opacity: 1; transform: translateY(-680px) scale(1) } }
+  @keyframes caerSobre { from { opacity: 0; transform: translateY(-900px) rotate(-8deg) } to { opacity: 1; transform: none } }
+  @keyframes saltarSello { 0% { transform: none } 40% { transform: scale(1.3) } 100% { opacity: 0; transform: translate(-260px, -400px) scale(.5) rotate(-60deg) } }
+  @keyframes flotarCor { 0% { opacity: 0; transform: translateY(0) scale(.6) } 20% { opacity: 1 } 100% { opacity: 0; transform: translateY(-420px) scale(1.1) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -1527,6 +1563,37 @@
     anim(fill, `llenarCol .6s ease-out ${s(G.t + 0.9)} forwards`);
     anim(sw.querySelector('.col span'), `fadeIn .3s ease ${s(G.t + 1.4)} both`);
     sw.querySelectorAll('.comb i').forEach((c, i) => anim(c, `pop .3s ${EASE_POP} ${s(G.t + 1.7 + i * 0.15)} both`));
+  }
+
+  // ---------- Carta de amor: lanzamiento categoría mujer ----------
+  if (D.carta) {
+    const K = D.carta;
+    const c = el('abs carta', `<img class="logoC" src="assets/logo.png" alt="">
+      <div class="papel2"><div class="para">${K.para}</div><div class="big">${K.titulo}</div><div class="txt2">${K.texto}</div><div class="firma">${K.firma}</div></div>
+      <div class="sobre"><div class="cuerpo"></div><div class="solapa"></div><div class="frente"></div><div class="sello">💗</div></div>`);
+    anim(c, `fadeIn .35s ease ${s(K.desde)} both`, `telon .7s cubic-bezier(.6,0,.4,1) ${s(K.hasta - 0.7)} forwards`);
+    const q5 = x => c.querySelector(x);
+    anim(q5('.logoC'), `pop .45s ${EASE_POP} ${s(K.desde + 0.2)} both`);
+    anim(q5('.sobre'), `caerSobre .55s cubic-bezier(.2,1.2,.4,1) ${s(K.desde + 0.3)} both`, `fadeOut .4s ease ${s(K.desde + 2.3)} forwards`);
+    anim(q5('.sello'), `saltarSello .5s ease-in ${s(K.desde + 0.95)} forwards`);
+    anim(q5('.solapa'), `abrirSolapa .45s ease-in-out ${s(K.desde + 1.2)} forwards`);
+    anim(q5('.papel2'), `sacarCarta 1s cubic-bezier(.3,1.1,.4,1) ${s(K.desde + 1.5)} both`);
+    for (let i = 0; i < 10; i++) {
+      const h = el('abs corazonF', ['💖', '💗', '💕'][i % 3], c);
+      Object.assign(h.style, { left: (60 + i * 100) + 'px', top: (1500 + (i % 3) * 90) + 'px' });
+      anim(h, `flotarCor ${(1.8 + (i % 4) * 0.3).toFixed(1)}s ease-out ${s(K.desde + 1.4 + (i % 5) * 0.25)} infinite`);
+    }
+  }
+  if (D.fichaM) {
+    const F = D.fichaM;
+    if (F.chip) anim(el('abs chipM', F.chip), `entrarIzq .45s ${EASE_IN} ${s(F.desde)} both`);
+    const f = el('abs fichaM', `<img src="assets/logo.png" alt=""><div class="tx"><small>${F.etiqueta}</small><b>${F.nombre}</b><span>${F.detalle}</span></div><div class="pr3">${F.precio}</div>`);
+    f.style.top = F.y + 'px';
+    anim(f, `subir .5s ${EASE_IN} ${s(F.desde + 0.3)} both`);
+    (F.corazones || []).forEach((h, i) => {
+      const e = el('abs corazonF', h.e); Object.assign(e.style, { left: h.x + 'px', top: h.y + 'px', fontSize: '56px' });
+      anim(e, `flotarCor 2.6s ease-out ${s(F.desde + 0.5 + i * 0.55)} infinite`);
+    });
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

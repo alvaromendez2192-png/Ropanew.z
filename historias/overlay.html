@@ -750,6 +750,21 @@
   .cy2k .btn4 { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1400px; font-weight: 900; font-size: 46px; color: #fff;
     background: linear-gradient(90deg, #FF5FA8, #C266FF); padding: 24px 56px; border-radius: 999px; border: 5px solid #fff; box-shadow: 0 14px 34px rgba(194,102,255,.45); }
   .cy2k .baja { position: absolute; left: 0; right: 0; top: 1580px; font-weight: 900; font-size: 32px; letter-spacing: 3px; color: #8a2bbd; }
+  /* Anotación de diseñador que sigue un detalle */
+  .anot { left: 0; top: 0; width: 1080px; height: 1920px; opacity: 0; }
+  .anot svg { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: visible; }
+  .anot .pt { position: absolute; width: 26px; height: 26px; margin: -13px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 6px rgba(255,255,255,.35), 0 0 14px rgba(0,0,0,.5); }
+  .anot .lb { position: absolute; padding: 12px 22px; background: rgba(255,255,255,.94); color: #111; border-radius: 6px; box-shadow: 0 10px 24px rgba(0,0,0,.35); }
+  .anot .lb small { display: block; font-weight: 800; font-size: 18px; letter-spacing: 4px; color: #999; }
+  .anot .lb b { display: block; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; font-size: 38px; line-height: 1.15; }
+  .vertical { font-weight: 800; font-size: 24px; letter-spacing: 10px; color: #fff; writing-mode: vertical-rl; transform: rotate(180deg); opacity: 0;
+    text-shadow: 0 2px 8px rgba(0,0,0,.6); border-right: 2px solid rgba(255,255,255,.8); padding-right: 14px; }
+  .mini { left: 50px; display: flex; align-items: baseline; gap: 18px; padding: 16px 26px; background: rgba(12,12,12,.82); border-radius: 14px; color: #fff; opacity: 0;
+    border: 1px solid rgba(255,255,255,.25); }
+  .mini b { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 42px; }
+  .mini span { font-weight: 700; font-size: 22px; letter-spacing: 3px; color: #ccc; }
+  .mini em { font-style: normal; font-family: 'Anton', sans-serif; font-size: 46px; color: #fff; border-left: 2px solid rgba(255,255,255,.4); padding-left: 18px; }
+  .sticker.chic { background: #111; color: #fff; border-color: #fff; font-family: 'Playfair Display', serif; font-style: italic; letter-spacing: 0; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -1652,6 +1667,30 @@
     const h = el('abs holo', `<div class="ic2">🎀</div><div class="tx"><small>${H.etiqueta}</small><b>${H.nombre}</b><span>${H.detalle}</span></div><div class="pz">${H.precio}</div>`);
     h.style.top = H.y + 'px';
     anim(h, `subir .5s ${EASE_IN} ${s(H.desde)} both`, `holoMove 3s ease-in-out ${s(H.desde)} infinite alternate`, ...(D.cierre ? [`fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`] : []));
+  }
+
+  // ---------- Anotaciones que siguen un detalle de la prenda ----------
+  (D.anotaciones || []).forEach(A => {
+    const a = el('abs anot', `<svg><polyline fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="0" style="filter:drop-shadow(0 0 3px rgba(0,0,0,.7))"/></svg>
+      <div class="pt"></div><div class="lb"><small>${A.sobre}</small><b>${A.texto}</b></div>`);
+    anim(a, `fadeIn .35s ease ${s(A.desde)} both`, ...(A.hasta ? [`fadeOut .35s ease ${s(A.hasta - 0.35)} forwards`] : []));
+    const pt = a.querySelector('.pt'), lb = a.querySelector('.lb'), pl = a.querySelector('polyline');
+    Object.assign(lb.style, { left: A.lx + 'px', top: A.ly + 'px' });
+    anim(pt, `latido .9s ease-in-out ${s(A.desde)} infinite`);
+    const P = A.pista;
+    ruletas.push(t => {
+      let k = 0; while (k < P.length - 2 && P[k + 1][0] <= t) k++;
+      const [t0, x0, y0] = P[k], [t1, x1, y1] = P[k + 1], f = Math.max(0, Math.min(1, (t - t0) / (t1 - t0)));
+      const x = x0 + (x1 - x0) * f, y = y0 + (y1 - y0) * f;
+      pt.style.left = x + 'px'; pt.style.top = y + 'px';
+      const ax = A.lx + (A.anclaX ?? 0), ay = A.ly + (A.anclaY ?? 30);
+      pl.setAttribute('points', `${x},${y} ${x},${ay} ${ax},${ay}`);
+    });
+  });
+  if (D.vertical) { const v = el('abs vertical', D.vertical.texto); Object.assign(v.style, { left: D.vertical.x + 'px', top: D.vertical.y + 'px' }); anim(v, `fadeIn .6s ease ${s(D.vertical.desde)} both`); }
+  if (D.mini) {
+    const m = el('abs mini', `<b>${D.mini.nombre}</b><span>${D.mini.detalle}</span><em>${D.mini.precio}</em>`); m.style.top = D.mini.y + 'px';
+    anim(m, `entrarIzq .5s ${EASE_IN} ${s(D.mini.desde)} both`);
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

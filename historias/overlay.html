@@ -777,6 +777,45 @@
   .ajuste .nota { margin-top: 14px; text-align: center; font-weight: 700; font-size: 30px; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.7); opacity: 0; }
   .ajuste .nota b { color: #F8BBD0; }
   .sticker.comfy { background: #EDE7F6; color: #5E35B1; border-color: #fff; }
+  /* Lookbook elegante */
+  .lbHead { left: 0; right: 0; margin: 0 auto; width: max-content; top: 200px; text-align: center; color: #fff; opacity: 0; background: rgba(10,10,10,.72); padding: 14px 40px 16px; border-radius: 4px; border: 1px solid rgba(217,183,106,.6); }
+  .lbHead .l1 { font-weight: 800; font-size: 26px; letter-spacing: 14px; }
+  .lbHead .l2 { margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 22px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 40px; }
+  .lbHead .l2 i { display: block; width: 0; height: 2px; background: #D9B76A; }
+  .cap { left: 60px; color: #fff; opacity: 0; text-shadow: 0 3px 16px rgba(0,0,0,.7); }
+  .cap b { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 150px; line-height: .9; color: #D9B76A; }
+  .cap span { display: block; font-family: 'Playfair Display', serif; font-style: italic; font-size: 54px; margin-top: -6px; }
+  .fichaLux { left: 60px; right: 60px; display: flex; align-items: center; justify-content: space-between; padding: 20px 30px; background: rgba(10,10,10,.86);
+    border: 2px solid #D9B76A; border-radius: 4px; color: #fff; opacity: 0; }
+  .fichaLux b { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 44px; }
+  .fichaLux span { display: block; font-weight: 700; font-size: 20px; letter-spacing: 4px; color: #bfa25a; margin-top: 4px; }
+  .fichaLux em { font-style: normal; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 54px; color: #D9B76A; }
+  .sticker.lux { background: rgba(10,10,10,.85); color: #D9B76A; border: 2px solid #D9B76A; border-radius: 4px; font-family: 'Playfair Display', serif; font-style: italic; letter-spacing: 0; }
+  /* Cierre lujo interactivo */
+  .clux { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; color: #fff; text-align: center;
+    background: radial-gradient(circle at 50% 30%, rgba(40,34,20,.95), rgba(8,8,8,.96) 70%); }
+  .clux .lg2 { position: absolute; left: 50%; top: 210px; width: 180px; margin-left: -90px; border-radius: 22px; border: 3px solid #D9B76A; }
+  .clux h2 { position: absolute; left: 0; right: 0; top: 440px; font-family: 'Playfair Display', serif; font-weight: 900; font-style: italic; font-size: 120px; color: #D9B76A; }
+  .clux .sub3 { position: absolute; left: 0; right: 0; top: 600px; font-weight: 700; font-size: 30px; letter-spacing: 5px; color: #bbb; }
+  .clux .enc { position: absolute; left: 140px; right: 140px; top: 690px; background: #fff; border-radius: 28px; padding: 26px; box-shadow: 0 20px 50px rgba(0,0,0,.5); }
+  .clux .enc .op { position: relative; margin-top: 16px; height: 96px; border-radius: 18px; border: 3px solid #e3d3a8; display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 40px; color: #111; overflow: hidden; }
+  .clux .enc .op:first-child { margin-top: 0; }
+  .clux .enc .op .fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: linear-gradient(90deg, #f3e2b3, #D9B76A); z-index: 0; }
+  .clux .enc .op span { position: relative; z-index: 1; }
+  .clux .enc .op .ok2 { position: absolute; right: 22px; top: 50%; margin-top: -26px; width: 52px; height: 52px; border-radius: 50%; background: #111; color: #D9B76A;
+    display: grid; place-items: center; font-size: 30px; z-index: 1; opacity: 0; }
+  .clux .dedo2 { position: absolute; font-size: 110px; opacity: 0; }
+  .clux .guia { position: absolute; left: 0; right: 0; top: 1060px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 46px; color: #fff; opacity: 0; }
+  .clux .guia b { color: #D9B76A; font-style: normal; font-family: 'Poppins'; font-weight: 800; }
+  .clux .resp { position: absolute; left: 70px; right: 70px; top: 1160px; height: 110px; border-radius: 999px; border: 3px solid rgba(255,255,255,.8);
+    display: flex; align-items: center; padding: 0 22px 0 40px; gap: 16px; opacity: 0; }
+  .clux .resp .q { flex: 1; text-align: left; font-size: 40px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; }
+  .clux .resp .q.vacio { color: rgba(255,255,255,.55); }
+  .clux .resp .env { width: 76px; height: 76px; border-radius: 50%; background: #D9B76A; display: grid; place-items: center; }
+  .clux .burbuja2 { position: absolute; right: 90px; top: 1150px; background: #3797F0; color: #fff; font-weight: 700; font-size: 40px; padding: 18px 30px; border-radius: 34px 34px 8px 34px; opacity: 0; }
+  .clux .enviado { position: absolute; left: 0; right: 0; top: 1300px; font-weight: 800; font-size: 34px; color: #D9B76A; letter-spacing: 2px; opacity: 0; }
+  .clux .baja { position: absolute; left: 0; right: 0; top: 1600px; font-weight: 900; font-size: 32px; letter-spacing: 3px; color: #D9B76A; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -910,6 +949,9 @@
   @keyframes volar { from { opacity: 0; transform: translate(var(--fx), var(--fy)) rotate(-20deg) } to { opacity: 1; transform: none } }
   @keyframes holoMove { from { background-position: 0% 0 } to { background-position: 100% 0 } }
   @keyframes flotarNube { from { transform: translateX(-30px) } to { transform: translateX(40px) } }
+  @keyframes linea { to { width: 120px } }
+  @keyframes llenarOp { to { width: 100% } }
+  @keyframes volarBurbuja { 0% { opacity: 1; transform: none } 100% { opacity: 1; transform: translateY(-120px) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -1730,6 +1772,22 @@
     anim(a.querySelector('.nota'), `fadeIn .4s ease ${s(J.mover + 1.3)} both`);
   }
 
+  // ---------- Lookbook elegante ----------
+  if (D.lookbook) {
+    const L = D.lookbook;
+    const h = el('abs lbHead', `<div class="l1">${L.marca}</div><div class="l2"><i></i>${L.sub}<i></i></div>`);
+    const finL = D.cierre ? [`fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`] : [];
+    anim(h, `fadeIn .8s ease ${s(L.desde)} both`, ...finL);
+    h.querySelectorAll('.l2 i').forEach(i => anim(i, `linea .8s ease-out ${s(L.desde + 0.4)} forwards`));
+    L.capitulos.forEach(c => {
+      const e = el('abs cap', `<b>${c.num}</b><span>— ${c.txt}</span>`); e.style.top = c.y + 'px';
+      anim(e, `subir .7s cubic-bezier(.2,.8,.2,1) ${s(c.desde)} both`, `fadeOut .4s ease ${s(c.hasta - 0.4)} forwards`);
+    });
+    const F = L.ficha;
+    const f = el('abs fichaLux', `<div><b>${F.nombre}</b><span>${F.detalle}</span></div><em>${F.precio}</em>`); f.style.top = F.y + 'px';
+    anim(f, `fadeIn .8s ease ${s(F.desde)} both`, ...finL);
+  }
+
   // ---------- Golf: pelota que rueda y cae al hoyo ----------
   if (D.golf) {
     const G = D.golf, hx = G.x, hy = G.y;
@@ -1864,7 +1922,36 @@
 
   // ---------- Cierre con llamada a la acción ----------
   const T = D.duracionClip, C = D.cierre;
-  if (C && C.estilo === 'y2k') {
+  if (C && C.estilo === 'lux') {
+    const cl = el('abs clux', `<img class="lg2" src="assets/logo.png" alt=""><h2>${C.titulo}</h2><div class="sub3">${C.sub}</div>
+      <div class="enc">${C.opciones.map((o, i) => `<div class="op"><div class="fill"></div><span>${o}</span>${i === C.elegida ? '<div class="ok2">✓</div>' : ''}</div>`).join('')}</div>
+      <div class="dedo2">👆</div><div class="guia">${C.guia}</div>
+      <div class="resp"><div class="q vacio">Envía un mensaje...</div><div class="env"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg></div></div>
+      <div class="burbuja2">${C.mensaje}</div><div class="enviado">ENVIADO ✓ · ${C.cierreTxt}</div><div class="baja">↓ RESPONDE ESTA HISTORIA ↓</div>`);
+    anim(cl, `fadeIn .4s ease ${s(T - 0.1)} both`);
+    const q7 = x => cl.querySelector(x);
+    anim(q7('.lg2'), `pop .45s ${EASE_POP} ${s(T + 0.1)} both`);
+    anim(q7('h2'), `golpe .45s cubic-bezier(.2,1.5,.4,1) ${s(T + 0.25)} both`);
+    anim(q7('.sub3'), `fadeIn .4s ease ${s(T + 0.45)} both`);
+    anim(q7('.enc'), `subir .45s cubic-bezier(.2,1.3,.4,1) ${s(T + 0.5)} both`);
+    const tap = T + 1.3, ops = cl.querySelectorAll('.op');
+    const d2 = q7('.dedo2'); Object.assign(d2.style, { left: '640px', top: (690 + 26 + C.elegida * 112 + 30) + 'px' });
+    anim(d2, `tocar .5s ease-out ${s(tap - 0.4)} both`, `fadeOut .2s ease ${s(tap + 0.4)} forwards`);
+    anim(ops[C.elegida].querySelector('.fill'), `llenarOp .5s ease-out ${s(tap + 0.05)} forwards`);
+    anim(q7('.ok2'), `pop .3s ${EASE_POP} ${s(tap + 0.4)} both`);
+
+    anim(q7('.resp'), `subir .4s ease-out ${s(tap + 0.6)} both`);
+    const qq = q7('.resp .q'), tEsc = tap + 1.0, tEnv = tEsc + C.mensaje.length / 18 + 0.3;
+    ruletas.push(t => {
+      if (t < tEsc || t >= tEnv) { qq.textContent = 'Envía un mensaje...'; qq.classList.add('vacio'); return; }
+      qq.classList.remove('vacio'); qq.textContent = [...C.mensaje].slice(0, Math.floor((t - tEsc) * 18)).join('');
+    });
+    anim(q7('.env'), `latido .3s ease-in-out ${s(tEnv - 0.15)} 1`);
+    anim(q7('.guia'), `fadeIn .4s ease ${s(tap + 0.5)} both`, `fadeOut .2s ease ${s(tEnv - 0.05)} forwards`);
+    anim(q7('.burbuja2'), `fadeIn .01s linear ${s(tEnv)} both`, `volarBurbuja .4s ease-out ${s(tEnv)} forwards`);
+    anim(q7('.enviado'), `golpe .35s cubic-bezier(.2,1.5,.4,1) ${s(tEnv + 0.35)} both`);
+    anim(q7('.baja'), `fadeIn .3s ease ${s(tEnv + 0.5)} both`, `rebote .7s ease-in-out ${s(tEnv + 0.5)} infinite`);
+  } else if (C && C.estilo === 'y2k') {
     const cy = el('abs cy2k', `<h2>${C.titulo}</h2>
       <div class="cupon"><div class="h">${C.cuponTitulo}</div>${C.filas.map(([k, v]) => `<div class="r"><span>${k}</span><b>${v}</b></div>`).join('')}
         <div class="chk"><span class="bx"><svg viewBox="0 0 100 100"><path d="M14 52 L40 78 L92 14"/></svg></span>${C.check}</div></div>

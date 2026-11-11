@@ -1,0 +1,81 @@
+{
+  "slug": "short-sastrero-xs",
+  "clips": [
+    {
+      "video": "../entrada/short-sastrero-frente.mov",
+      "inicio": 0.3,
+      "dur": 6.6,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "saturacion": 1.0
+    },
+    {
+      "video": "../entrada/short-sastrero-espalda.mov",
+      "inicio": 0.3,
+      "dur": 6.4,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "saturacion": 1.0
+    }
+  ],
+  "transicion": {
+    "tipo": "fadeblack",
+    "dur": 0.6
+  },
+  "segmentos": [],
+  "lookbook": {
+    "desde": 0.2,
+    "marca": "ROPA NEW.Z",
+    "sub": "Lookbook Mujer",
+    "capitulos": [
+      {
+        "desde": 0.8,
+        "hasta": 5.9,
+        "y": 1180,
+        "num": "01",
+        "txt": "Frente"
+      },
+      {
+        "desde": 6.6,
+        "hasta": 12.4,
+        "y": 1180,
+        "num": "02",
+        "txt": "Espalda"
+      }
+    ],
+    "ficha": {
+      "desde": 1.6,
+      "y": 1540,
+      "nombre": "Short Sastrero",
+      "detalle": "MUJER · TALLA XS · 100% ORIGINAL",
+      "precio": "$23.000"
+    }
+  },
+  "stickers": [
+    {
+      "texto": "Pa' la oficina o pa'l after ✨",
+      "desde": 8.6,
+      "hasta": 12.4,
+      "x": 440,
+      "y": 1290,
+      "rot": -2,
+      "color": "lux"
+    }
+  ],
+  "cierre": {
+    "estilo": "lux",
+    "dur": 5.2,
+    "titulo": "¿Te lo llevas?",
+    "sub": "SHORT SASTRERO · XS · $23.000",
+    "opciones": [
+      "Sí, obvio ✨",
+      "¡Lo necesito! 😍"
+    ],
+    "elegida": 1,
+    "guia": "Respóndenos <b>así</b> y te lo reservamos 👇",
+    "mensaje": "¡Lo quiero en XS! 😍",
+    "cierreTxt": "¡TE LO GUARDAMOS!"
+  }
+}

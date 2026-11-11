@@ -826,6 +826,22 @@
   .twist .b { margin-top: 14px; font-family: 'Rubik Bubbles', 'Anton', cursive; font-size: 104px; line-height: 1; color: #FF6FB5; -webkit-text-stroke: 4px #fff;
     text-shadow: 6px 6px 0 #b0306f; }
   .sticker.rosaF { background: #FF6FB5; color: #fff; border-color: #fff; }
+  /* Foco de luz que sigue un detalle */
+  .foco { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; }
+  .foco .msg2 { position: absolute; left: 0; right: 0; top: 860px; text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 72px; color: #fff; opacity: 0; }
+  .foco .lbl2 { position: absolute; left: 0; right: 0; text-align: center; opacity: 0; color: #fff; }
+  .foco .lbl2 b { display: block; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 84px; letter-spacing: 4px; color: #FFE08A; }
+  .foco .lbl2 span { display: block; font-family: 'Playfair Display', serif; font-style: italic; font-size: 46px; }
+  /* Parche de cuero de jeans */
+  .parche { left: 170px; width: 740px; padding: 26px 34px 28px; border-radius: 18px; opacity: 0; text-align: center; color: #3b2210;
+    background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.18), transparent 50%), repeating-radial-gradient(circle at 70% 60%, rgba(0,0,0,.05) 0 2px, transparent 2px 5px), linear-gradient(135deg, #b07a45, #8b5a2b 60%, #6e4420);
+    box-shadow: 0 16px 34px rgba(0,0,0,.45), inset 0 0 0 10px rgba(0,0,0,.08); transform: rotate(-2deg); }
+  .parche::before { content: ''; position: absolute; inset: 12px; border: 4px dashed rgba(255,232,190,.75); border-radius: 12px; }
+  .parche .em { font-family: 'Anton', sans-serif; font-size: 70px; letter-spacing: 6px; color: #5a3416; text-shadow: 0 2px 0 rgba(255,220,170,.55), 0 -1px 0 rgba(0,0,0,.35); }
+  .parche .ln2 { font-weight: 900; font-size: 22px; letter-spacing: 6px; color: #f3dcb6; margin-top: 2px; }
+  .parche .nm2 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 46px; color: #fff3df; margin-top: 10px; text-shadow: 0 2px 6px rgba(0,0,0,.35); }
+  .parche .pz2 { display: inline-block; margin-top: 10px; font-family: 'Anton', sans-serif; font-size: 58px; color: #3b2210; background: linear-gradient(#f6dd8f, #c89a3c); padding: 2px 26px; border-radius: 999px; border: 3px solid #5a3416; }
+  .sticker.denim { background: #9EC5E8; color: #123a5e; border-color: #fff; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -1809,6 +1825,29 @@
     anim(tw, `fadeIn .01s linear ${s(R.twist.t)} both`, `fadeOut .4s ease ${s(R.twist.hasta - 0.4)} forwards`);
     anim(tw.querySelector('.a'), `golpe .35s cubic-bezier(.2,1.5,.4,1) ${s(R.twist.t)} both`);
     anim(tw.querySelector('.b'), `azote .5s cubic-bezier(.3,1.2,.5,1) ${s(R.twist.t + 0.35)} both`);
+  }
+
+  // ---------- Foco de luz que sigue un detalle ----------
+  if (D.foco) {
+    const Fo = D.foco, P = Fo.pista;
+    const f = el('abs foco', `<div class="msg2">${Fo.intro}</div><div class="lbl2"><b>${Fo.titulo}</b><span>${Fo.sub}</span></div>`);
+    anim(f, `fadeIn .3s ease ${s(Fo.desde)} both`, `fadeOut .6s ease ${s(Fo.hasta - 0.6)} forwards`);
+    anim(f.querySelector('.msg2'), `subir .4s ease-out ${s(Fo.desde + 0.1)} both`, `fadeOut .25s ease ${s(Fo.abre)} forwards`);
+    const lb = f.querySelector('.lbl2'); anim(lb, `golpe .4s cubic-bezier(.2,1.5,.4,1) ${s(Fo.abre + 0.5)} both`);
+    ruletas.push(t => {
+      let k = 0; while (k < P.length - 2 && P[k + 1][0] <= t) k++;
+      const [t0, x0, y0] = P[k], [t1, x1, y1] = P[k + 1], q = Math.max(0, Math.min(1, (t - t0) / (t1 - t0)));
+      const x = x0 + (x1 - x0) * q, y = y0 + (y1 - y0) * q;
+      const r = Fo.r * Math.max(0, Math.min(1, (t - Fo.abre) / 0.5));
+      f.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(0,0,0,0) ${r}px, rgba(0,0,0,.86) ${r + 50}px)`;
+      lb.style.top = (y + Fo.r + 50) + 'px';
+    });
+  }
+  if (D.parche) {
+    const Pa = D.parche;
+    const pc = el('abs parche', `<div class="em">${Pa.marca}</div><div class="ln2">${Pa.linea}</div><div class="nm2">${Pa.nombre}</div><div class="pz2">${Pa.precio}</div>`);
+    pc.style.top = Pa.y + 'px';
+    anim(pc, `pop .5s cubic-bezier(.2,1.4,.4,1) ${s(Pa.desde)} both`);
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

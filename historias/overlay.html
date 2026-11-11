@@ -816,6 +816,16 @@
   .clux .burbuja2 { position: absolute; right: 90px; top: 1150px; background: #3797F0; color: #fff; font-weight: 700; font-size: 40px; padding: 18px 30px; border-radius: 34px 34px 8px 34px; opacity: 0; }
   .clux .enviado { position: absolute; left: 0; right: 0; top: 1300px; font-weight: 800; font-size: 34px; color: #D9B76A; letter-spacing: 2px; opacity: 0; }
   .clux .baja { position: absolute; left: 0; right: 0; top: 1600px; font-weight: 900; font-size: 32px; letter-spacing: 3px; color: #D9B76A; }
+  /* Referencia a otra versión (polaroid + plot twist) */
+  .polaroid { width: 380px; background: #fff; padding: 18px 18px 70px; box-shadow: 0 18px 40px rgba(0,0,0,.45); opacity: 0; }
+  .polaroid img { width: 100%; display: block; filter: saturate(.9) contrast(1.05); }
+  .polaroid .cap2 { position: absolute; left: 0; right: 0; bottom: 14px; text-align: center; font-family: 'Caveat', cursive; font-weight: 700; font-size: 44px; color: #222; }
+  .polaroid .cinta2 { position: absolute; left: 50%; top: -20px; width: 150px; height: 42px; margin-left: -75px; background: rgba(255,182,213,.85); transform: rotate(-4deg); }
+  .twist { left: 0; right: 0; text-align: center; opacity: 0; }
+  .twist .a { display: inline-block; font-family: 'Anton', sans-serif; font-size: 58px; letter-spacing: 4px; color: #fff; background: #111; padding: 6px 26px; transform: rotate(-3deg); }
+  .twist .b { margin-top: 14px; font-family: 'Rubik Bubbles', 'Anton', cursive; font-size: 104px; line-height: 1; color: #FF6FB5; -webkit-text-stroke: 4px #fff;
+    text-shadow: 6px 6px 0 #b0306f; }
+  .sticker.rosaF { background: #FF6FB5; color: #fff; border-color: #fff; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -1786,6 +1796,19 @@
     const F = L.ficha;
     const f = el('abs fichaLux', `<div><b>${F.nombre}</b><span>${F.detalle}</span></div><em>${F.precio}</em>`); f.style.top = F.y + 'px';
     anim(f, `fadeIn .8s ease ${s(F.desde)} both`, ...finL);
+  }
+
+  // ---------- Referencia: polaroid de otra versión + plot twist ----------
+  if (D.referencia) {
+    const R = D.referencia;
+    const w = el('abs'); Object.assign(w.style, { left: R.x + 'px', top: R.y + 'px', transform: `rotate(${R.rot}deg)` });
+    const pol = el('polaroid', `<div class="cinta2"></div><img src="${R.img}" alt=""><div class="cap2">${R.caption}</div>`, w);
+    pol.style.position = 'relative';
+    anim(pol, `caerSobre .6s cubic-bezier(.2,1.2,.4,1) ${s(R.desde)} both`, `fadeOut .5s ease ${s(R.hasta - 0.5)} forwards`);
+    const tw = el('abs twist', `<div class="a">${R.twist.a}</div><div class="b">${R.twist.b}</div>`); tw.style.top = R.twist.y + 'px';
+    anim(tw, `fadeIn .01s linear ${s(R.twist.t)} both`, `fadeOut .4s ease ${s(R.twist.hasta - 0.4)} forwards`);
+    anim(tw.querySelector('.a'), `golpe .35s cubic-bezier(.2,1.5,.4,1) ${s(R.twist.t)} both`);
+    anim(tw.querySelector('.b'), `azote .5s cubic-bezier(.3,1.2,.5,1) ${s(R.twist.t + 0.35)} both`);
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

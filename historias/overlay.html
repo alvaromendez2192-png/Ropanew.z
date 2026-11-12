@@ -975,6 +975,63 @@
     text-shadow: 0 1px 0 rgba(255,255,255,.8), 0 -1px 0 rgba(0,0,0,.35); }
   .placaM .tag3 div.p4 { font-family: 'Black Ops One', cursive; font-size: 64px; color: #2b2a1d; }
   .sticker.cargo { background: #E7C873; color: #2b2a1d; border-color: #2b2a1d; font-family: 'Black Ops One', cursive; letter-spacing: 1px; }
+  /* Gala de premios */
+  .gala { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; overflow: hidden; text-align: center; color: #fff;
+    background: radial-gradient(ellipse at 50% 100%, rgba(120,10,20,.92), rgba(10,4,6,.96) 65%); }
+  .gala .foco2 { position: absolute; top: -200px; width: 600px; height: 2300px; transform-origin: 50% 0;
+    background: linear-gradient(180deg, rgba(255,230,160,.35), rgba(255,230,160,0)); clip-path: polygon(45% 0, 55% 0, 100% 100%, 0 100%); }
+  .gala .g1 { position: absolute; left: 60px; right: 60px; top: 360px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 64px; line-height: 1.25; opacity: 0; }
+  .gala .g1 b { font-style: normal; color: #F2D27A; }
+  .gala .sobreO { position: absolute; left: 50%; top: 820px; width: 700px; height: 440px; margin-left: -350px; opacity: 0; perspective: 900px; }
+  .gala .sobreO .cu { position: absolute; inset: 0; border-radius: 14px; background: linear-gradient(135deg, #f7e3a1, #c9a24a 50%, #f1d68a); box-shadow: 0 30px 60px rgba(0,0,0,.6); }
+  .gala .sobreO .so { position: absolute; left: 0; top: 0; width: 700px; height: 260px; transform-origin: 50% 0; z-index: 3;
+    background: linear-gradient(180deg, #e6c56c, #b8902f); clip-path: polygon(0 0, 100% 0, 50% 100%); }
+  .gala .tarjeta { position: absolute; left: 50%; top: 830px; width: 640px; margin-left: -320px; padding: 40px 30px; border-radius: 12px; background: #fffaf0; color: #2a1a05; z-index: 5;
+    box-shadow: 0 20px 40px rgba(0,0,0,.5); border: 6px double #c9a24a; opacity: 0; }
+  .gala .tarjeta small { display: block; font-weight: 900; font-size: 26px; letter-spacing: 6px; color: #a07a25; }
+  .gala .tarjeta b { display: block; margin-top: 10px; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 74px; line-height: 1.05; }
+  .gala .tarjeta span { display: block; margin-top: 12px; font-size: 64px; }
+  .confO { width: 16px; height: 28px; opacity: 0; }
+  /* Claqueta */
+  .claq { left: 50px; top: 200px; width: 320px; opacity: 0; filter: drop-shadow(0 6px 12px rgba(0,0,0,.6)); }
+  .claq .tapa { position: absolute; left: 0; top: 0; width: 320px; height: 40px; transform-origin: 6px 40px;
+    background: repeating-linear-gradient(115deg, #111 0 22px, #fff 22px 44px); border-radius: 4px; }
+  .claq .cuerpo2 { margin-top: 44px; height: 120px; background: #161616; border-radius: 4px; padding: 10px 14px; color: #fff; font-family: 'Courier New', monospace; font-weight: 700; }
+  .claq .cuerpo2 .tk { white-space: nowrap; font-size: 22px; color: #F2D27A; letter-spacing: 2px; }
+  .claq .cuerpo2 .nm5 { font-size: 28px; margin-top: 4px; white-space: nowrap; }
+  .claq .cuerpo2 .esc { font-size: 18px; color: #aaa; margin-top: 4px; }
+  .tomaLbl { left: 50px; top: 1250px; opacity: 0; color: #fff; text-shadow: 0 3px 14px rgba(0,0,0,.85); }
+  .tomaLbl small { display: block; font-weight: 900; font-size: 26px; letter-spacing: 6px; color: #F2D27A; }
+  .tomaLbl b { display: block; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; font-size: 84px; line-height: 1.05; }
+  .papa { width: 160px; height: 160px; opacity: 0; mix-blend-mode: screen; }
+  .papa svg { width: 100%; height: 100%; }
+  .fichaOro { left: 60px; right: 60px; display: flex; align-items: center; justify-content: space-between; padding: 20px 30px; border-radius: 6px; opacity: 0; color: #fff;
+    background: linear-gradient(90deg, rgba(20,14,4,.9), rgba(40,28,8,.9)); border: 2px solid #D9B76A; box-shadow: 0 0 30px rgba(217,183,106,.35); }
+  .fichaOro b { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 46px; }
+  .fichaOro span { display: block; font-weight: 700; font-size: 20px; letter-spacing: 4px; color: #D9B76A; margin-top: 4px; }
+  .fichaOro em { font-style: normal; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 56px; color: #F2D27A; }
+  .sticker.oro3 { background: linear-gradient(90deg, #f7e3a1, #c9a24a); color: #2a1a05; border-color: #fff; box-shadow: 0 0 24px rgba(242,210,122,.6); }
+  /* Cierre: desliza para reservar */
+  .cdesl { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; color: #fff; text-align: center;
+    background: repeating-linear-gradient(90deg, rgba(150,20,30,.95) 0 60px, rgba(120,12,22,.95) 60px 120px); }
+  .cdesl::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 35%, rgba(255,220,140,.35), transparent 60%); }
+  .cdesl > * { position: relative; z-index: 2; }
+  .cdesl .trofeo { position: absolute; left: 50%; top: 230px; width: 220px; margin-left: -110px; z-index: 2; }
+  .cdesl h2 { position: absolute; left: 50px; right: 50px; top: 520px; font-family: 'Playfair Display', serif; font-weight: 900; font-style: italic; font-size: 92px; line-height: 1.1; color: #F2D27A;
+    text-shadow: 0 6px 24px rgba(0,0,0,.5); z-index: 2; }
+  .cdesl .res2 { position: absolute; left: 0; right: 0; top: 780px; font-weight: 800; font-size: 36px; letter-spacing: 2px; z-index: 2; }
+  .cdesl .res2 b { color: #F2D27A; }
+  .cdesl .pista3 { position: absolute; left: 110px; right: 110px; top: 920px; height: 150px; border-radius: 999px; background: rgba(0,0,0,.45); border: 4px solid rgba(255,255,255,.6); z-index: 2; overflow: hidden; }
+  .cdesl .pista3 .relleno { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: linear-gradient(90deg, #2FD67A, #1EB862); }
+  .cdesl .pista3 .txt3 { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 800; font-size: 40px; letter-spacing: 2px; color: rgba(255,255,255,.85); }
+  .cdesl .pista3 .ok3 { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 900; font-size: 54px; color: #fff; opacity: 0; }
+  .cdesl .pista3 .pomo { position: absolute; left: 10px; top: 10px; width: 122px; height: 122px; border-radius: 50%; background: linear-gradient(135deg, #f7e3a1, #c9a24a);
+    display: grid; place-items: center; font-size: 56px; color: #2a1a05; box-shadow: 0 6px 16px rgba(0,0,0,.4); }
+  .cdesl p { position: absolute; left: 80px; right: 80px; top: 1160px; font-size: 42px; font-weight: 700; line-height: 1.3; opacity: 0; z-index: 2; }
+  .cdesl p b { color: #F2D27A; }
+  .cdesl .btn7 { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1330px; font-weight: 900; font-size: 48px; color: #2a1a05; z-index: 2;
+    background: linear-gradient(90deg, #f7e3a1, #c9a24a); padding: 24px 58px; border-radius: 999px; box-shadow: 0 0 30px rgba(242,210,122,.6); }
+  .cdesl .baja { position: absolute; left: 0; right: 0; top: 1500px; font-weight: 900; font-size: 32px; letter-spacing: 3px; color: #F2D27A; z-index: 2; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -1121,6 +1178,13 @@
   @keyframes bajarBola { from { transform: translateY(-700px) } to { transform: none } }
   @keyframes brilloTexto { from { background-position: 0% 0 } to { background-position: 200% 0 } }
   @keyframes vagar { 0% { transform: translate(0,0) } 33% { transform: translate(var(--ax), var(--ay)) } 66% { transform: translate(var(--bx), var(--by)) } 100% { transform: translate(0,0) } }
+  @keyframes barrerFoco { 0% { transform: rotate(-25deg) } 50% { transform: rotate(25deg) } 100% { transform: rotate(-25deg) } }
+  @keyframes abrirSobre { to { transform: rotateX(180deg) } }
+  @keyframes sacarTarjeta { 0% { opacity: 0; transform: translateY(120px) scale(.7) } 100% { opacity: 1; transform: translateY(-260px) scale(1) } }
+  @keyframes clack { 0% { transform: rotate(-28deg) } 60% { transform: rotate(2deg) } 100% { transform: rotate(0) } }
+  @keyframes flashPapa { 0% { opacity: 0; transform: scale(.4) } 25% { opacity: 1; transform: scale(1.1) } 100% { opacity: 0; transform: scale(.8) } }
+  @keyframes deslizar2 { from { left: 10px } to { left: calc(100% - 132px) } }
+  @keyframes llenar2 { to { width: 100% } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -2122,6 +2186,56 @@
     anim(w, `colgar 1.6s ease-out ${s(P.desde)} both`, `mecerse 2.4s ease-in-out ${s(P.desde + 1.6)} infinite`);
   }
 
+  // ---------- Gala de premios ----------
+  const confetiOro = (parent, t0, n = 40) => {
+    for (let i = 0; i < n; i++) {
+      const c = el('abs confO', '', parent), x = (i * 97) % 1080, r = ((i * 53) % 7) - 3;
+      Object.assign(c.style, { left: x + 'px', top: (-60 - (i * 41) % 300) + 'px', background: ['#F2D27A', '#fff', '#c9a24a', '#FFE9B0'][i % 4], borderRadius: i % 3 ? '3px' : '50%' });
+      c.style.setProperty('--dx', (r * 40) + 'px'); c.style.setProperty('--rr', (r * 220) + 'deg');
+      anim(c, `caerConf ${(1.8 + (i % 5) * 0.25).toFixed(2)}s cubic-bezier(.3,.6,.6,1) ${s(t0 + (i % 6) * 0.05)} both`);
+    }
+  };
+  if (D.gala) {
+    const G = D.gala;
+    const g = el('abs gala', `<div class="foco2" style="left:-80px"></div><div class="foco2" style="left:560px"></div>
+      <div class="g1">${G.anuncio}</div><div class="sobreO"><div class="cu"></div><div class="so"></div></div>
+      <div class="tarjeta"><small>${G.etiqueta}</small><b>${G.ganadora}</b><span>🏆</span></div>`);
+    anim(g, `fadeIn .3s ease ${s(G.desde)} both`, `fadeOut .5s ease ${s(G.hasta - 0.5)} forwards`);
+    g.querySelectorAll('.foco2').forEach((f, i) => anim(f, `barrerFoco ${2.4 + i * 0.4}s ease-in-out ${s(G.desde)} infinite`));
+    anim(g.querySelector('.g1'), `subir .5s ease-out ${s(G.desde + 0.2)} both`);
+    anim(g.querySelector('.sobreO'), `caerSobre .5s cubic-bezier(.2,1.2,.4,1) ${s(G.desde + 0.7)} both`, `fadeOut .3s ease ${s(G.desde + 2.0)} forwards`);
+    anim(g.querySelector('.so'), `abrirSobre .4s ease-in ${s(G.desde + 1.3)} forwards`);
+    anim(g.querySelector('.tarjeta'), `sacarTarjeta .7s cubic-bezier(.2,1.2,.4,1) ${s(G.desde + 1.6)} both`);
+    confetiOro(g, G.desde + 1.9);
+  }
+  if (D.claqueta) {
+    const Q = D.claqueta;
+    const c = el('abs claq', `<div class="tapa"></div><div class="cuerpo2"><div class="tk"></div><div class="nm5">${Q.titulo}</div><div class="esc">ROPA NEW.Z · MUJER</div></div>`);
+    anim(c, `fadeIn .3s ease ${s(Q.tomas[0].t)} both`, `fadeOut .3s ease ${s(Q.hasta - 0.3)} forwards`);
+    const tapa = c.querySelector('.tapa'), tk = c.querySelector('.tk');
+    anim(tapa, ...Q.tomas.map(tm => `clack .25s ease-in ${s(tm.t)} both`));
+    ruletas.push(t => { let k = 0; Q.tomas.forEach((tm, i) => { if (t >= tm.t) k = i; }); tk.textContent = `ESCENA 1 · TOMA ${k + 1}`; });
+    Q.tomas.forEach((tm, i) => {
+      const fin = Q.tomas[i + 1] ? Q.tomas[i + 1].t : Q.hasta;
+      const e = el('abs tomaLbl', `<small>TOMA ${i + 1}</small><b>${tm.txt}</b>`);
+      anim(e, `entrarIzq .35s ${EASE_IN} ${s(tm.t + 0.1)} both`, `fadeOut .15s linear ${s(fin - 0.1)} forwards`);
+    });
+  }
+  if (D.paparazzi) {
+    const P = D.paparazzi, rayo = `<svg viewBox="0 0 160 160"><path d="M80 0 L92 68 L160 80 L92 92 L80 160 L68 92 L0 80 L68 68 Z" fill="#fff"/><circle cx="80" cy="80" r="26" fill="#fff"/></svg>`;
+    const pos = [[40, 600], [900, 520], [60, 1050], [930, 980], [500, 260], [120, 1500], [880, 1450], [700, 720]];
+    for (let t = P.desde, i = 0; t < P.hasta; t += P.cada, i++) {
+      const [x, y] = pos[i % pos.length], f = el('abs papa', rayo);
+      Object.assign(f.style, { left: x + 'px', top: y + 'px' });
+      anim(f, `flashPapa .35s ease-out ${s(t)} forwards`);
+    }
+  }
+  if (D.fichaOro) {
+    const F = D.fichaOro;
+    const f = el('abs fichaOro', `<div><b>${F.nombre}</b><span>${F.detalle}</span></div><em>${F.precio}</em>`); f.style.top = F.y + 'px';
+    anim(f, `subir .6s ${EASE_IN} ${s(F.desde)} both`, ...(D.cierre ? [`fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`] : []));
+  }
+
   // ---------- Golf: pelota que rueda y cae al hoyo ----------
   if (D.golf) {
     const G = D.golf, hx = G.x, hy = G.y;
@@ -2256,7 +2370,29 @@
 
   // ---------- Cierre con llamada a la acción ----------
   const T = D.duracionClip, C = D.cierre;
-  if (C && C.estilo === 'lista') {
+  if (C && C.estilo === 'deslizar') {
+    const cd = el('abs cdesl', `<svg class="trofeo" viewBox="0 0 220 260"><defs><linearGradient id="oro" x1="0" x2="1"><stop offset="0" stop-color="#c9a24a"/><stop offset=".5" stop-color="#fff2c2"/><stop offset="1" stop-color="#b8902f"/></linearGradient></defs>
+        <path d="M50 20 H170 V90 C170 140 140 160 110 160 C80 160 50 140 50 90 Z" fill="url(#oro)"/><path d="M50 40 H18 C18 90 40 110 60 112 M170 40 H202 C202 90 180 110 160 112" fill="none" stroke="url(#oro)" stroke-width="12"/>
+        <rect x="96" y="158" width="28" height="44" fill="url(#oro)"/><rect x="60" y="200" width="100" height="30" rx="6" fill="url(#oro)"/><rect x="45" y="228" width="130" height="24" rx="6" fill="#3a2a0a"/></svg>
+      <h2>${C.titulo}</h2><div class="res2">${C.resumen}</div>
+      <div class="pista3"><div class="relleno"></div><div class="txt3">${C.deslizar}</div><div class="ok3">${C.ok}</div><div class="pomo">➜</div></div>
+      <p>${C.texto}</p><div class="btn7">${C.boton}</div><div class="baja">↓ RESPONDE ESTA HISTORIA ↓</div>`);
+    anim(cd, `fadeIn .4s ease ${s(T - 0.1)} both`);
+    const qa = x => cd.querySelector(x);
+    anim(qa('.trofeo'), `pop .5s cubic-bezier(.2,1.5,.4,1) ${s(T + 0.1)} both`);
+    anim(qa('h2'), `golpe .45s cubic-bezier(.2,1.5,.4,1) ${s(T + 0.3)} both`);
+    anim(qa('.res2'), `fadeIn .4s ease ${s(T + 0.6)} both`);
+    anim(qa('.pista3'), `subir .4s ease-out ${s(T + 0.7)} both`);
+    const tS = T + 1.4;
+    anim(qa('.pomo'), `deslizar2 .9s cubic-bezier(.5,0,.3,1) ${s(tS)} both`);
+    anim(qa('.relleno'), `llenar2 .9s cubic-bezier(.5,0,.3,1) ${s(tS)} both`);
+    anim(qa('.txt3'), `fadeOut .3s ease ${s(tS + 0.2)} forwards`);
+    anim(qa('.ok3'), `golpe .35s cubic-bezier(.2,1.5,.4,1) ${s(tS + 0.9)} both`);
+    confetiOro(cd, tS + 0.9, 36);
+    anim(qa('p'), `fadeIn .4s ease ${s(tS + 1.2)} both`);
+    anim(qa('.btn7'), `pop .45s ${EASE_POP} ${s(tS + 1.5)} both`, `latido .9s ease-in-out ${s(tS + 2.0)} infinite`);
+    anim(qa('.baja'), `fadeIn .3s ease ${s(tS + 1.8)} both`, `rebote .7s ease-in-out ${s(tS + 1.8)} infinite`);
+  } else if (C && C.estilo === 'lista') {
     const cl = el('abs clista', `<h2>${C.titulo}</h2>
       <div class="hoja2"><div class="h">${C.cabecera}</div>${C.invitados.map(g => `<div class="g tach"><span>${g}</span><span>✗</span></div>`).join('')}
         <div class="tu"></div><div class="det4">${C.detalle}</div></div>

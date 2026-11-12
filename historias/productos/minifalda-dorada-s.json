@@ -1,0 +1,32 @@
+{
+  "slug": "minifalda-dorada-s",
+  "clips": [
+    { "video": "../entrada/minifalda-dorada-s.mov", "inicio": 0.3, "dur": 3.6, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.12 },
+    { "video": "../entrada/minifalda-dorada-s.mov", "inicio": 3.0, "dur": 2.0, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.12,
+      "fx": "crop=540:960:270:560,scale=1080:1920:flags=lanczos", "trans": { "tipo": "fade", "dur": 0.2 } },
+    { "video": "../entrada/minifalda-dorada-s.mov", "inicio": 5.5, "dur": 2.0, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.12,
+      "fx": "rotate=-6*PI/180:fillcolor=black,scale=1340:2380,crop=1080:1920", "trans": { "tipo": "fade", "dur": 0.2 } },
+    { "video": "../entrada/minifalda-dorada-espejo.mp4", "inicio": 0, "dur": 2.0, "trans": { "tipo": "circleopen", "dur": 0.3 } },
+    { "video": "../entrada/minifalda-dorada-s.mov", "inicio": 10.0, "dur": 2.4, "velocidad": 0.6, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.12, "trans": { "tipo": "fade", "dur": 0.2 } },
+    { "video": "../entrada/minifalda-dorada-s.mov", "inicio": 12.4, "dur": 2.0, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.12, "trans": { "tipo": "fade", "dur": 0.2 } }
+  ],
+  "segmentos": [],
+  "gala": { "desde": 0, "hasta": 3.5, "anuncio": "Y el premio a la falda<br>más <b>espectacular</b> es para…", "etiqueta": "LA GANADORA ES", "ganadora": "¡Mini Falda Dorada!" },
+  "claqueta": { "hasta": 13.0, "titulo": "MINI FALDA DORADA", "tomas": [
+    { "t": 3.4, "txt": "El detalle" }, { "t": 5.2, "txt": "La pose" }, { "t": 6.9, "txt": "El reflejo" },
+    { "t": 8.6, "txt": "Cámara lenta" }, { "t": 10.8, "txt": "El brillo" } ] },
+  "paparazzi": { "desde": 3.5, "hasta": 12.8, "cada": 0.45 },
+  "fichaOro": { "desde": 3.8, "y": 1560, "nombre": "Mini Falda Lentejuelas Dorada", "detalle": "MUJER · TALLA S", "precio": "$25.000" },
+  "stickers": [
+    { "texto": "Brilla más que el flash de los paparazzi ✨", "desde": 9.0, "hasta": 12.8, "x": "centro", "y": 1440, "rot": -2, "color": "oro3" }
+  ],
+  "cierre": {
+    "estilo": "deslizar", "dur": 5.0,
+    "titulo": "¿Y si la ganadora<br>eres tú? 🏆",
+    "resumen": "Mini Falda Dorada · Talla S · <b>$25.000</b>",
+    "deslizar": "desliza para reservar  →",
+    "ok": "✓ ¡RESERVADA!",
+    "texto": "Ahora hazlo de verdad: escríbenos <b>\"LA QUIERO\"</b> y es tuya 💛",
+    "boton": "💌 RESPONDE \"LA QUIERO\""
+  }
+}

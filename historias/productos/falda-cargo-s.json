@@ -1,0 +1,127 @@
+{
+  "slug": "falda-cargo-s",
+  "clips": [
+    {
+      "video": "../entrada/falda-cargo-frente.mov",
+      "inicio": 0.3,
+      "dur": 2.0,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable"
+    },
+    {
+      "video": "../entrada/falda-cargo-frente.mov",
+      "inicio": 4.0,
+      "dur": 2.0,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "fx": "crop=540:960:480:700,scale=1080:1920:flags=lanczos",
+      "trans": {
+        "tipo": "slideleft",
+        "dur": 0.3
+      }
+    },
+    {
+      "video": "../entrada/falda-cargo-collage.mp4",
+      "inicio": 0,
+      "dur": 2.0,
+      "trans": {
+        "tipo": "circleopen",
+        "dur": 0.4
+      }
+    },
+    {
+      "video": "../entrada/falda-cargo-espalda.mov",
+      "inicio": 0.3,
+      "dur": 2.2,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "trans": {
+        "tipo": "slideup",
+        "dur": 0.3
+      }
+    },
+    {
+      "video": "../entrada/falda-cargo-pip.mp4",
+      "inicio": 0,
+      "dur": 2.5,
+      "trans": {
+        "tipo": "wipeleft",
+        "dur": 0.3
+      }
+    },
+    {
+      "video": "../entrada/falda-cargo-frente.mov",
+      "inicio": 8.6,
+      "dur": 1.8,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "trans": {
+        "tipo": "fade",
+        "dur": 0.3
+      }
+    }
+  ],
+  "segmentos": [],
+  "expedicion": {
+    "desde": 0.2,
+    "titulo": "EXPEDICIÓN CARGO",
+    "vistas": [
+      {
+        "t": 0.0,
+        "num": "VISTA 01",
+        "txt": "FRENTE"
+      },
+      {
+        "t": 1.7,
+        "num": "VISTA 02",
+        "txt": "BOLSILLO<br>CARGO"
+      },
+      {
+        "t": 3.3,
+        "num": "VISTA 03",
+        "txt": "4 EN 1"
+      },
+      {
+        "t": 5.0,
+        "num": "VISTA 04",
+        "txt": "ESPALDA"
+      },
+      {
+        "t": 6.9,
+        "num": "VISTA 05",
+        "txt": "DOBLE<br>VISTA"
+      },
+      {
+        "t": 9.1,
+        "num": "VISTA 06",
+        "txt": "LISTA PA'<br>LA AVENTURA"
+      }
+    ]
+  },
+  "placaM": {
+    "desde": 9.2,
+    "x": 630,
+    "y": 1100,
+    "lineas": [
+      "FALDA CARGO",
+      "MUJER",
+      "TALLA S"
+    ],
+    "precio": "$20.000"
+  },
+  "stickers": [
+    {
+      "texto": "BOLSILLOS PA' TODO…<br>¡MENOS PA' LAS PENAS! 😂",
+      "desde": 3.5,
+      "hasta": 6.8,
+      "x": "centro",
+      "y": 1080,
+      "rot": -2,
+      "color": "cargo"
+    }
+  ]
+}

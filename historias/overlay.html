@@ -896,6 +896,27 @@
   .cvip .btn5 { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1470px; font-weight: 900; font-size: 48px; color: #111; background: #fff;
     padding: 24px 58px; border-radius: 999px; box-shadow: 6px 6px 0 #FF2E88, -6px -6px 0 #00E5FF; }
   .cvip .baja { position: absolute; left: 0; right: 0; top: 1630px; font-weight: 900; font-size: 32px; letter-spacing: 3px; color: #FF2E88; }
+  /* Encuentra las diferencias */
+  .difs { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; text-align: center; color: #fff;
+    background: radial-gradient(circle at 50% 40%, rgba(40,20,40,.94), rgba(8,8,10,.96) 70%); }
+  .difs .tt3 { position: absolute; left: 40px; right: 40px; top: 330px; font-family: 'Anton', sans-serif; font-size: 92px; line-height: 1.05; letter-spacing: 2px; }
+  .difs .tt3 em { font-style: normal; color: #FF2E88; }
+  .difs .card3 { position: absolute; top: 620px; width: 480px; }
+  .difs .card3 .fr { position: relative; width: 480px; height: 480px; border-radius: 18px; overflow: hidden; border: 5px solid #fff; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+  .difs .card3 img { width: 100%; height: 100%; display: block; }
+  .difs .card3 .lb3 { margin-top: 18px; font-weight: 900; font-size: 34px; letter-spacing: 4px; }
+  .difs .marca3 { position: absolute; border: 7px solid #FF2E2E; border-radius: 50%; opacity: 0; box-shadow: 0 0 12px rgba(255,46,46,.7); }
+  .difs .nota3 { position: absolute; white-space: nowrap; font-weight: 900; font-size: 26px; background: #FF2E2E; color: #fff; padding: 6px 14px; border-radius: 10px; opacity: 0; }
+  .difs .remate3 { position: absolute; left: 0; right: 0; top: 1300px; opacity: 0; }
+  .difs .remate3 span { display: inline-block; font-family: 'Anton', sans-serif; font-size: 96px; color: #111; background: #FFD23F; padding: 6px 34px;
+    border: 7px solid #fff; transform: rotate(-3deg); box-shadow: 10px 10px 0 #FF2E88; }
+  .reflejo { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; overflow: hidden; mix-blend-mode: soft-light; }
+  .reflejo i { position: absolute; top: -400px; left: -700px; width: 380px; height: 2800px; transform: rotate(25deg);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.95), transparent); }
+  .cromo { left: 0; right: 0; margin: 0 auto; width: max-content; text-align: center; opacity: 0; background: rgba(10,10,12,.82); padding: 10px 34px 14px; border-radius: 14px; border: 2px solid rgba(255,255,255,.35); }
+  .cromo b { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 104px; letter-spacing: 4px; line-height: 1;
+    background: linear-gradient(180deg, #ffffff 0%, #c9ccd3 35%, #6b6f78 50%, #e8eaee 65%, #9a9ea8 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
+    -webkit-text-stroke: 2px rgba(0,0,0,.6); filter: drop-shadow(0 6px 10px rgba(0,0,0,.6)); }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -1037,6 +1058,7 @@
   @keyframes glitchOn { 0% { opacity: 1 } 100% { opacity: 0 } }
   @keyframes glitchBar { 0% { transform: translateX(-60px) } 25% { transform: translateX(80px) } 50% { transform: translateX(-30px) } 75% { transform: translateX(50px) } 100% { transform: translateX(0) } }
   @keyframes columpio { 0% { transform: rotate(10deg) } 30% { transform: rotate(-7deg) } 55% { transform: rotate(4deg) } 80% { transform: rotate(-2deg) } 100% { transform: rotate(0) } }
+  @keyframes barrer { from { left: -700px } to { left: 1400px } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -1961,6 +1983,31 @@
       }
     });
   }
+
+  // ---------- Encuentra las diferencias ----------
+  if (D.diferencias) {
+    const F = D.diferencias;
+    const d = el('abs difs', `<div class="tt3">${F.titulo}</div>
+      <div class="card3" style="left:40px"><div class="fr"><img src="${F.izq.img}" alt=""></div><div class="lb3">${F.izq.label}</div></div>
+      <div class="card3 der" style="left:560px"><div class="fr"><img src="${F.der.img}" alt=""></div><div class="lb3">${F.der.label}</div></div>
+      <div class="remate3"><span>${F.remate}</span></div>`);
+    anim(d, `fadeIn .3s ease ${s(F.desde)} both`, `fadeOut .45s ease ${s(F.hasta - 0.45)} forwards`);
+    anim(d.querySelector('.tt3'), `golpe .45s cubic-bezier(.2,1.5,.4,1) ${s(F.desde + 0.1)} both`);
+    d.querySelectorAll('.card3').forEach((c, i) => anim(c, `${i ? 'deDer' : 'deIzq'} .5s cubic-bezier(.2,1.2,.4,1) ${s(F.desde + 0.3 + i * 0.15)} both`));
+    const fr = d.querySelector('.der .fr');
+    F.marcas.forEach(m => {
+      const c = el('marca3', '', fr); Object.assign(c.style, { left: m.x - m.r + 'px', top: m.y - m.r + 'px', width: 2 * m.r + 'px', height: 2 * m.r + 'px' });
+      anim(c, `pop .3s ${EASE_POP} ${s(m.t)} both`);
+      const n = el('abs nota3', m.txt, d); Object.assign(n.style, { left: (560 + m.lx) + 'px', top: (625 + m.ly) + 'px' });
+      anim(n, `pop .3s ${EASE_POP} ${s(m.t + 0.15)} both`);
+    });
+    anim(d.querySelector('.remate3'), `azote .5s cubic-bezier(.3,1.2,.5,1) ${s(F.remateT)} both`);
+  }
+  (D.reflejos || []).forEach(t => {
+    const r = el('abs reflejo', '<i></i>'); anim(r, `fadeIn .01s linear ${s(t)} both`, `fadeOut .01s linear ${s(t + 1.0)} forwards`);
+    anim(r.querySelector('i'), `barrer 1s ease-in-out ${s(t)} both`);
+  });
+  if (D.cromado) { const c = el('abs cromo', `<b>${D.cromado.texto}</b>`); c.style.top = D.cromado.y + 'px'; anim(c, `golpe .5s cubic-bezier(.2,1.4,.4,1) ${s(D.cromado.desde)} both`); }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------
   if (D.golf) {

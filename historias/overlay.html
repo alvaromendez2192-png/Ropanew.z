@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Historia Ropa New.Z</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Poppins:wght@400;600;700;800;900&family=Noto+Color+Emoji&family=Pacifico&family=Caveat:wght@600;700&family=Rubik+Spray+Paint&family=Permanent+Marker&family=Bangers&family=Press+Start+2P&family=Rubik+Bubbles&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Poppins:wght@400;600;700;800;900&family=Noto+Color+Emoji&family=Pacifico&family=Caveat:wght@600;700&family=Rubik+Spray+Paint&family=Permanent+Marker&family=Bangers&family=Press+Start+2P&family=Rubik+Bubbles&family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #132041;
@@ -842,6 +842,25 @@
   .parche .nm2 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 46px; color: #fff3df; margin-top: 10px; text-shadow: 0 2px 6px rgba(0,0,0,.35); }
   .parche .pz2 { display: inline-block; margin-top: 10px; font-family: 'Anton', sans-serif; font-size: 58px; color: #3b2210; background: linear-gradient(#f6dd8f, #c89a3c); padding: 2px 26px; border-radius: 999px; border: 3px solid #5a3416; }
   .sticker.denim { background: #9EC5E8; color: #123a5e; border-color: #fff; }
+  /* Intro delicada: S caligráfica + pétalos */
+  .intS { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; text-align: center; overflow: hidden;
+    background: radial-gradient(circle at 50% 40%, rgba(255,240,244,.95), rgba(246,214,222,.95) 60%, rgba(226,180,192,.95)); }
+  .intS svg.letraS { position: absolute; left: 0; top: 330px; width: 1080px; height: 700px; }
+  .intS svg.letraS text { font-family: 'Great Vibes', cursive; font-size: 640px; fill: transparent; stroke: #B76E79; stroke-width: 5;
+    stroke-dasharray: 2600; stroke-dashoffset: 2600; }
+  .intS .t1 { position: absolute; left: 0; right: 0; top: 1060px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 78px; color: #7a3d4a; opacity: 0; }
+  .intS .ciclo2 { position: absolute; left: 0; right: 0; top: 1200px; height: 90px; }
+  .intS .ciclo2 div { position: absolute; left: 0; right: 0; font-family: 'Playfair Display', serif; font-size: 62px; color: #9b5563; opacity: 0; }
+  .intS .ciclo2 div b { font-family: 'Great Vibes', cursive; font-weight: 400; font-size: 96px; color: #B76E79; }
+  .intS .firma2 { position: absolute; left: 0; right: 0; top: 1500px; font-weight: 700; font-size: 26px; letter-spacing: 10px; color: #a0646f; opacity: 0; }
+  .petalo { width: 46px; height: 34px; opacity: 0; }
+  .fichaRosa { left: 90px; right: 90px; text-align: center; padding: 22px 30px 24px; background: rgba(255,248,250,.92); border-radius: 26px; opacity: 0; color: #6b3340;
+    border: 2px solid #D9A3AE; box-shadow: 0 14px 34px rgba(0,0,0,.25); }
+  .fichaRosa .k1 { font-weight: 800; font-size: 20px; letter-spacing: 6px; color: #B76E79; }
+  .fichaRosa .k2 { font-family: 'Great Vibes', cursive; font-size: 84px; line-height: 1; color: #8a4252; margin-top: 4px; }
+  .fichaRosa .k3 { display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 6px; font-weight: 700; font-size: 24px; letter-spacing: 3px; color: #8d6870; }
+  .fichaRosa .k3 b { font-family: 'Playfair Display', serif; font-size: 50px; letter-spacing: 0; color: #6b3340; }
+  .sticker.petal { background: #FCE4EC; color: #8a4252; border-color: #fff; font-family: 'Playfair Display', serif; font-style: italic; letter-spacing: 0; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -978,6 +997,8 @@
   @keyframes linea { to { width: 120px } }
   @keyframes llenarOp { to { width: 100% } }
   @keyframes volarBurbuja { 0% { opacity: 1; transform: none } 100% { opacity: 1; transform: translateY(-120px) } }
+  @keyframes caerPetalo { 0% { opacity: 0; transform: translate(0, 0) rotate(0) } 10% { opacity: .95 } 50% { transform: translate(var(--dx), 900px) rotate(220deg) } 90% { opacity: .9 } 100% { opacity: 0; transform: translate(calc(var(--dx) * -0.4), 2000px) rotate(420deg) } }
+  @keyframes rellenarS { to { fill: #C98A94 } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -1848,6 +1869,36 @@
     const pc = el('abs parche', `<div class="em">${Pa.marca}</div><div class="ln2">${Pa.linea}</div><div class="nm2">${Pa.nombre}</div><div class="pz2">${Pa.precio}</div>`);
     pc.style.top = Pa.y + 'px';
     anim(pc, `pop .5s cubic-bezier(.2,1.4,.4,1) ${s(Pa.desde)} both`);
+  }
+
+  // ---------- Intro delicada: letra caligráfica + pétalos ----------
+  const petalo = c => `<svg viewBox="0 0 46 34" width="46" height="34"><path d="M2 17 C10 0, 36 0, 44 17 C36 34, 10 34, 2 17 Z" fill="${c}"/><path d="M8 17 Q23 12 40 17" stroke="rgba(255,255,255,.6)" stroke-width="2" fill="none"/></svg>`;
+  const lluviaPetalos = (parent, n, t0, dur, colores, escala = 1) => {
+    for (let i = 0; i < n; i++) {
+      const pe = el('abs petalo', petalo(colores[i % colores.length]), parent);
+      Object.assign(pe.style, { left: ((i * 131) % 1080) + 'px', top: (-60 - (i * 53) % 400) + 'px', transform: `scale(${escala})` });
+      pe.style.setProperty('--dx', (((i * 37) % 9) - 4) * 50 + 'px');
+      anim(pe, `caerPetalo ${(dur + (i % 5) * 0.6).toFixed(1)}s linear ${s(t0 + (i % 7) * 0.35)} infinite`);
+    }
+  };
+  if (D.introS) {
+    const I = D.introS;
+    const c = el('abs intS', `<svg class="letraS" viewBox="0 0 1080 700"><text x="540" y="560" text-anchor="middle">${I.letra}</text></svg>
+      <div class="t1">${I.titulo}</div><div class="ciclo2">${I.frases.map(f => `<div>${f}</div>`).join('')}</div><div class="firma2">ROPA NEW.Z · MUJER</div>`);
+    anim(c, `fadeIn .4s ease ${s(I.desde)} both`, `fadeOut .7s ease ${s(I.hasta - 0.7)} forwards`);
+    anim(c.querySelector('text'), `dibujar 1.6s ease-in-out ${s(I.desde + 0.3)} forwards`, `rellenarS .6s ease ${s(I.desde + 1.7)} forwards`);
+    anim(c.querySelector('.t1'), `subir .6s ease-out ${s(I.desde + 1.5)} both`);
+    const fr = c.querySelectorAll('.ciclo2 div'), paso = (I.hasta - 0.7 - (I.desde + 2.1)) / fr.length;
+    fr.forEach((f, i) => anim(f, `subir .4s ease-out ${s(I.desde + 2.1 + i * paso)} both`, ...(i < fr.length - 1 ? [`fadeOut .25s ease ${s(I.desde + 2.1 + (i + 1) * paso - 0.25)} forwards`] : [])));
+    anim(c.querySelector('.firma2'), `fadeIn .6s ease ${s(I.desde + 1.8)} both`);
+    lluviaPetalos(c, 16, I.desde + 0.2, 4.2, ['#F8BBD0', '#F48FB1', '#FFE0E8', '#E8A0B0']);
+  }
+  if (D.petalos) lluviaPetalos(document.body, D.petalos.n, D.petalos.desde, 6, ['#F8BBD0', '#FFE0E8', '#F48FB1'], 0.8);
+  if (D.fichaRosa) {
+    const F = D.fichaRosa;
+    const f = el('abs fichaRosa', `<div class="k1">${F.etiqueta}</div><div class="k2">${F.nombre}</div><div class="k3"><span>${F.detalle}</span><b>${F.precio}</b></div>`);
+    f.style.top = F.y + 'px';
+    anim(f, `subir .7s cubic-bezier(.2,.8,.2,1) ${s(F.desde)} both`);
   }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------

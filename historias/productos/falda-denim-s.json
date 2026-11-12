@@ -1,0 +1,14 @@
+{
+  "slug": "falda-denim-s",
+  "clips": [{ "video": "../entrada/falda-denim-s.mov", "inicio": 0.2, "dur": 11.2, "velocidad": 0.9, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.05 }],
+  "segmentos": [],
+  "introS": {
+    "desde": 0, "hasta": 5.4, "letra": "S", "titulo": "Llegó la talla S",
+    "frases": ["S de <b>Sutil</b> ✨", "S de <b>Soñada</b> 💭", "S de <b>¡Sí, la quiero!</b> 💖"]
+  },
+  "petalos": { "desde": 5.2, "n": 6 },
+  "fichaRosa": { "desde": 5.6, "y": 1450, "etiqueta": "COLECCIÓN MUJER", "nombre": "Falda Denim", "detalle": "MUJER · TALLA S", "precio": "$20.000" },
+  "stickers": [
+    { "texto": "Delicada, pero con carácter 🌸", "desde": 7.2, "hasta": 11.2, "x": "centro", "y": 1340, "rot": -2, "color": "petal" }
+  ]
+}

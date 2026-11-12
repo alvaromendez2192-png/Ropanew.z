@@ -678,7 +678,7 @@
   .swatch .comb i { width: 38px; height: 38px; border-radius: 50%; border: 3px solid #ddd; opacity: 0; }
   .swatch .pz { font-family: 'Anton', sans-serif; font-size: 58px; color: #132041; }
   .gotero { width: 180px; opacity: 0; transform-origin: 20% 80%; }
-  .anillo { width: 120px; height: 120px; margin: -60px; border-radius: 50%; border: 6px solid #fff; opacity: 0; }
+  .anilloG { width: 120px; height: 120px; margin: -60px; border-radius: 50%; border: 6px solid #fff; opacity: 0; }
   .chipTop { left: 50px; top: 220px; font-weight: 900; font-size: 26px; letter-spacing: 4px; color: #222; background: rgba(255,255,255,.92); padding: 10px 22px;
     border-radius: 8px; opacity: 0; }
   .sticker.tierra { background: #6b6a5a; color: #F3EFE2; border-color: #F3EFE2; }
@@ -858,7 +858,7 @@
     border: 2px solid #D9A3AE; box-shadow: 0 14px 34px rgba(0,0,0,.25); }
   .fichaRosa .k1 { font-weight: 800; font-size: 20px; letter-spacing: 6px; color: #B76E79; }
   .fichaRosa .k2 { font-family: 'Great Vibes', cursive; font-size: 84px; line-height: 1; color: #8a4252; margin-top: 4px; }
-  .fichaRosa .k3 { display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 6px; font-weight: 700; font-size: 24px; letter-spacing: 3px; color: #8d6870; }
+  .fichaRosa .k3 { display: flex; justify-content: center; align-items: center; gap: 34px; margin-top: 6px; font-weight: 700; font-size: 24px; letter-spacing: 3px; color: #8d6870; }
   .fichaRosa .k3 b { font-family: 'Playfair Display', serif; font-size: 50px; letter-spacing: 0; color: #6b3340; }
   .sticker.petal { background: #FCE4EC; color: #8a4252; border-color: #fff; font-family: 'Playfair Display', serif; font-style: italic; letter-spacing: 0; }
   /* Interfaz de cámara multiángulo */
@@ -917,6 +917,46 @@
   .cromo b { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 104px; letter-spacing: 4px; line-height: 1;
     background: linear-gradient(180deg, #ffffff 0%, #c9ccd3 35%, #6b6f78 50%, #e8eaee 65%, #9a9ea8 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
     -webkit-text-stroke: 2px rgba(0,0,0,.6); filter: drop-shadow(0 6px 10px rgba(0,0,0,.6)); }
+  /* Disco */
+  .disco { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; overflow: hidden; text-align: center; color: #fff;
+    background: radial-gradient(circle at 50% 30%, rgba(80,20,90,.9), rgba(10,4,20,.96) 70%); }
+  .disco .rayos { position: absolute; left: 50%; top: 420px; width: 2400px; height: 2400px; margin: -1200px;
+    background: repeating-conic-gradient(from 0deg, rgba(255,120,200,.16) 0 6deg, transparent 6deg 24deg, rgba(120,220,255,.14) 24deg 30deg, transparent 30deg 48deg); }
+  .disco .hilo2 { position: absolute; left: 50%; top: 0; width: 4px; height: 240px; margin-left: -2px; background: #ccc; }
+  .disco .bola { position: absolute; left: 50%; top: 230px; width: 380px; height: 380px; margin-left: -190px; border-radius: 50%; overflow: hidden;
+    box-shadow: 0 0 80px rgba(255,200,240,.6), inset -40px -40px 80px rgba(0,0,0,.55); }
+  .disco .bola .tiles { position: absolute; inset: 0; width: 760px; background:
+    linear-gradient(90deg, rgba(0,0,0,.35) 2px, transparent 2px) 0 0 / 38px 38px,
+    linear-gradient(0deg, rgba(0,0,0,.35) 2px, transparent 2px) 0 0 / 38px 38px,
+    linear-gradient(135deg, #f5f5f5, #9a9a9a 25%, #ffffff 40%, #7a7a7a 55%, #e9e9e9 70%, #a8a8a8 85%, #ffffff); }
+  .disco .bola::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.75), transparent 35%); }
+  .disco .d1 { position: absolute; left: 0; right: 0; top: 700px; font-weight: 900; font-size: 40px; letter-spacing: 6px; color: #FFD6F0; opacity: 0; }
+  .disco .d2 { position: absolute; left: 30px; right: 30px; top: 780px; font-family: 'Anton', sans-serif; font-size: 120px; line-height: 1.02;
+    background: linear-gradient(90deg, #FFD6A8, #FF9ECF, #fff, #FFC8A2, #FF9ECF); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 0 18px rgba(255,160,210,.6)); opacity: 0; }
+  .disco .d3 { position: absolute; left: 0; right: 0; top: 1110px; opacity: 0; }
+  .disco .d3 span { display: inline-block; font-family: 'Anton', sans-serif; font-size: 80px; letter-spacing: 4px; color: #111; background: linear-gradient(90deg, #fff, #FFE3F3);
+    padding: 6px 34px; border-radius: 999px; box-shadow: 0 0 30px rgba(255,255,255,.6); }
+  .luzD { width: 520px; height: 520px; border-radius: 50%; opacity: 0; mix-blend-mode: screen; filter: blur(30px); }
+  .sticker.glam { background: linear-gradient(90deg, #FF9ECF, #FFD6A8); color: #3a0d2e; border-color: #fff; box-shadow: 0 0 24px rgba(255,160,210,.6); }
+  /* Cierre: lista de invitados */
+  .clista { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; color: #fff; text-align: center;
+    background: radial-gradient(circle at 50% 30%, rgba(80,20,90,.94), rgba(10,4,20,.97) 70%); }
+  .clista h2 { position: absolute; left: 40px; right: 40px; top: 240px; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 104px; line-height: 1.05;
+    background: linear-gradient(90deg, #FFD6A8, #FF9ECF, #fff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .clista .hoja2 { position: absolute; left: 110px; right: 110px; top: 520px; background: #fffaf3; color: #2b1030; border-radius: 16px; padding: 34px 40px; text-align: left;
+    box-shadow: 0 20px 50px rgba(0,0,0,.5); transform: rotate(-1.5deg); }
+  .clista .hoja2 .h { font-family: 'Permanent Marker', cursive; font-size: 46px; color: #c2185b; text-align: center; }
+  .clista .hoja2 .g { font-family: 'Caveat', cursive; font-weight: 700; font-size: 50px; padding: 8px 0; border-bottom: 2px solid #ead6e0; display: flex; justify-content: space-between; }
+  .clista .hoja2 .g.tach { color: #aaa; }
+  .clista .hoja2 .tu { font-family: 'Caveat', cursive; font-weight: 700; font-size: 64px; color: #c2185b; min-height: 80px; padding-top: 6px; }
+  .clista .hoja2 .det4 { margin-top: 10px; font-weight: 700; font-size: 28px; color: #6b4a63; }
+  .clista .hoja2 .det4 b { color: #c2185b; }
+  .clista .urg { position: absolute; left: 60px; right: 60px; top: 1210px; font-size: 40px; font-weight: 800; line-height: 1.3; opacity: 0; }
+  .clista .urg b { color: #FF9ECF; }
+  .clista .btn6 { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1380px; font-weight: 900; font-size: 48px; color: #3a0d2e;
+    background: linear-gradient(90deg, #FFD6A8, #FF9ECF); padding: 24px 58px; border-radius: 999px; box-shadow: 0 0 30px rgba(255,160,210,.7); }
+  .clista .baja { position: absolute; left: 0; right: 0; top: 1560px; font-weight: 900; font-size: 32px; letter-spacing: 3px; color: #FF9ECF; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -1059,6 +1099,10 @@
   @keyframes glitchBar { 0% { transform: translateX(-60px) } 25% { transform: translateX(80px) } 50% { transform: translateX(-30px) } 75% { transform: translateX(50px) } 100% { transform: translateX(0) } }
   @keyframes columpio { 0% { transform: rotate(10deg) } 30% { transform: rotate(-7deg) } 55% { transform: rotate(4deg) } 80% { transform: rotate(-2deg) } 100% { transform: rotate(0) } }
   @keyframes barrer { from { left: -700px } to { left: 1400px } }
+  @keyframes girarBola { from { transform: translateX(0) } to { transform: translateX(-380px) } }
+  @keyframes bajarBola { from { transform: translateY(-700px) } to { transform: none } }
+  @keyframes brilloTexto { from { background-position: 0% 0 } to { background-position: 200% 0 } }
+  @keyframes vagar { 0% { transform: translate(0,0) } 33% { transform: translate(var(--ax), var(--ay)) } 66% { transform: translate(var(--bx), var(--by)) } 100% { transform: translate(0,0) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -1231,7 +1275,7 @@
       <circle cx="125" cy="125" r="122" fill="#0A2540"/><text font-family="Poppins" font-weight="800" font-size="19" letter-spacing="3.2" fill="#fff">
       <textPath href="#circ">${N.anillo}</textPath></text></svg><div class="centro"><div><small>SOLO</small><strong>${N.precio}</strong></div></div>`);
     Object.assign(ins.style, { left: N.x + 'px', top: N.y + 'px' });
-    anim(ins, `pop .6s ${EASE_POP} ${s(N.desde)} both`);
+    anim(ins, `pop .6s ${EASE_POP} ${s(N.desde)} both`, ...(D.cierre ? [`fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`] : []));
     anim(ins.querySelector('.anillo'), `girar 9s linear ${s(N.desde)} infinite`);
   }
 
@@ -1769,7 +1813,7 @@
       <path d="M30 78 l-14 14" stroke="${W.color}" stroke-width="10" stroke-linecap="round"/></svg>`);
     Object.assign(go.style, { left: G.x - 15 + 'px', top: G.y - 105 + 'px' });
     anim(go, `pop .35s ${EASE_POP} ${s(G.t)} both`, `apretar .35s ease-in-out ${s(G.t + 0.45)} 2`, `fadeOut .3s ease ${s(G.t + 1.4)} forwards`);
-    const an = el('abs anillo'); Object.assign(an.style, { left: G.x + 'px', top: G.y + 'px' });
+    const an = el('abs anilloG'); Object.assign(an.style, { left: G.x + 'px', top: G.y + 'px' });
     anim(an, `onda2 .7s ease-out ${s(G.t + 0.5)} both`);
     const sw = el('abs swatch', `<div class="col"><div></div><span>${W.codigo}</span></div><div class="bt">
       <div class="marca2">ROPA NEW.Z · COLOR</div><div class="nom">${W.nombre}</div><div class="det">${W.detalle}</div>
@@ -1958,7 +2002,7 @@
     const F = D.fichaRosa;
     const f = el('abs fichaRosa', `<div class="k1">${F.etiqueta}</div><div class="k2">${F.nombre}</div><div class="k3"><span>${F.detalle}</span><b>${F.precio}</b></div>`);
     f.style.top = F.y + 'px';
-    anim(f, `subir .7s cubic-bezier(.2,.8,.2,1) ${s(F.desde)} both`);
+    anim(f, `subir .7s cubic-bezier(.2,.8,.2,1) ${s(F.desde)} both`, ...(D.cierre ? [`fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`] : []));
   }
 
   // ---------- Interfaz de cámara multiángulo ----------
@@ -2008,6 +2052,32 @@
     anim(r.querySelector('i'), `barrer 1s ease-in-out ${s(t)} both`);
   });
   if (D.cromado) { const c = el('abs cromo', `<b>${D.cromado.texto}</b>`); c.style.top = D.cromado.y + 'px'; anim(c, `golpe .5s cubic-bezier(.2,1.4,.4,1) ${s(D.cromado.desde)} both`); }
+
+  // ---------- Disco: bola, rayos y luces ----------
+  if (D.disco) {
+    const Z = D.disco;
+    const d = el('abs disco', `<div class="rayos"></div><div class="hilo2"></div><div class="bola"><div class="tiles"></div></div>
+      <div class="d1">${Z.sub}</div><div class="d2">${Z.titulo}</div><div class="d3"><span>${Z.unica}</span></div>`);
+    anim(d, `fadeIn .3s ease ${s(Z.desde)} both`, `fadeOut .6s ease ${s(Z.hasta - 0.6)} forwards`);
+    anim(d.querySelector('.rayos'), `girar 6s linear ${s(Z.desde)} infinite`);
+    anim(d.querySelector('.bola'), `bajarBola .9s cubic-bezier(.3,1.3,.5,1) ${s(Z.desde + 0.1)} both`);
+    anim(d.querySelector('.hilo2'), `bajarBola .9s cubic-bezier(.3,1.3,.5,1) ${s(Z.desde + 0.1)} both`);
+    anim(d.querySelector('.tiles'), `girarBola 1.6s linear ${s(Z.desde)} infinite`);
+    anim(d.querySelector('.d1'), `subir .4s ease-out ${s(Z.desde + 0.8)} both`);
+    anim(d.querySelector('.d2'), `golpe .5s cubic-bezier(.2,1.4,.4,1) ${s(Z.desde + 1.2)} both`, `brilloTexto 2s linear ${s(Z.desde + 1.2)} infinite`);
+    anim(d.querySelector('.d3'), `azote .5s cubic-bezier(.3,1.2,.5,1) ${s(Z.desde + 2.0)} both`);
+    [[150, 300], [900, 380], [120, 1200], [940, 1100], [980, 1760], [300, 650], [780, 700]].forEach(([x, y], i) => brillo(x, y, Z.desde + 0.6 + i * 0.2, 1.1));
+  }
+  if (D.lucesDisco) {
+    const L = D.lucesDisco;
+    [['rgba(255,80,180,.55)', 100, 500, 300, 200, -200, 500], ['rgba(80,200,255,.5)', 560, 800, -300, 300, 200, -200], ['rgba(255,210,120,.5)', 300, 1150, 300, -350, -250, -100]]
+      .forEach(([c, x, y, ax, ay, bx, by], i) => {
+        const e = el('abs luzD'); Object.assign(e.style, { left: x + 'px', top: y + 'px', background: `radial-gradient(circle, ${c}, transparent 70%)` });
+        e.style.setProperty('--ax', ax + 'px'); e.style.setProperty('--ay', ay + 'px'); e.style.setProperty('--bx', bx + 'px'); e.style.setProperty('--by', by + 'px');
+        anim(e, `fadeIn .8s ease ${s(L.desde)} both`, `vagar ${5 + i}s ease-in-out ${s(L.desde)} infinite`, ...(L.hasta ? [`fadeOut .5s ease ${s(L.hasta - 0.5)} forwards`] : []));
+      });
+    (L.brillos || []).forEach(([x, y], i) => brillo(x, y, L.desde + i * 0.4, 1.4));
+  }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------
   if (D.golf) {
@@ -2143,7 +2213,22 @@
 
   // ---------- Cierre con llamada a la acción ----------
   const T = D.duracionClip, C = D.cierre;
-  if (C && C.estilo === 'vip') {
+  if (C && C.estilo === 'lista') {
+    const cl = el('abs clista', `<h2>${C.titulo}</h2>
+      <div class="hoja2"><div class="h">${C.cabecera}</div>${C.invitados.map(g => `<div class="g tach"><span>${g}</span><span>✗</span></div>`).join('')}
+        <div class="tu"></div><div class="det4">${C.detalle}</div></div>
+      <div class="urg">${C.urgencia}</div><div class="btn6">${C.boton}</div><div class="baja">↓ RESPONDE ESTA HISTORIA ↓</div>`);
+    anim(cl, `fadeIn .4s ease ${s(T - 0.1)} both`);
+    const q9 = x => cl.querySelector(x);
+    anim(q9('h2'), `golpe .45s cubic-bezier(.2,1.5,.4,1) ${s(T + 0.1)} both`);
+    anim(q9('.hoja2'), `subir .45s cubic-bezier(.2,1.3,.4,1) ${s(T + 0.35)} both`);
+    const tu = q9('.tu'), tEs = T + 1.0, nombre = C.tu;
+    ruletas.push(t => { const n = Math.max(0, Math.min([...nombre].length, Math.floor((t - tEs) * 12))); tu.textContent = [...nombre].slice(0, n).join('') + (n < [...nombre].length && t > tEs && Math.floor(t * 3) % 2 ? '|' : ''); });
+    anim(q9('.urg'), `fadeIn .4s ease ${s(T + 1.9)} both`);
+    anim(q9('.btn6'), `pop .45s ${EASE_POP} ${s(T + 2.2)} both`, `latido .9s ease-in-out ${s(T + 2.7)} infinite`);
+    anim(q9('.baja'), `fadeIn .3s ease ${s(T + 2.5)} both`, `rebote .7s ease-in-out ${s(T + 2.5)} infinite`);
+    [[120, 220], [900, 260], [80, 1300], [960, 1250], [500, 1720]].forEach(([x, y], i) => { const b = brillo(x, y, T + 0.4 + i * 0.2, 1.2); cl.appendChild(b); });
+  } else if (C && C.estilo === 'vip') {
     const cv = el('abs cvip', `<div class="cinta3"></div><div class="paseV"><div class="ojal2"></div><div class="vip">VIP</div><div class="mk">${C.marca}</div>
       <div class="it3">${C.filas.map(([k, v]) => `<div><span>${k}</span>${v}</div>`).join('')}</div><div class="bar3"></div><div class="sello3">RESERVADO</div></div>
       <p>${C.texto}</p><div class="btn5">${C.boton}</div><div class="baja">↓ RESPONDE ESTA HISTORIA ↓</div>`);

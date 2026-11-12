@@ -1,0 +1,88 @@
+{
+  "slug": "minifalda-lentejuelas-s",
+  "clips": [
+    {
+      "video": "../entrada/minifalda-lentejuelas-s.mov",
+      "inicio": 0.2,
+      "dur": 13.0,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "saturacion": 1.1
+    }
+  ],
+  "segmentos": [],
+  "disco": {
+    "desde": 0,
+    "hasta": 4.2,
+    "sub": "✨ SE ENCIENDE LA PISTA ✨",
+    "titulo": "MINI FALDA<br>DE LENTEJUELAS",
+    "unica": "PIEZA ÚNICA 💎"
+  },
+  "lucesDisco": {
+    "desde": 3.8,
+    "hasta": 13.0,
+    "brillos": [
+      [
+        120,
+        300
+      ],
+      [
+        930,
+        360
+      ],
+      [
+        90,
+        1180
+      ],
+      [
+        950,
+        1020
+      ],
+      [
+        500,
+        260
+      ]
+    ]
+  },
+  "insignia": {
+    "desde": 4.4,
+    "x": 790,
+    "y": 230,
+    "precio": "$25.000",
+    "anillo": "PIEZA ÚNICA · MINI FALDA DE LENTEJUELAS · TALLA S ·"
+  },
+  "fichaRosa": {
+    "desde": 4.8,
+    "y": 1460,
+    "etiqueta": "COLECCIÓN MUJER · PIEZA ÚNICA",
+    "nombre": "Mini Falda Lentejuelas",
+    "detalle": "MUJER · TALLA S",
+    "precio": "$25.000"
+  },
+  "stickers": [
+    {
+      "texto": "PA' BRILLAR MÁS QUE LA BOLA DISCO 🪩",
+      "desde": 6.5,
+      "hasta": 13.0,
+      "x": "centro",
+      "y": 1340,
+      "rot": -2,
+      "color": "glam"
+    }
+  ],
+  "cierre": {
+    "estilo": "lista",
+    "dur": 4.4,
+    "titulo": "¿TE ANOTAMOS EN<br>LA LISTA?",
+    "cabecera": "Lista de invitadas ✨",
+    "invitados": [
+      "La que lo pensó mucho",
+      "La que dijo \"después\""
+    ],
+    "tu": "Tú 💃",
+    "detalle": "Mini falda lentejuelas · Talla S · <b>$25.000</b>",
+    "urgencia": "Es <b>pieza única</b>: la primera que escribe, ¡se la lleva! 💎",
+    "boton": "💌 RESPONDE \"LA QUIERO\""
+  }
+}

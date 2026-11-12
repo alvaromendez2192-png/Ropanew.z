@@ -5,8 +5,8 @@
   "diferencias": {
     "desde": 0, "hasta": 4.6, "remateT": 3.5,
     "titulo": "🔎 ¿ENCUENTRA LAS<br><em>DIFERENCIAS</em>?",
-    "izq": { "img": "assets/ref_skort.jpg", "label": "LA DE AYER" },
-    "der": { "img": "assets/ref_short_cuero.jpg", "label": "LA DE HOY" },
+    "izq": { "img": "assets/ref_skort.jpg", "label": "LA ANTERIOR" },
+    "der": { "img": "assets/ref_short_cuero.jpg", "label": "LA DE AHORA" },
     "marcas": [
       { "t": 1.5, "x": 370, "y": 300, "r": 70, "txt": "¡Es short! 🩳", "lx": 240, "ly": 395 },
       { "t": 2.1, "x": 200, "y": 240, "r": 60, "txt": "Más brillo ✨", "lx": 10, "ly": 300 },

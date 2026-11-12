@@ -18,7 +18,7 @@ const CIERRE = 2.7; // segundos de la pantalla final (llamada a la acción)
   // Uno o varios videos (p. ej. frente y espalda), unidos con una transición.
   const clips = D.clips || [{ video: D.video, inicio: D.inicio, dur: D.duracionClip, hdr: D.hdr, crop: D.crop }];
   const tr = D.transicion || { tipo: 'squeezeh', dur: 0.5 };
-  const clip = +(clips.reduce((a, c) => a + c.dur, 0) - (clips.length - 1) * tr.dur).toFixed(3);
+  const clip = +(clips.reduce((a, c, i) => a + c.dur - (i ? (c.trans || tr).dur : 0), 0)).toFixed(3);
   D.duracionClip = clip;
   const conCierre = !!D.cierre; // sin "cierre" en el JSON, el video termina en la prenda
   const TOTAL = +(clip + (conCierre ? (D.cierre.dur || CIERRE) : 0)).toFixed(2);
@@ -34,12 +34,14 @@ const CIERRE = 2.7; // segundos de la pantalla final (llamada a la acción)
       (c.hdr ? `zscale=t=linear:npl=${c.npl || 203},format=gbrpf32le,zscale=p=bt709,tonemap=${c.tonemap || 'mobius'}:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,` : '') +
       (c.crop ? `crop=${c.crop},` : '') +
       `scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,setsar=1,` +
+      (c.fx ? c.fx + ',' : '') +  // efecto de encuadre: acercamiento, inclinación, etc.
       `eq=contrast=1.07:saturation=${c.saturacion || 1.06}:brightness=0.01,unsharp=5:5:0.6,fps=${FPS},format=yuv420p,settb=AVTB[c${i}]`;
   });
   let last = 'c0', acc = clips[0].dur;
   for (let i = 1; i < clips.length; i++) {
-    parts.push(`[${last}][c${i}]xfade=transition=${tr.tipo}:duration=${tr.dur}:offset=${(acc - tr.dur).toFixed(3)}[x${i}]`);
-    last = `x${i}`; acc += clips[i].dur - tr.dur;
+    const ti = clips[i].trans || tr;  // transición propia de este corte, si la tiene
+    parts.push(`[${last}][c${i}]xfade=transition=${ti.tipo}:duration=${ti.dur}:offset=${(acc - ti.dur).toFixed(3)}[x${i}]`);
+    last = `x${i}`; acc += clips[i].dur - ti.dur;
   }
   // Lupa opcional: un círculo que muestra el tejido ampliado.
   const L = D.lupa;

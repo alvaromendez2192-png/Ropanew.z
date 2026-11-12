@@ -1,0 +1,23 @@
+{
+  "slug": "falda-short-s",
+  "clips": [
+    { "video": "../entrada/falda-short-s.mov", "inicio": 0.2, "dur": 2.2, "hdr": true, "npl": 100, "tonemap": "hable" },
+    { "video": "../entrada/falda-short-s.mov", "inicio": 2.4, "dur": 2.0, "hdr": true, "npl": 100, "tonemap": "hable",
+      "fx": "crop=594:1056:40:20,scale=1080:1920:flags=lanczos", "trans": { "tipo": "fade", "dur": 0.2 } },
+    { "video": "../entrada/falda-short-s.mov", "inicio": 4.6, "dur": 2.0, "hdr": true, "npl": 100, "tonemap": "hable",
+      "fx": "rotate=-7*PI/180:fillcolor=black,scale=1350:2400,crop=1080:1920", "trans": { "tipo": "fade", "dur": 0.2 } },
+    { "video": "../entrada/falda-short-s-triptico.mp4", "inicio": 0, "dur": 2.0, "trans": { "tipo": "fade", "dur": 0.2 } },
+    { "video": "../entrada/falda-short-s.mov", "inicio": 9.8, "dur": 2.2, "hdr": true, "npl": 100, "tonemap": "hable", "trans": { "tipo": "fade", "dur": 0.2 } }
+  ],
+  "segmentos": [],
+  "camara": { "desde": 0.1, "angulos": [
+    { "t": 0.0, "num": "ÁNG. 01", "txt": "FRENTE" },
+    { "t": 2.0, "num": "ÁNG. 02", "txt": "DETALLE" },
+    { "t": 3.8, "num": "ÁNG. 03", "txt": "CON ACTITUD" },
+    { "t": 5.6, "num": "ÁNG. 04", "txt": "3 EN 1" },
+    { "t": 7.4, "num": "ÁNG. 05", "txt": "360°" } ] },
+  "mini": { "desde": 7.6, "y": 1560, "nombre": "Falda Short", "detalle": "MUJER · TALLA S", "precio": "$23.000" },
+  "stickers": [
+    { "texto": "La mires por donde la mires… ¡es linda! 😍", "desde": 7.8, "hasta": 9.6, "x": "centro", "y": 1440, "rot": -2, "color": "petal" }
+  ]
+}

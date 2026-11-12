@@ -1,0 +1,34 @@
+{
+  "slug": "skort-cuero-s",
+  "clips": [
+    { "video": "../entrada/skort-cuero-frente.mov", "inicio": 0.3, "dur": 2.0, "hdr": true, "npl": 100, "tonemap": "hable" },
+    { "video": "../entrada/skort-cuero-frente.mov", "inicio": 5.0, "dur": 2.0, "hdr": true, "npl": 100, "tonemap": "hable",
+      "fx": "crop=594:1056:405:336,scale=1080:1920:flags=lanczos", "trans": { "tipo": "fade", "dur": 0.2 } },
+    { "video": "../entrada/skort-cuero-frente.mov", "inicio": 8.0, "dur": 2.0, "hdr": true, "npl": 100, "tonemap": "hable",
+      "fx": "rotate=6*PI/180:fillcolor=black,scale=1340:2380,crop=1080:1920", "trans": { "tipo": "fade", "dur": 0.2 } },
+    { "video": "../entrada/skort-cuero-espejo.mp4", "inicio": 0, "dur": 2.0, "trans": { "tipo": "fade", "dur": 0.2 } },
+    { "video": "../entrada/skort-cuero-espalda.mov", "inicio": 0.5, "dur": 2.2, "hdr": true, "npl": 100, "tonemap": "hable", "trans": { "tipo": "fade", "dur": 0.2 } },
+    { "video": "../entrada/skort-cuero-espalda.mov", "inicio": 2.8, "dur": 1.8, "hdr": true, "npl": 100, "tonemap": "hable",
+      "fx": "crop=702:1248:189:120,scale=1080:1920:flags=lanczos", "trans": { "tipo": "fade", "dur": 0.2 } },
+    { "video": "../entrada/skort-cuero-frente.mov", "inicio": 11.0, "dur": 2.4, "hdr": true, "npl": 100, "tonemap": "hable", "trans": { "tipo": "fade", "dur": 0.2 } }
+  ],
+  "segmentos": [],
+  "camara": { "desde": 0.1, "glitch": true, "hasta": 13.2, "angulos": [
+    { "t": 0.0, "num": "ÁNG. 01", "txt": "FRENTE" },
+    { "t": 1.8, "num": "ÁNG. 02", "txt": "EL CRUCE" },
+    { "t": 3.6, "num": "ÁNG. 03", "txt": "CON ACTITUD" },
+    { "t": 5.4, "num": "ÁNG. 04", "txt": "ESPEJO" },
+    { "t": 7.2, "num": "ÁNG. 05", "txt": "ESPALDA" },
+    { "t": 9.2, "num": "ÁNG. 06", "txt": "BOLSILLOS" },
+    { "t": 10.8, "num": "ÁNG. 07", "txt": "EL BRILLO" } ] },
+  "mini": { "desde": 10.9, "y": 1560, "nombre": "Skort Efecto Cuero", "detalle": "MUJER · TALLA S", "precio": "$23.000" },
+  "stickers": [
+    { "texto": "PA'L CARRETE CON TODA LA ACTITUD 🖤", "desde": 5.5, "hasta": 9.0, "x": "centro", "y": 330, "rot": -3, "color": "rock" }
+  ],
+  "cierre": {
+    "estilo": "vip", "dur": 4.4, "marca": "ROPA NEW.Z · MUJER",
+    "filas": [["PRENDA", "Skort Efecto Cuero"], ["TALLA", "S"], ["VALOR", "$23.000"]],
+    "texto": "¿La quieres? Resérvala antes que vuele 🖤",
+    "boton": "🎟️ RESPONDE \"VIP\""
+  }
+}

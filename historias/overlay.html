@@ -871,6 +871,31 @@
   .cam .ang { position: absolute; left: 70px; top: 1290px; opacity: 0; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.8); }
   .cam .ang small { display: block; font-family: 'Courier New', monospace; font-weight: 700; font-size: 30px; letter-spacing: 3px; color: #FFE08A; }
   .cam .ang b { display: block; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 92px; line-height: 1; letter-spacing: 2px; }
+  /* Glitch */
+  .glitch { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; overflow: hidden; mix-blend-mode: screen; }
+  .glitch i { position: absolute; left: 0; width: 1080px; }
+  .sticker.rock { background: #111; color: #fff; border-color: #FF2E88; box-shadow: 6px 6px 0 #00E5FF; }
+  /* Cierre pase VIP */
+  .cvip { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; color: #fff; text-align: center;
+    background: repeating-linear-gradient(135deg, rgba(255,255,255,.03) 0 20px, transparent 20px 40px), radial-gradient(circle at 50% 35%, rgba(60,10,40,.95), rgba(5,5,8,.97) 70%); }
+  .cvip .cinta3 { position: absolute; left: 50%; top: -40px; width: 70px; height: 520px; margin-left: -35px;
+    background: repeating-linear-gradient(180deg, #FF2E88 0 60px, #111 60px 120px); box-shadow: 0 0 20px rgba(255,46,136,.5); transform-origin: 50% 0; }
+  .cvip .paseV { position: absolute; left: 50%; top: 470px; width: 760px; margin-left: -380px; border-radius: 26px; padding: 30px 34px; transform-origin: 50% -60px;
+    background: linear-gradient(115deg, #1a1a1a, #2b2b2b 40%, #1a1a1a); border: 4px solid transparent;
+    background-clip: padding-box; box-shadow: 0 0 0 4px #FF2E88, 0 0 40px rgba(0,229,255,.35), 0 30px 60px rgba(0,0,0,.6); }
+  .cvip .paseV .ojal2 { position: absolute; left: 50%; top: 18px; width: 120px; height: 22px; margin-left: -60px; border-radius: 11px; background: #000; box-shadow: inset 0 0 0 3px #555; }
+  .cvip .paseV .vip { margin-top: 26px; font-family: 'Anton', sans-serif; font-size: 120px; line-height: 1; letter-spacing: 8px;
+    background: linear-gradient(90deg, #FF2E88, #FFD23F, #00E5FF); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .cvip .paseV .mk { font-weight: 900; font-size: 24px; letter-spacing: 8px; color: #aaa; }
+  .cvip .paseV .it3 { margin-top: 22px; text-align: left; font-size: 40px; font-weight: 700; line-height: 1.6; border-top: 2px dashed #444; padding-top: 16px; }
+  .cvip .paseV .it3 span { color: #888; font-weight: 600; font-size: 26px; letter-spacing: 3px; display: inline-block; width: 190px; }
+  .cvip .paseV .bar3 { margin-top: 20px; height: 70px; background: repeating-linear-gradient(90deg, #fff 0 3px, transparent 3px 6px, #fff 6px 8px, transparent 8px 13px); opacity: .85; }
+  .cvip .paseV .sello3 { position: absolute; right: 40px; bottom: 40px; font-family: 'Anton', sans-serif; font-size: 66px; color: #FF2E88; border: 8px solid #FF2E88; padding: 0 20px;
+    letter-spacing: 4px; opacity: 0; }
+  .cvip p { position: absolute; left: 80px; right: 80px; top: 1340px; font-size: 42px; font-weight: 700; line-height: 1.3; }
+  .cvip .btn5 { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1470px; font-weight: 900; font-size: 48px; color: #111; background: #fff;
+    padding: 24px 58px; border-radius: 999px; box-shadow: 6px 6px 0 #FF2E88, -6px -6px 0 #00E5FF; }
+  .cvip .baja { position: absolute; left: 0; right: 0; top: 1630px; font-weight: 900; font-size: 32px; letter-spacing: 3px; color: #FF2E88; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -1009,6 +1034,9 @@
   @keyframes volarBurbuja { 0% { opacity: 1; transform: none } 100% { opacity: 1; transform: translateY(-120px) } }
   @keyframes caerPetalo { 0% { opacity: 0; transform: translate(0, 0) rotate(0) } 10% { opacity: .95 } 50% { transform: translate(var(--dx), 900px) rotate(220deg) } 90% { opacity: .9 } 100% { opacity: 0; transform: translate(calc(var(--dx) * -0.4), 2000px) rotate(420deg) } }
   @keyframes rellenarS { to { fill: #C98A94 } }
+  @keyframes glitchOn { 0% { opacity: 1 } 100% { opacity: 0 } }
+  @keyframes glitchBar { 0% { transform: translateX(-60px) } 25% { transform: translateX(80px) } 50% { transform: translateX(-30px) } 75% { transform: translateX(50px) } 100% { transform: translateX(0) } }
+  @keyframes columpio { 0% { transform: rotate(10deg) } 30% { transform: rotate(-7deg) } 55% { transform: rotate(4deg) } 80% { transform: rotate(-2deg) } 100% { transform: rotate(0) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -1802,7 +1830,7 @@
   if (D.vertical) { const v = el('abs vertical', D.vertical.texto); Object.assign(v.style, { left: D.vertical.x + 'px', top: D.vertical.y + 'px' }); anim(v, `fadeIn .6s ease ${s(D.vertical.desde)} both`); }
   if (D.mini) {
     const m = el('abs mini', `<b>${D.mini.nombre}</b><span>${D.mini.detalle}</span><em>${D.mini.precio}</em>`); m.style.top = D.mini.y + 'px';
-    anim(m, `entrarIzq .5s ${EASE_IN} ${s(D.mini.desde)} both`);
+    anim(m, `entrarIzq .5s ${EASE_IN} ${s(D.mini.desde)} both`, ...(D.cierre ? [`fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`] : []));
   }
 
   // ---------- Comfy: nubes y selector de ajuste ----------
@@ -1925,7 +1953,12 @@
       const fin = K.angulos[i + 1] ? K.angulos[i + 1].t : D.duracionClip;
       const e = el('ang', `<small>${a.num}</small><b>${a.txt}</b>`, c);
       anim(e, `entrarIzq .35s ${EASE_IN} ${s(a.t + 0.1)} both`, `fadeOut .15s linear ${s(fin - 0.12)} forwards`);
-      if (i > 0) anim(el('abs flash'), `destello .3s ease-out ${s(a.t - 0.05)} forwards`);
+      if (i > 0 && !K.glitch) anim(el('abs flash'), `destello .3s ease-out ${s(a.t - 0.05)} forwards`);
+      if (i > 0 && K.glitch) {
+        const g = el('abs glitch', Array.from({ length: 9 }, (_, j) => `<i style="top:${(j * 211 + i * 97) % 1880}px;height:${18 + (j * 23) % 70}px;background:${['rgba(255,46,136,.55)', 'rgba(0,229,255,.55)', 'rgba(255,255,255,.35)'][j % 3]}"></i>`).join(''));
+        anim(g, `glitchOn .32s steps(4) ${s(a.t - 0.08)} forwards`);
+        g.querySelectorAll('i').forEach((b, j) => anim(b, `glitchBar .32s steps(4) ${s(a.t - 0.08 + j * 0.01)} both`));
+      }
     });
   }
 
@@ -2063,7 +2096,19 @@
 
   // ---------- Cierre con llamada a la acción ----------
   const T = D.duracionClip, C = D.cierre;
-  if (C && C.estilo === 'lux') {
+  if (C && C.estilo === 'vip') {
+    const cv = el('abs cvip', `<div class="cinta3"></div><div class="paseV"><div class="ojal2"></div><div class="vip">VIP</div><div class="mk">${C.marca}</div>
+      <div class="it3">${C.filas.map(([k, v]) => `<div><span>${k}</span>${v}</div>`).join('')}</div><div class="bar3"></div><div class="sello3">RESERVADO</div></div>
+      <p>${C.texto}</p><div class="btn5">${C.boton}</div><div class="baja">↓ RESPONDE ESTA HISTORIA ↓</div>`);
+    anim(cv, `fadeIn .35s ease ${s(T - 0.1)} both`);
+    const q8 = x => cv.querySelector(x);
+    anim(q8('.cinta3'), `caerSobre .5s ease-out ${s(T)} both`);
+    anim(q8('.paseV'), `caerSobre .6s cubic-bezier(.2,1.1,.4,1) ${s(T + 0.15)} both`, `columpio 1.6s ease-out ${s(T + 0.75)} both`);
+    anim(q8('.sello3'), `timbre2 .3s ease-out ${s(T + 1.9)} both`);
+    anim(q8('p'), `fadeIn .4s ease ${s(T + 2.1)} both`);
+    anim(q8('.btn5'), `pop .45s ${EASE_POP} ${s(T + 2.4)} both`, `latido .9s ease-in-out ${s(T + 2.9)} infinite`);
+    anim(q8('.baja'), `fadeIn .3s ease ${s(T + 2.7)} both`, `rebote .7s ease-in-out ${s(T + 2.7)} infinite`);
+  } else if (C && C.estilo === 'lux') {
     const cl = el('abs clux', `<img class="lg2" src="assets/logo.png" alt=""><h2>${C.titulo}</h2><div class="sub3">${C.sub}</div>
       <div class="enc">${C.opciones.map((o, i) => `<div class="op"><div class="fill"></div><span>${o}</span>${i === C.elegida ? '<div class="ok2">✓</div>' : ''}</div>`).join('')}</div>
       <div class="dedo2">👆</div><div class="guia">${C.guia}</div>

@@ -1,0 +1,18 @@
+{
+  "slug": "buzo-punos-l",
+  "clips": [{ "video": "../entrada/buzo-punos-l.mov", "inicio": 0.1, "dur": 9.3, "hdr": true, "npl": 100, "tonemap": "hable" }],
+  "segmentos": [],
+  "navega": {
+    "desde": 0.3, "llega": 8.4, "x": 40, "y": 220, "desdeCm": 98,
+    "destino": "hacia: Puño elasticado", "llegada": "Llegaste a tu destino: EL PUÑO",
+    "info": "Buzo con puños · Hombre · L", "precio": "$20.000",
+    "avisos": [
+      { "texto": "🔊 Recalculando… <i>ruta más piola encontrada</i>", "desde": 1.8, "hasta": 4.2 },
+      { "texto": "🚦 Tráfico: <i>cero bastas arrastrándose</i>", "desde": 4.6, "hasta": 7.6 }
+    ],
+    "pines": [
+      { "texto": "PUÑO A LA VISTA", "x": 660, "y": 1650, "desde": 5.3, "hasta": 6.6 },
+      { "texto": "¡DESTINO!", "x": 330, "y": 1640, "desde": 8.4, "hasta": 9.4 }
+    ]
+  }
+}

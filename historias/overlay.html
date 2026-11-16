@@ -1078,6 +1078,42 @@
   .casete .ventana { position: absolute; left: 50%; top: 270px; width: 420px; height: 110px; margin-left: -210px; border-radius: 55px; background: #0a0a0a; border: 4px solid #444; }
   .casete .rueda { position: absolute; top: 16px; width: 78px; height: 78px; border-radius: 50%; background: repeating-conic-gradient(#ddd 0 30deg, #555 30deg 60deg); border: 6px solid #eee; }
   .sticker.retro { background: #FFE45E; color: #222; border-color: #222; font-family: 'VT323', monospace; font-size: 44px; letter-spacing: 1px; }
+  /* Huincha de medir + etiqueta con alfiler */
+  .huincha { right: 26px; width: 70px; height: 0; overflow: hidden; opacity: 0; border-radius: 6px; box-shadow: 0 6px 14px rgba(0,0,0,.4);
+    background: repeating-linear-gradient(180deg, transparent 0 9px, #222 9px 11px), #F6D85C; }
+  .huincha::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(180deg, transparent 0 47px, #222 47px 50px); width: 34px; }
+  .huincha span { position: absolute; left: 36px; font-family: 'Courier New', monospace; font-weight: 700; font-size: 18px; color: #222; }
+  .huincha.cabezal { overflow: visible; }
+  .etqAlf { width: 236px; opacity: 0; transform-origin: 50% 0; }
+  .etqAlf .papel3 { margin-top: 30px; background: #fffdf7; border-radius: 10px; padding: 16px 20px 18px; color: #222; text-align: center; box-shadow: 0 10px 22px rgba(0,0,0,.35);
+    clip-path: polygon(0 12%, 12% 0, 88% 0, 100% 12%, 100% 100%, 0 100%); }
+  .etqAlf .papel3 small { display: block; font-weight: 900; font-size: 13px; letter-spacing: 3px; color: #999; }
+  .etqAlf .papel3 b { display: block; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 27px; line-height: 1.1; margin-top: 4px; }
+  .etqAlf .papel3 span { display: block; font-weight: 700; font-size: 14px; letter-spacing: 2px; color: #666; margin-top: 4px; }
+  .etqAlf .papel3 em { display: block; font-style: normal; font-family: 'Anton', sans-serif; font-size: 36px; margin-top: 6px; }
+  .etqAlf svg { position: absolute; left: 50%; top: 0; width: 120px; margin-left: -60px; }
+  .sticker.sastre { background: #fffdf7; color: #222; border-color: #222; font-size: 34px; }
+  /* Cierre: raspe y gane */
+  .craspe { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; color: #fff; text-align: center;
+    background: radial-gradient(circle at 50% 35%, rgba(30,60,140,.95), rgba(8,14,40,.97) 70%); }
+  .craspe .tit4 { position: absolute; left: 0; right: 0; top: 230px; font-family: 'Anton', sans-serif; font-size: 110px; letter-spacing: 4px; line-height: 1;
+    color: #FFD23F; text-shadow: 6px 6px 0 #E53935; }
+  .craspe .sub5 { position: absolute; left: 0; right: 0; top: 360px; font-weight: 800; font-size: 32px; letter-spacing: 3px; color: #cfd8ff; }
+  .craspe .carton { position: absolute; left: 110px; right: 110px; top: 450px; height: 640px; border-radius: 26px; overflow: hidden;
+    background: linear-gradient(135deg, #fff7d6, #ffe08a); border: 8px solid #FFD23F; box-shadow: 0 24px 60px rgba(0,0,0,.5); color: #222; }
+  .craspe .premio { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; }
+  .craspe .premio .t5 { font-family: 'Anton', sans-serif; font-size: 96px; color: #E53935; line-height: 1; }
+  .craspe .premio .n5 { margin-top: 16px; font-weight: 800; font-size: 40px; line-height: 1.2; }
+  .craspe .premio .p5 { margin-top: 14px; font-family: 'Anton', sans-serif; font-size: 96px; color: #1a237e; }
+  .craspe .capa { position: absolute; inset: 0; }
+  .craspe .moneda { position: absolute; width: 130px; height: 130px; margin: -65px; border-radius: 50%; z-index: 5;
+    background: radial-gradient(circle at 35% 30%, #fff4c2, #d4a72c 55%, #8c6a12); box-shadow: 0 8px 16px rgba(0,0,0,.5), inset 0 0 0 8px rgba(255,255,255,.25);
+    display: grid; place-items: center; font-family: 'Anton', sans-serif; font-size: 44px; color: #7a5a0a; }
+  .craspe p { position: absolute; left: 80px; right: 80px; top: 1150px; font-size: 40px; font-weight: 700; line-height: 1.3; opacity: 0; }
+  .craspe p b { color: #FFD23F; }
+  .craspe .btn8 { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1300px; font-weight: 900; font-size: 48px; color: #1a237e;
+    background: #FFD23F; padding: 24px 58px; border-radius: 999px; box-shadow: 0 0 0 8px rgba(255,210,63,.25), 0 16px 40px rgba(0,0,0,.4); }
+  .craspe .baja { position: absolute; left: 0; right: 0; top: 1470px; font-weight: 900; font-size: 32px; letter-spacing: 3px; color: #FFD23F; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -1232,6 +1268,7 @@
   @keyframes deslizar2 { from { left: 10px } to { left: calc(100% - 132px) } }
   @keyframes llenar2 { to { width: 100% } }
   @keyframes barrerV { from { transform: translateY(0) } to { transform: translateY(1900px) } }
+  @keyframes desenrollarH { to { height: var(--h) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -2343,6 +2380,22 @@
     c.querySelectorAll('.rueda').forEach(r => anim(r, `girar 1.2s linear ${s(K.desde)} infinite`));
   }
 
+  // ---------- Huincha de medir y etiqueta con alfiler ----------
+  if (D.huincha) {
+    const H = D.huincha;
+    const h = el('abs huincha', Array.from({ length: Math.floor(H.alto / 50) }, (_, i) => `<span style="top:${i * 50 + 38}px">${(i + 1) * 5}</span>`).join(''));
+    Object.assign(h.style, { top: H.y + 'px' }); h.style.setProperty('--h', H.alto + 'px');
+    anim(h, `fadeIn .2s ease ${s(H.desde)} both`, `desenrollarH ${H.dur}s cubic-bezier(.3,.6,.4,1) ${s(H.desde)} forwards`, ...(D.cierre ? [`fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`] : []));
+  }
+  if (D.etqAlf) {
+    const E = D.etqAlf;
+    const w = el('abs etqAlf', `<svg viewBox="0 0 120 50"><path d="M10 25 C10 8, 40 8, 50 25 L110 25" fill="none" stroke="#c0c0c0" stroke-width="6" stroke-linecap="round"/>
+      <path d="M10 25 C10 42, 40 42, 52 30" fill="none" stroke="#9a9a9a" stroke-width="6" stroke-linecap="round"/><circle cx="110" cy="25" r="7" fill="#c0c0c0"/></svg>
+      <div class="papel3"><small>${E.marca}</small><b>${E.nombre}</b><span>${E.detalle}</span><em>${E.precio}</em></div>`);
+    Object.assign(w.style, { left: E.x + 'px', top: E.y + 'px' });
+    anim(w, `colgar 1.5s ease-out ${s(E.desde)} both`, `mecerse 2.6s ease-in-out ${s(E.desde + 1.5)} infinite`, ...(D.cierre ? [`fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`] : []));
+  }
+
   // ---------- Golf: pelota que rueda y cae al hoyo ----------
   if (D.golf) {
     const G = D.golf, hx = G.x, hy = G.y;
@@ -2477,7 +2530,40 @@
 
   // ---------- Cierre con llamada a la acción ----------
   const T = D.duracionClip, C = D.cierre;
-  if (C && C.estilo === 'deslizar') {
+  if (C && C.estilo === 'raspe') {
+    const W = 860, Hh = 640;
+    const zig = 'M60 80 L800 140 L80 220 L790 300 L70 380 L800 460 L90 540 L780 600';
+    const cr = el('abs craspe', `<div class="tit4">${C.titulo}</div><div class="sub5">${C.sub}</div>
+      <div class="carton"><div class="premio"><div class="t5">${C.premio}</div><div class="n5">${C.nombre}</div><div class="p5">${C.precio}</div></div>
+        <svg class="capa" viewBox="0 0 ${W} ${Hh}" preserveAspectRatio="none"><defs>
+          <linearGradient id="plata" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#e9e9e9"/><stop offset=".5" stop-color="#a9a9a9"/><stop offset="1" stop-color="#dcdcdc"/></linearGradient>
+          <mask id="rasp"><rect width="${W}" height="${Hh}" fill="#fff"/><path class="trazoR" d="${zig}" fill="none" stroke="#000" stroke-width="150" stroke-linecap="round" stroke-linejoin="round"/></mask></defs>
+          <g mask="url(#rasp)"><rect width="${W}" height="${Hh}" fill="url(#plata)"/>
+          <text x="${W / 2}" y="${Hh / 2 + 30}" text-anchor="middle" font-family="Anton" font-size="90" fill="#7d7d7d" letter-spacing="6">RASPA AQUÍ</text></g></svg>
+        <div class="moneda">$</div></div>
+      <p>${C.texto}</p><div class="btn8">${C.boton}</div><div class="baja">↓ RESPONDE ESTA HISTORIA ↓</div>`);
+    anim(cr, `fadeIn .4s ease ${s(T - 0.1)} both`);
+    const qb = x => cr.querySelector(x);
+    anim(qb('.tit4'), `golpe .45s cubic-bezier(.2,1.5,.4,1) ${s(T + 0.1)} both`);
+    anim(qb('.sub5'), `fadeIn .4s ease ${s(T + 0.4)} both`);
+    anim(qb('.carton'), `subir .45s cubic-bezier(.2,1.3,.4,1) ${s(T + 0.3)} both`);
+    const tR = T + 1.0, dR = 1.8, tr = qb('.trazoR'), L = tr.getTotalLength(), mon = qb('.moneda');
+    tr.style.strokeDasharray = L; tr.style.strokeDashoffset = L;
+    ruletas.push(t => {
+      const p = Math.max(0, Math.min(1, (t - tR) / dR));
+      tr.style.strokeDashoffset = L * (1 - p);
+      const pt = tr.getPointAtLength(L * p);
+      mon.style.left = (pt.x * 860 / W) + 'px'; mon.style.top = (pt.y * 640 / Hh) + 'px';
+      mon.style.opacity = t < tR - 0.2 ? 0 : (p >= 1 ? Math.max(0, 1 - (t - tR - dR) * 3) : 1);
+      mon.style.transform = `rotate(${Math.sin(t * 20) * 15}deg)`;
+    });
+    anim(qb('.capa'), `fadeOut .4s ease ${s(tR + dR)} forwards`);
+    anim(qb('.premio'), `latido .5s ease-in-out ${s(tR + dR + 0.1)} 1`);
+    confetiOro(cr, tR + dR + 0.1, 36);
+    anim(qb('p'), `fadeIn .4s ease ${s(tR + dR + 0.4)} both`);
+    anim(qb('.btn8'), `pop .45s ${EASE_POP} ${s(tR + dR + 0.6)} both`, `latido .9s ease-in-out ${s(tR + dR + 1.1)} infinite`);
+    anim(qb('.baja'), `fadeIn .3s ease ${s(tR + dR + 0.8)} both`, `rebote .7s ease-in-out ${s(tR + dR + 0.8)} infinite`);
+  } else if (C && C.estilo === 'deslizar') {
     const cd = el('abs cdesl', `<svg class="trofeo" viewBox="0 0 220 260"><defs><linearGradient id="oro" x1="0" x2="1"><stop offset="0" stop-color="#c9a24a"/><stop offset=".5" stop-color="#fff2c2"/><stop offset="1" stop-color="#b8902f"/></linearGradient></defs>
         <path d="M50 20 H170 V90 C170 140 140 160 110 160 C80 160 50 140 50 90 Z" fill="url(#oro)"/><path d="M50 40 H18 C18 90 40 110 60 112 M170 40 H202 C202 90 180 110 160 112" fill="none" stroke="url(#oro)" stroke-width="12"/>
         <rect x="96" y="158" width="28" height="44" fill="url(#oro)"/><rect x="60" y="200" width="100" height="30" rx="6" fill="url(#oro)"/><rect x="45" y="228" width="130" height="24" rx="6" fill="#3a2a0a"/></svg>

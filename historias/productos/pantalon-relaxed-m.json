@@ -1,0 +1,17 @@
+{
+  "slug": "pantalon-relaxed-m",
+  "clips": [{ "video": "../entrada/pantalon-relaxed-m.mov", "inicio": 0.3, "dur": 10.6, "hdr": true, "npl": 100, "tonemap": "hable" }],
+  "segmentos": [],
+  "huincha": { "desde": 0.5, "dur": 3.0, "y": 380, "alto": 1250 },
+  "etqAlf": { "desde": 1.2, "x": 800, "y": 215, "marca": "ROPA NEW.Z ✂", "nombre": "Pantalón Relaxed Fit", "detalle": "HOMBRE · TALLA M", "precio": "$25.000" },
+  "stickers": [
+    { "texto": "PA' LA PEGA, LA U O EL CARRETE 👌", "desde": 6.0, "hasta": 10.9, "x": 60, "y": 1480, "rot": -2, "color": "sastre" }
+  ],
+  "cierre": {
+    "estilo": "raspe", "dur": 5.4,
+    "titulo": "RASPE Y GANE", "sub": "EDICIÓN ROPA NEW.Z 🪙",
+    "premio": "¡TE TOCÓ! 🎉", "nombre": "Pantalón Relaxed Fit<br>Hombre · Talla M", "precio": "$25.000",
+    "texto": "Cobra tu premio: escríbenos <b>\"RASPE\"</b> y te lo guardamos 😎",
+    "boton": "🪙 RESPONDE \"RASPE\""
+  }
+}

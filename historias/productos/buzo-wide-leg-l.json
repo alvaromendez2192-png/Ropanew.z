@@ -1,0 +1,18 @@
+{
+  "slug": "buzo-wide-leg-l",
+  "clips": [
+    { "video": "../entrada/buzo-wide-leg-l.mov", "inicio": 0.0, "dur": 1.5, "hdr": true, "npl": 100, "tonemap": "hable", "fx": "gblur=sigma=30,eq=brightness=-0.22" },
+    { "video": "../entrada/buzo-wide-leg-l.mov", "inicio": 0.3, "dur": 14.1, "hdr": true, "npl": 100, "tonemap": "hable", "trans": { "tipo": "horzopen", "dur": 1.2 } }
+  ],
+  "segmentos": [],
+  "wide": { "desde": 0.15, "abre": 1.4, "hasta": 2.6, "y": 240, "texto": "WIDE", "sub": "LEG · TALLA L" },
+  "speed": {
+    "desde": 2.6, "x": 40, "y": 1290, "titulo": "TEST DE ANCHO", "listo": "✓ LISTO", "unidad": "DE LIBERTAD",
+    "filas": [ ["Ping", "0 apretones"], ["Ventilación", "full"] ],
+    "nombre": "Buzo Wide Leg<br>Hombre · Talla L", "precio": "$22.000"
+  },
+  "stickers": [
+    { "texto": "MÁS ANCHO QUE LA ALAMEDA", "desde": 6.6, "hasta": 9.8, "x": "centro", "y": 250, "rot": -2, "color": "azul" },
+    { "texto": "TUS PIERNAS PIDIERON<br>VACACIONES Y SE LAS DIMOS", "desde": 10.2, "hasta": 14.3, "x": "centro", "y": 250, "rot": 2 }
+  ]
+}

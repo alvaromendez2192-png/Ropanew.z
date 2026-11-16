@@ -1078,6 +1078,24 @@
   .casete .ventana { position: absolute; left: 50%; top: 270px; width: 420px; height: 110px; margin-left: -210px; border-radius: 55px; background: #0a0a0a; border: 4px solid #444; }
   .casete .rueda { position: absolute; top: 16px; width: 78px; height: 78px; border-radius: 50%; background: repeating-conic-gradient(#ddd 0 30deg, #555 30deg 60deg); border: 6px solid #eee; }
   .sticker.retro { background: #FFE45E; color: #222; border-color: #222; font-family: 'VT323', monospace; font-size: 44px; letter-spacing: 1px; }
+  /* WIDE: letras que se abren + test de ancho tipo test de velocidad */
+  .wide6 { left: 0; right: 0; text-align: center; font-family: 'Anton', sans-serif; font-size: 150px; line-height: 1; color: #fff; opacity: 0;
+    text-shadow: 0 8px 26px rgba(0,0,0,.55); white-space: nowrap; }
+  .wide6 small { display: block; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: 14px; margin-top: 6px; }
+  .speed6 { width: 400px; padding: 16px 20px 18px; border-radius: 24px; background: rgba(14,18,32,.86); color: #fff; opacity: 0;
+    box-shadow: 0 14px 30px rgba(0,0,0,.45); font-family: 'Poppins', sans-serif; }
+  .speed6 .h6 { display: flex; justify-content: space-between; font-weight: 800; font-size: 18px; letter-spacing: 3px; color: #8fa3c7; }
+  .speed6 .h6 i { font-style: normal; color: #3BE8B0; }
+  .speed6 .g6 { position: relative; height: 180px; }
+  .speed6 .g6 svg { position: absolute; left: 10px; top: 6px; width: 340px; height: 190px; }
+  .speed6 .num6 { position: absolute; left: 0; right: 0; top: 104px; text-align: center; font-weight: 900; font-size: 52px; line-height: 1; }
+  .speed6 .num6 small { display: block; font-weight: 700; font-size: 15px; letter-spacing: 2px; color: #8fa3c7; margin-top: 4px; }
+  .speed6 .rows6 { display: flex; gap: 10px; margin-top: 12px; }
+  .speed6 .rows6 div { flex: 1; padding: 8px 10px; border-radius: 12px; background: rgba(255,255,255,.08); font-size: 14px; color: #8fa3c7; font-weight: 700; opacity: 0; }
+  .speed6 .rows6 b { display: block; font-size: 20px; color: #fff; }
+  .speed6 .pie6 { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 12px; border-top: 2px solid rgba(255,255,255,.12); opacity: 0; }
+  .speed6 .pie6 span { font-weight: 700; font-size: 18px; line-height: 1.2; }
+  .speed6 .pie6 b { font-family: 'Anton', sans-serif; font-size: 44px; color: #3BE8B0; letter-spacing: 1px; }
   /* Navegador GPS hacia el puño */
   .nav7 { width: 560px; opacity: 0; font-family: 'Poppins', sans-serif; }
   .nav7 .top7 { display: flex; align-items: center; gap: 18px; padding: 14px 22px; border-radius: 22px 22px 0 0; background: #13734B; color: #fff; }
@@ -2445,6 +2463,52 @@
     c.style.top = K.y + 'px';
     anim(c, `subir .5s ${EASE_IN} ${s(K.desde)} both`);
     c.querySelectorAll('.rueda').forEach(r => anim(r, `girar 1.2s linear ${s(K.desde)} infinite`));
+  }
+
+  // ---------- WIDE: letras que se separan mientras el video se abre ----------
+  if (D.wide) {
+    const Wd = D.wide;
+    const w = el('abs wide6', `<span class="ltr6">${Wd.texto}</span><small>${Wd.sub}</small>`);
+    w.style.top = Wd.y + 'px';
+    anim(w, `fadeIn .3s ease ${s(Wd.desde)} both`, `fadeOut .4s ease ${s(Wd.hasta)} forwards`);
+    const l = w.querySelector('.ltr6');
+    ruletas.push(t => {
+      const p = Math.max(0, Math.min(1, (t - Wd.desde) / Wd.abre)), e = 1 - Math.pow(1 - p, 3);
+      l.style.letterSpacing = (-10 + 120 * e) + 'px';
+      l.style.marginRight = (-10 + 120 * e) * -1 + 'px';
+    });
+  }
+  if (D.speed) {
+    const S6 = D.speed, d = S6.desde;
+    const arco = 'M30 170 A140 140 0 0 1 310 170';
+    const w = el('abs speed6', `<div class="h6"><span>${S6.titulo}</span><i class="est6">MIDIENDO…</i></div>
+      <div class="g6"><svg viewBox="0 0 340 190"><defs><linearGradient id="gr6" x1="0" x2="1"><stop offset="0" stop-color="#5B8CFF"/><stop offset="1" stop-color="#3BE8B0"/></linearGradient></defs>
+        <path d="${arco}" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="22" stroke-linecap="round"/>
+        <path class="arc6" d="${arco}" fill="none" stroke="url(#gr6)" stroke-width="22" stroke-linecap="round"/>
+        <g class="aguja6"><circle cx="170" cy="30" r="15" fill="#fff" stroke="#0e1220" stroke-width="5"/></g>
+        <text x="48" y="188" font-size="15" fill="#8fa3c7" text-anchor="middle" font-weight="700">APRETADO</text>
+        <text x="296" y="188" font-size="15" fill="#8fa3c7" text-anchor="middle" font-weight="700">WIDE</text></svg>
+        <div class="num6"><span class="v6">0</span>%<small>${S6.unidad}</small></div></div>
+      <div class="rows6">${S6.filas.map(f => `<div>${f[0]}<b>${f[1]}</b></div>`).join('')}</div>
+      <div class="pie6"><span>${S6.nombre}</span><b>${S6.precio}</b></div>`);
+    Object.assign(w.style, { left: S6.x + 'px', top: S6.y + 'px' });
+    anim(w, `subirCard .5s ${EASE_IN} ${s(d)} both`);
+    const arc = w.querySelector('.arc6'), L = arc.getTotalLength(), ag = w.querySelector('.aguja6'), v = w.querySelector('.v6'), est = w.querySelector('.est6');
+    arc.style.strokeDasharray = L;
+    const t0 = d + 0.5, t1 = d + 2.6;
+    ruletas.push(t => {
+      const p = Math.max(0, Math.min(1, (t - t0) / (t1 - t0)));
+      let val = 100 * (1 - Math.pow(1 - p, 2)) + (p > 0 && p < 1 ? Math.sin(t * 25) * 4 : 0);
+      if (t > t1) val = 100;
+      val = Math.max(0, Math.min(100, val));
+      arc.style.strokeDashoffset = L * (1 - val / 100);
+      ag.setAttribute('transform', `rotate(${-90 + 180 * val / 100} 170 170)`);
+      v.textContent = Math.round(val);
+      est.textContent = t > t1 ? S6.listo : 'MIDIENDO…';
+    });
+    w.querySelectorAll('.rows6 div').forEach((r, k) => anim(r, `pop .35s ${EASE_POP} ${s(t1 + 0.2 + k * 0.25)} both`));
+    anim(w.querySelector('.pie6'), `fadeIn .4s ease ${s(t1 + 0.8)} both`);
+    anim(w.querySelector('.num6'), `latido .5s ease-in-out ${s(t1)} 2`);
   }
 
   // ---------- Navegador GPS: distancia que baja hasta llegar al puño ----------

@@ -1032,6 +1032,32 @@
   .cdesl .btn7 { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1330px; font-weight: 900; font-size: 48px; color: #2a1a05; z-index: 2;
     background: linear-gradient(90deg, #f7e3a1, #c9a24a); padding: 24px 58px; border-radius: 999px; box-shadow: 0 0 30px rgba(242,210,122,.6); }
   .cdesl .baja { position: absolute; left: 0; right: 0; top: 1500px; font-weight: 900; font-size: 32px; letter-spacing: 3px; color: #F2D27A; z-index: 2; }
+  /* Drop streetwear */
+  .drop { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; overflow: hidden; text-align: center; color: #fff; background: rgba(6,6,8,.95); }
+  .drop .pre2 { position: absolute; left: 0; right: 0; top: 520px; font-family: 'Courier New', monospace; font-weight: 700; font-size: 38px; letter-spacing: 8px; color: #bbb; opacity: 0; }
+  .drop .num6 { position: absolute; left: 0; right: 0; top: 620px; font-family: 'Anton', sans-serif; font-size: 460px; line-height: 1; opacity: 0;
+    color: #fff; text-shadow: 8px 0 0 rgba(255,46,136,.8), -8px 0 0 rgba(0,229,255,.8); }
+  .drop .lbl6 { position: absolute; left: 0; right: 0; top: 1180px; font-family: 'Anton', sans-serif; font-size: 72px; letter-spacing: 10px; opacity: 0; }
+  .drop .dropped { position: absolute; left: 0; right: 0; top: 760px; opacity: 0; }
+  .drop .dropped span { display: inline-block; font-family: 'Anton', sans-serif; font-size: 170px; letter-spacing: 6px; color: #111; background: #FFE600; padding: 0 40px;
+    transform: rotate(-6deg); box-shadow: 14px 14px 0 #FF2E2E; }
+  .hype { left: 40px; right: 40px; background: rgba(12,12,14,.92); border-radius: 22px; padding: 22px 28px 24px; color: #fff; opacity: 0; border: 2px solid #333; }
+  .hype .top4 { display: flex; justify-content: space-between; align-items: center; }
+  .hype .top4 small { font-family: 'Courier New', monospace; font-weight: 700; font-size: 22px; letter-spacing: 4px; color: #FFE600; }
+  .hype .top4 em { font-style: normal; font-weight: 900; font-size: 20px; letter-spacing: 3px; background: #FF2E2E; padding: 4px 12px; border-radius: 6px; }
+  .hype .nm6 { margin-top: 8px; font-family: 'Anton', sans-serif; font-size: 62px; line-height: 1.02; letter-spacing: 1px; }
+  .hype .nm6 span { color: #FFE600; }
+  .hype .cw { margin-top: 6px; font-family: 'Courier New', monospace; font-weight: 700; font-size: 24px; color: #aaa; }
+  .hype .fila5 { margin-top: 14px; display: flex; align-items: center; gap: 18px; }
+  .hype .fila5 .pz5 { font-family: 'Anton', sans-serif; font-size: 58px; color: #111; background: #fff; padding: 0 16px; border-radius: 10px; }
+  .hype .fila5 .med { flex: 1; }
+  .hype .fila5 .med b { display: flex; justify-content: space-between; font-family: 'Courier New', monospace; font-size: 22px; letter-spacing: 3px; color: #FFE600; }
+  .hype .fila5 .med i { display: block; height: 18px; margin-top: 6px; background: #2a2a2a; border-radius: 9px; overflow: hidden; }
+  .hype .fila5 .med i u { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #FFE600, #FF7A00, #FF2E2E); }
+  .etq6 { left: 50px; top: 230px; opacity: 0; }
+  .etq6 b { display: inline-block; font-family: 'Courier New', monospace; font-weight: 700; font-size: 32px; color: #111; background: #FFE600; padding: 4px 14px; }
+  .etq6 span { display: block; margin-top: 8px; font-family: 'Anton', sans-serif; font-size: 78px; line-height: 1; color: #fff; text-shadow: 0 4px 16px rgba(0,0,0,.8); }
+  .sticker.street { background: #FFE600; color: #111; border-color: #111; box-shadow: 8px 8px 0 #FF2E2E; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -2235,6 +2261,38 @@
     const f = el('abs fichaOro', `<div><b>${F.nombre}</b><span>${F.detalle}</span></div><em>${F.precio}</em>`); f.style.top = F.y + 'px';
     anim(f, `subir .6s ${EASE_IN} ${s(F.desde)} both`, ...(D.cierre ? [`fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`] : []));
   }
+
+  // ---------- Drop streetwear ----------
+  if (D.drop) {
+    const R = D.drop;
+    const d = el('abs drop', `<div class="pre2">${R.pre}</div>${['3', '2', '1'].map(n => `<div class="num6">${n}</div>`).join('')}<div class="lbl6">${R.lbl}</div>
+      <div class="dropped"><span>${R.sello}</span></div>`);
+    anim(d, `fadeIn .2s ease ${s(R.desde)} both`, `fadeOut .4s ease ${s(R.hasta - 0.4)} forwards`);
+    anim(d.querySelector('.pre2'), `fadeIn .3s ease ${s(R.desde + 0.1)} both`, `fadeOut .2s ease ${s(R.desde + 0.75)} forwards`);
+    anim(d.querySelector('.lbl6'), `fadeIn .2s ease ${s(R.desde + 0.8)} both`, `fadeOut .15s ease ${s(R.desde + 2.6)} forwards`);
+    d.querySelectorAll('.num6').forEach((n, i) => anim(n, `golpe .3s cubic-bezier(.2,1.5,.4,1) ${s(R.desde + 0.8 + i * 0.6)} both`, `fadeOut .1s linear ${s(R.desde + 0.8 + i * 0.6 + 0.5)} forwards`));
+    anim(d, `fadeIn .2s ease ${s(R.desde)} both`, ...[0, 1, 2].map(i => `temblor .25s linear ${s(R.desde + 0.85 + i * 0.6)} 1`), `fadeOut .4s ease ${s(R.hasta - 0.4)} forwards`);
+    anim(d.querySelector('.dropped'), `azote .45s cubic-bezier(.3,1.2,.5,1) ${s(R.desde + 2.65)} both`);
+    for (let i = 0; i < 4; i++) {
+      const g = el('abs glitch', Array.from({ length: 8 }, (_, j) => `<i style="top:${(j * 233 + i * 131) % 1880}px;height:${16 + (j * 29) % 60}px;background:${['rgba(255,46,136,.6)', 'rgba(0,229,255,.6)', 'rgba(255,255,255,.4)'][j % 3]}"></i>`).join(''), d);
+      anim(g, `glitchOn .25s steps(3) ${s(R.desde + [0.05, 0.75, 2.55, 3.1][i])} forwards`);
+    }
+  }
+  if (D.hype) {
+    const H = D.hype;
+    const h = el('abs hype', `<div class="top4"><small>${H.marca}</small><em>${H.badge}</em></div><div class="nm6">${H.nombre}</div><div class="cw">${H.colorway}</div>
+      <div class="fila5"><div class="pz5">${H.precio}</div><div class="med"><b><span>HYPE</span><span class="hv">0%</span></b><i><u></u></i></div></div>`);
+    h.style.top = H.y + 'px';
+    anim(h, `subir .5s ${EASE_IN} ${s(H.desde)} both`);
+    const u = h.querySelector('u'), hv = h.querySelector('.hv');
+    ruletas.push(t => { const p = Math.max(0, Math.min(1, (t - H.desde - 0.5) / 1.6)), v = Math.round((1 - Math.pow(1 - p, 3)) * H.valor);
+      u.style.width = v + '%'; hv.textContent = v + '%' + (v >= H.valor ? ' 🔥' : ''); });
+  }
+  (D.etiquetas6 || []).forEach((e, i, arr) => {
+    const fin = arr[i + 1] ? arr[i + 1].t : D.duracionClip;
+    const x = el('abs etq6', `<b>${e.num}</b><span>${e.txt}</span>`);
+    anim(x, `entrarIzq .3s ${EASE_IN} ${s(e.t + 0.1)} both`, `fadeOut .15s linear ${s(fin - 0.1)} forwards`);
+  });
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------
   if (D.golf) {

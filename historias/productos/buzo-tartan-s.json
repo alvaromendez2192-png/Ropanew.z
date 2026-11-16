@@ -1,0 +1,25 @@
+{
+  "slug": "buzo-tartan-s",
+  "clips": [
+    { "video": "../entrada/buzo-tartan-s.mov", "inicio": 0.3, "dur": 4.0, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.1 },
+    { "video": "../entrada/buzo-tartan-s.mov", "inicio": 5.5, "dur": 2.0, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.1,
+      "fx": "crop=540:960:270:420,scale=1080:1920:flags=lanczos", "trans": { "tipo": "zoomin", "dur": 0.3 } },
+    { "video": "../entrada/buzo-tartan-s.mov", "inicio": 9.0, "dur": 2.0, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.1,
+      "fx": "crop=540:960:540:400,scale=1080:1920:flags=lanczos", "trans": { "tipo": "slideleft", "dur": 0.3 } },
+    { "video": "../entrada/buzo-tartan-s.mov", "inicio": 11.5, "dur": 2.0, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.1,
+      "fx": "rotate=-6*PI/180:fillcolor=black,scale=1340:2380,crop=1080:1920", "trans": { "tipo": "slideup", "dur": 0.3 } },
+    { "video": "../entrada/buzo-tartan-s.mov", "inicio": 13.4, "dur": 2.2, "velocidad": 0.7, "hdr": true, "npl": 100, "tonemap": "hable", "saturacion": 1.1, "trans": { "tipo": "fade", "dur": 0.3 } }
+  ],
+  "segmentos": [],
+  "drop": { "desde": 0, "hasta": 3.6, "pre": "ROPA NEW.Z PRESENTA", "lbl": "DROP EN", "sello": "🔥 DROPPED" },
+  "hype": { "desde": 3.7, "y": 1380, "marca": "ROPA NEW.Z EXCLUSIVE", "badge": "HOMBRE · TALLA S", "nombre": "BUZO RELAXED JOGGER <span>“TARTÁN”</span>",
+    "colorway": "COLORWAY: NAVY / FOREST GREEN · VIVO BLANCO", "precio": "$33.000", "valor": 98 },
+  "etiquetas6": [
+    { "t": 3.7, "num": "01 /", "txt": "PATRÓN TARTÁN" },
+    { "t": 5.4, "num": "02 /", "txt": "VIVO LATERAL" },
+    { "t": 7.1, "num": "03 /", "txt": "ACTITUD" },
+    { "t": 8.8, "num": "04 /", "txt": "SLOW MO" } ],
+  "stickers": [
+    { "texto": "PINTA DE JEFE, COMODIDAD DE PIJAMA 😎", "desde": 6.0, "hasta": 11.0, "x": "centro", "y": 1240, "rot": -3, "color": "street" }
+  ]
+}

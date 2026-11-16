@@ -12,7 +12,7 @@
     "nombre": "Buzo Wide Leg<br>Hombre · Talla L", "precio": "$22.000"
   },
   "stickers": [
-    { "texto": "MÁS ANCHO QUE LA ALAMEDA", "desde": 6.6, "hasta": 9.8, "x": "centro", "y": 250, "rot": -2, "color": "azul" },
-    { "texto": "TUS PIERNAS PIDIERON<br>VACACIONES Y SE LAS DIMOS", "desde": 10.2, "hasta": 14.3, "x": "centro", "y": 250, "rot": 2 }
+    { "texto": "Para ti, que eliges comodidad<br>sin dejar de lado el estilo", "desde": 6.6, "hasta": 9.9, "x": "centro", "y": 250, "rot": 0, "color": "sutil" },
+    { "texto": "Seleccionado pensando en nuestros clientes ✓", "desde": 10.3, "hasta": 14.3, "x": "centro", "y": 250, "rot": 0, "color": "sutil" }
   ]
 }

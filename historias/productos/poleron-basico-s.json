@@ -1,0 +1,116 @@
+{
+  "slug": "poleron-basico-s",
+  "clips": [
+    {
+      "video": "../entrada/poleron-basico-s.mov",
+      "inicio": 0.3,
+      "dur": 2.2,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable"
+    },
+    {
+      "video": "../entrada/poleron-basico-s.mov",
+      "inicio": 2.5,
+      "dur": 1.5,
+      "velocidad": 2.0,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "trans": {
+        "tipo": "pixelize",
+        "dur": 0.25
+      }
+    },
+    {
+      "video": "../entrada/poleron-basico-s.mov",
+      "inicio": 5.5,
+      "dur": 1.6,
+      "velocidad": 1.5,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "fx": "reverse",
+      "trans": {
+        "tipo": "pixelize",
+        "dur": 0.25
+      }
+    },
+    {
+      "video": "../entrada/poleron-basico-s.mov",
+      "inicio": 4.0,
+      "dur": 1.8,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "fx": "trim=end_frame=1,loop=loop=60:size=1:start=0,setpts=N/30/TB,crop=600:1066:240:120,scale=1080:1920:flags=lanczos",
+      "trans": {
+        "tipo": "pixelize",
+        "dur": 0.25
+      }
+    },
+    {
+      "video": "../entrada/poleron-basico-s.mov",
+      "inicio": 7.3,
+      "dur": 1.8,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "trans": {
+        "tipo": "pixelize",
+        "dur": 0.25
+      }
+    }
+  ],
+  "segmentos": [],
+  "vhs": {
+    "desde": 0,
+    "fecha": "NOV. 16 1996",
+    "modos": [
+      {
+        "t": 0.0,
+        "txt": "PLAY ▶",
+        "vel": 1
+      },
+      {
+        "t": 1.95,
+        "txt": "FF ▶▶ x2",
+        "vel": 2
+      },
+      {
+        "t": 3.2,
+        "txt": "◀◀ REW",
+        "vel": -1.5
+      },
+      {
+        "t": 4.55,
+        "txt": "PAUSE ❚❚",
+        "vel": 0,
+        "parpadea": true
+      },
+      {
+        "t": 6.1,
+        "txt": "PLAY ▶",
+        "vel": 1
+      }
+    ]
+  },
+  "casete": {
+    "desde": 0.6,
+    "y": 1350,
+    "titulo": "Polerón Básico ★",
+    "detalle": "Hombre · Talla S · Ropa New.Z",
+    "precio": "$25.000"
+  },
+  "stickers": [
+    {
+      "texto": "MÁS CLÁSICO QUE LA ONCE<br>CON MARRAQUETA 🥖",
+      "desde": 4.6,
+      "hasta": 7.9,
+      "x": "centro",
+      "y": 1080,
+      "rot": -3,
+      "color": "retro"
+    }
+  ]
+}

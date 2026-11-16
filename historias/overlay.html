@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Historia Ropa New.Z</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Poppins:wght@400;600;700;800;900&family=Noto+Color+Emoji&family=Pacifico&family=Caveat:wght@600;700&family=Rubik+Spray+Paint&family=Permanent+Marker&family=Bangers&family=Press+Start+2P&family=Rubik+Bubbles&family=Great+Vibes&family=Black+Ops+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Poppins:wght@400;600;700;800;900&family=Noto+Color+Emoji&family=Pacifico&family=Caveat:wght@600;700&family=Rubik+Spray+Paint&family=Permanent+Marker&family=Bangers&family=Press+Start+2P&family=Rubik+Bubbles&family=Great+Vibes&family=Black+Ops+One&family=VT323&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #132041;
@@ -1058,6 +1058,26 @@
   .etq6 b { display: inline-block; font-family: 'Courier New', monospace; font-weight: 700; font-size: 32px; color: #111; background: #FFE600; padding: 4px 14px; }
   .etq6 span { display: block; margin-top: 8px; font-family: 'Anton', sans-serif; font-size: 78px; line-height: 1; color: #fff; text-shadow: 0 4px 16px rgba(0,0,0,.8); }
   .sticker.street { background: #FFE600; color: #111; border-color: #111; box-shadow: 8px 8px 0 #FF2E2E; }
+  /* VHS */
+  .vhs { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; pointer-events: none;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,.18) 0 2px, transparent 2px 5px); }
+  .vhs .osd { position: absolute; left: 60px; top: 210px; font-family: 'VT323', monospace; font-size: 110px; line-height: 1; color: #fff;
+    text-shadow: 3px 0 0 rgba(255,0,80,.7), -3px 0 0 rgba(0,220,255,.7), 0 0 12px rgba(0,0,0,.6); }
+  .vhs .osd div { position: absolute; left: 0; top: 0; white-space: nowrap; opacity: 0; }
+  .vhs .tc { position: absolute; right: 60px; top: 225px; font-family: 'VT323', monospace; font-size: 64px; color: #fff; text-shadow: 3px 0 0 rgba(255,0,80,.6), -3px 0 0 rgba(0,220,255,.6); }
+  .vhs .fecha { position: absolute; left: 60px; top: 1240px; font-family: 'VT323', monospace; font-size: 60px; color: #fff; text-shadow: 2px 0 0 rgba(255,0,80,.6), -2px 0 0 rgba(0,220,255,.6); }
+  .tracking { left: 0; width: 1080px; height: 90px; opacity: 0; background: linear-gradient(180deg, transparent, rgba(255,255,255,.35) 40%, rgba(255,255,255,.1) 60%, transparent); }
+  /* Casete */
+  .casete { left: 90px; right: 90px; height: 420px; border-radius: 26px; opacity: 0; background: linear-gradient(180deg, #2a2a2a, #121212); box-shadow: 0 20px 40px rgba(0,0,0,.6); }
+  .casete .lab { position: absolute; left: 34px; right: 34px; top: 30px; height: 220px; background: #fbf6e8; border-radius: 10px; padding: 14px 24px; color: #222;
+    background-image: repeating-linear-gradient(180deg, transparent 0 46px, #e8c9c9 46px 48px); }
+  .casete .lab .franja { position: absolute; left: 0; right: 0; bottom: 0; height: 40px; background: linear-gradient(90deg, #FF5A5A, #FFB347, #FFE45E); border-radius: 0 0 10px 10px; }
+  .casete .lab .a1 { font-family: 'Permanent Marker', cursive; font-size: 44px; line-height: 1.1; }
+  .casete .lab .a2 { font-family: 'Caveat', cursive; font-weight: 700; font-size: 40px; color: #333; }
+  .casete .lab .a3 { position: absolute; right: 24px; top: 70px; font-family: 'Permanent Marker', cursive; font-size: 62px; color: #c62828; transform: rotate(-6deg); }
+  .casete .ventana { position: absolute; left: 50%; top: 270px; width: 420px; height: 110px; margin-left: -210px; border-radius: 55px; background: #0a0a0a; border: 4px solid #444; }
+  .casete .rueda { position: absolute; top: 16px; width: 78px; height: 78px; border-radius: 50%; background: repeating-conic-gradient(#ddd 0 30deg, #555 30deg 60deg); border: 6px solid #eee; }
+  .sticker.retro { background: #FFE45E; color: #222; border-color: #222; font-family: 'VT323', monospace; font-size: 60px; letter-spacing: 1px; }
   .sticker.azul { background: #1E4FD8; color: #fff; }
   .sticker.verde { background: var(--verde); }
   .sticker.blanco { background: #fff; }
@@ -1211,6 +1231,7 @@
   @keyframes flashPapa { 0% { opacity: 0; transform: scale(.4) } 25% { opacity: 1; transform: scale(1.1) } 100% { opacity: 0; transform: scale(.8) } }
   @keyframes deslizar2 { from { left: 10px } to { left: calc(100% - 132px) } }
   @keyframes llenar2 { to { width: 100% } }
+  @keyframes barrerV { from { transform: translateY(0) } to { transform: translateY(1900px) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
   @keyframes subir { from { opacity: 0; transform: translateY(60px) } to { opacity: 1; transform: none } }
@@ -2293,6 +2314,34 @@
     const x = el('abs etq6', `<b>${e.num}</b><span>${e.txt}</span>`);
     anim(x, `entrarIzq .3s ${EASE_IN} ${s(e.t + 0.1)} both`, `fadeOut .15s linear ${s(fin - 0.1)} forwards`);
   });
+
+  // ---------- VHS ----------
+  if (D.vhs) {
+    const V = D.vhs;
+    const v = el('abs vhs', `<div class="osd">${V.modos.map(m => `<div>${m.txt}</div>`).join('')}</div><div class="tc"></div><div class="fecha">${V.fecha}</div>`);
+    anim(v, `fadeIn .2s ease ${s(V.desde)} both`, ...(V.hasta ? [`fadeOut .3s ease ${s(V.hasta - 0.3)} forwards`] : []));
+    v.querySelectorAll('.osd div').forEach((d, i) => {
+      const fin = V.modos[i + 1] ? V.modos[i + 1].t : (V.hasta || D.duracionClip);
+      anim(d, `fadeIn .01s linear ${s(V.modos[i].t)} both`, ...(V.modos[i].parpadea ? [`parpadeo2 .8s steps(1) ${s(V.modos[i].t)} infinite`] : []), `fadeOut .01s linear ${s(fin)} forwards`);
+      if (i > 0) { const tr = el('abs tracking'); tr.style.top = '0px'; anim(tr, `fadeIn .01s linear ${s(V.modos[i].t - 0.1)} both`, `barrerV .4s linear ${s(V.modos[i].t - 0.1)} both`, `fadeOut .01s linear ${s(V.modos[i].t + 0.3)} forwards`); }
+    });
+    const tc = v.querySelector('.tc');
+    ruletas.push(t => { // contador de cinta: avanza, corre al doble, retrocede o se detiene según el modo
+      let cinta = 0, prev = 0, vel = 1;
+      V.modos.forEach(m => { if (t >= m.t) { cinta += (m.t - prev) * vel; prev = m.t; vel = m.vel; } });
+      cinta += (t - prev) * vel; cinta = Math.max(0, cinta + 12);
+      const ss = Math.floor(cinta), ff = Math.floor((cinta - ss) * 30);
+      tc.textContent = `SP 0:${String(Math.floor(ss / 60)).padStart(2, '0')}:${String(ss % 60).padStart(2, '0')}`;
+    });
+  }
+  if (D.casete) {
+    const K = D.casete;
+    const c = el('abs casete', `<div class="lab"><div class="a1">${K.titulo}</div><div class="a2">${K.detalle}</div><div class="a3">${K.precio}</div><div class="franja"></div></div>
+      <div class="ventana"><div class="rueda" style="left:40px"></div><div class="rueda" style="right:40px"></div></div>`);
+    c.style.top = K.y + 'px';
+    anim(c, `subir .5s ${EASE_IN} ${s(K.desde)} both`);
+    c.querySelectorAll('.rueda').forEach(r => anim(r, `girar 1.2s linear ${s(K.desde)} infinite`));
+  }
 
   // ---------- Golf: pelota que rueda y cae al hoyo ----------
   if (D.golf) {

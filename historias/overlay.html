@@ -1078,6 +1078,29 @@
   .casete .ventana { position: absolute; left: 50%; top: 270px; width: 420px; height: 110px; margin-left: -210px; border-radius: 55px; background: #0a0a0a; border: 4px solid #444; }
   .casete .rueda { position: absolute; top: 16px; width: 78px; height: 78px; border-radius: 50%; background: repeating-conic-gradient(#ddd 0 30deg, #555 30deg 60deg); border: 6px solid #eee; }
   .sticker.retro { background: #FFE45E; color: #222; border-color: #222; font-family: 'VT323', monospace; font-size: 44px; letter-spacing: 1px; }
+  /* Memorice: juego de memoria con pareja de color */
+  .memo9 { width: 290px; padding: 14px; border-radius: 22px; background: rgba(20,10,14,.78); opacity: 0; box-shadow: 0 10px 24px rgba(0,0,0,.4); transform-origin: 0 0; }
+  .memo9 .mt9 { font-family: 'Bangers', cursive; font-size: 34px; letter-spacing: 2px; color: #FFD23F; text-align: center; line-height: 1; }
+  .memo9 .ms9 { font-weight: 700; font-size: 16px; color: #f3dfe4; text-align: center; margin: 4px 0 10px; }
+  .memo9 .grid9 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; perspective: 700px; }
+  .memo9 .card9 { height: 150px; position: relative; }
+  .memo9 .in9 { position: absolute; inset: 0; transform-style: preserve-3d; }
+  .memo9 .fz9, .memo9 .ft9 { position: absolute; inset: 0; border-radius: 12px; backface-visibility: hidden; overflow: hidden; border: 4px solid #fff; }
+  .memo9 .fz9 { display: grid; place-items: center; font-family: 'Bangers', cursive; font-size: 64px; color: #fff;
+    background: repeating-linear-gradient(45deg, #7b1f35 0 12px, #8e2a42 12px 24px); }
+  .memo9 .ft9 { transform: rotateY(180deg); background-size: cover; background-position: center; }
+  .memo9 .x9 { position: absolute; inset: 0; display: grid; place-items: center; font-family: 'Anton', sans-serif; font-size: 90px; color: #ff3b3b;
+    text-shadow: 0 0 12px rgba(0,0,0,.6); opacity: 0; z-index: 3; }
+  .memo9 .ok9 { position: absolute; inset: -4px; border-radius: 14px; box-shadow: 0 0 0 5px #3ddc84; opacity: 0; z-index: 3; }
+  .memo9 .match9 { margin-top: 12px; padding: 8px; border-radius: 999px; background: #3ddc84; color: #0b2a17; text-align: center;
+    font-family: 'Bangers', cursive; font-size: 30px; letter-spacing: 2px; opacity: 0; }
+  .res9 { width: 430px; padding: 18px 24px; border-radius: 20px; color: #fff; opacity: 0; box-shadow: 0 12px 26px rgba(0,0,0,.4);
+    background: linear-gradient(135deg, rgba(110,24,44,.92), rgba(60,10,24,.92)); border: 3px solid #FFD23F; }
+  .res9 small { display: block; font-family: 'Bangers', cursive; font-size: 22px; letter-spacing: 3px; color: #3ddc84; }
+  .res9 b { display: block; font-family: 'Anton', sans-serif; font-size: 44px; line-height: 1.05; letter-spacing: 1px; margin-top: 2px; }
+  .res9 span { display: block; font-weight: 700; font-size: 20px; color: #f3dfe4; margin-top: 2px; }
+  .res9 em { position: absolute; right: -18px; top: -26px; font-style: normal; font-family: 'Anton', sans-serif; font-size: 42px; color: #3a0a18;
+    background: #FFD23F; padding: 6px 18px; border-radius: 14px; transform: rotate(6deg); box-shadow: 0 6px 14px rgba(0,0,0,.35); }
   /* Gotero de color + carta de color */
   .gotero9 { width: 120px; height: 120px; margin: -6px 0 0 -6px; z-index: 30; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }
   .onda9 { width: 30px; height: 30px; margin: -15px; border-radius: 50%; border: 5px solid #fff; opacity: 0; box-shadow: 0 0 10px rgba(0,0,0,.4); }
@@ -2403,6 +2426,40 @@
     c.style.top = K.y + 'px';
     anim(c, `subir .5s ${EASE_IN} ${s(K.desde)} both`);
     c.querySelectorAll('.rueda').forEach(r => anim(r, `girar 1.2s linear ${s(K.desde)} infinite`));
+  }
+
+  // ---------- Memorice: se dan vuelta cartas hasta encontrar la pareja de color ----------
+  if (D.memorice) {
+    const M = D.memorice, d = M.desde;
+    const m = el('abs memo9', `<div class="mt9">${M.titulo}</div><div class="ms9">${M.sub}</div><div class="grid9">` +
+      M.cartas.map(c => `<div class="card9"><div class="in9"><div class="fz9">?</div><div class="ft9" style="background-image:url(${c.img})"></div></div>
+        <div class="x9">✕</div><div class="ok9"></div></div>`).join('') + `</div><div class="match9">${M.match}</div>`);
+    Object.assign(m.style, { left: M.x + 'px', top: M.y + 'px' });
+    anim(m, `pop .45s ${EASE_POP} ${s(d)} both`, `fadeOut .4s ease ${s(M.hasta)} forwards`);
+    const cards = [...m.querySelectorAll('.card9')];
+    // [carta, abre, cierra (o null), resultado]
+    const jug = M.jugadas.map(j => ({ k: j[0], a: d + j[1], c: j[2] == null ? null : d + j[2], r: j[3] }));
+    const ins = cards.map(c => c.querySelector('.in9'));
+    const cl = x => Math.max(0, Math.min(1, x));
+    ruletas.push(t => ins.forEach((inn, k) => {
+      let ang = 0;
+      jug.filter(j => j.k === k).forEach(j => { ang += 180 * cl((t - j.a) / 0.3) - (j.c ? 180 * cl((t - j.c) / 0.3) : 0); });
+      inn.style.transform = `rotateY(${ang}deg)`;
+    }));
+    jug.forEach(j => {
+      if (j.r === 'x') anim(cards[j.k].querySelector('.x9'), `pop .25s ${EASE_POP} ${s(j.a + 0.3)} both`, `fadeOut .2s ease ${s(j.c - 0.15)} forwards`);
+      if (j.r === 'ok') {
+        M.pareja.forEach((k, n) => anim(cards[k].querySelector('.ok9'), `fadeIn .25s ease ${s(j.a + 0.35)} both`, `latido .6s ease-in-out ${s(j.a + 0.6 + n * 0.1)} 3`));
+        anim(m.querySelector('.match9'), `pop .4s ${EASE_POP} ${s(j.a + 0.5)} both`);
+        anim(m, `pop .45s ${EASE_POP} ${s(d)} both`, `bamboleo .6s ease-in-out ${s(j.a + 0.5)} 1`, `fadeOut .4s ease ${s(M.hasta)} forwards`);
+      }
+    });
+    if (M.resultado) {
+      const R = M.resultado;
+      const r = el('abs res9', `<small>${R.etiqueta}</small><b>${R.nombre}</b><span>${R.detalle}</span><em>${R.precio}</em>`);
+      Object.assign(r.style, { left: R.x + 'px', top: R.y + 'px' });
+      anim(r, `entrarIzq .5s ${EASE_IN} ${s(R.desde)} both`, ...(D.cierre ? [`fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`] : []));
+    }
   }
 
   // ---------- Gotero que "saca" el color de la prenda + carta de color ----------

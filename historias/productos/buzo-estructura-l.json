@@ -1,0 +1,18 @@
+{
+  "slug": "buzo-estructura-l",
+  "clips": [{ "video": "../entrada/buzo-estructura-l.mov", "inicio": 0.1, "dur": 14.3, "hdr": true, "npl": 100, "tonemap": "hable" }],
+  "segmentos": [],
+  "memorice": {
+    "desde": 0.4, "hasta": 8.0, "x": 30, "y": 230,
+    "titulo": "MEMORICE", "sub": "¿Quién hace pareja con la polera burdeo de la semana pasada?",
+    "cartas": [ { "img": "assets/memo_polera_burdeo.jpg" }, { "img": "assets/memo_blanca.jpg" }, { "img": "assets/memo_beige.jpg" }, { "img": "assets/memo_buzo.jpg" } ],
+    "jugadas": [ [0, 0.7, null, "ref"], [1, 1.4, 2.5, "x"], [2, 2.9, 4.0, "x"], [3, 4.4, null, "ok"] ],
+    "pareja": [0, 3],
+    "match": "¡MATCH DE COLOR!",
+    "resultado": { "desde": 5.3, "x": 40, "y": 1440, "etiqueta": "PAREJA ENCONTRADA ✓", "nombre": "BUZO ESTRUCTURA", "detalle": "Hombre · Talla L · tejido con relieve", "precio": "$25.000" }
+  },
+  "stickers": [
+    { "texto": "SI TE LLEVASTE LA POLERA BURDEO,<br>ACÁ ESTÁ SU MEDIA NARANJA", "desde": 8.4, "hasta": 11.2, "x": "centro", "y": 250, "rot": -2, "color": "rosa" },
+    { "texto": "TEXTURA QUE SE SIENTE<br>HASTA POR LA PANTALLA", "desde": 11.5, "hasta": 14.3, "x": "centro", "y": 250, "rot": 2 }
+  ]
+}

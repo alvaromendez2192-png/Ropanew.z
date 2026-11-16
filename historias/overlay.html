@@ -1078,6 +1078,52 @@
   .casete .ventana { position: absolute; left: 50%; top: 270px; width: 420px; height: 110px; margin-left: -210px; border-radius: 55px; background: #0a0a0a; border: 4px solid #444; }
   .casete .rueda { position: absolute; top: 16px; width: 78px; height: 78px; border-radius: 50%; background: repeating-conic-gradient(#ddd 0 30deg, #555 30deg 60deg); border: 6px solid #eee; }
   .sticker.retro { background: #FFE45E; color: #222; border-color: #222; font-family: 'VT323', monospace; font-size: 44px; letter-spacing: 1px; }
+  /* Washed: título fino, etiqueta de cuidado, burbujas y cierre lavadora */
+  .wash5 { color: #fff; opacity: 0; text-shadow: 0 4px 18px rgba(0,0,0,.45); }
+  .wash5 b { display: block; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; font-size: 78px; line-height: 1; }
+  .wash5 small { display: block; font-weight: 600; font-size: 20px; letter-spacing: 7px; margin-top: 8px; }
+  .cuid5 { width: 380px; padding: 12px 18px 14px; border-radius: 14px; background: rgba(250,250,247,.92); color: #2b2f36; opacity: 0;
+    box-shadow: 0 10px 24px rgba(0,0,0,.28); }
+  .cuid5 .sim5 { display: flex; gap: 16px; align-items: center; }
+  .cuid5 .sim5 svg { width: 40px; height: 37px; }
+  .cuid5 .sim5 svg * { fill: none; stroke: #2b2f36; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+  .cuid5 .sim5 svg text { stroke: none; fill: #2b2f36; stroke-dasharray: none; font-size: 11px; font-weight: 700; opacity: 0; }
+  .cuid5 .ln5 { font-size: 15px; font-weight: 600; color: #555b66; margin-top: 10px; opacity: 0; }
+  .cuid5 .pr5 { display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px; padding-top: 10px; border-top: 1px solid #cfd2d6; opacity: 0; }
+  .cuid5 .pr5 span { font-weight: 700; font-size: 14px; letter-spacing: 2px; }
+  .cuid5 .pr5 b { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 32px; }
+  .burb5 { width: var(--d); height: var(--d); border-radius: 50%; border: 2px solid rgba(255,255,255,.65); opacity: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), rgba(255,255,255,.05) 60%); }
+  .clav { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; color: #2b2f36; text-align: center;
+    background: linear-gradient(180deg, rgba(238,241,244,.97), rgba(214,220,226,.97)); }
+  .clav .pan5 { position: absolute; left: 140px; right: 140px; top: 220px; height: 120px; border-radius: 26px; background: #2b2f36; color: #fff;
+    display: flex; align-items: center; justify-content: space-between; padding: 0 34px; box-shadow: 0 12px 26px rgba(0,0,0,.25); }
+  .clav .pan5 .dsp5 { font-family: 'VT323', monospace; font-size: 58px; color: #9fe3c3; letter-spacing: 2px; min-width: 330px; text-align: left; }
+  .clav .pan5 .peri5 { font-weight: 700; font-size: 18px; letter-spacing: 3px; color: #aab3be; text-align: right; line-height: 1.4; }
+  .clav .perilla5 { width: 74px; height: 74px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fafafa, #b9c0c8); position: relative; flex: none; }
+  .clav .perilla5::after { content: ''; position: absolute; left: 34px; top: 6px; width: 6px; height: 24px; border-radius: 3px; background: #2b2f36; }
+  .clav .puerta5 { position: absolute; left: 50%; top: 420px; width: 620px; height: 620px; margin-left: -310px; border-radius: 50%;
+    background: radial-gradient(circle, #f6f7f8 0 60%, #c3c9d0 61% 66%, #eef0f2 67% 100%); box-shadow: 0 24px 50px rgba(0,0,0,.25), inset 0 0 0 4px #aab3be; }
+  .clav .vidrio5 { position: absolute; left: 70px; top: 70px; width: 480px; height: 480px; border-radius: 50%; overflow: hidden; box-shadow: inset 0 0 0 10px #8b949e, inset 0 0 40px rgba(0,0,0,.4); }
+  .clav .vidrio5 img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+  .clav .vidrio5::after { content: ''; position: absolute; inset: 0; border-radius: 50%; box-shadow: inset 0 0 0 10px #8b949e;
+    background: linear-gradient(135deg, rgba(255,255,255,.45), rgba(255,255,255,0) 40%, rgba(255,255,255,0) 70%, rgba(255,255,255,.18)); }
+  .clav .agua5 { position: absolute; left: -10%; right: -10%; bottom: 0; height: 0; background: rgba(140,190,220,.45); }
+  .clav .listo5 { position: absolute; left: 50%; top: 455px; margin-left: -110px; width: 220px; padding: 10px 0; border-radius: 999px; background: #3c9d6e; color: #fff;
+    font-weight: 800; font-size: 26px; letter-spacing: 2px; opacity: 0; z-index: 4; box-shadow: 0 8px 18px rgba(0,0,0,.25); }
+  .clav .nom5 { position: absolute; left: 0; right: 0; top: 1085px; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; font-size: 52px; opacity: 0; }
+  .clav .det5 { position: absolute; left: 0; right: 0; top: 1160px; font-weight: 600; font-size: 24px; letter-spacing: 5px; color: #5f6773; opacity: 0; }
+  .clav .pre5 { position: absolute; left: 0; right: 0; top: 1205px; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 74px; opacity: 0; }
+  .clav p { position: absolute; left: 110px; right: 110px; top: 1310px; font-size: 32px; font-weight: 500; line-height: 1.35; color: #3c434d; opacity: 0; }
+  .clav p b { color: #2b2f36; font-weight: 800; }
+  .clav .btn5 { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1420px; padding: 20px 50px; border-radius: 999px;
+    background: #2b2f36; color: #fff; font-weight: 800; font-size: 34px; letter-spacing: 1px; box-shadow: 0 12px 28px rgba(0,0,0,.25); opacity: 0; }
+  .clav .baja5 { position: absolute; left: 0; right: 0; top: 1545px; font-weight: 700; font-size: 22px; letter-spacing: 4px; color: #6b7480; opacity: 0; }
+  @keyframes revela5 { from { opacity: 1; clip-path: inset(0 100% 0 0) } to { opacity: 1; clip-path: inset(0 -5% 0 0) } }
+  @keyframes traza5 { to { stroke-dashoffset: 0 } }
+  @keyframes sube5 { 0% { opacity: 0; transform: translateY(0) } 20% { opacity: .8 } 100% { opacity: 0; transform: translateY(-520px) translateX(var(--dx)) } }
+  @keyframes llenar5 { to { height: 38% } }
+  @keyframes vaciar5 { to { height: 0 } }
   /* WIDE: letras que se abren + test de ancho tipo test de velocidad */
   .wide6 { left: 0; right: 0; text-align: center; font-family: 'Anton', sans-serif; font-size: 150px; line-height: 1; color: #fff; opacity: 0;
     text-shadow: 0 8px 26px rgba(0,0,0,.55); white-space: nowrap; }
@@ -2467,6 +2513,43 @@
     c.querySelectorAll('.rueda').forEach(r => anim(r, `girar 1.2s linear ${s(K.desde)} infinite`));
   }
 
+  // ---------- Washed: título, etiqueta de cuidado con símbolos que se dibujan, burbujas ----------
+  if (D.washed) {
+    const Wd = D.washed;
+    const t = el('abs wash5', `<b>${Wd.titulo}</b><small>${Wd.sub}</small>`);
+    Object.assign(t.style, { left: Wd.x + 'px', top: Wd.y + 'px' });
+    anim(t, `revela5 1.2s cubic-bezier(.4,0,.2,1) ${s(Wd.desde)} both`, `fadeOut .6s ease ${s(Wd.hasta)} forwards`);
+  }
+  if (D.cuidado) {
+    const C5 = D.cuidado, d = C5.desde;
+    const sims = [
+      `<path pathLength="1" d="M5 12 L10 38 H40 L45 12"/><path pathLength="1" d="M5 12 Q10 7 15 12 T25 12 T35 12 T45 12"/><text x="25" y="31" text-anchor="middle">30°</text>`,
+      `<path pathLength="1" d="M6 36 H44 L40 20 Q38 13 30 13 H16 Q14 13 14 16"/><circle pathLength="1" cx="25" cy="29" r="2"/>`,
+      `<path pathLength="1" d="M25 6 L45 40 H5 Z"/><path pathLength="1" d="M10 8 L40 40 M40 8 L10 40"/>`,
+      `<rect pathLength="1" x="6" y="6" width="38" height="36" rx="3"/><circle pathLength="1" cx="25" cy="24" r="12"/><circle pathLength="1" cx="25" cy="24" r="2"/>`
+    ];
+    const w = el('abs cuid5', `<div class="sim5">${sims.map(x => `<svg viewBox="0 0 50 46">${x}</svg>`).join('')}</div>
+      <div class="ln5">${C5.linea}</div><div class="pr5"><span>${C5.nombre}</span><b>${C5.precio}</b></div>`);
+    Object.assign(w.style, { left: C5.x + 'px', top: C5.y + 'px' });
+    anim(w, `subir .5s ease-out ${s(d)} both`, ...(D.cierre ? [`fadeOut .3s ease ${s(D.duracionClip - 0.3)} forwards`] : []));
+    w.querySelectorAll('.sim5 svg').forEach((g, k) => {
+      g.querySelectorAll('path,circle,rect').forEach(x => anim(x, `traza5 .7s ease-out ${s(d + 0.4 + k * 0.35)} forwards`));
+      g.querySelectorAll('text').forEach(x => anim(x, `fadeIn .3s ease ${s(d + 0.9 + k * 0.35)} forwards`));
+    });
+    anim(w.querySelector('.ln5'), `fadeIn .4s ease ${s(d + 1.9)} both`);
+    anim(w.querySelector('.pr5'), `fadeIn .4s ease ${s(d + 2.3)} both`);
+  }
+  if (D.burbujas) {
+    const B = D.burbujas;
+    for (let i = 0; i < B.n; i++) {
+      const dd = 18 + ((i * 37) % 30), lado = i % 2 ? 1080 - 70 - (i * 13) % 50 : 20 + (i * 17) % 50;
+      const b = el('abs burb5', '');
+      b.style.setProperty('--d', dd + 'px'); b.style.setProperty('--dx', ((i % 3) - 1) * 30 + 'px');
+      Object.assign(b.style, { left: lado + 'px', top: (B.y + (i * 71) % 260) + 'px' });
+      anim(b, `sube5 ${3.5 + (i % 4) * 0.6}s ease-in ${s(B.desde + i * (B.hasta - B.desde - 3) / B.n)} both`);
+    }
+  }
+
   // ---------- WIDE: letras que se separan mientras el video se abre ----------
   if (D.wide) {
     const Wd = D.wide;
@@ -2767,7 +2850,37 @@
 
   // ---------- Cierre con llamada a la acción ----------
   const T = D.duracionClip, C = D.cierre;
-  if (C && C.estilo === 'raspe') {
+  if (C && C.estilo === 'lavado') {
+    const cl = el('abs clav', `<div class="pan5"><div class="perilla5"></div><div class="dsp5">${C.ciclo}</div><div class="peri5">CICLO<br>${C.modo}</div></div>
+      <div class="puerta5"><div class="vidrio5"><img src="${C.img}"><div class="agua5"></div></div></div><div class="listo5">${C.listo}</div>
+      <div class="nom5">${C.nombre}</div><div class="det5">${C.detalle}</div><div class="pre5">${C.precio}</div>
+      <p>${C.texto}</p><div class="btn5">${C.boton}</div><div class="baja5">↓ RESPONDE ESTA HISTORIA ↓</div>`);
+    anim(cl, `fadeIn .45s ease ${s(T - 0.1)} both`);
+    const q5 = x => cl.querySelector(x);
+    anim(q5('.pan5'), `bajarCard .5s ${EASE_IN} ${s(T + 0.1)} both`);
+    anim(q5('.puerta5'), `pop .55s ${EASE_POP} ${s(T + 0.25)} both`);
+    const t0 = T + 0.7, t1 = T + 2.6;
+    anim(q5('.agua5'), `llenar5 .6s ease-out ${s(t0)} forwards`, `vaciar5 .5s ease-in ${s(t1 - 0.4)} forwards`);
+    const img = q5('.vidrio5 img'), per = q5('.perilla5'), dsp = q5('.dsp5');
+    let ang = 0;
+    ruletas.push(t => {
+      // giro: acelera, gira y frena (posición calculada como integral de la velocidad)
+      const u = Math.max(0, Math.min(1, (t - t0) / (t1 - t0)));
+      const a = 1440 * (u < .3 ? (u * u) / .6 : u < .7 ? .15 + (u - .3) : .55 + (u - .7) - ((u - .7) ** 2) / .6) / 0.85;
+      img.style.transform = `rotate(${a}deg)`;
+      per.style.transform = `rotate(${t < T + 0.4 ? 0 : Math.min(1, (t - T - 0.4) / 0.3) * 120}deg)`;
+      const r = Math.max(0, Math.ceil((t1 - t) * 1.5));
+      dsp.textContent = t < t0 ? C.ciclo : (t < t1 ? `0:0${Math.min(3, r)} ${'·'.repeat(Math.floor(t * 4) % 4)}` : C.fin);
+    });
+    anim(q5('.listo5'), `pop .4s ${EASE_POP} ${s(t1 + 0.05)} both`);
+    anim(q5('.puerta5'), `pop .55s ${EASE_POP} ${s(T + 0.25)} both`, `latido .5s ease-in-out ${s(t1)} 1`);
+    anim(q5('.nom5'), `fadeIn .4s ease ${s(t1 + 0.2)} both`);
+    anim(q5('.det5'), `fadeIn .4s ease ${s(t1 + 0.35)} both`);
+    anim(q5('.pre5'), `pop .45s ${EASE_POP} ${s(t1 + 0.5)} both`);
+    anim(q5('p'), `fadeIn .4s ease ${s(t1 + 0.8)} both`);
+    anim(q5('.btn5'), `pop .45s ${EASE_POP} ${s(t1 + 1.0)} both`, `latido 1.2s ease-in-out ${s(t1 + 1.5)} infinite`);
+    anim(q5('.baja5'), `fadeIn .3s ease ${s(t1 + 1.2)} both`, `rebote .8s ease-in-out ${s(t1 + 1.2)} infinite`);
+  } else if (C && C.estilo === 'raspe') {
     const W = 860, Hh = 640;
     const zig = 'M60 80 L800 140 L80 220 L790 300 L70 380 L800 460 L90 540 L780 600';
     const cr = el('abs craspe', `<div class="tit4">${C.titulo}</div><div class="sub5">${C.sub}</div>

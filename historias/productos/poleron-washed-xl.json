@@ -1,0 +1,19 @@
+{
+  "slug": "poleron-washed-xl",
+  "clips": [{ "video": "../entrada/poleron-washed-xl.mov", "inicio": 0.2, "dur": 16.4, "hdr": true, "npl": 100, "tonemap": "hable" }],
+  "segmentos": [],
+  "washed": { "desde": 0.4, "hasta": 6.0, "x": 50, "y": 225, "titulo": "Washed", "sub": "POLERÓN · HOMBRE · XL" },
+  "cuidado": { "desde": 1.4, "x": 36, "y": 1510, "linea": "Lavado vintage · tono único en cada pieza", "nombre": "POLERÓN WASHED · XL", "precio": "$30.000" },
+  "burbujas": { "desde": 0.8, "hasta": 16.0, "n": 14, "y": 900 },
+  "stickers": [
+    { "texto": "Su lavado vintage le da un tono<br>que no se repite en otra prenda", "desde": 6.6, "hasta": 10.8, "x": "centro", "y": 250, "rot": 0, "color": "sutil" },
+    { "texto": "Para quienes valoran los detalles", "desde": 11.2, "hasta": 16.2, "x": "centro", "y": 250, "rot": 0, "color": "sutil" }
+  ],
+  "cierre": {
+    "estilo": "lavado", "dur": 5.6, "img": "assets/lav_poleron_washed.jpg",
+    "ciclo": "RESERVA", "modo": "WASHED", "fin": "LISTO ✓", "listo": "¡LISTO! ✓",
+    "nombre": "Polerón Washed", "detalle": "HOMBRE · TALLA XL", "precio": "$30.000",
+    "texto": "Ciclo de reserva completo: escríbenos <b>\"WASHED\"</b> y te lo apartamos",
+    "boton": "Responde \"WASHED\""
+  }
+}

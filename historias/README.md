@@ -18,3 +18,11 @@ Cada historia: la prenda a pantalla completa con una tarjeta compacta por produc
 `node reel.js reel/reel-ropanewz.json` une cortes de los videos de `entrada/` en un reel de ~30 s
 (gancho, marca, desfile de prendas con precios, "precios desde" y final con perfil + botón Seguir).
 Edita `reel/reel-ropanewz.json` para cambiar cortes, prendas, precios o el usuario de Instagram.
+
+## Reglas de diseño (pedidas por Ropa New.Z)
+
+1. **La prenda es la protagonista**: textos, fichas y stickers chicos y en los bordes; nada grande encima de la prenda.
+2. Nada en la zona baja de Instagram (barra de respuesta, ~220 px inferiores) ni en la superior (perfil, ~200 px).
+3. El **cierre** (llamada a reservar / escribir) solo cuando se pide.
+4. Frases con humor y chilenismos, sin repetir las de historias anteriores.
+5. Videos de iPhone en HDR: `"hdr": true` (y `"tonemap": "hable"` para prendas claras).

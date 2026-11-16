@@ -96,8 +96,8 @@
     ]
   },
   "casete": {
-    "desde": 0.6,
-    "y": 1350,
+    "desde": 1.0,
+    "y": 2320,
     "titulo": "Polerón Básico ★",
     "detalle": "Hombre · Talla S · Ropa New.Z",
     "precio": "$25.000"
@@ -105,10 +105,10 @@
   "stickers": [
     {
       "texto": "MÁS CLÁSICO QUE LA ONCE<br>CON MARRAQUETA 🥖",
-      "desde": 4.6,
+      "desde": 6.2,
       "hasta": 7.9,
       "x": "centro",
-      "y": 1080,
+      "y": 1330,
       "rot": -3,
       "color": "retro"
     }

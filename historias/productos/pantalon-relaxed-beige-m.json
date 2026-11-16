@@ -1,0 +1,17 @@
+{
+  "slug": "pantalon-relaxed-beige-m",
+  "clips": [{ "video": "../entrada/pantalon-relaxed-beige-m.mov", "inicio": 0.2, "dur": 14.2, "hdr": true, "npl": 100, "tonemap": "hable" }],
+  "segmentos": [],
+  "mood": { "desde": 0.3, "hasta": 4.6, "x": 40, "y": 235, "texto": "<i style=\"background:#111\"></i>¿Viste el negro? Llegó en <b style=\"color:#a8875a\">BEIGE</b>" },
+  "gotero": {
+    "desde": 1.2, "x": 330, "y": 1150, "color": "#E0CFAA", "hex": "#E0CFAA",
+    "carta": { "x": 40, "y": 1290, "marca": "ROPA NEW.Z®", "nombre": "Beige Latte", "detalle": "Pantalón Relaxed Fit · Hombre · M", "precio": "$25.000" }
+  },
+  "stickers": [
+    { "texto": "COLOR CAFÉ CON LECHE ☕<br>DEL BUENO, NO DE MÁQUINA", "desde": 6.0, "hasta": 9.6, "x": 330, "y": 1560, "rot": 2, "color": "sastre" }
+  ],
+  "paleta": {
+    "desde": 9.8, "hasta": 14.0, "x": 830, "y": 900, "titulo": "COMBÍNALO CON",
+    "items": [ { "t": "Blanco", "c": "#f7f7f7" }, { "t": "Negro", "c": "#111" }, { "t": "Azul", "c": "#1f3a68" }, { "t": "Verde oliva", "c": "#5b6236" } ]
+  }
+}

@@ -1078,6 +1078,28 @@
   .casete .ventana { position: absolute; left: 50%; top: 270px; width: 420px; height: 110px; margin-left: -210px; border-radius: 55px; background: #0a0a0a; border: 4px solid #444; }
   .casete .rueda { position: absolute; top: 16px; width: 78px; height: 78px; border-radius: 50%; background: repeating-conic-gradient(#ddd 0 30deg, #555 30deg 60deg); border: 6px solid #eee; }
   .sticker.retro { background: #FFE45E; color: #222; border-color: #222; font-family: 'VT323', monospace; font-size: 44px; letter-spacing: 1px; }
+  /* Gotero de color + carta de color */
+  .gotero9 { width: 120px; height: 120px; margin: -6px 0 0 -6px; z-index: 30; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }
+  .onda9 { width: 30px; height: 30px; margin: -15px; border-radius: 50%; border: 5px solid #fff; opacity: 0; box-shadow: 0 0 10px rgba(0,0,0,.4); }
+  .gota9 { display: flex; align-items: center; gap: 10px; padding: 8px 16px 8px 8px; border-radius: 999px; background: rgba(20,20,20,.82); color: #fff;
+    font-family: 'Courier New', monospace; font-weight: 700; font-size: 24px; opacity: 0; box-shadow: 0 6px 14px rgba(0,0,0,.35); }
+  .gota9 i { width: 40px; height: 40px; border-radius: 50%; border: 3px solid #fff; display: block; }
+  .carta9 { width: 250px; background: #fff; border-radius: 6px; overflow: hidden; color: #222; opacity: 0; box-shadow: 0 14px 28px rgba(0,0,0,.4); transform-origin: 0 100%; }
+  .carta9 .sw9 { height: 170px; position: relative; }
+  .carta9 .sw9 .rel9 { position: absolute; inset: 0; transform-origin: 50% 0; }
+  .carta9 .tx9 { padding: 12px 16px 14px; }
+  .carta9 .tx9 small { display: block; font-weight: 900; font-size: 14px; letter-spacing: 2px; }
+  .carta9 .tx9 b { display: block; font-weight: 800; font-size: 26px; margin-top: 2px; }
+  .carta9 .tx9 span { display: block; font-size: 15px; color: #666; margin-top: 2px; }
+  .carta9 .tx9 em { display: block; font-style: normal; font-family: 'Anton', sans-serif; font-size: 40px; margin-top: 6px; letter-spacing: 1px; }
+  .mood9 { display: flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; background: rgba(255,255,255,.9); color: #222;
+    font-weight: 800; font-size: 24px; opacity: 0; box-shadow: 0 6px 14px rgba(0,0,0,.3); }
+  .mood9 i { width: 28px; height: 28px; border-radius: 50%; display: inline-block; border: 2px solid #fff; box-shadow: 0 0 0 2px #222; }
+  .paleta9 { width: 210px; display: flex; flex-direction: column; gap: 12px; }
+  .paleta9 .tit9 { font-weight: 900; font-size: 18px; letter-spacing: 2px; color: #fff; text-align: right; text-shadow: 0 2px 6px rgba(0,0,0,.6); opacity: 0; }
+  .paleta9 .fila9 { display: flex; align-items: center; justify-content: flex-end; gap: 10px; opacity: 0; }
+  .paleta9 .fila9 span { background: rgba(20,20,20,.8); color: #fff; font-weight: 700; font-size: 20px; padding: 6px 12px; border-radius: 999px; }
+  .paleta9 .fila9 i { width: 46px; height: 46px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,.4); flex: none; }
   /* Huincha de medir + etiqueta con alfiler */
   .huincha { right: 26px; width: 70px; height: 0; overflow: hidden; opacity: 0; border-radius: 6px; box-shadow: 0 6px 14px rgba(0,0,0,.4);
     background: repeating-linear-gradient(180deg, transparent 0 9px, #222 9px 11px), #F6D85C; }
@@ -1268,6 +1290,9 @@
   @keyframes deslizar2 { from { left: 10px } to { left: calc(100% - 132px) } }
   @keyframes llenar2 { to { width: 100% } }
   @keyframes barrerV { from { transform: translateY(0) } to { transform: translateY(1900px) } }
+  @keyframes chorrear9 { from { transform: scaleY(0) } to { transform: scaleY(1) } }
+  @keyframes onda9k { 0% { opacity: 1; transform: scale(.4) } 100% { opacity: 0; transform: scale(3.2) } }
+  @keyframes carta9In { from { opacity: 0; transform: translateX(-120px) rotate(-12deg) } to { opacity: 1; transform: none } }
   @keyframes desenrollarH { to { height: var(--h) } }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
   @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
@@ -2378,6 +2403,50 @@
     c.style.top = K.y + 'px';
     anim(c, `subir .5s ${EASE_IN} ${s(K.desde)} both`);
     c.querySelectorAll('.rueda').forEach(r => anim(r, `girar 1.2s linear ${s(K.desde)} infinite`));
+  }
+
+  // ---------- Gotero que "saca" el color de la prenda + carta de color ----------
+  if (D.gotero) {
+    const G = D.gotero, col = G.color;
+    const ic = el('abs gotero9', `<svg viewBox="0 0 84 84"><g transform="rotate(45 42 42)">
+      <rect x="34" y="2" width="16" height="22" rx="7" fill="#333"/><rect x="30" y="22" width="24" height="8" rx="3" fill="#555"/>
+      <path d="M35 30 H49 V58 L42 74 L35 58 Z" fill="rgba(255,255,255,.9)" stroke="#333" stroke-width="3"/>
+      <path class="liq9" d="M36.5 44 H47.5 V58 L42 71 L36.5 58 Z" fill="${col}" opacity="0"/></g></svg>`);
+    const on = el('abs onda9', ''), gt = el('abs gota9', `<i style="background:${col}"></i>${G.hex}`);
+    const liq = ic.querySelector('.liq9');
+    const tc = G.desde + 1.0; // momento del "clic"
+    Object.assign(on.style, { left: G.x + 'px', top: G.y + 'px' });
+    Object.assign(gt.style, { left: (G.x + 70) + 'px', top: (G.y - 26) + 'px' });
+    anim(on, `onda9k .7s ease-out ${s(tc)} both`);
+    anim(gt, `pop .35s ${EASE_POP} ${s(tc + 0.1)} both`, `fadeOut .3s ease ${s(tc + 1.4)} forwards`);
+    const ease = p => 1 - Math.pow(1 - p, 3);
+    ruletas.push(t => {
+      let x, y;
+      if (t < tc) { const p = ease(Math.max(0, (t - G.desde) / 1.0)); x = 1140 + (G.x - 1140) * p; y = G.y + 260 * (1 - p); }
+      else if (t < tc + 1.3) { x = G.x; y = G.y + (t < tc + 0.15 ? 8 : 0); }
+      else { const p = Math.min(1, (t - tc - 1.3) / 0.6); x = G.x + (1160 - G.x) * p * p; y = G.y - 120 * p; }
+      ic.style.left = x + 'px'; ic.style.top = (y - 112) + 'px';
+      liq.setAttribute('opacity', t >= tc + 0.1 ? 1 : 0);
+    });
+    const C = G.carta;
+    const c = el('abs carta9', `<div class="sw9"><div class="rel9" style="background:${col}"></div></div>
+      <div class="tx9"><small>${C.marca}</small><b>${C.nombre}</b><span>${C.detalle}</span><em>${C.precio}</em></div>`);
+    Object.assign(c.style, { left: C.x + 'px', top: C.y + 'px' });
+    anim(c, `carta9In .55s ${EASE_IN} ${s(tc + 0.9)} both`);
+    anim(c.querySelector('.rel9'), `chorrear9 .6s ease-out ${s(tc + 1.3)} both`);
+  }
+  if (D.mood) {
+    const M = D.mood;
+    const m = el('abs mood9', M.texto);
+    Object.assign(m.style, { left: M.x + 'px', top: M.y + 'px' });
+    anim(m, `pop .4s ${EASE_POP} ${s(M.desde)} both`, `fadeOut .35s ease ${s(M.hasta)} forwards`);
+  }
+  if (D.paleta) {
+    const P = D.paleta;
+    const w = el('abs paleta9', `<div class="tit9">${P.titulo}</div>` + P.items.map(i => `<div class="fila9"><span>${i.t}</span><i style="background:${i.c}"></i></div>`).join(''));
+    Object.assign(w.style, { left: P.x + 'px', top: P.y + 'px' });
+    anim(w.querySelector('.tit9'), `fadeIn .35s ease ${s(P.desde)} both`, `fadeOut .35s ease ${s(P.hasta)} forwards`);
+    w.querySelectorAll('.fila9').forEach((f, k) => anim(f, `entrarDer .45s ${EASE_IN} ${s(P.desde + 0.25 + k * 0.3)} both`, `fadeOut .35s ease ${s(P.hasta)} forwards`));
   }
 
   // ---------- Huincha de medir y etiqueta con alfiler ----------

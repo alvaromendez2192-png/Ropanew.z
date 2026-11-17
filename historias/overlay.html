@@ -1113,6 +1113,7 @@
   .celige .op4 .n4 { position: absolute; left: -10px; top: -14px; width: 70px; height: 70px; border-radius: 50%; background: #8a1f4c; color: #fff;
     font-family: 'Playfair Display', serif; font-weight: 900; font-size: 42px; display: grid; place-items: center; box-shadow: 0 6px 14px rgba(0,0,0,.25); }
   .celige .op4 b { display: block; margin-top: 10px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 28px; line-height: 1.1; }
+  .celige .op4 .pz4 { display: block; margin-top: 6px; font-style: normal; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 40px; color: #8a1f4c; }
   .celige .op4 .ring4 { position: absolute; inset: -6px; border-radius: 26px; border: 5px solid #8a1f4c; opacity: 0; }
   .celige .precio4 { position: absolute; left: 0; right: 0; top: 1030px; font-weight: 700; font-size: 30px; letter-spacing: 3px; color: #a0607a; opacity: 0; }
   .celige .precio4 b { display: block; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 96px; letter-spacing: 0; color: #8a1f4c; line-height: 1.05; }
@@ -2932,7 +2933,7 @@
   const T = D.duracionClip, C = D.cierre;
   if (C && C.estilo === 'elige') {
     const ce = el('abs celige', `<div class="tit4m">${C.titulo}</div><div class="sub4m">${C.sub}</div>
-      <div class="cards4">${C.opciones.map((o, k) => `<div class="op4"><div class="ring4"></div><img src="${o.img}"><div class="n4">${k + 1}</div><b>${o.nombre}</b></div>`).join('')}</div>
+      <div class="cards4">${C.opciones.map((o, k) => `<div class="op4"><div class="ring4"></div><img src="${o.img}"><div class="n4">${k + 1}</div><b>${o.nombre}</b>${o.precio ? `<em class="pz4">${o.precio}</em>` : ''}</div>`).join('')}</div>
       <div class="precio4">${C.precioTxt}<b>${C.precio}</b></div><p>${C.texto}</p><div class="btn4">${C.boton}</div><div class="baja4">↓ RESPONDE ESTA HISTORIA ↓</div>`);
     anim(ce, `fadeIn .45s ease ${s(T - 0.1)} both`);
     const q = x => ce.querySelector(x);

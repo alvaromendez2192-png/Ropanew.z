@@ -1,0 +1,97 @@
+{
+  "slug": "l-mujer-duo",
+  "transicion": {
+    "tipo": "fade",
+    "dur": 0.034
+  },
+  "clips": [
+    {
+      "video": "../entrada/l-1115.mov",
+      "inicio": 0.0,
+      "dur": 2.2,
+      "fx": "gblur=sigma=26,eq=brightness=-0.12",
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable"
+    },
+    {
+      "video": "../entrada/l-pagina1.mp4",
+      "inicio": 0,
+      "dur": 0.8
+    },
+    {
+      "video": "../entrada/l-1115.mov",
+      "inicio": 1.1,
+      "dur": 7.0,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable"
+    },
+    {
+      "video": "../entrada/l-pagina2.mp4",
+      "inicio": 0,
+      "dur": 0.8
+    },
+    {
+      "video": "../entrada/l-1116.mov",
+      "inicio": 1.0,
+      "dur": 6.4,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable"
+    }
+  ],
+  "segmentos": [],
+  "introM": {
+    "desde": 0.1,
+    "hasta": 2.0,
+    "pre": "COLECCIÓN MUJER",
+    "letra": "L",
+    "titulo": "Llegó la talla L",
+    "sub": "Solo 2 prendas · piezas únicas"
+  },
+  "unPrecio": {
+    "desde": 3.2,
+    "right": 36,
+    "y": 235,
+    "texto": "TALLA L · MUJER"
+  },
+  "vitrina": [
+    {
+      "desde": 3.2,
+      "hasta": 9.6,
+      "nombre": "Falda Botón Cruzado",
+      "detalle": "MUJER · TALLA L",
+      "precio": "$20.000"
+    },
+    {
+      "desde": 11.0,
+      "hasta": 17.0,
+      "nombre": "Skort Denim Gris",
+      "detalle": "MUJER · TALLA L",
+      "precio": "$23.000"
+    }
+  ],
+  "cierre": {
+    "estilo": "elige",
+    "dur": 5.6,
+    "titulo": "¿Cuál es tu favorita?",
+    "sub": "TALLA L · MUJER",
+    "opciones": [
+      {
+        "img": "assets/l_boton_cruzado.jpg",
+        "nombre": "Falda Botón<br>Cruzado",
+        "precio": "$20.000"
+      },
+      {
+        "img": "assets/l_skort_gris.jpg",
+        "nombre": "Skort<br>Denim Gris",
+        "precio": "$23.000"
+      }
+    ],
+    "precioTxt": "SOLO QUEDAN",
+    "precio": "2 piezas únicas",
+    "texto": "Escríbenos el <b>número</b> de tu favorita y te la apartamos 💕",
+    "boton": "Responde 1 o 2"
+  }
+}

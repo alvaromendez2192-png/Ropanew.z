@@ -1,0 +1,120 @@
+{
+  "slug": "m-mujer-trio-2",
+  "transicion": {
+    "tipo": "fade",
+    "dur": 0.034
+  },
+  "clips": [
+    {
+      "video": "../entrada/m2-1112.mov",
+      "inicio": 0.0,
+      "dur": 2.2,
+      "fx": "gblur=sigma=26,eq=brightness=-0.12",
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable"
+    },
+    {
+      "video": "../entrada/m2-perchero1.mp4",
+      "inicio": 0,
+      "dur": 0.8
+    },
+    {
+      "video": "../entrada/m2-1112.mov",
+      "inicio": 1.1,
+      "dur": 5.8,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable"
+    },
+    {
+      "video": "../entrada/m2-perchero2.mp4",
+      "inicio": 0,
+      "dur": 0.8
+    },
+    {
+      "video": "../entrada/m2-1114.mov",
+      "inicio": 1.0,
+      "dur": 5.4,
+      "fx": "colorbalance=rs=-.05:gs=-.01:bs=.07:rm=-.06:gm=-.01:bm=.07:rh=-.03:bh=.04,eq=saturation=0.72:brightness=0.035:contrast=1.03",
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable"
+    },
+    {
+      "video": "../entrada/m2-perchero3.mp4",
+      "inicio": 0,
+      "dur": 0.8
+    },
+    {
+      "video": "../entrada/m2-1111.mov",
+      "inicio": 1.1,
+      "dur": 6.4,
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable"
+    }
+  ],
+  "segmentos": [],
+  "introM": {
+    "desde": 0.1,
+    "hasta": 2.0,
+    "pre": "COLECCIÓN MUJER",
+    "letra": "M",
+    "titulo": "Más novedades en talla M",
+    "sub": "3 prendas · todas a $20.000"
+  },
+  "unPrecio": {
+    "desde": 3.2,
+    "right": 36,
+    "y": 235,
+    "texto": "TODAS A $20.000"
+  },
+  "vitrina": [
+    {
+      "desde": 3.2,
+      "hasta": 8.4,
+      "nombre": "Falda Botón Cruzado",
+      "detalle": "MUJER · TALLA M",
+      "precio": "$20.000"
+    },
+    {
+      "desde": 9.8,
+      "hasta": 14.5,
+      "nombre": "Falda Short Tres Botones",
+      "detalle": "MUJER · TALLA M",
+      "precio": "$20.000"
+    },
+    {
+      "desde": 15.9,
+      "hasta": 21.9,
+      "nombre": "Short de Lino",
+      "detalle": "MUJER · TALLA M",
+      "precio": "$20.000"
+    }
+  ],
+  "cierre": {
+    "estilo": "elige",
+    "dur": 5.6,
+    "titulo": "¿Con cuál te quedas?",
+    "sub": "TALLA M · MUJER",
+    "opciones": [
+      {
+        "img": "assets/m2_boton_cruzado.jpg",
+        "nombre": "Falda Botón<br>Cruzado"
+      },
+      {
+        "img": "assets/m2_tres_botones.jpg",
+        "nombre": "Falda Short<br>Tres Botones"
+      },
+      {
+        "img": "assets/m2_short_lino.jpg",
+        "nombre": "Short<br>de Lino"
+      }
+    ],
+    "precioTxt": "TODAS A",
+    "precio": "$20.000",
+    "texto": "Escríbenos el <b>número</b> de tu favorita y te la apartamos 💕",
+    "boton": "Responde 1, 2 o 3"
+  }
+}

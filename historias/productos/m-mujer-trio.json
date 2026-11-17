@@ -1,0 +1,31 @@
+{
+  "slug": "m-mujer-trio",
+  "transicion": { "tipo": "fade", "dur": 0.2 },
+  "clips": [
+    { "video": "../entrada/m-mujer-1107.mov", "inicio": 0.0, "dur": 2.6, "hdr": true, "npl": 100, "tonemap": "hable", "fx": "gblur=sigma=26,eq=brightness=-0.12" },
+    { "video": "../entrada/m-mujer-1107.mov", "inicio": 0.4, "dur": 6.6, "hdr": true, "npl": 100, "tonemap": "hable" },
+    { "video": "../entrada/m-mujer-1108.mov", "inicio": 0.1, "dur": 5.3, "hdr": true, "npl": 100, "tonemap": "hable" },
+    { "video": "../entrada/m-mujer-1109.mov", "inicio": 0.2, "dur": 6.6, "hdr": true, "npl": 100, "tonemap": "hable" }
+  ],
+  "segmentos": [],
+  "introM": { "desde": 0.1, "hasta": 2.2, "pre": "COLECCIÓN MUJER", "letra": "M", "titulo": "Llegó la talla M", "sub": "3 prendas · un solo precio" },
+  "manos": [2.5, 8.9, 14.0],
+  "unPrecio": { "desde": 3.0, "right": 36, "y": 235, "texto": "TODAS A $23.000" },
+  "vitrina": [
+    { "desde": 3.1, "hasta": 8.5, "nombre": "Falda Denim Bolsillos", "detalle": "MUJER · TALLA M", "precio": "$23.000" },
+    { "desde": 9.2, "hasta": 13.6, "nombre": "Falda Short Cinturón", "detalle": "MUJER · TALLA M", "precio": "$23.000" },
+    { "desde": 14.3, "hasta": 20.4, "nombre": "Skort Denim Gris", "detalle": "MUJER · TALLA M", "precio": "$23.000" }
+  ],
+  "cierre": {
+    "estilo": "elige", "dur": 5.6,
+    "titulo": "¿Cuál es tu favorita?", "sub": "TALLA M · MUJER",
+    "opciones": [
+      { "img": "assets/m_falda_bolsillos.jpg", "nombre": "Falda Denim<br>Bolsillos" },
+      { "img": "assets/m_falda_cinturon.jpg", "nombre": "Falda Short<br>Cinturón" },
+      { "img": "assets/m_skort_gris.jpg", "nombre": "Skort<br>Denim Gris" }
+    ],
+    "precioTxt": "TODAS A", "precio": "$23.000",
+    "texto": "Escríbenos el <b>número</b> de tu favorita y te la apartamos 💕",
+    "boton": "Responde 1, 2 o 3"
+  }
+}

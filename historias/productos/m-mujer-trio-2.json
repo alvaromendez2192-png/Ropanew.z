@@ -15,7 +15,7 @@
       "tonemap": "hable"
     },
     {
-      "video": "../entrada/m2-perchero1.mp4",
+      "video": "../entrada/m2-pagina1.mp4",
       "inicio": 0,
       "dur": 0.8
     },
@@ -28,7 +28,7 @@
       "tonemap": "hable"
     },
     {
-      "video": "../entrada/m2-perchero2.mp4",
+      "video": "../entrada/m2-pagina2.mp4",
       "inicio": 0,
       "dur": 0.8
     },
@@ -42,7 +42,7 @@
       "tonemap": "hable"
     },
     {
-      "video": "../entrada/m2-perchero3.mp4",
+      "video": "../entrada/m2-pagina3.mp4",
       "inicio": 0,
       "dur": 0.8
     },

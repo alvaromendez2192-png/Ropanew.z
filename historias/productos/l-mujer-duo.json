@@ -93,34 +93,5 @@
     "precio": "2 piezas únicas",
     "texto": "Escríbenos el <b>número</b> de tu favorita y te la apartamos 💕",
     "boton": "Responde 1 o 2"
-  },
-  "zeta": [
-    {
-      "desde": 3.4,
-      "hasta": 6.6,
-      "x": 690,
-      "y": 1170,
-      "escala": 1.18,
-      "gesto": "saluda",
-      "globo": "¡Hola! Soy <b>Zeta</b> 👋<br>Mira esta joyita en L"
-    },
-    {
-      "desde": 12.0,
-      "hasta": 15.6,
-      "x": 690,
-      "y": 1170,
-      "escala": 1.18,
-      "gesto": "apunta",
-      "globo": "Este skort <b>vuela, vuela</b> 🔥"
-    },
-    {
-      "desde": 19.6,
-      "hasta": 22.6,
-      "x": 690,
-      "y": 1080,
-      "escala": 1.18,
-      "gesto": "aplaude",
-      "globo": ""
-    }
-  ]
+  }
 }

@@ -1078,6 +1078,16 @@
   .casete .ventana { position: absolute; left: 50%; top: 270px; width: 420px; height: 110px; margin-left: -210px; border-radius: 55px; background: #0a0a0a; border: 4px solid #444; }
   .casete .rueda { position: absolute; top: 16px; width: 78px; height: 78px; border-radius: 50%; background: repeating-conic-gradient(#ddd 0 30deg, #555 30deg 60deg); border: 6px solid #eee; }
   .sticker.retro { background: #FFE45E; color: #222; border-color: #222; font-family: 'VT323', monospace; font-size: 44px; letter-spacing: 1px; }
+  /* Zeta: mascota de Ropa New.Z, una percha con forma de Z */
+  .zeta { width: 210px; height: 270px; z-index: 60; opacity: 0; }
+  .zeta svg { width: 210px; height: 270px; overflow: visible; filter: drop-shadow(0 10px 14px rgba(0,0,0,.35)); }
+  .zeta .globoZ { position: absolute; right: 150px; bottom: 210px; width: max-content; max-width: 420px; padding: 14px 22px; border-radius: 22px;
+    background: #fff; color: #2b1a22; font-weight: 800; font-size: 27px; line-height: 1.2; box-shadow: 0 10px 22px rgba(0,0,0,.3); opacity: 0; transform-origin: 100% 100%; }
+  .zeta .globoZ::after { content: ''; position: absolute; right: 18px; bottom: -16px; border: 12px solid transparent; border-top: 16px solid #fff; border-bottom: 0; }
+  .zeta .globoZ b { color: #8a1f4c; }
+  @keyframes zIn { 0% { opacity: 0; transform: translateY(320px) rotate(8deg) } 60% { opacity: 1; transform: translateY(-24px) rotate(-4deg) } 100% { opacity: 1; transform: none } }
+  @keyframes zOut { to { opacity: 0; transform: translateY(320px) rotate(10deg) } }
+  @keyframes globoIn { from { opacity: 0; transform: scale(.3) } to { opacity: 1; transform: scale(1) } }
   /* Talla M mujer: intro, mano que tapa el lente, vitrina numerada y cierre "elige tu favorita" */
   .introM4 { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; text-align: center; color: #fff;
     background: radial-gradient(circle at 50% 45%, rgba(60,20,40,.25), rgba(30,8,20,.6)); }
@@ -2561,6 +2571,45 @@
     anim(c, `subir .5s ${EASE_IN} ${s(K.desde)} both`);
     c.querySelectorAll('.rueda').forEach(r => anim(r, `girar 1.2s linear ${s(K.desde)} infinite`));
   }
+
+  // ---------- Zeta: la percha-mascota que presenta las prendas ----------
+  (D.zeta || []).forEach(z => {
+    const w = el('abs zeta', `<svg viewBox="0 0 210 270">
+        <path d="M105 62 V44 C105 24 126 20 132 33 C136 43 128 50 119 47" fill="none" stroke="#E2B23C" stroke-width="9" stroke-linecap="round"/>
+        <g class="cuerpoZ">
+          <g class="pieI"><path d="M80 178 L74 226" stroke="#5a1430" stroke-width="9" stroke-linecap="round"/><ellipse cx="68" cy="230" rx="17" ry="9" fill="#2b1a22"/></g>
+          <g class="pieD"><path d="M130 178 L136 226" stroke="#5a1430" stroke-width="9" stroke-linecap="round"/><ellipse cx="142" cy="230" rx="17" ry="9" fill="#2b1a22"/></g>
+          <path d="M42 72 H168 L42 176 H168" fill="none" stroke="#8a1f4c" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M42 72 H168 L42 176 H168" fill="none" stroke="#c4466f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".55" transform="translate(-2,-4)"/>
+          <g class="brazoI"><path d="M76 126 Q52 130 34 120" fill="none" stroke="#5a1430" stroke-width="8" stroke-linecap="round"/><circle cx="31" cy="118" r="10" fill="#fff" stroke="#5a1430" stroke-width="3"/></g>
+          <g class="brazoD"><path d="M134 120 Q158 116 176 104" fill="none" stroke="#5a1430" stroke-width="8" stroke-linecap="round"/><circle cx="179" cy="102" r="10" fill="#fff" stroke="#5a1430" stroke-width="3"/></g>
+          <ellipse cx="105" cy="124" rx="36" ry="31" fill="#fff8f0" stroke="#5a1430" stroke-width="4"/>
+          <g class="ojosZ"><ellipse cx="92" cy="118" rx="6" ry="8" fill="#2b1a22"/><ellipse cx="118" cy="118" rx="6" ry="8" fill="#2b1a22"/>
+            <circle cx="94" cy="115" r="2.2" fill="#fff"/><circle cx="120" cy="115" r="2.2" fill="#fff"/></g>
+          <ellipse cx="82" cy="133" rx="6" ry="4" fill="#ff9db5" opacity=".8"/><ellipse cx="128" cy="133" rx="6" ry="4" fill="#ff9db5" opacity=".8"/>
+          <path class="bocaZ" d="M95 134 Q105 145 115 134" fill="#c4466f" stroke="#5a1430" stroke-width="3" stroke-linecap="round"/>
+        </g></svg>${z.globo ? `<div class="globoZ">${z.globo}</div>` : ''}`);
+    Object.assign(w.style, { left: z.x + 'px', top: z.y + 'px', zoom: z.escala || 1 });
+    anim(w, `zIn .6s cubic-bezier(.3,1.4,.5,1) ${s(z.desde)} both`, `zOut .4s ease-in ${s(z.hasta - 0.4)} forwards`);
+    if (z.globo) anim(w.querySelector('.globoZ'), `globoIn .35s ${EASE_POP} ${s(z.desde + 0.5)} both`, `fadeOut .2s ease ${s(z.hasta - 0.5)} forwards`);
+    const q = x => w.querySelector(x);
+    const cuerpo = q('.cuerpoZ'), bI = q('.brazoI'), bD = q('.brazoD'), ojos = q('.ojosZ'), pI = q('.pieI'), pD = q('.pieD');
+    ruletas.push(t => {
+      const r = t - z.desde;
+      if (r < 0 || t > z.hasta) return;
+      cuerpo.setAttribute('transform', `translate(0 ${Math.sin(r * 5) * 4}) rotate(${Math.sin(r * 2.5) * 3} 105 130)`);
+      const parpadeo = (r % 2.6) > 2.45 ? 0.1 : 1;
+      ojos.setAttribute('transform', `translate(0 ${118 * (1 - parpadeo)}) scale(1 ${parpadeo})`);
+      let aD = 0, aI = 0;
+      if (z.gesto === 'saluda') aD = -50 + Math.sin(r * 12) * 22;
+      if (z.gesto === 'apunta') { aI = 28 + Math.sin(r * 6) * 5; aD = -10; }
+      if (z.gesto === 'aplaude') { const c = Math.abs(Math.sin(r * 10)); aI = -35 * c; aD = 35 * c; }
+      bD.setAttribute('transform', `rotate(${aD} 134 120)`);
+      bI.setAttribute('transform', `rotate(${aI} 76 126)`);
+      const paso = Math.sin(r * 10) * (r < 0.6 ? 6 : 1.5);
+      pI.setAttribute('transform', `rotate(${paso} 80 178)`); pD.setAttribute('transform', `rotate(${-paso} 130 178)`);
+    });
+  });
 
   // ---------- Talla M mujer ----------
   if (D.introM) {

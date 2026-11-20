@@ -1119,7 +1119,7 @@
   .pase8 .ruta8 .avion8 { font-size: 54px; color: #8a1f4c; }
   .pase8 .datos8 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px 18px; margin-top: 22px; }
   .pase8 .datos8 div { font-weight: 700; font-size: 16px; letter-spacing: 2px; color: #8a8f9c; }
-  .pase8 .datos8 b { display: block; font-size: 27px; letter-spacing: 0; color: #1b1d24; margin-top: 2px; }
+  .pase8 .datos8 b { display: block; font-size: 23px; letter-spacing: 0; color: #1b1d24; margin-top: 2px; }
   .pase8 .codigo8 { height: 150px; background: repeating-linear-gradient(90deg, #1b1d24 0 3px, transparent 3px 6px, #1b1d24 6px 10px, transparent 10px 12px, #1b1d24 12px 13px, transparent 13px 17px); }
   .pase8 .der8 small { font-weight: 800; font-size: 16px; letter-spacing: 2px; color: #8a8f9c; }
   .pase8 .der8 b { display: block; font-family: 'Anton', sans-serif; font-size: 44px; color: #8a1f4c; }
@@ -1149,6 +1149,14 @@
   .cater .btn9 { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1045px; padding: 22px 50px; border-radius: 999px; background: #FFC93C; color: #2b1a22;
     font-weight: 900; font-size: 36px; box-shadow: 0 0 0 10px rgba(255,201,60,.18), 0 14px 32px rgba(0,0,0,.4); opacity: 0; }
   .cater .marca9 { position: absolute; left: 0; right: 0; top: 1175px; font-weight: 800; font-size: 24px; letter-spacing: 6px; color: #b9bdd6; opacity: 0; }
+  .grac8 { left: 70px; right: 70px; top: 470px; padding: 56px 50px 50px; border-radius: 26px; text-align: center; color: #2b1a22; opacity: 0;
+    background: linear-gradient(180deg, rgba(255,251,243,.96), rgba(250,240,224,.96)); box-shadow: 0 30px 70px rgba(0,0,0,.45), inset 0 0 0 3px #d9b66a, inset 0 0 0 12px rgba(255,251,243,.96), inset 0 0 0 14px #e8d3a0; }
+  .grac8 .orn8 { font-size: 30px; color: #c49a3c; letter-spacing: 14px; opacity: 0; }
+  .grac8 .gt8 { font-family: 'Great Vibes', cursive; font-size: 150px; line-height: 1.05; color: #8a1f4c; opacity: 0; }
+  .grac8 .gs8 { font-weight: 800; font-size: 22px; letter-spacing: 6px; color: #a07a2c; margin-top: 4px; opacity: 0; }
+  .grac8 .gl8 { font-family: 'Playfair Display', serif; font-size: 37px; line-height: 1.42; margin-top: 26px; opacity: 0; }
+  .grac8 .gl8 b { color: #8a1f4c; font-weight: 700; font-style: italic; }
+  .grac8 .gf8 { margin-top: 30px; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; font-size: 32px; color: #8a1f4c; opacity: 0; }
   @keyframes flash8 { 0% { opacity: .9 } 100% { opacity: 0 } }
   @keyframes palIn8 { 0% { opacity: 0; transform: scale(2.2) rotate(-4deg); filter: blur(8px) } 55% { opacity: 1; transform: scale(.94) rotate(1deg); filter: blur(0) } 100% { opacity: 1; transform: none } }
   @keyframes caeNieve8 { from { transform: translate(0, 0) } to { transform: translate(var(--dx), 2100px) } }
@@ -2742,12 +2750,26 @@
       ll.style.width = (p * 100) + '%'; av.style.left = (p * 100) + '%';
     });
   }
+  if (D.gracias8) {
+    const G8 = D.gracias8;
+    const w = el('abs grac8', `<div class="orn8">✦ ✦ ✦</div><div class="gt8">${G8.titulo}</div><div class="gs8">${G8.sub}</div>
+      ${G8.lineas.map(l => `<div class="gl8">${l}</div>`).join('')}<div class="gf8">${G8.firma}</div>`);
+    anim(w, `subir .7s ease-out ${s(G8.desde)} both`, `fadeOut .4s ease ${s(G8.hasta)} forwards`);
+    const q = x => [...w.querySelectorAll(x)];
+    anim(q('.orn8')[0], `fadeIn .6s ease ${s(G8.desde + 0.3)} both`);
+    anim(q('.gt8')[0], `revela5 1.1s cubic-bezier(.4,0,.2,1) ${s(G8.desde + 0.4)} both`);
+    anim(q('.gs8')[0], `fadeIn .5s ease ${s(G8.desde + 1.1)} both`);
+    q('.gl8').forEach((l, k) => anim(l, `subir .6s ease-out ${s(G8.desde + 1.5 + k * 0.7)} both`));
+    anim(q('.gf8')[0], `fadeIn .6s ease ${s(G8.desde + 1.6 + G8.lineas.length * 0.7)} both`);
+  }
   if (D.embarque) {
     const E = D.embarque;
     const w = el('abs pase8', `<div class="izq8"><div class="top8"><span>${E.aerolinea}</span><span>✈ ${E.tipo}</span></div>
       <div class="ruta8"><div><b>${E.de}</b><span>${E.deN}</span></div><div class="avion8">✈</div><div style="text-align:right"><b>${E.a}</b><span>${E.aN}</span></div></div>
       <div class="datos8">${E.datos.map(d => `<div>${d[0]}<b>${d[1]}</b></div>`).join('')}</div><div class="sello8">${E.sello}</div></div>
       <div class="der8"><div><small>VUELO</small><b>${E.vuelo}</b></div><div><small>PUERTA</small><b>${E.puerta}</b></div><div class="codigo8"></div></div>`);
+    if (E.top) w.style.top = E.top + 'px';
+    if (E.right) w.style.right = E.right + 'px';
     anim(w, `subirCard .6s ${EASE_IN} ${s(E.desde)} both`, `fadeOut .3s ease ${s(E.hasta)} forwards`);
     anim(w.querySelector('.sello8'), `sello8k .45s cubic-bezier(.3,1.4,.5,1) ${s(E.desde + 1.1)} both`);
   }

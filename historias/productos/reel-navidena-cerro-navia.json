@@ -1,0 +1,472 @@
+{
+  "slug": "reel-navidena-cerro-navia",
+  "transicion": {
+    "tipo": "fade",
+    "dur": 0.3
+  },
+  "clips": [
+    {
+      "video": "../entrada/minifalda-dorada-s.mov",
+      "inicio": 2.0,
+      "dur": 4.4,
+      "fx": "gblur=sigma=22,eq=brightness=-0.16",
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable"
+    },
+    {
+      "video": "../entrada/poleron-washed-xl.mov",
+      "inicio": 4.0,
+      "dur": 3.0,
+      "fx": "gblur=sigma=22,eq=brightness=-0.18",
+      "trans": {
+        "tipo": "slideup",
+        "dur": 0.4
+      },
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable"
+    },
+    {
+      "video": "../entrada/polera-rio-frente.mov",
+      "inicio": 2.0,
+      "dur": 1.05,
+      "trans": {
+        "tipo": "slideleft",
+        "dur": 0.25
+      },
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "fx": "scale=1296:2304,crop=1080:1920:x='108+80*t':y='192-40*t'"
+    },
+    {
+      "video": "../entrada/falda-short-s-triptico.mp4",
+      "inicio": 0.3,
+      "dur": 1.05,
+      "trans": {
+        "tipo": "zoomin",
+        "dur": 0.25
+      }
+    },
+    {
+      "video": "../entrada/conjunto-burdeo.mov",
+      "inicio": 3.0,
+      "dur": 1.05,
+      "trans": {
+        "tipo": "circleopen",
+        "dur": 0.25
+      },
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "fx": "scale=1260:2240,rotate=-0.06:ow=1080:oh=1920"
+    },
+    {
+      "video": "../entrada/camisa-jacquard.mov",
+      "inicio": 3.0,
+      "dur": 1.05,
+      "trans": {
+        "tipo": "wipeup",
+        "dur": 0.25
+      },
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "fx": "scale=1500:2667,crop=1080:1920:x=210:y=373"
+    },
+    {
+      "video": "../entrada/minifalda-dorada-espejo.mp4",
+      "inicio": 0.2,
+      "dur": 1.05,
+      "trans": {
+        "tipo": "smoothleft",
+        "dur": 0.25
+      }
+    },
+    {
+      "video": "../entrada/poleron-washed-xl.mov",
+      "inicio": 3.0,
+      "dur": 1.05,
+      "trans": {
+        "tipo": "radial",
+        "dur": 0.25
+      },
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "fx": "scale=1296:2304,crop=1080:1920:x='216-80*t':y='150+30*t'"
+    },
+    {
+      "video": "../entrada/polera-calado.mov",
+      "inicio": 3.0,
+      "dur": 1.05,
+      "trans": {
+        "tipo": "slidedown",
+        "dur": 0.25
+      },
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "fx": "scale=1260:2240,rotate=0.05:ow=1080:oh=1920"
+    },
+    {
+      "video": "../entrada/short-cuero-s.mov",
+      "inicio": 4.0,
+      "dur": 1.05,
+      "trans": {
+        "tipo": "wipeleft",
+        "dur": 0.25
+      },
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "fx": "scale=1500:2667,crop=1080:1920:x=210:y=373"
+    },
+    {
+      "video": "../entrada/buzo-estructura-l.mov",
+      "inicio": 6.0,
+      "dur": 1.05,
+      "trans": {
+        "tipo": "circleopen",
+        "dur": 0.25
+      },
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "fx": "scale=1296:2304,crop=1080:1920:x='108+80*t':y='192-40*t'"
+    },
+    {
+      "video": "../entrada/skort-cuero-frente.mov",
+      "inicio": 4.0,
+      "dur": 1.05,
+      "trans": {
+        "tipo": "diagtl",
+        "dur": 0.25
+      },
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "fx": "hflip,scale=1296:2304,crop=1080:1920:x='108+80*t':y='192-40*t'"
+    },
+    {
+      "video": "../entrada/buzo-tartan-s.mov",
+      "inicio": 5.0,
+      "dur": 1.05,
+      "trans": {
+        "tipo": "hlslice",
+        "dur": 0.25
+      },
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "fx": "scale=1260:2240,rotate=0.06:ow=1080:oh=1920"
+    },
+    {
+      "video": "../entrada/falda-cargo-collage.mp4",
+      "inicio": 0.3,
+      "dur": 1.05,
+      "trans": {
+        "tipo": "slideup",
+        "dur": 0.25
+      }
+    },
+    {
+      "video": "../entrada/m2-1112.mov",
+      "inicio": 2.0,
+      "dur": 1.05,
+      "trans": {
+        "tipo": "squeezeh",
+        "dur": 0.25
+      },
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "fx": "scale=1296:2304,crop=1080:1920:x='216-80*t':y='150+30*t'"
+    },
+    {
+      "video": "../entrada/look-rib-easy.mov",
+      "inicio": 4.0,
+      "dur": 1.05,
+      "trans": {
+        "tipo": "zoomin",
+        "dur": 0.25
+      },
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "fx": "scale=1500:2667,crop=1080:1920:x=210:y=373"
+    },
+    {
+      "video": "../entrada/m-mujer-1108.mov",
+      "inicio": 1.0,
+      "dur": 1.05,
+      "trans": {
+        "tipo": "slideright",
+        "dur": 0.25
+      },
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "fx": "scale=1260:2240,rotate=-0.05:ow=1080:oh=1920"
+    },
+    {
+      "video": "../entrada/pantalon-relaxed-beige-m.mov",
+      "inicio": 6.0,
+      "dur": 1.05,
+      "trans": {
+        "tipo": "circleclose",
+        "dur": 0.25
+      },
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable",
+      "fx": "scale=1296:2304,crop=1080:1920:x='108+80*t':y='192-40*t'"
+    },
+    {
+      "video": "../entrada/minifalda-lentejuelas-s.mov",
+      "inicio": 3.0,
+      "dur": 4.8,
+      "velocidad": 0.6,
+      "trans": {
+        "tipo": "fadewhite",
+        "dur": 0.35
+      },
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable"
+    },
+    {
+      "video": "../entrada/polera-lino-relaxed.mov",
+      "inicio": 3.0,
+      "dur": 6.4,
+      "fx": "gblur=sigma=18,eq=brightness=-0.1:saturation=0.9",
+      "trans": {
+        "tipo": "fade",
+        "dur": 0.6
+      },
+      "hdr": true,
+      "npl": 100,
+      "tonemap": "hable"
+    }
+  ],
+  "segmentos": [],
+  "nieve": {
+    "desde": 0.0,
+    "n": 46
+  },
+  "luces": {
+    "desde": 0.0
+  },
+  "tablero": {
+    "desde": 0.2,
+    "hasta": 4.1,
+    "sub": "NAVIDEÑAS · ROPA NEW.Z",
+    "filas": [
+      {
+        "vuelo": "RNZ-01",
+        "destino": "PUDAHUEL",
+        "estado": "✓ 2024"
+      },
+      {
+        "vuelo": "RNZ-02",
+        "destino": "PUDAHUEL",
+        "estado": "✓ 2025"
+      },
+      {
+        "vuelo": "RNZ-03",
+        "destino": "CERRO NAVIA",
+        "estado": "ABORDANDO",
+        "cls": "abor"
+      }
+    ],
+    "pie": "<span>TEMPORADA <b>NAVIDAD 2026</b></span><span><b>3ER AÑO</b> CONSECUTIVO</span>"
+  },
+  "mapa": {
+    "desde": 4.2,
+    "hasta": 6.9,
+    "titulo": "Después de 2 años en Pudahuel…",
+    "final": "¡CAMBIAMOS DE DESTINO!"
+  },
+  "ruta8": {
+    "desde": 6.85,
+    "hasta": 19.65,
+    "izq": "PUD",
+    "centro": "✈ VUELO RNZ-03 · EN RUTA",
+    "der": "CNV"
+  },
+  "palabras": [
+    {
+      "t": 6.87,
+      "dur": 0.78,
+      "y": 1230,
+      "texto": "2 AÑOS<small>EN PUDAHUEL</small>"
+    },
+    {
+      "t": 7.67,
+      "dur": 0.78,
+      "y": 1230,
+      "texto": "ROPA<small>100% ORIGINAL</small>"
+    },
+    {
+      "t": 8.47,
+      "dur": 0.78,
+      "y": 1230,
+      "texto": "PRECIOS<small>QUE ENAMORAN</small>"
+    },
+    {
+      "t": 9.27,
+      "dur": 0.78,
+      "y": 1230,
+      "texto": "HOMBRE"
+    },
+    {
+      "t": 10.07,
+      "dur": 0.78,
+      "y": 1230,
+      "texto": "MUJER",
+      "cls": "rosa"
+    },
+    {
+      "t": 10.87,
+      "dur": 0.78,
+      "y": 1230,
+      "texto": "ESTILO<small>PA' TODOS</small>"
+    },
+    {
+      "t": 11.67,
+      "dur": 0.78,
+      "y": 1230,
+      "texto": "CALIDAD<small>QUE SE NOTA</small>"
+    },
+    {
+      "t": 12.47,
+      "dur": 0.78,
+      "y": 1230,
+      "texto": "TENDENCIA",
+      "cls": "rosa"
+    },
+    {
+      "t": 13.27,
+      "dur": 0.78,
+      "y": 1230,
+      "texto": "DETALLES<small>QUE MARCAN</small>"
+    },
+    {
+      "t": 14.07,
+      "dur": 0.78,
+      "y": 1230,
+      "texto": "Y AHORA…"
+    },
+    {
+      "t": 14.87,
+      "dur": 0.78,
+      "y": 1230,
+      "texto": "3ER AÑO<small>CONSECUTIVO</small>",
+      "cls": "oro"
+    },
+    {
+      "t": 15.67,
+      "dur": 0.78,
+      "y": 1230,
+      "texto": "NAVIDEÑA<small>2026</small>"
+    },
+    {
+      "t": 16.47,
+      "dur": 0.78,
+      "y": 1230,
+      "texto": "NUEVO<small>DESTINO</small>"
+    },
+    {
+      "t": 17.27,
+      "dur": 0.78,
+      "y": 1230,
+      "texto": "CERRO",
+      "cls": "oro"
+    },
+    {
+      "t": 18.07,
+      "dur": 0.78,
+      "y": 1230,
+      "texto": "NAVIA",
+      "cls": "oro"
+    },
+    {
+      "t": 18.87,
+      "dur": 0.72,
+      "y": 1230,
+      "texto": "¡AHÍ VAMOS!"
+    }
+  ],
+  "flashes8": [
+    19.45
+  ],
+  "embarque": {
+    "desde": 19.75,
+    "hasta": 23.85,
+    "top": 880,
+    "right": 120,
+    "aerolinea": "ROPA NEW.Z AIRLINES",
+    "tipo": "EMBARQUE",
+    "de": "PUD",
+    "deN": "PUDAHUEL",
+    "a": "CNV",
+    "aN": "CERRO NAVIA",
+    "vuelo": "RNZ-03",
+    "puerta": "NAVIDEÑA",
+    "datos": [
+      [
+        "PASAJERO",
+        "TÚ ✦"
+      ],
+      [
+        "FECHA",
+        "NAVIDAD 2026"
+      ],
+      [
+        "ASIENTO",
+        "PRIMERA FILA"
+      ],
+      [
+        "CLASE",
+        "FASHION"
+      ],
+      [
+        "EQUIPAJE",
+        "LLENO DE ESTILO"
+      ],
+      [
+        "EMBARQUE",
+        "¡PRONTO!"
+      ]
+    ],
+    "sello": "3ER AÑO<br>CONSECUTIVO"
+  },
+  "gracias8": {
+    "desde": 24.05,
+    "hasta": 29.75,
+    "titulo": "Gracias",
+    "sub": "A NUESTROS CLIENTES FRECUENTES",
+    "lineas": [
+      "Por visitarnos año tras año,",
+      "por su <b>preferencia</b> y su <b>confianza</b>.",
+      "Gracias a ustedes llegamos a<br>nuestra <b>tercera Navideña</b>."
+    ],
+    "firma": "— Con cariño, el equipo de Ropa New.Z"
+  },
+  "cierre": {
+    "estilo": "aterriza",
+    "dur": 6.0,
+    "pre": "PASAJEROS CON DESTINO A CERRO NAVIA",
+    "titulo": "¡PREPÁRATE<br><em>CERRO NAVIA!</em>",
+    "sub": "Ropa New.Z está por aterrizar en la Navideña",
+    "chips": [
+      "Puesto",
+      "Horarios",
+      "Novedades"
+    ],
+    "texto": "Muy pronto te contamos dónde y cuándo encontrarnos. ¡Te esperamos!",
+    "boton": "Síguenos para no perderte nada",
+    "marca": "ROPA NEW.Z ✦ NAVIDEÑA 2026"
+  }
+}

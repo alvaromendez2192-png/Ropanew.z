@@ -1078,6 +1078,83 @@
   .casete .ventana { position: absolute; left: 50%; top: 270px; width: 420px; height: 110px; margin-left: -210px; border-radius: 55px; background: #0a0a0a; border: 4px solid #444; }
   .casete .rueda { position: absolute; top: 16px; width: 78px; height: 78px; border-radius: 50%; background: repeating-conic-gradient(#ddd 0 30deg, #555 30deg 60deg); border: 6px solid #eee; }
   .sticker.retro { background: #FFE45E; color: #222; border-color: #222; font-family: 'VT323', monospace; font-size: 44px; letter-spacing: 1px; }
+  /* ===== Navideña Cerro Navia: vuelo RNZ-03 (tablero de salidas, mapa, palabras, embarque, aterrizaje) ===== */
+  .tab8 { left: 50px; right: 50px; top: 470px; padding: 30px 28px 34px; border-radius: 26px; background: rgba(12,14,20,.9); opacity: 0;
+    box-shadow: 0 30px 70px rgba(0,0,0,.55), inset 0 0 0 3px #2c313d; color: #fff; }
+  .tab8 .cab8 { display: flex; justify-content: space-between; align-items: center; font-family: 'Anton', sans-serif; font-size: 58px; letter-spacing: 3px; color: #FFC93C; }
+  .tab8 .cab8 small { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 4px; color: #8b93a7; }
+  .tab8 .col8 { display: grid; grid-template-columns: 210px 1fr 270px; gap: 14px; margin-top: 22px; font-weight: 800; font-size: 20px; letter-spacing: 3px; color: #8b93a7; }
+  .tab8 .fila8 { display: grid; grid-template-columns: 210px 1fr 270px; gap: 14px; margin-top: 14px; align-items: center; }
+  .tab8 .flap8 { display: flex; gap: 3px; }
+  .tab8 .flap8 i { font-style: normal; width: 30px; height: 50px; display: grid; place-items: center; border-radius: 5px; font-family: 'VT323', monospace; font-size: 46px;
+    background: linear-gradient(180deg, #23262f 0 49%, #111318 50% 100%); color: #f4f4f4; box-shadow: inset 0 -1px 0 rgba(255,255,255,.06); }
+  .tab8 .flap8.ok i { color: #6fe39a; } .tab8 .flap8.dest i { color: #FFC93C; }
+  .tab8 .estado8 { font-family: 'VT323', monospace; font-size: 40px; color: #6fe39a; }
+  .tab8 .fila8.abor .estado8 { color: #FFC93C; }
+  .tab8 .pie8 { margin-top: 26px; padding-top: 18px; border-top: 2px dashed #2c313d; display: flex; justify-content: space-between; font-weight: 700; font-size: 22px; letter-spacing: 2px; color: #cfd5e2; opacity: 0; }
+  .tab8 .pie8 b { color: #FFC93C; }
+  .mapa8 { left: 60px; right: 60px; top: 520px; height: 760px; opacity: 0; text-align: center; color: #fff; }
+  .mapa8 .t8 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; font-size: 60px; text-shadow: 0 6px 22px rgba(0,0,0,.6); }
+  .mapa8 .t8b { position: absolute; left: 0; right: 0; bottom: 0; font-family: 'Anton', sans-serif; font-size: 78px; letter-spacing: 2px; color: #FFC93C; text-shadow: 0 6px 22px rgba(0,0,0,.6); opacity: 0; }
+  .mapa8 svg { position: absolute; left: 0; top: 110px; width: 960px; height: 520px; overflow: visible; }
+  .pal8 { left: 0; right: 0; top: 1420px; text-align: center; font-family: 'Anton', sans-serif; font-size: 118px; line-height: 1; color: #fff; letter-spacing: 2px; opacity: 0;
+    -webkit-text-stroke: 3px #1a0d12; paint-order: stroke fill; text-shadow: 0 10px 30px rgba(0,0,0,.55); }
+  .pal8.oro { color: #FFC93C; } .pal8.rosa { color: #ff7aa8; }
+  .pal8 small { display: block; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: 8px; -webkit-text-stroke: 0; margin-top: 8px; color: #fff; }
+  .prog8 { left: 40px; right: 40px; top: 220px; padding: 14px 22px; border-radius: 18px; background: rgba(12,14,20,.72); color: #fff; opacity: 0; }
+  .prog8 .l8 { display: flex; justify-content: space-between; font-weight: 800; font-size: 19px; letter-spacing: 3px; color: #cfd5e2; }
+  .prog8 .l8 b { color: #FFC93C; }
+  .prog8 .barra8 { position: relative; height: 6px; margin: 22px 10px 8px; border-radius: 3px; background: repeating-linear-gradient(90deg, #5d6475 0 12px, transparent 12px 22px); }
+  .prog8 .lleno8 { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: 3px; background: #FFC93C; }
+  .prog8 .av8 { position: absolute; top: -21px; width: 44px; height: 44px; margin-left: -22px; }
+  .pase8 { left: 50px; right: 50px; top: 1060px; height: 560px; opacity: 0; display: flex; border-radius: 28px; overflow: hidden; color: #1b1d24;
+    box-shadow: 0 30px 60px rgba(0,0,0,.5); }
+  .pase8 .izq8 { flex: 1; background: #fffdf8; padding: 26px 30px; position: relative; }
+  .pase8 .der8 { width: 230px; background: #fff6e0; border-left: 4px dashed #d8cfb8; padding: 26px 20px; display: flex; flex-direction: column; justify-content: space-between; }
+  .pase8 .top8 { display: flex; justify-content: space-between; align-items: center; margin: -26px -30px 18px; padding: 16px 30px; background: #8a1f4c; color: #fff;
+    font-weight: 800; font-size: 22px; letter-spacing: 3px; }
+  .pase8 .ruta8 { display: flex; align-items: center; justify-content: space-between; }
+  .pase8 .ruta8 b { display: block; font-family: 'Anton', sans-serif; font-size: 96px; line-height: .95; letter-spacing: 2px; }
+  .pase8 .ruta8 span { display: block; font-weight: 700; font-size: 20px; color: #6b6f7c; letter-spacing: 2px; }
+  .pase8 .ruta8 .avion8 { font-size: 54px; color: #8a1f4c; }
+  .pase8 .datos8 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px 18px; margin-top: 22px; }
+  .pase8 .datos8 div { font-weight: 700; font-size: 16px; letter-spacing: 2px; color: #8a8f9c; }
+  .pase8 .datos8 b { display: block; font-size: 27px; letter-spacing: 0; color: #1b1d24; margin-top: 2px; }
+  .pase8 .codigo8 { height: 150px; background: repeating-linear-gradient(90deg, #1b1d24 0 3px, transparent 3px 6px, #1b1d24 6px 10px, transparent 10px 12px, #1b1d24 12px 13px, transparent 13px 17px); }
+  .pase8 .der8 small { font-weight: 800; font-size: 16px; letter-spacing: 2px; color: #8a8f9c; }
+  .pase8 .der8 b { display: block; font-family: 'Anton', sans-serif; font-size: 44px; color: #8a1f4c; }
+  .pase8 .sello8 { position: absolute; right: 30px; bottom: 26px; padding: 10px 18px; border: 5px solid #d62f4a; border-radius: 12px; color: #d62f4a;
+    font-family: 'Anton', sans-serif; font-size: 34px; line-height: 1.05; text-align: center; transform: rotate(-10deg); opacity: 0; mix-blend-mode: multiply; }
+  .nieve8 { width: var(--d); height: var(--d); border-radius: 50%; background: #fff; opacity: 0; filter: blur(.6px); }
+  .luces8 { left: -20px; right: -20px; top: 0; height: 120px; }
+  .luces8 i { position: absolute; width: 16px; height: 24px; border-radius: 50% 50% 45% 45%; }
+  .cater { left: 0; top: 0; width: 1080px; height: 1919px; opacity: 0; overflow: hidden; color: #fff; text-align: center;
+    background: linear-gradient(180deg, rgba(10,14,40,.97) 0%, rgba(32,24,70,.97) 55%, rgba(70,24,60,.97) 100%); }
+  .cater .est9 { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #fff; }
+  .cater .pista9 { position: absolute; left: 50%; bottom: 120px; width: 1400px; height: 520px; margin-left: -700px; transform: perspective(500px) rotateX(62deg); transform-origin: 50% 100%;
+    background: linear-gradient(180deg, #232636, #11131c); }
+  .cater .pista9::after { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 18px; margin-left: -9px;
+    background: repeating-linear-gradient(180deg, #fff 0 60px, transparent 60px 110px); opacity: .8; }
+  .cater .luzp9 { position: absolute; width: 14px; height: 14px; border-radius: 50%; background: #FFC93C; box-shadow: 0 0 16px 6px rgba(255,201,60,.7); opacity: 0; }
+  .cater .avion9 { position: absolute; left: 0; top: 0; width: 260px; height: 160px; z-index: 3; }
+  .cater .pre9 { position: absolute; left: 0; right: 0; top: 230px; font-weight: 800; font-size: 26px; letter-spacing: 8px; color: #FFC93C; opacity: 0; }
+  .cater .tit9 { position: absolute; left: 0; right: 0; top: 280px; font-family: 'Anton', sans-serif; font-size: 124px; line-height: .98; letter-spacing: 2px; opacity: 0;
+    text-shadow: 0 10px 30px rgba(0,0,0,.5); }
+  .cater .tit9 em { font-style: normal; color: #FFC93C; }
+  .cater .sub9 { position: absolute; left: 60px; right: 60px; top: 560px; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; font-size: 50px; line-height: 1.2; opacity: 0; }
+  .cater .chips9 { position: absolute; left: 0; right: 0; top: 720px; display: flex; justify-content: center; gap: 16px; }
+  .cater .chips9 div { padding: 16px 22px; border-radius: 18px; background: rgba(255,255,255,.1); border: 2px solid rgba(255,255,255,.25); font-weight: 800; font-size: 26px; opacity: 0; }
+  .cater .chips9 div small { display: block; font-size: 16px; letter-spacing: 3px; color: #FFC93C; margin-top: 4px; }
+  .cater .txt9 { position: absolute; left: 90px; right: 90px; top: 880px; font-size: 32px; font-weight: 600; line-height: 1.35; color: #e4e6f2; opacity: 0; }
+  .cater .btn9 { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1045px; padding: 22px 50px; border-radius: 999px; background: #FFC93C; color: #2b1a22;
+    font-weight: 900; font-size: 36px; box-shadow: 0 0 0 10px rgba(255,201,60,.18), 0 14px 32px rgba(0,0,0,.4); opacity: 0; }
+  .cater .marca9 { position: absolute; left: 0; right: 0; top: 1175px; font-weight: 800; font-size: 24px; letter-spacing: 6px; color: #b9bdd6; opacity: 0; }
+  @keyframes flash8 { 0% { opacity: .9 } 100% { opacity: 0 } }
+  @keyframes palIn8 { 0% { opacity: 0; transform: scale(2.2) rotate(-4deg); filter: blur(8px) } 55% { opacity: 1; transform: scale(.94) rotate(1deg); filter: blur(0) } 100% { opacity: 1; transform: none } }
+  @keyframes caeNieve8 { from { transform: translate(0, 0) } to { transform: translate(var(--dx), 2100px) } }
+  @keyframes parpLuz8 { 0%,100% { opacity: 1; filter: brightness(1.2) } 50% { opacity: .45; filter: brightness(.7) } }
+  @keyframes sello8k { 0% { opacity: 0; transform: rotate(-10deg) scale(3) } 70% { opacity: 1; transform: rotate(-10deg) scale(.92) } 100% { opacity: 1; transform: rotate(-10deg) scale(1) } }
+  @keyframes titila8 { 0%,100% { opacity: 1 } 50% { opacity: .25 } }
   /* Zeta: mascota de Ropa New.Z, una percha con forma de Z */
   .zeta { width: 210px; height: 270px; z-index: 60; opacity: 0; }
   .zeta svg { width: 210px; height: 270px; overflow: visible; filter: drop-shadow(0 10px 14px rgba(0,0,0,.35)); }
@@ -2572,6 +2649,109 @@
     c.querySelectorAll('.rueda').forEach(r => anim(r, `girar 1.2s linear ${s(K.desde)} infinite`));
   }
 
+  // ===== Navideña Cerro Navia: vuelo RNZ-03 =====
+  const AVION = c => `<svg viewBox="0 0 64 64"><path d="M60 30 L36 26 L22 6 L16 6 L24 26 L10 25 L5 17 L1 17 L4 32 L1 47 L5 47 L10 39 L24 38 L16 58 L22 58 L36 38 L60 34 Q64 32 60 30Z" fill="${c}"/></svg>`;
+  if (D.nieve) {
+    const N = D.nieve;
+    for (let i = 0; i < N.n; i++) {
+      const f = el('abs nieve8', '');
+      const d = 4 + (i * 7) % 9;
+      f.style.setProperty('--d', d + 'px'); f.style.setProperty('--dx', (((i * 53) % 160) - 80) + 'px');
+      Object.assign(f.style, { left: ((i * 131) % 1080) + 'px', top: (-200 - (i * 97) % 1900) + 'px' });
+      const dur = 7 + (i % 5) * 1.6;
+      anim(f, `fadeIn .5s ease ${s(N.desde)} both`, `caeNieve8 ${dur}s linear ${s(N.desde - (i % 7) * 1.1)} infinite`);
+      f.style.zIndex = 40;
+    }
+  }
+  if (D.luces) {
+    const L = el('abs luces8', '');
+    L.style.zIndex = 41;
+    const cols = ['#ff4d4d', '#ffd23f', '#3ddc84', '#4da6ff', '#ff7ad9'];
+    const svgns = 'http://www.w3.org/2000/svg';
+    L.innerHTML = `<svg width="1120" height="120" style="position:absolute;left:0;top:0"><path d="M0 30 Q140 95 280 40 T560 40 T840 40 T1120 40" fill="none" stroke="#1b3a22" stroke-width="5"/></svg>`;
+    for (let i = 0; i < 16; i++) {
+      const x = 20 + i * 70, y = 34 + Math.sin((x / 1120) * Math.PI * 4 + 0.6) * 18 + 14;
+      const bb = document.createElement('i'); L.appendChild(bb);
+      Object.assign(bb.style, { left: x + 'px', top: y + 'px', background: cols[i % 5], boxShadow: `0 0 18px 6px ${cols[i % 5]}88` });
+      anim(bb, `parpLuz8 ${0.9 + (i % 3) * 0.25}s ease-in-out ${s(-(i % 4) * 0.3)} infinite`);
+    }
+    anim(L, `fadeIn .5s ease ${s(D.luces.desde)} both`);
+  }
+  if (D.tablero) {
+    const T8 = D.tablero;
+    const filas = T8.filas.map(f => `<div class="fila8 ${f.cls || ''}"><div class="flap8">${[...f.vuelo].map(c => `<i data-c="${c}"></i>`).join('')}</div>
+      <div class="flap8 ${f.cls === 'abor' ? 'dest' : ''}">${[...f.destino].map(c => `<i data-c="${c}"></i>`).join('')}</div><div class="estado8">${f.estado}</div></div>`).join('');
+    const w = el('abs tab8', `<div class="cab8">✈ SALIDAS <small>${T8.sub}</small></div><div class="col8"><span>VUELO</span><span>DESTINO</span><span>ESTADO</span></div>${filas}
+      <div class="pie8">${T8.pie}</div>`);
+    anim(w, `bajarCard .6s ${EASE_IN} ${s(T8.desde)} both`, `fadeOut .35s ease ${s(T8.hasta)} forwards`);
+    const celdas = [...w.querySelectorAll('.flap8 i')];
+    const ABC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-';
+    celdas.forEach((c, k) => { c.dataset.fin = (T8.desde + 0.5 + k * 0.035 + (k % 5) * 0.05).toFixed(3); });
+    ruletas.push(t => celdas.forEach((c, k) => {
+      const fin = +c.dataset.fin;
+      c.textContent = t >= fin || c.dataset.c === ' ' ? c.dataset.c : ABC[(Math.floor(t * 30) * 7 + k * 13) % ABC.length];
+    }));
+    w.querySelectorAll('.fila8').forEach((f, k) => {
+      const e = f.querySelector('.estado8');
+      anim(e, `fadeIn .25s ease ${s(T8.desde + 1.3 + k * 0.25)} both`, ...(f.classList.contains('abor') ? [`titila8 .7s ease-in-out ${s(T8.desde + 1.8)} infinite`] : []));
+    });
+    anim(w.querySelector('.pie8'), `fadeIn .4s ease ${s(T8.desde + 2.0)} both`);
+  }
+  if (D.mapa) {
+    const M8 = D.mapa;
+    const ruta = 'M120 380 C 300 120, 640 80, 840 300';
+    const w = el('abs mapa8', `<div class="t8">${M8.titulo}</div>
+      <svg viewBox="0 0 960 520"><path d="${ruta}" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="6" stroke-dasharray="4 18" stroke-linecap="round"/>
+        <path class="trazo8" d="${ruta}" fill="none" stroke="#FFC93C" stroke-width="8" stroke-linecap="round"/>
+        <g><circle cx="120" cy="380" r="22" fill="#fff"/><circle cx="120" cy="380" r="10" fill="#8a1f4c"/>
+          <text x="120" y="450" text-anchor="middle" font-family="Anton" font-size="44" fill="#fff" letter-spacing="2">PUDAHUEL</text>
+          <text x="120" y="484" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="22" fill="#cfd5e2" letter-spacing="3">2024 · 2025</text></g>
+        <g class="dest8"><circle cx="840" cy="300" r="34" fill="none" stroke="#FFC93C" stroke-width="5" class="onda8"/><circle cx="840" cy="300" r="22" fill="#FFC93C"/><circle cx="840" cy="300" r="10" fill="#8a1f4c"/>
+          <text x="840" y="370" text-anchor="middle" font-family="Anton" font-size="44" fill="#FFC93C" letter-spacing="2">CERRO NAVIA</text>
+          <text x="840" y="404" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="22" fill="#fff" letter-spacing="3">2026</text></g>
+        <g class="avm8">${AVION('#fff').replace('<svg viewBox="0 0 64 64">', '<svg x="-36" y="-36" width="72" height="72" viewBox="0 0 64 64" overflow="visible">')}</g></svg>
+      <div class="t8b">${M8.final}</div>`);
+    anim(w, `fadeIn .4s ease ${s(M8.desde)} both`, `fadeOut .3s ease ${s(M8.hasta)} forwards`);
+    const tr = w.querySelector('.trazo8'), Lr = tr.getTotalLength(), av = w.querySelector('.avm8');
+    tr.style.strokeDasharray = Lr;
+    const t0 = M8.desde + 0.5, t1 = M8.desde + 1.9;
+    ruletas.push(t => {
+      const p = Math.max(0, Math.min(1, (t - t0) / (t1 - t0))), e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+      tr.style.strokeDashoffset = Lr * (1 - e);
+      const a = tr.getPointAtLength(Lr * e), b = tr.getPointAtLength(Math.min(Lr, Lr * e + 2));
+      const ang = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
+      av.setAttribute('transform', `translate(${a.x} ${a.y}) rotate(${p >= 1 ? 30 : ang})`);
+    });
+    anim(w.querySelector('.onda8'), `latido .6s ease-in-out ${s(t1)} 3`);
+    anim(w.querySelector('.t8b'), `palIn8 .5s cubic-bezier(.2,1.2,.4,1) ${s(t1 + 0.1)} both`);
+  }
+  (D.palabras || []).forEach(pw => {
+    const w = el(`abs pal8 ${pw.cls || ''}`, pw.texto);
+    if (pw.y) w.style.top = pw.y + 'px';
+    anim(w, `palIn8 .42s cubic-bezier(.2,1.2,.4,1) ${s(pw.t)} both`, `fadeOut .15s ease ${s(pw.t + pw.dur - 0.15)} forwards`);
+  });
+  (D.flashes8 || []).forEach(t => { const f = el('abs flash', ''); anim(f, `flash8 .35s ease-out ${s(t)} forwards`); });
+  if (D.ruta8) {
+    const P = D.ruta8;
+    const w = el('abs prog8', `<div class="l8"><span>${P.izq}</span><b>${P.centro}</b><span>${P.der}</span></div>
+      <div class="barra8"><div class="lleno8"></div><div class="av8">${AVION('#FFC93C')}</div></div>`);
+    anim(w, `bajarCard .5s ${EASE_IN} ${s(P.desde)} both`, `fadeOut .3s ease ${s(P.hasta)} forwards`);
+    const ll = w.querySelector('.lleno8'), av = w.querySelector('.av8');
+    ruletas.push(t => {
+      const p = Math.max(0, Math.min(1, (t - P.desde) / (P.hasta - P.desde)));
+      ll.style.width = (p * 100) + '%'; av.style.left = (p * 100) + '%';
+    });
+  }
+  if (D.embarque) {
+    const E = D.embarque;
+    const w = el('abs pase8', `<div class="izq8"><div class="top8"><span>${E.aerolinea}</span><span>✈ ${E.tipo}</span></div>
+      <div class="ruta8"><div><b>${E.de}</b><span>${E.deN}</span></div><div class="avion8">✈</div><div style="text-align:right"><b>${E.a}</b><span>${E.aN}</span></div></div>
+      <div class="datos8">${E.datos.map(d => `<div>${d[0]}<b>${d[1]}</b></div>`).join('')}</div><div class="sello8">${E.sello}</div></div>
+      <div class="der8"><div><small>VUELO</small><b>${E.vuelo}</b></div><div><small>PUERTA</small><b>${E.puerta}</b></div><div class="codigo8"></div></div>`);
+    anim(w, `subirCard .6s ${EASE_IN} ${s(E.desde)} both`, `fadeOut .3s ease ${s(E.hasta)} forwards`);
+    anim(w.querySelector('.sello8'), `sello8k .45s cubic-bezier(.3,1.4,.5,1) ${s(E.desde + 1.1)} both`);
+  }
+
   // ---------- Zeta: la percha-mascota que presenta las prendas ----------
   (D.zeta || []).forEach(z => {
     const w = el('abs zeta', `<svg viewBox="0 0 210 270">
@@ -2980,7 +3160,36 @@
 
   // ---------- Cierre con llamada a la acción ----------
   const T = D.duracionClip, C = D.cierre;
-  if (C && C.estilo === 'elige') {
+  if (C && C.estilo === 'aterriza') {
+    const ca = el('abs cater', `<div class="pista9"></div><div class="pre9">${C.pre}</div><div class="tit9">${C.titulo}</div><div class="sub9">${C.sub}</div>
+      <div class="chips9">${C.chips.map(c => `<div>${c}<small>PRONTO</small></div>`).join('')}</div><div class="txt9">${C.texto}</div>
+      <div class="btn9">${C.boton}</div><div class="marca9">${C.marca}</div><div class="avion9">${AVION('#fff')}</div>`);
+    for (let i = 0; i < 60; i++) { const e9 = el('est9', '', ca); Object.assign(e9.style, { left: ((i * 173) % 1080) + 'px', top: ((i * 97) % 1150) + 'px', opacity: 0.25 + (i % 5) * 0.12 }); e9.className = 'est9'; }
+    // luces de la pista que se encienden en secuencia
+    for (let i = 0; i < 7; i++) for (const lado of [-1, 1]) {
+      const l = el('luzp9', '', ca); l.className = 'luzp9';
+      const k = i / 6, y = 1800 - k * 330, x = 540 + lado * (330 - k * 230);
+      Object.assign(l.style, { left: (x - 7) + 'px', top: (y - 7) + 'px', transform: `scale(${1.3 - k * 0.8})` });
+      anim(l, `fadeIn .15s ease ${s(T + 0.3 + i * 0.12)} both`, `titila8 1s ease-in-out ${s(T + 1.4 + i * 0.12)} infinite`);
+    }
+    anim(ca, `fadeIn .45s ease ${s(T - 0.1)} both`);
+    const av = ca.querySelector('.avion9'), tA = T + 0.2, tB = T + 2.0;
+    ruletas.push(t => {
+      const p = Math.max(0, Math.min(1, (t - tA) / (tB - tA))), e = 1 - Math.pow(1 - p, 2);
+      const x = -300 + e * 690, y = 1050 + e * 520, sc = 0.7 + e * 1.1;
+      av.style.transform = `translate(${x}px, ${y}px) rotate(${18 - e * 14}deg) scale(${sc})`;
+      av.style.opacity = t < tA ? 0 : (p >= 1 ? Math.max(0, 1 - (t - tB) * 1.5) : 1);
+    });
+    const q = x => ca.querySelector(x);
+    anim(q('.pre9'), `fadeIn .4s ease ${s(T + 0.3)} both`);
+    anim(q('.tit9'), `palIn8 .55s cubic-bezier(.2,1.2,.4,1) ${s(T + 0.5)} both`);
+    anim(q('.sub9'), `fadeIn .5s ease ${s(T + 1.1)} both`);
+    ca.querySelectorAll('.chips9 div').forEach((c, k) => anim(c, `pop .4s ${EASE_POP} ${s(T + 1.6 + k * 0.2)} both`));
+    anim(q('.txt9'), `fadeIn .4s ease ${s(T + 2.4)} both`);
+    anim(q('.btn9'), `pop .45s ${EASE_POP} ${s(T + 2.7)} both`, `latido 1s ease-in-out ${s(T + 3.2)} infinite`);
+    anim(q('.marca9'), `fadeIn .4s ease ${s(T + 3.0)} both`);
+    confetiOro(ca, T + 2.0, 40);
+  } else if (C && C.estilo === 'elige') {
     const ce = el('abs celige', `<div class="tit4m">${C.titulo}</div><div class="sub4m">${C.sub}</div>
       <div class="cards4">${C.opciones.map((o, k) => `<div class="op4"><div class="ring4"></div><img src="${o.img}"><div class="n4">${k + 1}</div><b>${o.nombre}</b>${o.precio ? `<em class="pz4">${o.precio}</em>` : ''}</div>`).join('')}</div>
       <div class="precio4">${C.precioTxt}<b>${C.precio}</b></div><p>${C.texto}</p><div class="btn4">${C.boton}</div><div class="baja4">↓ RESPONDE ESTA HISTORIA ↓</div>`);
